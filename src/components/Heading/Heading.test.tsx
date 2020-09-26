@@ -1,13 +1,19 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 
-import { Heading } from '.'
+import { Heading, HeadingProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
+type SutProps = Partial<Omit<HeadingProps, 'children'>>
+
+const makeSut = ({ size = 'large' }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Heading size={size}>Heading</Heading>)
+}
+
 describe('<Heading />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(<Heading>Heading</Heading>)
+    makeSut()
     const heading = screen.getByRole('heading', { name: /heading/i })
     expect(heading).toBeInTheDocument()
     expect(heading).toHaveStyle({
