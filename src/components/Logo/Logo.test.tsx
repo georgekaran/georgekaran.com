@@ -1,14 +1,18 @@
 import React from 'react'
 import { render, RenderResult, screen } from '@testing-library/react'
 
-import Logo from './Logo'
+import { Logo, LogoProps } from '.'
 
-const makeSut = (): RenderResult => {
-  return render(<Logo />)
+type SutProps = Partial<LogoProps>
+
+const makeSut = ({
+  hideOnMobile
+}: SutProps = {}): RenderResult => {
+  return render(<Logo hideOnMobile={hideOnMobile} />)
 }
 
 describe('<Logo />', () => {
-  it('should render', () => {
+  test('should render', () => {
     makeSut()
     expect(screen.getByLabelText(/george mueller/i)).toBeInTheDocument()
   })
