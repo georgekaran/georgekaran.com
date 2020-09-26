@@ -44,4 +44,9 @@ describe('<Menu />', () => {
     })
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
   })
+
+  test('should match snapshot', () => {
+    const { container } = makeSut()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
