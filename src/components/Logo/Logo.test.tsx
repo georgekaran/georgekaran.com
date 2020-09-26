@@ -1,11 +1,15 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, RenderResult, screen } from '@testing-library/react'
 
 import Logo from './Logo'
 
+const makeSut = (): RenderResult => {
+  return render(<Logo />)
+}
+
 describe('<Logo />', () => {
   it('should render', () => {
-    render(<Logo />)
+    makeSut()
     expect(screen.getByLabelText(/george mueller/i)).toBeInTheDocument()
   })
 })
