@@ -8,3 +8,9 @@ export default {
 } as Meta
 
 export const Default: Story<LogoProps> = (args) => <Logo {...args} />
+
+Default.parameters = {
+  backgrounds: {
+    default: 'dark'
+  }
+}
