@@ -7,7 +7,7 @@ import theme from '@/styles/theme'
 
 type SutProps = Partial<Omit<HeadingProps, 'children'>>
 
-const makeSut = ({ size = 'large' }: SutProps = {}): RenderResult => {
+const makeSut = ({ size = 'xlarge' }: SutProps = {}): RenderResult => {
   return renderWithTheme(<Heading size={size}>Heading</Heading>)
 }
 
@@ -18,7 +18,17 @@ describe('<Heading />', () => {
     expect(heading).toBeInTheDocument()
     expect(heading).toHaveStyle({
       color: theme.colors.white,
-      fontWeight: theme.font.bold
+      fontWeight: theme.font.bold,
+      fontSize: theme.font.sizes.xlarge
+    })
+  })
+
+  it('should render large size', () => {
+    makeSut({ size: 'large' })
+    const heading = screen.getByRole('heading', { name: /heading/i })
+    expect(heading).toBeInTheDocument()
+    expect(heading).toHaveStyle({
+      fontSize: theme.font.sizes.large
     })
   })
 })
