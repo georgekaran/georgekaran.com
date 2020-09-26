@@ -9,11 +9,11 @@ function App ({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Next Boilerplate</title>
+        <title>George Karan Personal Page</title>
         <link rel="shortcut icon" href="/img/icon-512.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="description" content="A simple boilerplate to work with Typescript, React, NextJs and Styled Components" />
+        <meta name="description" content="This is my personal page where i'll post my projects and updates about me." />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
