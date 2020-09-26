@@ -14,11 +14,11 @@ const Menu = () => {
     <S.Wrapper>
       <Logo hideOnMobile />
       <MediaMatch greaterThan="medium" >
-        <S.MenuNav>
+        <S.MenuGroup>
           <S.MenuLink>Home</S.MenuLink>
           <S.MenuLink>Projetos</S.MenuLink>
           <S.MenuLink>Contato</S.MenuLink>
-        </S.MenuNav>
+        </S.MenuGroup>
       </MediaMatch>
 
       <MediaMatch lessThan="medium" >
@@ -29,11 +29,11 @@ const Menu = () => {
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
-        <S.MenuNav>
+        <S.MenuGroup>
           <S.MenuLink>Home</S.MenuLink>
           <S.MenuLink>Projetos</S.MenuLink>
           <S.MenuLink>Contato</S.MenuLink>
-        </S.MenuNav>
+        </S.MenuGroup>
       </S.MenuFull>
     </S.Wrapper>
   )

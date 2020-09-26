@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.header`
+export const Wrapper = styled.menu`
   display: flex;
   align-items: center;
   position: relative;
@@ -18,7 +18,7 @@ export const MenuLink = styled.a`
   `}
 `
 
-export const MenuNav = styled.nav`
+export const MenuGroup = styled.div`
   display: flex;
   align-items: center;
 
@@ -70,7 +70,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       height: ${theme.spacings.medium};
     }
 
-    ${MenuNav} {
+    ${MenuGroup} {
       display: flex;
       align-items: center;
       justify-content: center;
