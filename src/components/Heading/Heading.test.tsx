@@ -21,6 +21,13 @@ describe('<Heading />', () => {
       fontWeight: theme.font.bold,
       fontSize: theme.font.sizes.xlarge
     })
+    expect(heading).toHaveStyleRule(
+      'font-size',
+      theme.font.sizes.large,
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 
   it('should render large size', () => {
@@ -30,5 +37,12 @@ describe('<Heading />', () => {
     expect(heading).toHaveStyle({
       fontSize: theme.font.sizes.large
     })
+    expect(heading).toHaveStyleRule(
+      'font-size',
+      theme.font.sizes.medium,
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   })
 })
