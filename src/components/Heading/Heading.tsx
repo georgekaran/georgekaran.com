@@ -3,10 +3,10 @@ import * as S from './Heading.styles'
 
 export type HeadingProps = {
   children: React.ReactNode
-  size?: 'large' | 'medium'
+  size?: 'xlarge' | 'large'
 }
 
-const Heading = ({ children, size = 'large' }: HeadingProps) => (
+const Heading = ({ children, size = 'xlarge' }: HeadingProps) => (
   <S.Wrapper size={size}>
     {children}
   </S.Wrapper>
