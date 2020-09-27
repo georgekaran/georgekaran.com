@@ -1,9 +1,12 @@
 import { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
 
+import * as S from './styles'
 import GlobalStyles from '@/styles/global'
-import { ThemeProvider } from 'styled-components'
 import theme from '@/styles/theme'
+import { Footer } from '@/components/Footer'
+import { Menu } from '@/components/Menu'
 
 function App ({ Component, pageProps }: AppProps) {
   return (
@@ -16,7 +19,17 @@ function App ({ Component, pageProps }: AppProps) {
         <meta name="description" content="This is my personal page where i'll post my projects and updates about me." />
       </Head>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <S.Wrapper>
+        <S.Container>
+          <S.MenuWrapper>
+            <Menu />
+          </S.MenuWrapper>
+          <S.Main>
+            <Component {...pageProps} />
+          </S.Main>
+        </S.Container>
+        <Footer />
+      </S.Wrapper>
     </ThemeProvider>
   )
 }
