@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import * as F from '@/components/Footer/Footer.styles'
+
 export const Container = styled.div`
   ${({ theme }) => css`
     max-width: ${theme.grid.container};
@@ -11,7 +13,11 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     background: ${theme.colors.black};
+    align-items: center;
 
+    ${F.Wrapper} {
+      width: 100%;
+    }
   `}
 `
 
