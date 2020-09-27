@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports['<HighlightBox /> should match snapshot 1'] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%2328F5BEFF' stroke-width='2' stroke-dasharray='8' stroke-dashoffset='71' stroke-linecap='butt'/%3e%3c/svg%3e");
+  border-radius: 100px;
+  width: 8rem;
+  height: 8rem;
+  margin-right: 1.6rem;
+}
+
+.c2 {
+  color: #1BE0AB;
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+.c3 {
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+@media (max-width:768px) {
+  .c1 {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c3 {
+    font-size: 1.4rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+    data-testid="ellipse"
+  >
+    <h2
+      class="c2"
+    >
+      10
+    </h2>
+  </div>
+  <h5
+    class="c3"
+  >
+    any_text
+  </h5>
+</div>
+`

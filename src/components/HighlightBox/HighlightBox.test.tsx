@@ -16,4 +16,9 @@ describe('<HighlightBox />', () => {
       height: '8rem'
     })
   })
+
+  it('should match snapshot', () => {
+    const { container } = renderWithTheme(<HighlightBox primaryText="10" secondaryText="any_text" />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
