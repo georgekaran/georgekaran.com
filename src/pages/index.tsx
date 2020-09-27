@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Main from '@/components/Main/Main'
+import Home from '@/pages/home'
 
-const Home: React.FC = () => {
+const Index: React.FC = () => {
   return (
-    <Main />
+    <Home />
   )
 }
 
-export default Home
+export default Index
