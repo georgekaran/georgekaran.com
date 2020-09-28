@@ -76,7 +76,7 @@ const Timeline = ({ achievements }: TimelineProps) => {
             <S.YearColumn>
               <S.Year>{year}</S.Year>
             </S.YearColumn>
-            <S.EventsColumn>
+            <S.EventsColumn data-testid={`events-${year}`}>
               {achievements
                 .filter(achievement => achievement.date.getFullYear() === year)
                 .map(event => (
