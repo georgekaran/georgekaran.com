@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 
 import * as S from './Timeline.styles'
 
@@ -18,23 +18,58 @@ export type TimelineProps = {
 
 const Timeline = ({ achievements }: TimelineProps) => {
   const [years, setYears] = useState<number[]>([])
+  const wrapper = useRef<HTMLElement>(null)
+  const [showScrollAnimation, setShowScrollAnimation] = useState<boolean>(false)
+  const [scrolled, setScrolled] = useState<boolean>(false)
 
   useEffect(() => {
-    const allYears = achievements
-      .map(a => a.date.getFullYear())
-      .sort((y1, y2) => y2 - y1)
+    const filterUniqueYears = () => {
+      const allYears = achievements
+        .map(a => a.date.getFullYear())
+        .sort((y1, y2) => y2 - y1)
 
-    const finalYears: number[] = []
-    for (const year of allYears) {
-      if (!finalYears.includes(year)) {
-        finalYears.push(year)
+      const finalYears: number[] = []
+      for (const year of allYears) {
+        if (!finalYears.includes(year)) {
+          finalYears.push(year)
+        }
       }
+      setYears(finalYears)
     }
-    setYears(finalYears)
+
+    filterUniqueYears()
   }, [achievements])
 
+  useEffect(() => {
+    const elWrapper = wrapper.current
+    if (elWrapper != null && !scrolled) {
+      elWrapper.addEventListener('scroll', () => {
+        setScrolled(true)
+      })
+    }
+
+    return () => {
+      if (elWrapper != null && !scrolled) {
+        elWrapper.removeEventListener('scroll', () => {
+          setScrolled(true)
+        })
+      }
+    }
+  }, [wrapper, scrolled])
+
+  useLayoutEffect(() => {
+    const handleMouseAnimation = () => {
+      if (wrapper.current != null) {
+        const scrollHeight = wrapper.current.scrollHeight
+        if (scrollHeight > 700) { setShowScrollAnimation(true) }
+      }
+    }
+
+    handleMouseAnimation()
+  }, [years, wrapper])
+
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={wrapper}>
       <S.YearGroup>
         {years.map(year => (
           <S.YearEventsBox key={year}>
@@ -59,6 +94,14 @@ const Timeline = ({ achievements }: TimelineProps) => {
         ))}
       </S.YearGroup>
       <S.Line />
+      {showScrollAnimation && !scrolled && (
+        <S.ScrollDown>
+          <S.ScrollText>Role para mais eventos</S.ScrollText>
+          <S.ScrollWrapper>
+            <S.ChevronDownIcon size="4.4rem" />
+          </S.ScrollWrapper>
+        </S.ScrollDown>
+      )}
     </S.Wrapper>
   )
 }

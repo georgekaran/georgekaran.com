@@ -1,4 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { ChevronDown } from '@styled-icons/feather/ChevronDown'
+
 import { Tag as TagType } from '.'
 
 export const Wrapper = styled.section`
@@ -17,7 +19,7 @@ export const Wrapper = styled.section`
 export const Line = styled.div`
   ${({ theme }) => css`
     border: 1px solid ${theme.colors.green};
-    height: 70rem;
+    height: 100%;
     position: absolute;
     left: 47px;
   `}
@@ -134,9 +136,6 @@ export const Description = styled.p`
     font-weight: ${theme.font.normal};
     font-size: 12px;
     letter-spacing: -0.01em;
-
-    /* black-04 */
-
     color: ${theme.colors.black04};
   `}
 `
@@ -148,4 +147,55 @@ export const Flex = styled.div`
     align-items: center;
   `}
 
+`
+
+export const ScrollDown = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    top: 89%;
+    left: 0rem;
+    width: 38rem;
+    background: linear-gradient(180.22deg, ${theme.colors.black01} 2.0%, rgba(0, 0, 0, 0.5) 89.85%);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `}
+`
+
+export const ScrollText = styled.h4`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+  `}
+`
+
+export const ScrollWrapper = styled.div`
+  height: 4.4rem;
+  width: 4.4rem;
+`
+
+export const ChevronDownIcon = styled(ChevronDown)`
+  color: white;
+  animation-name: upDownAnimation;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+
+  @keyframes upDownAnimation {
+    0% {
+        margin-top: 0px;
+    }
+
+    50% {
+      margin-top: 8px;
+    }
+
+    100% {
+      margin-top: 0;
+    }
+  }
 `
