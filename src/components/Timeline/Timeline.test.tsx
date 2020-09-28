@@ -44,4 +44,9 @@ describe('<Timeline />', () => {
 
     expect(screen.queryByText('Role para mais eventos')).not.toBeInTheDocument()
   })
+
+  it('should match snapshot', () => {
+    const { container } = renderWithTheme(<Timeline achievements={[]} />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
