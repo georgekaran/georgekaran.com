@@ -4,7 +4,7 @@ import { screen } from '@testing-library/react'
 import { Timeline, Achievement } from '.'
 import { renderWithTheme } from '@/test/helpers'
 
-const achievements = (achi: Achievement[] = []): Achievement[] => ([
+const achievements = (): Achievement[] => ([
   {
     date: new Date('2020-08-21T00:00:00'),
     title: 'Node JS com microservicos 1',
@@ -22,8 +22,7 @@ const achievements = (achi: Achievement[] = []): Achievement[] => ([
     title: 'Node JS com microservicos 3',
     description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
     tag: 'professional'
-  },
-  ...achi
+  }
 ])
 
 describe('<Timeline />', () => {
