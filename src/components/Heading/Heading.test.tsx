@@ -45,4 +45,19 @@ describe('<Heading />', () => {
       }
     )
   })
+
+  it('should render xlarge size', () => {
+    makeSut({ size: 'xlarge' })
+    const heading = screen.getByRole('heading', { name: /heading/i })
+    expect(heading).toHaveStyle({
+      fontSize: theme.font.sizes.xlarge
+    })
+    expect(heading).toHaveStyleRule(
+      'font-size',
+      theme.font.sizes.large,
+      {
+        media: '(max-width: 768px)'
+      }
+    )
+  })
 })
