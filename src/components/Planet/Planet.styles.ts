@@ -3,6 +3,8 @@ import { SizeType } from '.'
 
 const wrapperModifiers = {
   small: () => css`
+    width: 16rem;
+    height: 16rem;
   `,
   medium: () => css`
     width: 32rem;
