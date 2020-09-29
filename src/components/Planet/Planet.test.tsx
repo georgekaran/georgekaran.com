@@ -16,4 +16,12 @@ describe('<Planet />', () => {
       height: '32rem'
     })
   })
+
+  it('should render with small size', () => {
+    makeSut({ size: 'small' })
+    expect(screen.getByTestId('planet')).toHaveStyle({
+      width: '16rem',
+      height: '16rem'
+    })
+  })
 })
