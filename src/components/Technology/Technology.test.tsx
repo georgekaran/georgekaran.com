@@ -1,8 +1,10 @@
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
+import { transparentize } from 'polished'
 
 import { Technology, TechnologyProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
+import theme from '@/styles/theme'
 
 type SutProps = Partial<TechnologyProps>
 
@@ -24,6 +26,11 @@ describe('<Technology />', () => {
       objectFit: 'contain',
       width: '8rem',
       height: '8rem'
+    })
+
+    expect(screen.getByTestId('technology-wrapper')).toHaveStyle({
+      background: transparentize(0.5, theme.colors.black),
+      borderRadius: '50%'
     })
   })
 
