@@ -21,7 +21,7 @@ describe('<Technology />', () => {
     expect(image).toHaveAttribute('src', 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png')
     expect(image).toHaveAttribute('alt', 'React logo (Atom)')
     expect(image).toHaveStyle({
-      objectFit: 'cover',
+      objectFit: 'contain',
       width: '8rem',
       height: '8rem'
     })

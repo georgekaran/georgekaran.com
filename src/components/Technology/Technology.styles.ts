@@ -24,7 +24,7 @@ const imageModifiers = {
 
 export const Image = styled.img<ImageProps>`
   ${({ size }) => css`
-    object-fit: cover;
+    object-fit: contain;
 
     ${!!size && imageModifiers[size]()};
   `}
