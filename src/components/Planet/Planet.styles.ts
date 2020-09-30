@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import { SizeType } from '.'
 
 const wrapperModifiers = {
@@ -70,13 +71,13 @@ export const PlanetWrapper = styled.div`
 
 const onionModifiers = {
   small: () => css`
-    width: 32rem;
+    width: 36rem;
   `,
   medium: () => css`
-    width: 64rem;
+    width: 72rem;
   `,
   large: () => css`
-    width: 100rem;
+    width: 116rem;
   `
 }
 
@@ -85,22 +86,4 @@ export const OnionWrapper = styled.div`
   left: 50%;
   top: 58%;
   transform: translate(-50%, -50%);
-
-  animation-name: Float2Animation;
-  animation-duration: 2000ms;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-fill-mode: none;
-  animation-play-state: running;
-
-  @keyframes Float2Animation {
-    0% {
-        margin-top: 0px;
-    }
-
-    100% {
-      margin-top: -20px;
-    }
-  }
 `
