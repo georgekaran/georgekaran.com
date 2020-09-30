@@ -17,6 +17,12 @@ const wrapperModifiers = {
   `
 }
 
+const orbirModifiers = {
+  small: () => '18rem',
+  medium: () => '34rem',
+  large: () => '52rem'
+}
+
 type WrapperProps = {
   size: SizeType
 }
@@ -32,6 +38,17 @@ export const Wrapper = styled.div<WrapperProps>`
 
     ${OnionWrapper} {
       ${!!size && onionModifiers[size]()};
+    }
+
+    .tech {
+      animation: orbit 7s infinite linear;
+      left: 40%;
+      top: 7%;
+    }
+
+    @keyframes orbit {
+      0% { transform: rotate3d(0.46, 1, 0.46, 80deg) translateX(${orbirModifiers[size]()}) rotate3d(0.46, 1, 0.46, -80deg);}
+      100% { transform: rotate3d(0.46, 1, 0.46, 440deg) translateX(${orbirModifiers[size]()}) rotate3d(0.46, 1, 0.46, -440deg);}
     }
   `}
 `
@@ -83,7 +100,7 @@ const onionModifiers = {
 
 export const OnionWrapper = styled.div`
   position: absolute;
-  left: 50%;
+  left: 52%;
   top: 58%;
   transform: translate(-50%, -50%);
 `

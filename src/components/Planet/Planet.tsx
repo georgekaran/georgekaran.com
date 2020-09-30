@@ -1,6 +1,7 @@
 import React from 'react'
 
 import * as S from './Planet.styles'
+import { Technology } from '@/components/Technology'
 
 export type SizeType = 'small' | 'medium' | 'large'
 
@@ -143,6 +144,10 @@ const Planet = ({ size = 'medium' }: PlanetProps) => (
         </defs>
       </svg>
     </S.OnionWrapper>
+    <div className="tech" style={{ position: 'absolute' }}>
+      <Technology image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo" size={size} />
+    </div>
+
   </S.Wrapper>
 )
 
