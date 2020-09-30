@@ -1,12 +1,21 @@
 import React from 'react'
+import { RenderResult, screen } from '@testing-library/react'
 
-import { Technology } from '.'
+import { Technology, TechnologyProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
-import { screen } from '@testing-library/react'
+
+type SutProps = Partial<TechnologyProps>
+
+const makeSut = ({
+  image = 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png',
+  alt = 'React logo (Atom)'
+}: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Technology image={image} alt={alt} />)
+}
 
 describe('<Technology />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(<Technology image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo (Atom)" />)
+    makeSut()
     expect(screen.getByRole('img')).toHaveAttribute('src', 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png')
     expect(screen.getByRole('img')).toHaveAttribute('alt', 'React logo (Atom)')
   })
