@@ -8,9 +8,10 @@ type SutProps = Partial<TechnologyProps>
 
 const makeSut = ({
   image = 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png',
-  alt = 'React logo (Atom)'
+  alt = 'React logo (Atom)',
+  size = 'small'
 }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Technology image={image} alt={alt} />)
+  return renderWithTheme(<Technology image={image} alt={alt} size={size} />)
 }
 
 describe('<Technology />', () => {
@@ -25,6 +26,14 @@ describe('<Technology />', () => {
     expect(screen.getByRole('img')).toHaveStyle({
       width: '4rem',
       height: '4rem'
+    })
+  })
+
+  it('should render with large size if prop is provided', () => {
+    makeSut({ size: 'large' })
+    expect(screen.getByRole('img')).toHaveStyle({
+      width: '12rem',
+      height: '12rem'
     })
   })
 })
