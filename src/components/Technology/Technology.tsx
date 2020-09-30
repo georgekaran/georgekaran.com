@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './Technology.styles'
 
-export type TechnologySize = 'small'
+export type TechnologySize = 'small' | 'large'
 
 export type TechnologyProps = {
   image: string

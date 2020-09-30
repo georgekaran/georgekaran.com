@@ -11,7 +11,8 @@ export const Default: Story<TechnologyProps> = (args) => <Technology {...args} /
 
 Default.args = {
   image: 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png',
-  alt: 'React logo'
+  alt: 'React logo',
+  size: 'small'
 }
 
 Default.parameters = {
