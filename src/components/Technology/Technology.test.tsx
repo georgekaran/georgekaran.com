@@ -19,4 +19,12 @@ describe('<Technology />', () => {
     expect(screen.getByRole('img')).toHaveAttribute('src', 'https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png')
     expect(screen.getByRole('img')).toHaveAttribute('alt', 'React logo (Atom)')
   })
+
+  it('should render with small size if prop is provided', () => {
+    makeSut({ size: 'small' })
+    expect(screen.getByRole('img')).toHaveStyle({
+      width: '4rem',
+      height: '4rem'
+    })
+  })
 })
