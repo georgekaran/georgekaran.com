@@ -21,8 +21,86 @@ type WrapperProps = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, size }) => css`
+  ${({ size }) => css`
+    position: relative;
+    ${!!size && onionModifiers[size]()};
 
-    ${!!size && wrapperModifiers[size]()};
+    ${PlanetWrapper} {
+      ${!!size && wrapperModifiers[size]()};
+    }
+
+    ${OnionWrapper} {
+      ${!!size && onionModifiers[size]()};
+    }
   `}
+`
+
+export const PlanetWrapper = styled.div`
+  ${({ theme }) => css`
+    position: relative;
+    margin: auto;
+    animation-name: FloatAnimation;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+    animation-play-state: running;
+
+    @keyframes FloatAnimation {
+      0% {
+          margin-top: 0px;
+      }
+
+      100% {
+        margin-top: 20px;
+      }
+    }
+
+    & > .front {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 96%;
+      z-index: ${theme.layers.overlay};
+    }
+
+  `}
+`
+
+const onionModifiers = {
+  small: () => css`
+    width: 32rem;
+  `,
+  medium: () => css`
+    width: 64rem;
+  `,
+  large: () => css`
+    width: 100rem;
+  `
+}
+
+export const OnionWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+
+  animation-name: Float2Animation;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+
+  @keyframes Float2Animation {
+    0% {
+        margin-top: 0px;
+    }
+
+    100% {
+      margin-top: -20px;
+    }
+  }
 `
