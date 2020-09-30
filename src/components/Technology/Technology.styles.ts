@@ -1,7 +1,17 @@
 import styled, { css } from 'styled-components'
+import { transparentize } from 'polished'
+
 import { TechnologySize } from '.'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: ${transparentize(0.5, theme.colors.black)};
+    border-radius: 50%;
+  `}
+`
 
 type ImageProps = {
   size: TechnologySize

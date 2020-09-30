@@ -10,7 +10,7 @@ export type TechnologyProps = {
 }
 
 const Technology = ({ image, alt, size = 'medium' }: TechnologyProps) => (
-  <S.Wrapper>
+  <S.Wrapper data-testid="technology-wrapper">
     <S.Image
       src={image}
       alt={alt}
