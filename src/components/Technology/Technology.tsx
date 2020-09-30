@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './Technology.styles'
 
-export type TechnologySize = 'small' | 'large'
+export type TechnologySize = 'small' | 'medium' | 'large'
 
 export type TechnologyProps = {
   image: string
@@ -9,7 +9,7 @@ export type TechnologyProps = {
   size?: TechnologySize
 }
 
-const Technology = ({ image, alt, size = 'small' }: TechnologyProps) => (
+const Technology = ({ image, alt, size = 'medium' }: TechnologyProps) => (
   <S.Wrapper>
     <S.Image
       src={image}

@@ -12,6 +12,10 @@ const imageModifiers = {
     width: 4rem;
     height: 4rem;
   `,
+  medium: () => css`
+    width: 8rem;
+    height: 8rem;
+  `,
   large: () => css`
     width: 12rem;
     height: 12rem;
