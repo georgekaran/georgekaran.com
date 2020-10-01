@@ -23,8 +23,7 @@ type SutProps = {
   ref?: {
     current: any
   }
-  sutProps?: UseStarsProps
-}
+} & Partial<UseStarsProps>
 
 type SutTypes = {
   sut: RenderHookResult<any, any>
@@ -32,14 +31,12 @@ type SutTypes = {
 
 const makeSut = ({
   ref = { current: createWrapper() },
-  sutProps = {
-    stars: 5,
-    wrapperDelimiter: ref
-  }
+  stars = 5,
+  wrapperDelimiter = ref
 }: SutProps = {}): SutTypes => {
   // @ts-ignore
   useRef.mockReturnValue(ref)
-  const sut = renderHook(() => useStars({ ...sutProps }))
+  const sut = renderHook(() => useStars({ stars, wrapperDelimiter }))
   return {
     sut
   }
@@ -54,6 +51,11 @@ describe('useStars', () => {
   it('should return 0 stars if wrapper is invalid', () => {
     const mRef = { current: null }
     const { sut } = makeSut({ ref: mRef })
+    expect(sut.result.current.length).toBe(0)
+  })
+
+  it('should return 0 stars if stars prop is negative', () => {
+    const { sut } = makeSut({ stars: -1 })
     expect(sut.result.current.length).toBe(0)
   })
 })
