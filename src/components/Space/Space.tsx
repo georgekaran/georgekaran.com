@@ -1,33 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useRef } from 'react'
+
 import * as S from './Space.styles'
+import useStars from '@/hooks/useStars'
 
 export type SpaceProps = {
   stars?: number
 }
 
 const Space = ({ stars = 0 }: SpaceProps) => {
-  const [starsArr, setStarsArr] = useState<React.ReactNode[]>([])
   const wrapperRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current
-    if (wrapper == null) {
-      return
-    }
-
-    const array: React.ReactNode[] = []
-    while (array.length !== stars) {
-      const top = Math.floor(Math.random() * wrapper.offsetHeight)
-      const left = Math.floor(Math.random() * wrapper.offsetWidth)
-      array.push(<S.Star
-        data-testid="star"
-        top={top}
-        left={left}
-      />)
-    }
-
-    setStarsArr(array)
-  }, [stars, wrapperRef])
+  const starNodes = useStars({ stars, wrapperDelimiter: wrapperRef })
 
   return (
     <S.Wrapper ref={wrapperRef}>
@@ -45,7 +27,7 @@ const Space = ({ stars = 0 }: SpaceProps) => {
         </S.Fog>
       </S.Fogs>
 
-      {starsArr.map((star, i) => (
+      {starNodes.map((star, i) => (
         <React.Fragment key={`star-${i}`}>
           {star}
         </React.Fragment>
