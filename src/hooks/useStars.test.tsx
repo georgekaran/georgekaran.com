@@ -50,4 +50,10 @@ describe('useStars', () => {
     const { sut } = makeSut()
     expect(sut.result.current.length).toBe(5)
   })
+
+  it('should return 0 stars if wrapper is invalid', () => {
+    const mRef = { current: null }
+    const { sut } = makeSut({ ref: mRef })
+    expect(sut.result.current.length).toBe(0)
+  })
 })
