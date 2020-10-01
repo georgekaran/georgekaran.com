@@ -17,8 +17,8 @@ const Space = ({ stars = 0 }: SpaceProps) => {
 
     const array: React.ReactNode[] = []
     while (array.length !== stars) {
-      const top = Math.floor(Math.random() * wrapper.clientWidth)
-      const left = Math.floor(Math.random() * wrapper.clientHeight)
+      const top = Math.floor(Math.random() * wrapper.offsetHeight)
+      const left = Math.floor(Math.random() * wrapper.offsetWidth)
       array.push(<S.Star
         data-testid="star"
         top={top}
