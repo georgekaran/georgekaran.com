@@ -31,7 +31,7 @@ const useStars = ({
 
   const generateStars = useCallback(() => {
     const wrapper = wrapperDelimiter.current
-    if (wrapper == null) {
+    if (wrapper == null || stars <= 0) {
       return
     }
 
