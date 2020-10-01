@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import * as S from './Space.styles'
 
-export type SpaceProps = {}
+export type SpaceProps = {
+  stars?: number
+}
 
-const Space = () => {
+const Space = ({ stars = 0 }: SpaceProps) => {
+  const [starsArr, setStarsArr] = useState<React.ReactNode[]>([])
+  const wrapperRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current
+    if (wrapper == null) {
+      return
+    }
+
+    const array: React.ReactNode[] = []
+    while (array.length !== stars) {
+      const top = Math.floor(Math.random() * wrapper.clientWidth)
+      const left = Math.floor(Math.random() * wrapper.clientHeight)
+      array.push(<S.Star
+        data-testid="star"
+        top={top}
+        left={left}
+      />)
+    }
+
+    setStarsArr(array)
+  }, [stars, wrapperRef])
+
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={wrapperRef}>
       <S.Fogs>
         <S.Fog>
           <svg data-testid="fog-1" viewBox="0 0 1440 176" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +44,12 @@ const Space = () => {
           </svg>
         </S.Fog>
       </S.Fogs>
+
+      {starsArr.map((star, i) => (
+        <React.Fragment key={`star-${i}`}>
+          {star}
+        </React.Fragment>
+      ))}
 
     </S.Wrapper>
   )
