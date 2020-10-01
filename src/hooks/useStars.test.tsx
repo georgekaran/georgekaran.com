@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook, RenderHookResult } from '@testing-library/react-hooks'
 
-import useStars from './useStars'
+import useStars, { UseStarsProps } from './useStars'
 
 jest.mock('react', () => {
   const originReact = jest.requireActual('react')
@@ -19,12 +19,35 @@ const createWrapper = (): HTMLDivElement => {
   return wrapper
 }
 
+type SutProps = {
+  ref?: {
+    current: any
+  }
+  sutProps?: UseStarsProps
+}
+
+type SutTypes = {
+  sut: RenderHookResult<any, any>
+}
+
+const makeSut = ({
+  ref = { current: createWrapper() },
+  sutProps = {
+    stars: 5,
+    wrapperDelimiter: ref
+  }
+}: SutProps = {}): SutTypes => {
+  // @ts-ignore
+  useRef.mockReturnValue(ref)
+  const sut = renderHook(() => useStars({ ...sutProps }))
+  return {
+    sut
+  }
+}
+
 describe('useStars', () => {
   it('should return 5 Stars', () => {
-    const mRef = { current: createWrapper() }
-    // @ts-ignore
-    useRef.mockReturnValueOnce(mRef)
-    const { result } = renderHook(() => useStars({ stars: 5, wrapperDelimiter: mRef }))
-    expect(result.current.length).toBe(5)
+    const { sut } = makeSut()
+    expect(sut.result.current.length).toBe(5)
   })
 })

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 
-type UseStarsProps = {
+export type UseStarsProps = {
   stars: number
   wrapperDelimiter: React.RefObject<HTMLElement>
 }
