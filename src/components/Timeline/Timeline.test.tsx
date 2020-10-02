@@ -1,5 +1,5 @@
-import React from 'react'
-import { screen } from '@testing-library/react'
+import React, { useRef, useEffect } from 'react'
+import { RenderResult, screen } from '@testing-library/react'
 
 import { Timeline, Achievement } from '.'
 import { renderWithTheme } from '@/test/helpers'
@@ -21,9 +21,44 @@ const createAchievements = (length: number): Achievement[] => {
   return arr
 }
 
+type WrapperProps = {
+  numberAchievements: number
+}
+
+const Wrapper = ({ numberAchievements }: WrapperProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref.current) {
+      Object.defineProperties(ref.current, {
+        scrollHeight: {
+          value: numberAchievements > 5 ? 1200 : 700
+        },
+        clientHeight: {
+          value: 700
+        }
+      })
+    }
+  }, [ref, numberAchievements])
+
+  return (
+    <div ref={ref}>
+      <Timeline achievements={createAchievements(numberAchievements)} />
+    </div>
+  )
+}
+
+type SutProps = WrapperProps
+
+const makeSut = (props: SutProps): RenderResult => {
+  return renderWithTheme(
+    <Wrapper {...props} />
+  )
+}
+
 describe('<Timeline />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(<Timeline achievements={createAchievements(3)} />)
+    makeSut({ numberAchievements: 3 })
     expect(screen.getByText('Node JS com microservicos 0')).toBeInTheDocument()
     expect(screen.getByText('Node JS com microservicos 1')).toBeInTheDocument()
     expect(screen.getByText('Node JS com microservicos 2')).toBeInTheDocument()
@@ -36,7 +71,7 @@ describe('<Timeline />', () => {
   })
 
   it('should render if empty achievements is provided', () => {
-    renderWithTheme(<Timeline achievements={[]} />)
+    makeSut({ numberAchievements: 0 })
     expect(screen.queryByText('2020')).not.toBeInTheDocument()
     expect(screen.queryByText('2019')).not.toBeInTheDocument()
     expect(screen.queryByText('2018')).not.toBeInTheDocument()
