@@ -1,15 +1,15 @@
 import React from 'react'
 
 import * as S from './Planet.styles'
-import { Technology } from '@/components/Technology'
 
 export type SizeType = 'small' | 'medium' | 'large'
 
 export type PlanetProps = {
   size?: SizeType
+  orbitElements: React.ReactNode[]
 }
 
-const Planet = ({ size = 'medium' }: PlanetProps) => (
+const Planet = ({ size = 'medium', orbitElements }: PlanetProps) => (
   <S.Wrapper size={size}>
     <S.PlanetWrapper data-testid="planet">
       <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560">
@@ -145,7 +145,7 @@ const Planet = ({ size = 'medium' }: PlanetProps) => (
       </svg>
     </S.OnionWrapper>
     <S.OrbitWrapper size={size}>
-      <Technology image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo" size={size} />
+      {orbitElements}
     </S.OrbitWrapper>
 
   </S.Wrapper>
