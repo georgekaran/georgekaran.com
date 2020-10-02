@@ -5,6 +5,14 @@ import { Planet, PlanetProps } from '.'
 import { Technology } from '@/components/Technology'
 import { renderWithTheme } from '@/test/helpers'
 
+const componentFactory = (length: number): React.ReactNode[] => {
+  const arr = []
+  for (let i = 0; i < length; i++) {
+    arr.push(<Technology key={`react-${i}`} image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt={`React logo ${i}`} size="medium" />)
+  }
+  return arr
+}
+
 type SutProps = Partial<PlanetProps>
 
 const makeSut = ({ size = 'medium', orbitElements = [] }: SutProps = {}): RenderResult => {
@@ -37,12 +45,7 @@ describe('<Planet />', () => {
   })
 
   it('should render orbitElements if there provided', () => {
-    const orbitElements = [
-      <Technology key="react-1" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 1" size="medium" />,
-      <Technology key="react-2" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 2" size="medium" />,
-      <Technology key="react-3" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 3" size="medium" />
-    ]
-    makeSut({ orbitElements })
-    expect(screen.getAllByTestId('technology-wrapper')).toHaveLength(3)
+    makeSut({ orbitElements: componentFactory(5) })
+    expect(screen.getAllByTestId('technology-wrapper')).toHaveLength(5)
   })
 })
