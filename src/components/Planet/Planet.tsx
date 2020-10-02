@@ -144,7 +144,7 @@ const Planet = ({ size = 'medium', orbitElements = [] }: PlanetProps) => (
         </defs>
       </svg>
     </S.OnionWrapper>
-    {orbitElements.length && orbitElements.map((element, i) => (
+    {!!orbitElements.length && orbitElements.map((element, i) => (
       <S.OrbitElement
         data-testid="orbit-element"
         key={i}
