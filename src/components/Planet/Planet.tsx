@@ -144,9 +144,9 @@ const Planet = ({ size = 'medium' }: PlanetProps) => (
         </defs>
       </svg>
     </S.OnionWrapper>
-    <div className="tech" style={{ position: 'absolute' }}>
+    <S.OrbitWrapper size={size}>
       <Technology image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo" size={size} />
-    </div>
+    </S.OrbitWrapper>
 
   </S.Wrapper>
 )
