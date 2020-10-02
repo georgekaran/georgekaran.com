@@ -5,10 +5,10 @@ import { Heading, HeadingProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import theme from '@/styles/theme'
 
-type SutProps = Partial<Omit<HeadingProps, 'children'>>
+type SutProps = Partial<HeadingProps>
 
-const makeSut = ({ size = 'xlarge' }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Heading size={size}>Heading</Heading>)
+const makeSut = ({ size, children = 'Heading' }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Heading size={size}>{children}</Heading>)
 }
 
 describe('<Heading />', () => {
@@ -59,5 +59,10 @@ describe('<Heading />', () => {
         media: '(max-width: 768px)'
       }
     )
+  })
+
+  it('should render children', () => {
+    makeSut({ children: 'any_children' })
+    expect(screen.getByText('any_children')).toBeInTheDocument()
   })
 })
