@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 import { SizeType } from '.'
+import * as Tech from '@/components/Technology/Technology.styles'
 
 const wrapperModifiers = {
   small: () => css`
@@ -24,6 +26,20 @@ type WrapperProps = {
 export const Wrapper = styled.div<WrapperProps>`
   ${({ size }) => css`
     position: relative;
+
+    ${media.lessThan('medium')`
+      width: auto;
+
+      ${PlanetWrapper} {
+        width: 16rem !important;
+        height: 16rem !important;
+      }
+
+      ${OnionWrapper} {
+        width: 30rem !important;
+      }
+    `}
+
     ${!!size && onionModifiers[size]()};
 
     ${PlanetWrapper} {
@@ -83,7 +99,7 @@ const onionModifiers = {
 
 export const OnionWrapper = styled.div`
   position: absolute;
-  left: 52%;
+  left: 50%;
   top: 58%;
   transform: translate(-50%, -50%);
 `
@@ -110,8 +126,30 @@ export const OrbitElement = styled.div<OrbitProps>`
     return css`
     position: absolute;
     animation: orbit-${index} 7s infinite linear;
-    left: 40%;
+    left: 38%;
     top: 7%;
+
+    ${media.lessThan('medium')`
+      animation: orbit-${index}-mobile 7s infinite linear;
+
+      ${Tech.Image} {
+        width: 3rem;
+        height: 3rem;
+      }
+    `};
+
+    @keyframes orbit-${index}-mobile {
+      0% {
+        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
+        translateX(14rem)
+        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
+      }
+      100% {
+        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
+        translateX(14rem)
+        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
+      }
+    }
 
     @keyframes orbit-${index} {
       0% {
