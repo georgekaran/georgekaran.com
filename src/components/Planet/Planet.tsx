@@ -6,7 +6,7 @@ export type SizeType = 'small' | 'medium' | 'large'
 
 export type PlanetProps = {
   size?: SizeType
-  orbitElements: React.ReactNode[]
+  orbitElements?: React.ReactNode[]
 }
 
 const Planet = ({ size = 'medium', orbitElements }: PlanetProps) => (
@@ -144,10 +144,17 @@ const Planet = ({ size = 'medium', orbitElements }: PlanetProps) => (
         </defs>
       </svg>
     </S.OnionWrapper>
-    <S.OrbitWrapper size={size}>
-      {orbitElements}
-    </S.OrbitWrapper>
-
+    {orbitElements?.length && orbitElements.map((element, i) => (
+      <S.OrbitElement
+        data-testid="orbit-element"
+        key={i}
+        size={size}
+        index={i}
+        totalElements={orbitElements.length}
+      >
+        {element}
+      </S.OrbitElement>
+    ))}
   </S.Wrapper>
 )
 

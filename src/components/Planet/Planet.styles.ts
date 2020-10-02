@@ -91,23 +91,41 @@ export const OnionWrapper = styled.div`
 const orbirModifiers = {
   small: () => '18rem',
   medium: () => '34rem',
-  large: () => '52rem'
+  large: () => '52rem',
+  calcDegBegin: (index: number, totalElements: number) => Math.floor(360 / totalElements) * index,
+  calcDegEnd: (deg: number) => deg + 360
 }
 
 type OrbitProps = {
   size: SizeType
+  index: number
+  totalElements: number
 }
 
-export const OrbitWrapper = styled.div<OrbitProps>`
-  ${({ size }) => css`
+export const OrbitElement = styled.div<OrbitProps>`
+  ${({ size, index, totalElements }) => {
+    const degBegin = orbirModifiers.calcDegBegin(index, totalElements)
+    const degEnd = orbirModifiers.calcDegEnd(degBegin)
+
+    return css`
     position: absolute;
-    animation: orbit 7s infinite linear;
+    animation: orbit-${index} 7s infinite linear;
     left: 40%;
     top: 7%;
 
-    @keyframes orbit {
-      0% { transform: rotate3d(0.46, 1, 0.46, 80deg) translateX(${orbirModifiers[size]()}) rotate3d(0.46, 1, 0.46, -80deg);}
-      100% { transform: rotate3d(0.46, 1, 0.46, 440deg) translateX(${orbirModifiers[size]()}) rotate3d(0.46, 1, 0.46, -440deg);}
+    @keyframes orbit-${index} {
+      0% {
+        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
+        translateX(${orbirModifiers[size]()})
+        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
+      }
+      100% {
+        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
+        translateX(${orbirModifiers[size]()})
+        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
+      }
     }
-  `}
+  `
+}
+  }
 `
