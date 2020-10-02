@@ -2,10 +2,13 @@ import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
 import { Planet, PlanetProps } from '.'
+import { Technology } from '@/components/Technology'
 import { renderWithTheme } from '@/test/helpers'
 
-const makeSut = ({ size }: PlanetProps = {}): RenderResult => {
-  return renderWithTheme(<Planet size={size} />)
+type SutProps = Partial<PlanetProps>
+
+const makeSut = ({ size = 'medium', orbitElements = [] }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Planet size={size} orbitElements={orbitElements} />)
 }
 
 describe('<Planet />', () => {
@@ -31,5 +34,15 @@ describe('<Planet />', () => {
       width: '50rem',
       height: '50rem'
     })
+  })
+
+  it('should render orbitElements if there provided', () => {
+    const orbitElements = [
+      <Technology key="react-1" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 1" size="medium" />,
+      <Technology key="react-2" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 2" size="medium" />,
+      <Technology key="react-3" image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt="React logo 3" size="medium" />
+    ]
+    makeSut({ orbitElements })
+    expect(screen.getAllByTestId('technology-wrapper')).toHaveLength(3)
   })
 })
