@@ -46,6 +46,15 @@ describe('<Planet />', () => {
 
   it('should render orbitElements if there provided', () => {
     makeSut({ orbitElements: componentFactory(5) })
-    expect(screen.getAllByTestId('technology-wrapper')).toHaveLength(5)
+    const arr = screen.getAllByTestId('orbit-element')
+    expect(arr).toHaveLength(5)
+    for (let i = 0; i < 5; i++) {
+      expect(arr[i]).toHaveStyle({
+        animation: `orbit-${i} 7s infinite linear`,
+        position: 'absolute',
+        left: '40%',
+        top: '7%'
+      })
+    }
   })
 })
