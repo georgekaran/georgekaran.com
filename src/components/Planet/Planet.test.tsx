@@ -13,6 +13,19 @@ const componentFactory = (length: number): React.ReactNode[] => {
   return arr
 }
 
+const testOrbitElements = () => {
+  const arr = screen.getAllByTestId('orbit-element')
+  expect(arr).toHaveLength(5)
+  for (let i = 0; i < 5; i++) {
+    expect(arr[i]).toHaveStyle({
+      animation: `orbit-${i} 7s infinite linear`,
+      position: 'absolute',
+      left: '40%',
+      top: '7%'
+    })
+  }
+}
+
 type SutProps = Partial<PlanetProps>
 
 const makeSut = ({ size, orbitElements = [] }: SutProps = {}): RenderResult => {
@@ -47,45 +60,16 @@ describe('<Planet />', () => {
   it('should render orbitElements if there provided', () => {
     // Small
     makeSut({ size: 'small', orbitElements: componentFactory(5) })
-    let arr = screen.getAllByTestId('orbit-element')
-    expect(arr).toHaveLength(5)
-    for (let i = 0; i < 5; i++) {
-      expect(arr[i]).toHaveStyle({
-        animation: `orbit-${i} 7s infinite linear`,
-        position: 'absolute',
-        left: '40%',
-        top: '7%'
-      })
-    }
-
+    testOrbitElements()
     cleanup()
 
     // Medium
     makeSut({ orbitElements: componentFactory(5) })
-    arr = screen.getAllByTestId('orbit-element')
-    expect(arr).toHaveLength(5)
-    for (let i = 0; i < 5; i++) {
-      expect(arr[i]).toHaveStyle({
-        animation: `orbit-${i} 7s infinite linear`,
-        position: 'absolute',
-        left: '40%',
-        top: '7%'
-      })
-    }
-
+    testOrbitElements()
     cleanup()
 
     // Large
     makeSut({ size: 'large', orbitElements: componentFactory(5) })
-    arr = screen.getAllByTestId('orbit-element')
-    expect(arr).toHaveLength(5)
-    for (let i = 0; i < 5; i++) {
-      expect(arr[i]).toHaveStyle({
-        animation: `orbit-${i} 7s infinite linear`,
-        position: 'absolute',
-        left: '40%',
-        top: '7%'
-      })
-    }
+    testOrbitElements()
   })
 })
