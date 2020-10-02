@@ -9,7 +9,7 @@ export type PlanetProps = {
   orbitElements?: React.ReactNode[]
 }
 
-const Planet = ({ size = 'medium', orbitElements }: PlanetProps) => (
+const Planet = ({ size = 'medium', orbitElements = [] }: PlanetProps) => (
   <S.Wrapper size={size}>
     <S.PlanetWrapper data-testid="planet">
       <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560">
@@ -144,7 +144,7 @@ const Planet = ({ size = 'medium', orbitElements }: PlanetProps) => (
         </defs>
       </svg>
     </S.OnionWrapper>
-    {orbitElements?.length && orbitElements.map((element, i) => (
+    {orbitElements.length && orbitElements.map((element, i) => (
       <S.OrbitElement
         data-testid="orbit-element"
         key={i}
