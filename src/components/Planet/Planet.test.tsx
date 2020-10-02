@@ -28,7 +28,7 @@ const testOrbitElements = () => {
 
 type SutProps = Partial<PlanetProps>
 
-const makeSut = ({ size, orbitElements = [] }: SutProps = {}): RenderResult => {
+const makeSut = ({ size, orbitElements }: SutProps = {}): RenderResult => {
   return renderWithTheme(<Planet size={size} orbitElements={orbitElements} />)
 }
 
@@ -39,6 +39,7 @@ describe('<Planet />', () => {
       width: '32rem',
       height: '32rem'
     })
+    expect(screen.queryAllByTestId('orbit-element')).toHaveLength(0)
   })
 
   it('should render with small size', () => {
