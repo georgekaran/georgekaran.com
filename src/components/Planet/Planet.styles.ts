@@ -29,15 +29,6 @@ export const Wrapper = styled.div<WrapperProps>`
 
     ${media.lessThan('medium')`
       width: auto;
-
-      ${PlanetWrapper} {
-        width: 16rem !important;
-        height: 16rem !important;
-      }
-
-      ${OnionWrapper} {
-        width: 30rem !important;
-      }
     `}
 
     ${!!size && onionModifiers[size]()};
@@ -63,6 +54,11 @@ export const PlanetWrapper = styled.div`
     animation-iteration-count: infinite;
     animation-fill-mode: none;
     animation-play-state: running;
+
+    ${media.lessThan('medium')`
+      width: 16rem !important;
+      height: 16rem !important;
+    `}
 
     @keyframes FloatAnimation {
       0% {
@@ -102,6 +98,10 @@ export const OnionWrapper = styled.div`
   left: 50%;
   top: 58%;
   transform: translate(-50%, -50%);
+
+  ${media.lessThan('medium')`
+    width: 30rem !important;
+  `}
 `
 
 const orbirModifiers = {
