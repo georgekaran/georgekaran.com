@@ -2,16 +2,17 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as HB from '@/components/HighlightBox/HighlightBox.styles'
+import * as HD from '@/components/Heading/Heading.styles'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.xxlarge} 0;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "info media" "highlight media";
+    grid-template-areas: "info media" "highlight media" "aboutMe aboutMe";
 
     ${media.lessThan('medium')`
-      grid-template-areas: "info" "media" "highlight";
+      grid-template-areas: "info" "media" "highlight" "aboutMe";
       grid-template-columns: 1fr;
       padding: 0 0;
     `}
@@ -88,6 +89,44 @@ export const HighlightGroup = styled.div`
 
 export const AboutMe = styled.section`
   ${({ theme }) => css`
+    grid-area: aboutMe;
+    display: flex;
+    flex-direction: column;
     margin-top: ${theme.spacings.xxlarge};
+
+    ${HD.Wrapper} {
+      margin-bottom: ${theme.spacings.large};
+    }
+  `}
+`
+
+export const AboutMeContentWrapper = styled.div`
+  display: flex;
+`
+
+export const History = styled.article`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`
+
+export const Paragraph = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    margin-bottom: ${theme.spacings.small};
+  `}
+`
+
+export const TimelineWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    padding: 0 ${theme.spacings.large};
+
+    ${media.lessThan('medium')`
+      display: none;
+    `}
   `}
 `
