@@ -9,10 +9,10 @@ export const Wrapper = styled.div`
     padding: ${theme.spacings.xxlarge} 0;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "info media" "highlight media" "aboutMe aboutMe";
+    grid-template-areas: "info media" "highlight media" "aboutMe aboutMe" "stack stack";
 
     ${media.lessThan('medium')`
-      grid-template-areas: "info" "media" "highlight" "aboutMe";
+      grid-template-areas: "info" "media" "highlight" "aboutMe" "stack";
       grid-template-columns: 1fr;
       padding: 0 0;
     `}
@@ -68,7 +68,7 @@ export const Description = styled.h3`
 `
 
 export const Photo = styled.img`
-  width: 100%
+  width: 100%;
 `
 
 export const HighlightGroup = styled.div`
@@ -128,5 +128,18 @@ export const TimelineWrapper = styled.div`
     ${media.lessThan('medium')`
       display: none;
     `}
+  `}
+`
+
+export const Stack = styled.section`
+  ${({ theme }) => css`
+    grid-area: stack;
+    display: flex;
+    flex-direction: column;
+    margin-top: ${theme.spacings.xxlarge};
+
+    ${HD.Wrapper} {
+      margin-bottom: ${theme.spacings.large};
+    }
   `}
 `
