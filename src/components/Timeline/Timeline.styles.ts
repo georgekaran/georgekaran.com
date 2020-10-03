@@ -71,7 +71,7 @@ export const EventsColumn = styled.div`
 export const Event = styled.div`
   ${({ theme }) => css`
     position: relative;
-    width: 32rem;
+    width: 100%;
     margin-bottom: ${theme.spacings.xsmall};
 
     &::after {
@@ -134,7 +134,7 @@ export const Date = styled.span`
 export const Description = styled.p`
   ${({ theme }) => css`
     font-weight: ${theme.font.normal};
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: -0.01em;
     color: ${theme.colors.black04};
   `}
@@ -154,7 +154,7 @@ export const ScrollDown = styled.div`
     position: absolute;
     top: 89%;
     left: 0rem;
-    width: 38rem;
+    width: 100%;
     background: linear-gradient(180.22deg, ${theme.colors.black01} 2.0%, rgba(0, 0, 0, 0.5) 89.85%);
     padding: 12px;
     border-radius: 12px;
