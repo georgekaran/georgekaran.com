@@ -20,9 +20,17 @@ const testOrbitElements = () => {
     expect(arr[i]).toHaveStyle({
       animation: `orbit-${i} 7s infinite linear`,
       position: 'absolute',
-      left: '40%',
+      left: '38%',
       top: '7%'
     })
+
+    expect(arr[i]).toHaveStyleRule(
+      'animation',
+      `orbit-${i}-mobile 7s infinite linear`,
+      {
+        media: '(max-width: 768px)'
+      }
+    )
   }
 }
 
@@ -35,10 +43,14 @@ const makeSut = ({ size, orbitElements }: SutProps = {}): RenderResult => {
 describe('<Planet />', () => {
   it('should render with medium size', () => {
     makeSut()
-    expect(screen.getByTestId('planet')).toHaveStyle({
+    const planetWrapper = screen.getByTestId('planet')
+    expect(planetWrapper).toHaveStyle({
       width: '32rem',
       height: '32rem'
     })
+    expect(planetWrapper).toHaveStyleRule('width', '16rem !important', { media: '(max-width: 768px)' })
+    expect(planetWrapper).toHaveStyleRule('height', '16rem !important', { media: '(max-width: 768px)' })
+    expect(screen.getByTestId('onion')).toHaveStyleRule('width', '30rem !important', { media: '(max-width: 768px)' })
     expect(screen.queryAllByTestId('orbit-element')).toHaveLength(0)
   })
 
