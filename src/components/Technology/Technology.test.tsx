@@ -24,29 +24,13 @@ describe('<Technology />', () => {
     expect(image).toHaveAttribute('alt', 'React logo (Atom)')
     expect(image).toHaveStyle({
       objectFit: 'contain',
-      width: '8rem',
-      height: '8rem'
+      width: '12rem',
+      height: '12rem'
     })
 
     expect(screen.getByTestId('technology-wrapper')).toHaveStyle({
       background: transparentize(0.4, theme.colors.black04),
       borderRadius: '50%'
-    })
-  })
-
-  it('should render with small size if prop is provided', () => {
-    makeSut({ size: 'small' })
-    expect(screen.getByRole('img')).toHaveStyle({
-      width: '4rem',
-      height: '4rem'
-    })
-  })
-
-  it('should render with large size if prop is provided', () => {
-    makeSut({ size: 'large' })
-    expect(screen.getByRole('img')).toHaveStyle({
-      width: '12rem',
-      height: '12rem'
     })
   })
 })

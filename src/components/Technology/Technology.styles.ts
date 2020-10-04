@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 import { transparentize } from 'polished'
-
-import { TechnologySize } from '.'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -11,21 +10,21 @@ export const Wrapper = styled.div`
     padding: ${theme.spacings.xxsmall};
     background: ${transparentize(0.4, theme.colors.black04)};
     border-radius: 50%;
+
+    ${media.lessThan('medium')`
+      padding: 0.4rem;
+    `};
   `}
 `
 
-type ImageProps = {
-  size: TechnologySize
-}
-
 const imageModifiers = {
   small: () => css`
-    width: 4rem;
-    height: 4rem;
+    width: 4rem !important;
+    height: 4rem !important;
   `,
   medium: () => css`
-    width: 8rem;
-    height: 8rem;
+    width: 8rem !important;
+    height: 8rem !important;
   `,
   large: () => css`
     width: 12rem;
@@ -33,10 +32,18 @@ const imageModifiers = {
   `
 }
 
-export const Image = styled.img<ImageProps>`
-  ${({ size }) => css`
+export const Image = styled.img`
+  ${() => css`
     object-fit: contain;
 
-    ${!!size && imageModifiers[size]()};
+    ${imageModifiers.large()};
+
+    ${media.lessThan('medium')`
+      ${imageModifiers.small()};
+    `};
+
+    ${media.between('medium', 'large')`
+      ${imageModifiers.medium()};
+    `};
   `}
 `

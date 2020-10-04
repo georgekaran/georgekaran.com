@@ -6,15 +6,13 @@ export type TechnologySize = 'small' | 'medium' | 'large'
 export type TechnologyProps = {
   image: string
   alt: string
-  size?: TechnologySize
 }
 
-const Technology = ({ image, alt, size = 'medium' }: TechnologyProps) => (
+const Technology = ({ image, alt }: TechnologyProps) => (
   <S.Wrapper data-testid="technology-wrapper">
     <S.Image
       src={image}
       alt={alt}
-      size={size}
     />
   </S.Wrapper>
 )
