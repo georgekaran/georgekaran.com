@@ -133,6 +133,7 @@ export const TimelineWrapper = styled.div`
 
 export const Stack = styled.section`
   ${({ theme }) => css`
+    min-height: 80rem;
     grid-area: stack;
     display: flex;
     flex-direction: column;
@@ -141,5 +142,13 @@ export const Stack = styled.section`
     ${HD.Wrapper} {
       margin-bottom: ${theme.spacings.large};
     }
+  `}
+`
+
+export const StackPlanetWrapper = styled.div`
+  ${({ theme }) => css`
+    margin: ${theme.spacings.xxlarge} 0;
+    display: flex;
+    justify-content: center;
   `}
 `

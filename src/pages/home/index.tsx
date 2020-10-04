@@ -1,9 +1,11 @@
 import React from 'react'
 
-import * as S from './styles'
+import * as S from '@/styles/pages/home'
 import { HighlightBox } from '@/components/HighlightBox'
 import { Heading } from '@/components/Heading'
 import { Achievement, Timeline } from '@/components/Timeline'
+import { Space } from '@/components/Space'
+import { Planet } from '@/components/Planet'
 
 const achievements: Achievement[] = [
   {
@@ -89,6 +91,15 @@ const Home: React.FC = () => {
           </S.TimelineWrapper>
         </S.AboutMeContentWrapper>
       </S.AboutMe>
+
+      <S.Stack>
+        <Space stars={20}>
+          <Heading>Minha stack</Heading>
+          <S.StackPlanetWrapper>
+            <Planet size="large" />
+          </S.StackPlanetWrapper>
+        </Space>
+      </S.Stack>
     </S.Wrapper>
   )
 }
