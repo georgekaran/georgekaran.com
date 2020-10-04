@@ -2,15 +2,12 @@ import React from 'react'
 
 import * as S from './Planet.styles'
 
-export type SizeType = 'small' | 'medium' | 'large'
-
 export type PlanetProps = {
-  size?: SizeType
   orbitElements?: React.ReactNode[]
 }
 
-const Planet = ({ size = 'medium', orbitElements = [] }: PlanetProps) => (
-  <S.Wrapper size={size}>
+const Planet = ({ orbitElements = [] }: PlanetProps) => (
+  <S.Wrapper>
     <S.PlanetWrapper data-testid="planet">
       <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560">
         <g filter="url(#filter_full)">
@@ -148,7 +145,6 @@ const Planet = ({ size = 'medium', orbitElements = [] }: PlanetProps) => (
       <S.OrbitElement
         data-testid="orbit-element"
         key={i}
-        size={size}
         index={i}
         totalElements={orbitElements.length}
       >

@@ -8,7 +8,7 @@ import { renderWithTheme } from '@/test/helpers'
 const componentFactory = (length: number): React.ReactNode[] => {
   const arr = []
   for (let i = 0; i < length; i++) {
-    arr.push(<Technology key={`react-${i}`} image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt={`React logo ${i}`} size="medium" />)
+    arr.push(<Technology key={`react-${i}`} image="https://miro.medium.com/max/1000/1*Yafu7ihc1LFuP4azerAa4w.png" alt={`React logo ${i}`} />)
   }
   return arr
 }
@@ -23,21 +23,13 @@ const testOrbitElements = () => {
       left: '38%',
       top: '7%'
     })
-
-    expect(arr[i]).toHaveStyleRule(
-      'animation',
-      `orbit-${i}-mobile 14s infinite linear`,
-      {
-        media: '(max-width: 768px)'
-      }
-    )
   }
 }
 
 type SutProps = Partial<PlanetProps>
 
-const makeSut = ({ size, orbitElements }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Planet size={size} orbitElements={orbitElements} />)
+const makeSut = ({ orbitElements }: SutProps = {}): RenderResult => {
+  return renderWithTheme(<Planet orbitElements={orbitElements} />)
 }
 
 describe('<Planet />', () => {
@@ -45,8 +37,7 @@ describe('<Planet />', () => {
     makeSut()
     const planetWrapper = screen.getByTestId('planet')
     expect(planetWrapper).toHaveStyle({
-      width: '32rem',
-      height: '32rem'
+      width: '50rem'
     })
     expect(planetWrapper).toHaveStyleRule('width', '16rem !important', { media: '(max-width: 768px)' })
     expect(planetWrapper).toHaveStyleRule('height', '16rem !important', { media: '(max-width: 768px)' })
@@ -54,35 +45,9 @@ describe('<Planet />', () => {
     expect(screen.queryAllByTestId('orbit-element')).toHaveLength(0)
   })
 
-  it('should render with small size', () => {
-    makeSut({ size: 'small' })
-    expect(screen.getByTestId('planet')).toHaveStyle({
-      width: '16rem',
-      height: '16rem'
-    })
-  })
-
-  it('should render with large size', () => {
-    makeSut({ size: 'large' })
-    expect(screen.getByTestId('planet')).toHaveStyle({
-      width: '50rem',
-      height: '50rem'
-    })
-  })
-
   it('should render orbitElements if there provided', () => {
-    // Small
-    makeSut({ size: 'small', orbitElements: componentFactory(5) })
-    testOrbitElements()
-    cleanup()
-
-    // Medium
     makeSut({ orbitElements: componentFactory(5) })
     testOrbitElements()
     cleanup()
-
-    // Large
-    makeSut({ size: 'large', orbitElements: componentFactory(5) })
-    testOrbitElements()
   })
 })

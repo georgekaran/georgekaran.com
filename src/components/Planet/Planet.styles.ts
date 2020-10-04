@@ -1,44 +1,23 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import { SizeType } from '.'
-import * as Tech from '@/components/Technology/Technology.styles'
-
 const wrapperModifiers = {
-  small: () => css`
-    width: 16rem;
-    height: 16rem;
-  `,
-  medium: () => css`
-    width: 32rem;
-    height: 32rem;
-  `,
   large: () => css`
     width: 50rem;
-    height: 50rem;
   `
 }
 
-type WrapperProps = {
-  size: SizeType
-}
-
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ size }) => css`
+export const Wrapper = styled.div`
+  ${() => css`
     position: relative;
-
-    ${media.lessThan('medium')`
-      width: auto;
-    `}
-
-    ${!!size && onionModifiers[size]()};
+    width: 100%;
 
     ${PlanetWrapper} {
-      ${!!size && wrapperModifiers[size]()};
+      ${wrapperModifiers.large()};
     }
 
     ${OnionWrapper} {
-      ${!!size && onionModifiers[size]()};
+      ${onionModifiers.large()};
     }
   `}
 `
@@ -58,6 +37,11 @@ export const PlanetWrapper = styled.div`
     ${media.lessThan('medium')`
       width: 16rem !important;
       height: 16rem !important;
+    `}
+
+    ${media.between('medium', 'large')`
+      width: 32rem !important;
+      height: 32rem !important;
     `}
 
     @keyframes FloatAnimation {
@@ -102,24 +86,60 @@ export const OnionWrapper = styled.div`
   ${media.lessThan('medium')`
     width: 30rem !important;
   `}
+
+  ${media.between('medium', 'large')`
+    width: 72rem !important;
+  `}
 `
 
 const orbirModifiers = {
-  small: () => '18rem',
-  medium: () => '34rem',
+  mobile: () => '14rem',
   large: () => '52rem',
   calcDegBegin: (index: number, totalElements: number) => Math.floor(360 / totalElements) * index,
   calcDegEnd: (deg: number) => deg + 360
 }
 
 type OrbitProps = {
-  size: SizeType
   index: number
   totalElements: number
 }
 
+const orbitMediaFactory = (
+  degBegin: number,
+  degEnd: number,
+  index: number,
+  media: string
+) => {
+  let size = ''
+  switch (media) {
+    case 'mobile':
+      size = '14rem'
+      break
+    case 'medium':
+      size = '34rem'
+      break
+    default:
+      size = '52rem'
+  }
+
+  return css`
+    @keyframes orbit-${index} {
+      0% {
+        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
+        translateX(${size})
+        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
+      }
+      100% {
+        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
+        translateX(${size})
+        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
+      }
+    }
+  `
+}
+
 export const OrbitElement = styled.div<OrbitProps>`
-  ${({ size, index, totalElements }) => {
+  ${({ index, totalElements }) => {
     const degBegin = orbirModifiers.calcDegBegin(index, totalElements)
     const degEnd = orbirModifiers.calcDegEnd(degBegin)
 
@@ -130,40 +150,17 @@ export const OrbitElement = styled.div<OrbitProps>`
     top: 7%;
 
     ${media.lessThan('medium')`
-      animation: orbit-${index}-mobile 14s infinite linear;
-
-      ${Tech.Image} {
-        width: 3rem;
-        height: 3rem;
-      }
+      left: 43% !important;
+      ${orbitMediaFactory(degBegin, degEnd, index, 'mobile')};
     `};
 
-    @keyframes orbit-${index}-mobile {
-      0% {
-        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
-        translateX(14rem)
-        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
-      }
-      100% {
-        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
-        translateX(14rem)
-        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
-      }
-    }
+    ${media.between('medium', 'large')`
+      ${orbitMediaFactory(degBegin, degEnd, index, 'medium')};
+    `};
 
-    @keyframes orbit-${index} {
-      0% {
-        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
-        translateX(${orbirModifiers[size]()})
-        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
-      }
-      100% {
-        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
-        translateX(${orbirModifiers[size]()})
-        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
-      }
-    }
+    ${media.greaterThan('large')`
+      ${orbitMediaFactory(degBegin, degEnd, index, 'large')};
+    `};
   `
-}
   }
-`
+}`
