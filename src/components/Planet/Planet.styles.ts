@@ -125,12 +125,12 @@ export const OrbitElement = styled.div<OrbitProps>`
 
     return css`
     position: absolute;
-    animation: orbit-${index} 7s infinite linear;
+    animation: orbit-${index} 14s infinite linear;
     left: 38%;
     top: 7%;
 
     ${media.lessThan('medium')`
-      animation: orbit-${index}-mobile 7s infinite linear;
+      animation: orbit-${index}-mobile 14s infinite linear;
 
       ${Tech.Image} {
         width: 3rem;

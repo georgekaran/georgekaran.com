@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: ${transparentize(0.5, theme.colors.black)};
+    padding: ${theme.spacings.xxsmall};
+    background: ${transparentize(0.4, theme.colors.black04)};
     border-radius: 50%;
   `}
 `
