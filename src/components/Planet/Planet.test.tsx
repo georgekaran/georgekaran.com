@@ -18,7 +18,7 @@ const testOrbitElements = () => {
   expect(arr).toHaveLength(5)
   for (let i = 0; i < 5; i++) {
     expect(arr[i]).toHaveStyle({
-      animation: `orbit-${i} 7s infinite linear`,
+      animation: `orbit-${i} 14s infinite linear`,
       position: 'absolute',
       left: '38%',
       top: '7%'
@@ -26,7 +26,7 @@ const testOrbitElements = () => {
 
     expect(arr[i]).toHaveStyleRule(
       'animation',
-      `orbit-${i}-mobile 7s infinite linear`,
+      `orbit-${i}-mobile 14s infinite linear`,
       {
         media: '(max-width: 768px)'
       }

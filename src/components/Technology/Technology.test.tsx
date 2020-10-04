@@ -29,7 +29,7 @@ describe('<Technology />', () => {
     })
 
     expect(screen.getByTestId('technology-wrapper')).toHaveStyle({
-      background: transparentize(0.5, theme.colors.black),
+      background: transparentize(0.4, theme.colors.black04),
       borderRadius: '50%'
     })
   })
