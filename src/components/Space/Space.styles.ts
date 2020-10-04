@@ -6,14 +6,15 @@ export const Wrapper = styled.div`
 `
 
 export const Fog = styled.div`
+  position: absolute;
   width: 100%;
-`
 
-export const Fogs = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  &.fog-1 {
+    top: 20%;
+  }
+  &.fog-2 {
+    top: 70%;
+  }
 `
 
 type StarProps = {
@@ -31,4 +32,12 @@ export const Star = styled.div<StarProps>`
     left: ${left}px;
     background-color: ${theme.colors.white};
   `}
+`
+
+export const ChildrenWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `
