@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-import * as HB from '@/components/HighlightBox/HighlightBox.styles'
-import * as HD from '@/components/Heading/Heading.styles'
+import * as HighlightBoxStyles from '@/components/HighlightBox/HighlightBox.styles'
+import * as HeadingStyles from '@/components/Heading/Heading.styles'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -81,7 +81,7 @@ export const HighlightGroup = styled.div`
       margin: ${theme.spacings.xsmall} 0;
     `}
 
-    ${HB.Wrapper} {
+    ${HighlightBoxStyles.Wrapper} {
       margin-top: ${theme.spacings.medium};
     }
   `}
@@ -94,7 +94,7 @@ export const AboutMe = styled.section`
     flex-direction: column;
     margin-top: ${theme.spacings.xxlarge};
 
-    ${HD.Wrapper} {
+    ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};
     }
   `}
@@ -139,7 +139,7 @@ export const Stack = styled.section`
     flex-direction: column;
     margin-top: ${theme.spacings.xxlarge};
 
-    ${HD.Wrapper} {
+    ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};
     }
   `}

@@ -16,12 +16,27 @@ const Space = ({ stars = 0, children }: SpaceProps) => {
     <S.Wrapper ref={wrapperRef}>
       <S.Fog className="fog-1">
         <svg data-testid="fog-1" viewBox="0 0 1440 176" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 33C558.968 -9.4192 921.135 -11.8052 1679 33V176C934.27 108.279 549.75 95.4285 0 176V33Z" fill="#27272D"/>
+          <path d="M0 32.7683C479.401 -9.71966 790.014 -12.1096 1440 32.7683V176C801.279 108.169 471.495 95.2979 0 176V32.7683Z" fill="url(#paint0_linear)"/>
+          <defs>
+            <linearGradient id="paint0_linear" x1="1387.5" y1="87.9999" x2="48.0001" y2="87.9999" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#27272D" stopOpacity="0"/>
+              <stop offset="0.506491" stopColor="#27272D"/>
+              <stop offset="1" stopColor="#27272D" stopOpacity="0"/>
+            </linearGradient>
+          </defs>
         </svg>
+
       </S.Fog>
       <S.Fog className="fog-2">
-        <svg data-testid="fog-2" viewBox="0 0 1440 236" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 92.9999C1019.81 -30.0601 1385.43 -29.8472 1679 92.9999V236C1276.14 100.611 878.676 116.591 0 236V92.9999Z" fill="#27272D"/>
+        <svg data-testid="fog-2" viewBox="0 0 1431 235" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M-9 92.1308C865.643 -30.8166 1179.21 -30.6039 1431 92.1308V235C1085.48 99.7352 744.6 115.701 -9 235V92.1308Z" fill="url(#paint0_linear)"/>
+          <defs>
+            <linearGradient id="paint0_linear" x1="1368.5" y1="117" x2="30.5" y2="117" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#27272D" stopOpacity="0"/>
+              <stop offset="0.506491" stopColor="#27272D"/>
+              <stop offset="1" stopColor="#27272D" stopOpacity="0"/>
+            </linearGradient>
+          </defs>
         </svg>
       </S.Fog>
 
