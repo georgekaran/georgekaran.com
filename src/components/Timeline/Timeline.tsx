@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import * as S from './Timeline.styles'
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 export type Tag = 'education' | 'event' | 'professional'
 
@@ -17,6 +18,7 @@ export type TimelineProps = {
 }
 
 const Timeline = ({ achievements }: TimelineProps) => {
+  const useIsomorphicEffect = useIsomorphicLayoutEffect(global.window)
   const [years, setYears] = useState<number[]>([])
   const wrapper = useRef<HTMLElement>(null)
   const [showScrollAnimation, setShowScrollAnimation] = useState<boolean>(false)
@@ -57,7 +59,7 @@ const Timeline = ({ achievements }: TimelineProps) => {
     }
   }, [wrapper, scrolled])
 
-  useLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     const handleMouseAnimation = () => {
       if (wrapper.current != null) {
         const scrollHeight = wrapper.current.scrollHeight
