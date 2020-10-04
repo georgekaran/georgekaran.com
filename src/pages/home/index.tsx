@@ -46,15 +46,15 @@ const Home: React.FC = () => {
 
   const [technologies] = useState<React.ReactNode[]>(
     [
-      <Technology key="react" image="/img/technology/react.png" alt="React" size="large" />,
-      <Technology key="node" image="/img/technology/nodejs.png" alt="Node JS" size="large" />,
-      <Technology key="golang" image="/img/technology/golang.png" alt="Golang" size="large" />,
-      <Technology key="java" image="/img/technology/java.png" alt="Java" size="large" />,
-      <Technology key="typescript" image="/img/technology/typescript.png" alt="Typescript" size="large" />,
-      <Technology key="mongo" image="/img/technology/mongo.png" alt="Mongo DB" size="large" />,
-      <Technology key="aws" image="/img/technology/aws.png" alt="AWS" size="large" />,
-      <Technology key="docker" image="/img/technology/docker.png" alt="Docker" size="large" />,
-      <Technology key="postgresql" image="/img/technology/postgresql.png" alt="Postgres SQL" size="large" />
+      <Technology key="react" image="/img/technology/react.png" alt="React" />,
+      <Technology key="node" image="/img/technology/nodejs.png" alt="Node JS" />,
+      <Technology key="golang" image="/img/technology/golang.png" alt="Golang" />,
+      <Technology key="java" image="/img/technology/java.png" alt="Java" />,
+      <Technology key="typescript" image="/img/technology/typescript.png" alt="Typescript" />,
+      <Technology key="mongo" image="/img/technology/mongo.png" alt="Mongo DB" />,
+      <Technology key="aws" image="/img/technology/aws.png" alt="AWS" />,
+      <Technology key="docker" image="/img/technology/docker.png" alt="Docker" />,
+      <Technology key="postgresql" image="/img/technology/postgresql.png" alt="Postgres SQL" />
     ]
   )
 
@@ -115,7 +115,6 @@ const Home: React.FC = () => {
           <S.StackPlanetWrapper>
             <Planet
               orbitElements={technologies}
-              size="large"
             />
           </S.StackPlanetWrapper>
         </Space>

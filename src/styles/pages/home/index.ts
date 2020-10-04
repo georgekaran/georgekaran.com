@@ -141,7 +141,15 @@ export const Stack = styled.section`
 
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};
-    }
+    };
+
+    ${media.lessThan('medium')`
+      min-height: 40rem;
+    `};
+
+    ${media.between('medium', 'large')`
+      min-height: 60rem;
+    `};
   `}
 `
 
