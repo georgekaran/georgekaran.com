@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import * as S from '@/styles/pages/home'
 import { HighlightBox } from '@/components/HighlightBox'
@@ -6,41 +6,58 @@ import { Heading } from '@/components/Heading'
 import { Achievement, Timeline } from '@/components/Timeline'
 import { Space } from '@/components/Space'
 import { Planet } from '@/components/Planet'
-
-const achievements: Achievement[] = [
-  {
-    date: new Date('2020-08-21T00:00:00'),
-    title: 'Node JS com microservicos',
-    description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-    tag: 'education'
-  },
-  {
-    date: new Date('2019-08-21T00:00:00'),
-    title: 'Node JS com microservicos',
-    description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-    tag: 'event'
-  },
-  {
-    date: new Date('2019-08-22T00:00:00'),
-    title: 'Node JS com microservicos',
-    description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-    tag: 'professional'
-  },
-  {
-    date: new Date('2018-08-21T00:00:00'),
-    title: 'Node JS com microservicos',
-    description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-    tag: 'event'
-  },
-  {
-    date: new Date('2018-08-21T00:00:00'),
-    title: 'Node JS com microservicos',
-    description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-    tag: 'education'
-  }
-]
+import { Technology } from '@/components/Technology'
 
 const Home: React.FC = () => {
+  const [achievements] = useState<Achievement[]>(
+    [
+      {
+        date: new Date('2020-08-21T00:00:00'),
+        title: 'Node JS com microservicos',
+        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+        tag: 'education'
+      },
+      {
+        date: new Date('2019-08-21T00:00:00'),
+        title: 'Node JS com microservicos',
+        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+        tag: 'event'
+      },
+      {
+        date: new Date('2019-08-22T00:00:00'),
+        title: 'Node JS com microservicos',
+        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+        tag: 'professional'
+      },
+      {
+        date: new Date('2018-08-21T00:00:00'),
+        title: 'Node JS com microservicos',
+        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+        tag: 'event'
+      },
+      {
+        date: new Date('2018-08-21T00:00:00'),
+        title: 'Node JS com microservicos',
+        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+        tag: 'education'
+      }
+    ]
+  )
+
+  const [technologies] = useState<React.ReactNode[]>(
+    [
+      <Technology key="react" image="/img/technology/react.png" alt="React" size="large" />,
+      <Technology key="node" image="/img/technology/nodejs.png" alt="Node JS" size="large" />,
+      <Technology key="golang" image="/img/technology/golang.png" alt="Golang" size="large" />,
+      <Technology key="java" image="/img/technology/java.png" alt="Java" size="large" />,
+      <Technology key="typescript" image="/img/technology/typescript.png" alt="Typescript" size="large" />,
+      <Technology key="mongo" image="/img/technology/mongo.png" alt="Mongo DB" size="large" />,
+      <Technology key="aws" image="/img/technology/aws.png" alt="AWS" size="large" />,
+      <Technology key="docker" image="/img/technology/docker.png" alt="Docker" size="large" />,
+      <Technology key="postgresql" image="/img/technology/postgresql.png" alt="Postgres SQL" size="large" />
+    ]
+  )
+
   return (
     <S.Wrapper>
       <S.InfoGroup>
@@ -96,7 +113,10 @@ const Home: React.FC = () => {
         <Space stars={20}>
           <Heading>Minha stack</Heading>
           <S.StackPlanetWrapper>
-            <Planet size="large" />
+            <Planet
+              orbitElements={technologies}
+              size="large"
+            />
           </S.StackPlanetWrapper>
         </Space>
       </S.Stack>
