@@ -4,6 +4,12 @@ import { Testimonional } from '.'
 import { renderWithTheme } from '@/test/helpers'
 import { screen } from '@testing-library/react'
 
+const elementsExists = (textContent: string): HTMLElement => {
+  const el = screen.getByText(textContent)
+  expect(el).toBeInTheDocument()
+  return el
+}
+
 describe('<Testimonional />', () => {
   it('should render with initial state', () => {
     renderWithTheme(
@@ -16,20 +22,16 @@ describe('<Testimonional />', () => {
       />
     )
 
-    const author = screen.getByRole('heading', { name: /any_author/ })
-    expect(author).toBeInTheDocument()
-    expect(author).toHaveStyleRule(
+    expect(elementsExists('any_author')).toHaveStyleRule(
       'font-size', '1.4rem', { media: '(max-width: 768px)' }
     )
 
-    const job = screen.getByText(/any_job/)
-    expect(job).toBeInTheDocument()
+    const job = elementsExists('any_job')
     expect(job).toHaveStyleRule(
       'font-size', '12px', { media: '(max-width: 768px)' }
     )
 
-    const company = screen.getByText(/any_company/)
-    expect(company).toBeInTheDocument()
+    const company = elementsExists('any_company')
     expect(company).toHaveStyleRule(
       'font-size', '12px', { media: '(max-width: 768px)' }
     )
@@ -43,8 +45,7 @@ describe('<Testimonional />', () => {
       'height', '4.2rem', { media: '(max-width: 768px)' }
     )
 
-    const testimonial = screen.getByText('any_testimonial')
-    expect(testimonial).toBeInTheDocument()
+    const testimonial = elementsExists('any_testimonial')
     expect(testimonial).toHaveStyleRule(
       'padding', '0', { media: '(max-width: 768px)' }
     )
