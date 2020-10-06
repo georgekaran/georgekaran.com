@@ -23,4 +23,9 @@ describe('<Slider />', () => {
     expect(container.querySelectorAll('.slick-slide')).toHaveLength(7)
     expect(container.querySelectorAll('li.slick-active')).toHaveLength(1)
   })
+
+  it('should render with vertical slider', () => {
+    const { container } = makeSut({ settings: { verticalSwiping: true, vertical: true } })
+    expect(container.querySelector('.slick-vertical')).toBeInTheDocument()
+  })
 })
