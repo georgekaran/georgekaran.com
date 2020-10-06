@@ -24,7 +24,7 @@ const Testimonional = ({ testimonial, authorImage, author, job, company }: Testi
       <S.AuthorInfo>
         <S.Author>{author}</S.Author>
         <S.TitleBox>
-          <S.Title>{job} | </S.Title>
+          <S.Title>{job}</S.Title>
           <S.Company>{company}</S.Company>
         </S.TitleBox>
       </S.AuthorInfo>
