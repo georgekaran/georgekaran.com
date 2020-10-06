@@ -7,6 +7,7 @@ import { Achievement, Timeline } from '@/components/Timeline'
 import { Space } from '@/components/Space'
 import { Planet } from '@/components/Planet'
 import { Technology } from '@/components/Technology'
+import { MediaMatch } from '@/components/MediaMatch'
 
 const Home: React.FC = () => {
   const [achievements] = useState<Achievement[]>(
@@ -103,15 +104,17 @@ const Home: React.FC = () => {
             </S.Paragraph>
           </S.History>
 
-          <S.TimelineWrapper>
-            <Timeline achievements={achievements} />
-          </S.TimelineWrapper>
+          <MediaMatch display="flex" greaterThan="medium">
+            <S.TimelineWrapper>
+              <Timeline achievements={achievements} />
+            </S.TimelineWrapper>
+          </MediaMatch>
         </S.AboutMeContentWrapper>
       </S.AboutMe>
 
       <S.Stack>
+        <Heading>Minha stack</Heading>
         <Space stars={20}>
-          <Heading>Minha stack</Heading>
           <S.StackPlanetWrapper>
             <Planet
               orbitElements={technologies}
@@ -119,6 +122,10 @@ const Home: React.FC = () => {
           </S.StackPlanetWrapper>
         </Space>
       </S.Stack>
+
+      <S.Testimonial>
+        <Heading>Depoimentos</Heading>
+      </S.Testimonial>
     </S.Wrapper>
   )
 }

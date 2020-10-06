@@ -3,16 +3,22 @@ import media from 'styled-media-query'
 
 import * as HighlightBoxStyles from '@/components/HighlightBox/HighlightBox.styles'
 import * as HeadingStyles from '@/components/Heading/Heading.styles'
+import * as MediaMatch from '@/components/MediaMatch/MediaMatch'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.xxlarge} 0;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "info media" "highlight media" "aboutMe aboutMe" "stack stack";
+    grid-template-areas:
+      "info media"
+      "highlight media"
+      "aboutMe aboutMe"
+      "stack stack"
+      "testimonial testimonial";
 
     ${media.lessThan('medium')`
-      grid-template-areas: "info" "media" "highlight" "aboutMe" "stack";
+      grid-template-areas: "info" "media" "highlight" "aboutMe" "stack" "testimonial";
       grid-template-columns: 1fr;
       padding: 0 0;
     `}
@@ -102,6 +108,10 @@ export const AboutMe = styled.section`
 
 export const AboutMeContentWrapper = styled.div`
   display: flex;
+
+  ${MediaMatch.default} {
+    flex: 1;
+  }
 `
 
 export const History = styled.article`
@@ -124,10 +134,6 @@ export const TimelineWrapper = styled.div`
     align-content: center;
     justify-content: center;
     padding: 0 ${theme.spacings.large};
-
-    ${media.lessThan('medium')`
-      display: none;
-    `}
   `}
 `
 
@@ -158,5 +164,17 @@ export const StackPlanetWrapper = styled.div`
     margin: ${theme.spacings.xxlarge} 0;
     display: flex;
     justify-content: center;
+  `}
+`
+
+export const Testimonial = styled.section`
+  ${({ theme }) => css`
+    grid-area: testimonial;
+    display: flex;
+    flex-direction: column;
+
+    ${HeadingStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.large};
+    };
   `}
 `
