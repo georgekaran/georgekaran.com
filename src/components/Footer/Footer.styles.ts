@@ -8,10 +8,10 @@ export const Wrapper = styled.footer`
     justify-content: space-between;
     align-items: center;
     padding: 0 ${theme.spacings.medium};
-    height: 10rem;
+    height: 8rem;
 
     ${media.lessThan('medium')`
-      height: 8rem;
+      height: 6rem;
     `}
   `}
 `
