@@ -28,4 +28,9 @@ describe('<Slider />', () => {
     const { container } = makeSut({ settings: { verticalSwiping: true, vertical: true } })
     expect(container.querySelector('.slick-vertical')).toBeInTheDocument()
   })
+
+  it('should match snapshot', () => {
+    const { container } = makeSut()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
