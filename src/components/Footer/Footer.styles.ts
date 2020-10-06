@@ -23,19 +23,13 @@ export const IconGroup = styled.section`
 
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
-    width: ${theme.font.sizes.xlarge};
-    height: ${theme.font.sizes.xlarge};
-    margin-left: ${theme.spacings.small};
+    width: ${theme.font.sizes.large};
+    height: ${theme.font.sizes.large};
+    margin-left: ${theme.spacings.xsmall};
     cursor: pointer;
 
     > svg {
       color: ${theme.colors.green};
     }
-
-    ${media.lessThan('medium')`
-      width: ${theme.font.sizes.large};
-      height: ${theme.font.sizes.large};
-      margin-left: ${theme.spacings.xsmall};
-    `}
   `}
 `
