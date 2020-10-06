@@ -16,10 +16,43 @@ describe('<Testimonional />', () => {
       />
     )
 
-    expect(screen.getByRole('heading', { name: /any_author/ })).toBeInTheDocument()
-    expect(screen.getByText(/any_job/)).toBeInTheDocument()
-    expect(screen.getByText(/any_company/)).toBeInTheDocument()
-    expect(screen.getByRole('img')).toHaveAttribute('src', '/any_image.png')
-    expect(screen.getByText('any_testimonial')).toBeInTheDocument()
+    const author = screen.getByRole('heading', { name: /any_author/ })
+    expect(author).toBeInTheDocument()
+    expect(author).toHaveStyleRule(
+      'font-size', '1.4rem', { media: '(max-width: 768px)' }
+    )
+
+    const job = screen.getByText(/any_job/)
+    expect(job).toBeInTheDocument()
+    expect(job).toHaveStyleRule(
+      'font-size', '12px', { media: '(max-width: 768px)' }
+    )
+
+    const company = screen.getByText(/any_company/)
+    expect(company).toBeInTheDocument()
+    expect(company).toHaveStyleRule(
+      'font-size', '12px', { media: '(max-width: 768px)' }
+    )
+
+    const authorImage = screen.getByRole('img')
+    expect(authorImage).toHaveAttribute('src', '/any_image.png')
+    expect(authorImage.parentElement).toHaveStyleRule(
+      'width', '4.2rem', { media: '(max-width: 768px)' }
+    )
+    expect(authorImage.parentElement).toHaveStyleRule(
+      'height', '4.2rem', { media: '(max-width: 768px)' }
+    )
+
+    const testimonial = screen.getByText('any_testimonial')
+    expect(testimonial).toBeInTheDocument()
+    expect(testimonial).toHaveStyleRule(
+      'padding', '0', { media: '(max-width: 768px)' }
+    )
+    expect(testimonial).toHaveStyleRule(
+      'font-size', '1.4rem', { media: '(max-width: 768px)' }
+    )
+    expect(testimonial).toHaveStyleRule(
+      'flex', '0.9', { media: '(max-width: 768px)' }
+    )
   })
 })
