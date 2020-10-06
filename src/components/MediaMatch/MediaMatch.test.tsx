@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, RenderResult, screen } from '@testing-library/react'
 
-import { MediaMatch } from '.'
+import { MediaMatch, DisplayType } from '.'
 
 type SutTypes = {
   sut: RenderResult
@@ -9,13 +9,17 @@ type SutTypes = {
   mobileHeading: Element
 }
 
-const makeSut = (): SutTypes => {
+type SutProps = {
+  display?: DisplayType
+}
+
+const makeSut = (props: SutProps = {}): SutTypes => {
   const sut = render(
     <>
-      <MediaMatch greaterThan="medium">
+      <MediaMatch greaterThan="medium" {...props}>
         <h1 data-testid="desktop">Desktop</h1>
       </MediaMatch>
-      <MediaMatch lessThan="medium">
+      <MediaMatch lessThan="medium" {...props}>
         <h1 data-testid="mobile">Mobile</h1>
       </MediaMatch>
     </>
@@ -41,6 +45,16 @@ describe('<MediaMatch />', () => {
       media: '(min-width: 768px)'
     })
     expect(mobileHeading.parentElement).toHaveStyleRule('display', 'block', {
+      media: '(max-width: 768px)'
+    })
+  })
+
+  test('should change default display if prop is provided', () => {
+    const { desktopHeading, mobileHeading } = makeSut({ display: 'flex' })
+    expect(desktopHeading.parentElement).toHaveStyleRule('display', 'flex', {
+      media: '(min-width: 768px)'
+    })
+    expect(mobileHeading.parentElement).toHaveStyleRule('display', 'flex', {
       media: '(max-width: 768px)'
     })
   })
