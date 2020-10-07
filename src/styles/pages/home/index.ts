@@ -179,7 +179,7 @@ export const SliderWrapper = styled.div`
   overflow: hidden;
 
   ${media.lessThan('medium')`
-    max-width: 82vw;
+    max-width: 88vw;
   `};
 `
 
