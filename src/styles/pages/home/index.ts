@@ -15,13 +15,19 @@ export const Wrapper = styled.div`
       "highlight media"
       "aboutMe aboutMe"
       "stack stack"
-      "testimonial testimonial";
+      "testimonial testimonial" ;
+    grid-template-rows: auto auto auto 100rem 70rem;
 
     ${media.lessThan('medium')`
       grid-template-areas: "info" "media" "highlight" "aboutMe" "stack" "testimonial";
+      grid-template-rows: auto auto auto auto auto auto;
       grid-template-columns: 1fr;
       padding: 0 0;
-    `}
+    `};
+
+    ${media.between('medium', 'large')`
+      grid-template-rows: auto auto auto 80rem 70rem;
+    `};
   `}
 `
 
@@ -168,9 +174,13 @@ export const StackPlanetWrapper = styled.div`
 `
 
 export const SliderWrapper = styled.div`
-  max-width: 86vw;
+  max-width: 92vw;
   width: 100%;
   overflow: hidden;
+
+  ${media.lessThan('medium')`
+    max-width: 82vw;
+  `};
 `
 
 export const Testimonial = styled.section`
@@ -179,6 +189,14 @@ export const Testimonial = styled.section`
     display: flex;
     flex-direction: column;
     margin-bottom: ${theme.spacings.large};
+    background: url('/img/vector.svg');
+    background-repeat: no-repeat;
+    background-size: 60rem 60rem;
+    background-position: 100%;
+
+    ${media.lessThan('medium')`
+      background-size: 20rem 20rem;
+    `};
 
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};

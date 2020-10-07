@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     background: ${theme.colors.black};
     align-items: center;
+    overflow-x: hidden;
 
     ${F.Wrapper} {
       width: 100%;
