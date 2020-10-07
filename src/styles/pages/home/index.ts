@@ -167,11 +167,18 @@ export const StackPlanetWrapper = styled.div`
   `}
 `
 
+export const SliderWrapper = styled.div`
+  max-width: 86vw;
+  width: 100%;
+  overflow: hidden;
+`
+
 export const Testimonial = styled.section`
   ${({ theme }) => css`
     grid-area: testimonial;
     display: flex;
     flex-direction: column;
+    margin-bottom: ${theme.spacings.large};
 
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};
