@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     background: ${theme.colors.black02};
     border-radius: 2.4rem;
     max-width: 70rem;
+    width: 100%;
   `}
 `
 

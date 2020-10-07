@@ -13,18 +13,23 @@ export type SliderProps = {
 const defaultSettings: Settings = {
   dots: true,
   arrows: false,
-  infinite: true,
-  speed: 300,
+  speed: 1000,
   slidesToShow: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  fade: true,
+  pauseOnHover: true,
   slidesToScroll: 1
 }
 
-const Slider = ({ children, settings = defaultSettings }: SliderProps) => (
-  <S.Wrapper>
-    <SlickSlider {...settings}>
-      {children}
-    </SlickSlider>
-  </S.Wrapper>
-)
+const Slider = ({ children, settings = defaultSettings }: SliderProps) => {
+  return (
+    <S.Wrapper>
+      <SlickSlider {...settings}>
+        {children}
+      </SlickSlider>
+    </S.Wrapper>
+  )
+}
 
 export default Slider

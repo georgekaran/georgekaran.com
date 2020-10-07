@@ -181,29 +181,13 @@ exports['<Slider /> should match snapshot 1'] = `
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1;"
       >
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="-1"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <h1
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              3
-            </h1>
-          </div>
-        </div>
         <div
           aria-hidden="false"
           class="slick-slide slick-active slick-current"
           data-index="0"
-          style="outline: none; width: 0px;"
+          style="outline: none; width: 0px; position: relative; left: 0px; opacity: 1; transition: opacity 1000ms ease, visibility 1000ms ease;"
           tabindex="-1"
         >
           <div>
@@ -219,7 +203,7 @@ exports['<Slider /> should match snapshot 1'] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="1"
-          style="outline: none; width: 0px;"
+          style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; transition: opacity 1000ms ease, visibility 1000ms ease;"
           tabindex="-1"
         >
           <div>
@@ -235,55 +219,7 @@ exports['<Slider /> should match snapshot 1'] = `
           aria-hidden="true"
           class="slick-slide"
           data-index="2"
-          style="outline: none; width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <h1
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              3
-            </h1>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <h1
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              1
-            </h1>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="4"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <h1
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              2
-            </h1>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="5"
-          style="width: 0px;"
+          style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; transition: opacity 1000ms ease, visibility 1000ms ease;"
           tabindex="-1"
         >
           <div>
