@@ -140,17 +140,17 @@ const Planet = ({ orbitElements = [] }: PlanetProps) => (
           </linearGradient>
         </defs>
       </svg>
+      {!!orbitElements.length && orbitElements.map((element, i) => (
+        <S.OrbitElement
+          data-testid="orbit-element"
+          key={i}
+          index={i}
+          totalElements={orbitElements.length}
+        >
+          {element}
+        </S.OrbitElement>
+      ))}
     </S.OnionWrapper>
-    {!!orbitElements.length && orbitElements.map((element, i) => (
-      <S.OrbitElement
-        data-testid="orbit-element"
-        key={i}
-        index={i}
-        totalElements={orbitElements.length}
-      >
-        {element}
-      </S.OrbitElement>
-    ))}
   </S.Wrapper>
 )
 

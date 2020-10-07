@@ -82,6 +82,7 @@ export const OnionWrapper = styled.div`
   left: 50%;
   top: 58%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 
   ${media.lessThan('medium')`
     width: 30rem !important;
@@ -119,7 +120,7 @@ const orbitMediaFactory = (
       size = '34rem'
       break
     default:
-      size = '52rem'
+      size = '54rem'
   }
 
   return css`
@@ -147,10 +148,9 @@ export const OrbitElement = styled.div<OrbitProps>`
     position: absolute;
     animation: orbit-${index} 14s infinite linear;
     left: 38%;
-    top: 7%;
+    top: 15%;
 
     ${media.lessThan('medium')`
-      left: 43% !important;
       ${orbitMediaFactory(degBegin, degEnd, index, 'mobile')};
     `};
 
@@ -159,6 +159,7 @@ export const OrbitElement = styled.div<OrbitProps>`
     `};
 
     ${media.greaterThan('large')`
+      top: 18%;
       ${orbitMediaFactory(degBegin, degEnd, index, 'large')};
     `};
   `
