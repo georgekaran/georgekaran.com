@@ -21,7 +21,7 @@ const testOrbitElements = () => {
       animation: `orbit-${i} 14s infinite linear`,
       position: 'absolute',
       left: '38%',
-      top: '7%'
+      top: '15%'
     })
   }
 }
