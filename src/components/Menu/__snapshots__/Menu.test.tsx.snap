@@ -21,6 +21,7 @@ exports['<Menu /> should match snapshot 1'] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  padding: 3.2rem 3.2rem 0 3.2rem;
 }
 
 .c6 {
@@ -136,6 +137,12 @@ exports['<Menu /> should match snapshot 1'] = `
 
 .c7 {
   display: none;
+}
+
+@media (max-width:768px) {
+  .c0 {
+    padding: 1.6rem 1.6rem 0 1.6rem;
+  }
 }
 
 @media (max-width:768px) {
