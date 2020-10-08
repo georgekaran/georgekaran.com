@@ -23,12 +23,6 @@ export const Wrapper = styled.div`
   `}
 `
 
-export const MenuWrapper = styled.section`
-  ${({ theme }) => css`
-    padding: ${theme.spacings.medium};
-  `}
-`
-
 export const Main = styled.main`
   ${({ theme }) => css`
     flex: 1;

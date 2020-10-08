@@ -21,9 +21,7 @@ function App ({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <S.Wrapper>
         <S.Container>
-          <S.MenuWrapper>
-            <Menu />
-          </S.MenuWrapper>
+          <Menu />
           <S.Main>
             <Component {...pageProps} />
           </S.Main>
