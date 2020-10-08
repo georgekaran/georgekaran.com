@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
       "aboutMe aboutMe"
       "stack stack"
       "testimonial testimonial" ;
-    grid-template-rows: auto auto auto 100rem 70rem;
+    grid-template-rows: auto auto auto 100rem auto;
 
     ${media.lessThan('medium')`
       grid-template-areas: "info" "media" "highlight" "aboutMe" "stack" "testimonial";
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     `};
 
     ${media.between('medium', 'large')`
-      grid-template-rows: auto auto auto 80rem 70rem;
+      grid-template-rows: auto auto auto 80rem auto;
     `};
   `}
 `
@@ -177,10 +177,60 @@ export const SliderWrapper = styled.div`
   max-width: 92vw;
   width: 100%;
   overflow: hidden;
+`
+
+export const TestimonialDescription = styled.h3`
+  ${({ theme }) => css`
+    color: ${theme.colors.green02};
+    font-weight: ${theme.font.light};
+    font-size: 2.8rem;
+    flex: 1;
+
+    ${media.between('medium', 'large')`
+      font-size: 2.4rem;
+    `};
+
+    ${media.lessThan('medium')`
+      font-size: 1.8rem;
+    `};
+  `}
+`
+
+export const TestimonialDescriptionWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+
+  ${MediaMatch.default} {
+    flex: 1;
+  };
 
   ${media.lessThan('medium')`
-    max-width: 88vw;
+    margin-bottom: 4rem;
   `};
+
+  ${media.between('medium', 'large')`
+    margin-bottom: 6rem;
+  `};
+`
+
+export const TestimonialImageWrapper = styled.div`
+  width: 45rem;
+  margin: 0 auto;
+
+  ${media.lessThan('medium')`
+    max-width: 15rem;
+    width: 100%;
+  `};
+
+  ${media.between('medium', 'large')`
+    width: 30rem;
+  `};
+`
+
+export const TestimonialImage = styled.img`
+  width: 100%;
 `
 
 export const Testimonial = styled.section`
@@ -189,14 +239,6 @@ export const Testimonial = styled.section`
     display: flex;
     flex-direction: column;
     margin-bottom: ${theme.spacings.large};
-    background: url('/img/vector.svg');
-    background-repeat: no-repeat;
-    background-size: 60rem 60rem;
-    background-position: 100%;
-
-    ${media.lessThan('medium')`
-      background-size: 20rem 20rem;
-    `};
 
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};

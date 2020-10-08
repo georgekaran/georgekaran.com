@@ -127,6 +127,16 @@ const Home: React.FC = () => {
 
       <S.Testimonial>
         <Heading>Depoimentos</Heading>
+        <S.TestimonialDescriptionWrapper>
+          <S.TestimonialDescription>
+            Leia os depoimentos de pessoas que já trabalharam comigo e o que elas tem a dizer sobre mim.
+          </S.TestimonialDescription>
+          <MediaMatch greaterThan="medium">
+            <S.TestimonialImageWrapper>
+              <S.TestimonialImage src="/img/testimonials.svg" alt="Guy sitting with chat ballons floating around" />
+            </S.TestimonialImageWrapper>
+          </MediaMatch>
+        </S.TestimonialDescriptionWrapper>
         <S.SliderWrapper>
           <Slider>
             <Testimonional
