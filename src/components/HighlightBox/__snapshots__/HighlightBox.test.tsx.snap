@@ -30,15 +30,33 @@ exports['<HighlightBox /> should match snapshot 1'] = `
   width: 8rem;
   height: 8rem;
   margin-right: 1.6rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
-.c2 {
-  color: #1BE0AB;
-  font-size: 3.2rem;
-  font-weight: 600;
+.c1:hover {
+  background: linear-gradient(83.89deg,#28F5BE 2.81%,#3B37FF 97.94%);
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.c1:hover .c2 {
+  color: #FFFFFF;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .c3 {
+  color: #1BE0AB;
+  font-size: 3.2rem;
+  font-weight: 600;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.c4 {
   color: #FFFFFF;
   font-size: 1.6rem;
   font-weight: 300;
@@ -52,13 +70,13 @@ exports['<HighlightBox /> should match snapshot 1'] = `
 }
 
 @media (max-width:768px) {
-  .c2 {
+  .c3 {
     font-size: 2.4rem;
   }
 }
 
 @media (max-width:768px) {
-  .c3 {
+  .c4 {
     font-size: 1.4rem;
   }
 }
@@ -71,13 +89,13 @@ exports['<HighlightBox /> should match snapshot 1'] = `
     data-testid="ellipse"
   >
     <h2
-      class="c2"
+      class="c2 c3"
     >
       10
     </h2>
   </div>
   <h5
-    class="c3"
+    class="c4"
   >
     any_text
   </h5>
