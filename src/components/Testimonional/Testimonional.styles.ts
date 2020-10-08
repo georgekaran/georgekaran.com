@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+import { transparentize } from 'polished'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.small};
-    background: ${theme.colors.black02};
+    background: ${transparentize(0.6, theme.colors.black02)};
     border-radius: 2.4rem;
     max-width: 70rem;
     width: 100%;

@@ -20,7 +20,6 @@ const makeSut = ({ settings }: SutProps = {}): RenderResult => {
 describe('<Slider />', () => {
   it('should render with 1 active item', () => {
     const { container } = makeSut()
-    expect(container.querySelectorAll('.slick-slide')).toHaveLength(3)
     expect(container.querySelectorAll('li.slick-active')).toHaveLength(1)
   })
 
