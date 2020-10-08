@@ -16,6 +16,17 @@ export const Ellipse = styled.div`
     width: 8rem;
     height: 8rem;
     margin-right: ${theme.spacings.xsmall};
+    transition: all 0.5s ease;
+
+    &:hover {
+      background: ${theme.colors.gradient03};
+      transform: rotate(360deg);
+
+      ${PrimaryText} {
+        color: ${theme.colors.white};
+        transform: scale(1.2);
+      }
+    }
 
     ${media.lessThan('medium')`
       width: 6rem;
@@ -29,6 +40,7 @@ export const PrimaryText = styled.h2`
     color: ${theme.colors.green01};
     font-size: ${theme.font.sizes.xlarge};
     font-weight: ${theme.font.bold};
+    transition: all 0.5s ease;
 
     ${media.lessThan('medium')`
       font-size: ${theme.font.sizes.large};
