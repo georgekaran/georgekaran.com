@@ -1,10 +1,18 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.menu`
-  display: flex;
-  align-items: center;
-  position: relative;
-  justify-content: space-between;
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+    padding: ${theme.spacings.medium} ${theme.spacings.medium} 0 ${theme.spacings.medium};
+
+    ${media.lessThan('medium')`
+      padding: ${theme.spacings.xsmall} ${theme.spacings.xsmall} 0 ${theme.spacings.xsmall};
+    `}
+  `}
 `
 
 export const MenuLink = styled.a`
