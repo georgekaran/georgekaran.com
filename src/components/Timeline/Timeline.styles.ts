@@ -16,10 +16,14 @@ export const Wrapper = styled.section`
   }
 `
 
-export const Line = styled.div`
-  ${({ theme }) => css`
+type LineProps = {
+  scrollHeight: number
+}
+
+export const Line = styled.div<LineProps>`
+  ${({ theme, scrollHeight }) => css`
     border: 1px solid ${theme.colors.green};
-    height: 100%;
+    height: ${scrollHeight}px;
     position: absolute;
     left: 47px;
   `}

@@ -20,6 +20,7 @@ export type TimelineProps = {
 const Timeline = ({ achievements }: TimelineProps) => {
   const useIsomorphicEffect = useIsomorphicLayoutEffect(global.window)
   const [years, setYears] = useState<number[]>([])
+  const [scrollHeight, setScrollHeight] = useState<number>(700)
   const wrapper = useRef<HTMLElement>(null)
   const [showScrollAnimation, setShowScrollAnimation] = useState<boolean>(false)
   const [scrolled, setScrolled] = useState<boolean>(false)
@@ -63,6 +64,7 @@ const Timeline = ({ achievements }: TimelineProps) => {
     const handleMouseAnimation = () => {
       if (wrapper.current != null) {
         const scrollHeight = wrapper.current.scrollHeight
+        setScrollHeight(scrollHeight)
         if (scrollHeight > 700) { setShowScrollAnimation(true) }
       }
     }
@@ -95,7 +97,7 @@ const Timeline = ({ achievements }: TimelineProps) => {
           </S.YearEventsBox>
         ))}
       </S.YearGroup>
-      <S.Line />
+      <S.Line scrollHeight={scrollHeight} />
       {showScrollAnimation && !scrolled && (
         <S.ScrollDown>
           <S.ScrollText>Role para mais eventos</S.ScrollText>
