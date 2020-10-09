@@ -1,14 +1,18 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-import { transparentize } from 'polished'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.small};
-    background: ${transparentize(0.6, theme.colors.black02)};
     border-radius: 2.4rem;
-    max-width: 70rem;
+    background: ${theme.colors.gradient04};
+    text-shadow: 1px 1px 4px ${theme.colors.black01};
+    max-width: 75rem;
     width: 100%;
+
+    ${media.lessThan('large')`
+      max-width: 50rem;
+    `}
   `}
 `
 
@@ -19,10 +23,11 @@ export const TestimonialWrapper = styled.div`
 export const Testimonial = styled.p`
   ${({ theme }) => css`
     flex: 0.85;
-    font-weight: ${theme.font.normal};
-    font-size: ${theme.font.sizes.medium};
+    font-weight: ${theme.font.medium};
+    font-size: 2rem;
     color: ${theme.colors.white};
     padding: ${theme.spacings.xsmall};
+    letter-spacing: -1px;
 
     ${media.lessThan('medium')`
       padding: 0;
@@ -37,7 +42,7 @@ export const Quotes = styled.i`
     flex: 0.15;
     font-weight: ${theme.font.bold};
     font-size: 7.2rem;
-    color: ${theme.colors.black04};
+    color: ${theme.colors.white};
     margin-left: ${theme.spacings.xsmall};
 
     ${media.lessThan('medium')`
@@ -73,7 +78,7 @@ export const AuthorWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: flex-end;
-    margin: ${theme.spacings.small} ${theme.spacings.xsmall} ${theme.spacings.xxsmall} 0;
+    margin: ${theme.spacings.xxsmall} ${theme.spacings.xsmall} ${theme.spacings.xxsmall} 0;
 
     ${media.lessThan('medium')`
       margin: ${theme.spacings.xsmall} 0 0 0;
@@ -89,7 +94,10 @@ export const AuthorInfo = styled.div`
 
 export const TitleBox = styled.div`
   display: flex;
-  flex-direction: column;
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+  `};
 `
 
 export const Author = styled.h4`
@@ -108,8 +116,10 @@ export const Title = styled.span`
     font-size: ${theme.font.sizes.small};
     color: ${theme.colors.white};
     font-weight: ${theme.font.light};
+    margin-right: ${theme.spacings.xxsmall};
 
     ${media.lessThan('medium')`
+      margin-right: 0px;
       font-size: 12px;
     `};
   `}
