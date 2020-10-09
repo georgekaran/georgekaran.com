@@ -18,6 +18,8 @@ const wrapperModifiers = {
 export const Wrapper = styled.div<WrapperProps>`
   ${({ hideOnMobile }) => css`
     width: 13rem;
+    display: flex;
+    flex-direction: column;
 
     ${!!hideOnMobile && wrapperModifiers.hideOnMobile()}
   `}

@@ -1,24 +1,35 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import MediaMatch from '@/components/MediaMatch/MediaMatch'
+
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
     position: relative;
-    justify-content: space-between;
+    width: 100%;
     padding: ${theme.spacings.medium} ${theme.spacings.medium} 0 ${theme.spacings.medium};
 
     ${media.lessThan('medium')`
       padding: ${theme.spacings.xsmall} ${theme.spacings.xsmall} 0 ${theme.spacings.xsmall};
-    `}
+      justify-content: space-between;
+    `};
+
+    ${MediaMatch.default} {
+      .flex {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   `}
 `
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.small};
+    font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
     text-decoration: none;
     text-align: center;
@@ -29,10 +40,18 @@ export const MenuLink = styled.a`
 export const MenuGroup = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  &:first-child {
+    transform: translateX(-65px);
+  }
 
   ${({ theme }) => css`
     ${MenuLink} {
-      margin-left: ${theme.spacings.small};
+      &:not(:first-child) {
+        margin-left: ${theme.spacings.medium};
+      }
     }
   `}
 `
@@ -90,6 +109,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       color: ${theme.colors.white};
       font-weight: ${theme.font.bold};
       font-size: ${theme.font.sizes.large};
+      margin-left: 0 !important;
       margin-bottom: ${theme.spacings.small};
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;

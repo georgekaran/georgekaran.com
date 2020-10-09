@@ -13,7 +13,8 @@ const Menu = () => {
   return (
     <S.Wrapper>
       <Logo hideOnMobile />
-      <MediaMatch greaterThan="medium" >
+
+      <MediaMatch className="flex" greaterThan="medium" >
         <S.MenuGroup>
           <S.MenuLink>Home</S.MenuLink>
           <S.MenuLink>Projetos</S.MenuLink>
@@ -21,7 +22,7 @@ const Menu = () => {
         </S.MenuGroup>
       </MediaMatch>
 
-      <MediaMatch lessThan="medium" >
+      <MediaMatch lessThan="medium">
         <S.IconWrapper>
           <MenuIcon aria-label="Open menu" onClick={() => setIsOpen(true)} />
         </S.IconWrapper>

@@ -20,8 +20,8 @@ function App ({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <S.Wrapper>
+        <Menu />
         <S.Container>
-          <Menu />
           <S.Main>
             <Component {...pageProps} />
           </S.Main>

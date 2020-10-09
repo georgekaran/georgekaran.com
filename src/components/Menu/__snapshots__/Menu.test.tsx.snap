@@ -7,6 +7,14 @@ exports['<Menu /> should match snapshot 1'] = `
   overflow: hidden;
 }
 
+.c2 {
+  display: none;
+}
+
+.c7 {
+  display: none;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -17,16 +25,27 @@ exports['<Menu /> should match snapshot 1'] = `
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  width: 100%;
   padding: 3.2rem 3.2rem 0 3.2rem;
+}
+
+.c0 .flex {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 {
   color: #FFFFFF;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -43,10 +62,23 @@ exports['<Menu /> should match snapshot 1'] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
-.c4 .c5 {
-  margin-left: 2.4rem;
+.c4:first-child {
+  -webkit-transform: translateX(-65px);
+  -ms-transform: translateX(-65px);
+  transform: translateX(-65px);
+}
+
+.c4 .c5:not(:first-child) {
+  margin-left: 3.2rem;
 }
 
 .c8 {
@@ -118,6 +150,7 @@ exports['<Menu /> should match snapshot 1'] = `
   color: #FFFFFF;
   font-weight: 600;
   font-size: 2.4rem;
+  margin-left: 0 !important;
   margin-bottom: 2.4rem;
   -webkit-transform: translateY(3rem);
   -ms-transform: translateY(3rem);
@@ -129,26 +162,13 @@ exports['<Menu /> should match snapshot 1'] = `
 
 .c1 {
   width: 13rem;
-}
-
-.c2 {
-  display: none;
-}
-
-.c7 {
-  display: none;
-}
-
-@media (max-width:768px) {
-  .c0 {
-    padding: 1.6rem 1.6rem 0 1.6rem;
-  }
-}
-
-@media (max-width:768px) {
-  .c1 .logo-name {
-    display: none;
-  }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 @media (min-width:768px) {
@@ -160,6 +180,22 @@ exports['<Menu /> should match snapshot 1'] = `
 @media (max-width:768px) {
   .c7 {
     display: block;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 {
+    padding: 1.6rem 1.6rem 0 1.6rem;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 .logo-name {
+    display: none;
   }
 }
 
@@ -961,7 +997,7 @@ exports['<Menu /> should match snapshot 1'] = `
     </svg>
   </div>
   <div
-    class="c2"
+    class="c2 flex"
   >
     <div
       class="c3 c4"
