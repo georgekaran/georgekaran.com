@@ -130,14 +130,20 @@ const Planet = ({ orbitElements = [] }: PlanetProps) => (
       </svg>
     </S.PlanetWrapper>
     <S.OnionWrapper data-testid="onion" aria-label="Planet ring">
-      <svg className="onion" viewBox="0 0 1264 872" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1154.01 213.942C1162.18 233.176 1160.81 258.649 1145.36 291.085C1129.93 323.485 1101.65 360.01 1061.44 398.227C981.156 474.525 857.315 553.774 708.8 616.846C560.284 679.918 417.262 713.999 306.61 718.788C251.185 721.187 205.265 716.172 171.236 704.777C137.168 693.37 117.886 676.667 109.718 657.433C101.549 638.199 102.92 612.726 118.369 580.29C133.799 547.89 162.077 511.365 202.291 473.148C282.575 396.85 406.415 317.601 554.931 254.529C703.447 191.457 846.469 157.376 957.121 152.587C1012.55 150.188 1058.47 155.203 1092.49 166.598C1126.56 178.005 1145.84 194.708 1154.01 213.942Z" stroke="url(#paint_ring_linear)" strokeWidth="50"/>
+      <svg className="onion" viewBox="0 0 1364 933" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#neon_filter)">
+          <path d="M1204.01 263.942C1212.18 283.176 1210.81 308.649 1195.36 341.085C1179.93 373.485 1151.65 410.01 1111.44 448.227C1031.16 524.525 907.315 603.774 758.8 666.846C610.284 729.918 467.262 763.999 356.61 768.788C301.185 771.187 255.265 766.172 221.236 754.777C187.168 743.37 167.886 726.667 159.718 707.433C151.549 688.199 152.92 662.726 168.369 630.29C183.799 597.89 212.077 561.365 252.291 523.148C332.575 446.85 456.415 367.601 604.931 304.529C753.447 241.457 896.469 207.376 1007.12 202.587C1062.55 200.188 1108.47 205.203 1142.49 216.598C1176.56 228.005 1195.84 244.708 1204.01 263.942Z" stroke="#28F5BE" strokeWidth="50"/>
+        </g>
         <defs>
-          <linearGradient id="paint_ring_linear" x1="545.159" y1="231.518" x2="718.572" y2="639.857" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#129D5A"/>
-            <stop offset="0.484375" stopColor="#DBFFF5"/>
-            <stop offset="1" stopColor="#129D5A"/>
-          </linearGradient>
+          <filter id="neon_filter" x="0" y="1.52588e-05" width="1363.73" height="971.375" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+            <feOffset/>
+            <feGaussianBlur stdDeviation="25"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 1 0 0 0 0 0.52 0 0 0 1 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+          </filter>
         </defs>
       </svg>
       {!!orbitElements.length && orbitElements.map((element, i) => (
