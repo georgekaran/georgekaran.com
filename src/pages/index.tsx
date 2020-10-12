@@ -132,9 +132,8 @@ const Home: React.FC = () => {
         <Space stars={20}>
           <S.StackPlanetWrapper
             data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-anchor-placement="top-center"
-            data-aos-easing="ease">
+            {...Animations.baseAosAnimation}
+          >
             <Planet
               orbitElements={technologies}
             />
