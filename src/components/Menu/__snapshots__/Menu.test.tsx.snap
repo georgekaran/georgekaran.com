@@ -24,9 +24,13 @@ exports['<Menu /> should match snapshot 1'] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
   width: 100%;
-  padding: 3.2rem 3.2rem 0 3.2rem;
+  background: #1F1F24;
+  z-index: 50;
+  padding: 2.4rem 3.2rem;
 }
 
 .c0 .flex {
@@ -185,7 +189,7 @@ exports['<Menu /> should match snapshot 1'] = `
 
 @media (max-width:768px) {
   .c0 {
-    padding: 1.6rem 1.6rem 0 1.6rem;
+    padding: 1.6rem;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;

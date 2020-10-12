@@ -14,10 +14,10 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/George Mueller/i)).toBeInTheDocument()
     expect(container.firstChild).toHaveStyle({
-      padding: '3.2rem 3.2rem 0 3.2rem'
+      padding: '2.4rem 3.2rem'
     })
     expect(container.firstChild).toHaveStyleRule(
-      'padding', '1.6rem 1.6rem 0 1.6rem',
+      'padding', '1.6rem',
       { media: '(max-width: 768px)' }
     )
   })
