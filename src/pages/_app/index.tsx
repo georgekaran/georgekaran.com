@@ -16,6 +16,11 @@ function App ({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/img/icon.svg" />
         <link rel="apple-touch-icon" href="/img/icon.svg" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="stylesheet" href="/css/aos.css" />
+        <script src="/js/aos.js" async></script>
+        {process.browser && <script async>
+          AOS.init()
+        </script>}
         <meta name="description" content="This is my personal page where i'll post my projects and updates about me." />
       </Head>
       <GlobalStyles />
