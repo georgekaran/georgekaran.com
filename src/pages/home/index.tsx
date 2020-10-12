@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from '@/styles/pages/home'
+import * as Animations from '@/styles/animations'
 import { HighlightBox } from '@/components/HighlightBox'
 import { Heading } from '@/components/Heading'
 import { Achievement, Timeline } from '@/components/Timeline'
@@ -64,7 +65,7 @@ const Home: React.FC = () => {
   return (
     <S.Wrapper>
       <S.InfoGroup>
-        <S.Job>
+        <S.Job data-aos="slide-right" {...Animations.baseAosAnimation}>
           Fullstack engineer
         </S.Job>
         <S.PresentationWrapper>
@@ -72,8 +73,8 @@ const Home: React.FC = () => {
             Olá, eu sou George
           </S.Presentation>
         </S.PresentationWrapper>
-        <S.Description>
-          Um desenvolvedor apaixonado por tecnologia e UI design!
+        <S.Description data-aos="fade-up" {...Animations.baseAosAnimation}>
+          Um desenvolvedor apaixonado pela tecnologia web e amante de conceitos de UI design!
         </S.Description>
       </S.InfoGroup>
 
@@ -83,16 +84,23 @@ const Home: React.FC = () => {
         <HighlightBox primaryText="+10" secondaryText="cursos concluídos" />
       </S.HighlightGroup>
 
-      <S.MediaGroup>
+      <S.MediaGroup data-aos="fade-up" data-aos-offset="50" {...Animations.baseAosAnimation}>
         <S.Photo src="/img/personal-photo.png" alt="George photo facing the camera"/>
       </S.MediaGroup>
 
       <S.AboutMe>
-        <Heading>Sobre mim</Heading>
+        <Heading
+          data-aos="slide-right"
+          data-aos-offset="10"
+          {...Animations.baseAosAnimation}
+          data-aos-duration="1000"
+        >
+          Sobre mim
+        </Heading>
 
         <S.AboutMeContentWrapper>
           <S.History>
-            <S.Paragraph>
+            <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies amet orci a pulvinar et cursus.
               Pulvinar in nulla arcu duis hendrerit eget amet.
               Turpis pellentesque pulvinar eu cras a.
@@ -101,7 +109,7 @@ const Home: React.FC = () => {
               Morbi amet congue risus curabitur vitae amet, eu posuere turpis. Porttitor lorem pretium quis felis donec sed nulla tristique.
             </S.Paragraph>
 
-            <S.Paragraph>
+            <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies amet orci a pulvinar et cursus.
               Pulvinar in nulla arcu duis hendrerit eget amet.
               Turpis pellentesque pulvinar eu cras a. In viverra curabitur vitae id.
@@ -109,17 +117,24 @@ const Home: React.FC = () => {
           </S.History>
 
           <MediaMatch display="flex" greaterThan="medium">
-            <S.TimelineWrapper>
-              <Timeline achievements={achievements} />
+            <S.TimelineWrapper >
+              <Timeline
+                data-aos="zoom-in-left"
+                {...Animations.baseAosAnimation}
+                achievements={achievements} />
             </S.TimelineWrapper>
           </MediaMatch>
         </S.AboutMeContentWrapper>
       </S.AboutMe>
 
       <S.Stack>
-        <Heading>Minha stack</Heading>
+        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>Minha stack</Heading>
         <Space stars={20}>
-          <S.StackPlanetWrapper>
+          <S.StackPlanetWrapper
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-anchor-placement="top-center"
+            data-aos-easing="ease">
             <Planet
               orbitElements={technologies}
             />
@@ -128,18 +143,18 @@ const Home: React.FC = () => {
       </S.Stack>
 
       <S.Testimonial>
-        <Heading>Depoimentos</Heading>
+        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>Depoimentos</Heading>
         <S.TestimonialDescriptionWrapper>
-          <S.TestimonialDescription>
+          <S.TestimonialDescription data-aos="fade-up" {...Animations.baseAosAnimation}>
             Leia os depoimentos de pessoas que já trabalharam comigo e o que elas tem a dizer sobre mim.
           </S.TestimonialDescription>
           <MediaMatch greaterThan="medium">
-            <S.TestimonialImageWrapper>
+            <S.TestimonialImageWrapper data-aos="fade-up" {...Animations.baseAosAnimation}>
               <S.TestimonialImage src="/img/testimonials.svg" alt="Guy sitting with chat ballons floating around" />
             </S.TestimonialImageWrapper>
           </MediaMatch>
         </S.TestimonialDescriptionWrapper>
-        <S.SliderWrapper>
+        <S.SliderWrapper data-aos="fade-up" {...Animations.baseAosAnimation}>
           <Slider>
             <Testimonional
               author='George Mueller'

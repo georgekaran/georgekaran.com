@@ -78,7 +78,7 @@ export const Presentation = styled.h1`
     font-weight: ${theme.font.bold};
     border-right: .15em solid ${theme.colors.white}; /* The typwriter cursor */
     white-space: nowrap;
-    animation: typewriter 2s steps(44) 1s 1 normal both,
+    animation: typewriter 2s steps(44) 800ms 1 normal both,
                 blinkTextCursor 800ms steps(44) infinite normal;
 
     @keyframes typewriter{

@@ -15,9 +15,9 @@ export type Achievement = {
 export type TimelineProps = {
   achievements: Achievement[]
   height?: string
-}
+} & React.HTMLAttributes<HTMLDivElement>
 
-const Timeline = ({ achievements }: TimelineProps) => {
+const Timeline = ({ achievements, ...props }: TimelineProps) => {
   const useIsomorphicEffect = useIsomorphicLayoutEffect(global.window)
   const [years, setYears] = useState<number[]>([])
   const [scrollHeight, setScrollHeight] = useState<number>(700)
@@ -73,7 +73,7 @@ const Timeline = ({ achievements }: TimelineProps) => {
   }, [years, wrapper])
 
   return (
-    <S.Wrapper ref={wrapper}>
+    <S.Wrapper ref={wrapper} {...props}>
       <S.YearGroup>
         {years.map(year => (
           <S.YearEventsBox key={year}>
