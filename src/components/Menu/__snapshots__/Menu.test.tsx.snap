@@ -48,7 +48,7 @@ exports['<Menu /> should match snapshot 1'] = `
 }
 
 .c6 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-size: 1.6rem;
   font-weight: 600;
   -webkit-text-decoration: none;
@@ -1008,16 +1008,19 @@ exports['<Menu /> should match snapshot 1'] = `
     >
       <a
         class="c5 c6"
+        data-testid="home-link"
       >
         Home
       </a>
       <a
         class="c5 c6"
+        data-testid="projects-link"
       >
         Projetos
       </a>
       <a
         class="c5 c6"
+        data-testid="contact-link"
       >
         Contato
       </a>
@@ -1074,16 +1077,19 @@ exports['<Menu /> should match snapshot 1'] = `
     >
       <a
         class="c5 c6"
+        data-testid="home-link-mobile"
       >
         Home
       </a>
       <a
         class="c5 c6"
+        data-testid="projects-link-mobile"
       >
         Projetos
       </a>
       <a
         class="c5 c6"
+        data-testid="contact-link-mobile"
       >
         Contato
       </a>

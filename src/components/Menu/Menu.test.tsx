@@ -1,22 +1,62 @@
 import React from 'react'
+import { RouterContext } from 'next/dist/next-server/lib/router-context'
 import { RenderResult, screen, fireEvent } from '@testing-library/react'
+import { Router, NextRouter } from 'next/router'
 
 import { Menu } from '.'
 import { renderWithTheme } from '@/test/helpers'
 
-const makeSut = (): RenderResult => {
-  return renderWithTheme(<Menu />)
+type SutTypes = {
+  sut: RenderResult
+  router: jest.Mock
+}
+
+const makeSut = (): SutTypes => {
+  const routerPushed = jest.fn()
+  const mockedRouter: NextRouter = {
+    basePath: '',
+    pathname: '/',
+    route: '/',
+    asPath: '/',
+    query: {},
+    push: (path: string) => {
+      routerPushed(path)
+      return new Promise((resolve, reject) => resolve(true))
+    },
+    replace: jest.fn(),
+    reload: jest.fn(),
+    back: jest.fn(),
+    prefetch: jest.fn(),
+    beforePopState: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+      emit: jest.fn()
+    },
+    isFallback: false
+  }
+  // @ts-ignore
+  Router.router = mockedRouter
+  const sut = renderWithTheme(
+    <RouterContext.Provider value={{ ...mockedRouter }}>
+      <Menu />
+    </RouterContext.Provider>
+  )
+  return {
+    sut,
+    router: routerPushed
+  }
 }
 
 describe('<Menu />', () => {
   test('should render with initial state', () => {
-    const { container } = makeSut()
+    const { sut } = makeSut()
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/George Mueller/i)).toBeInTheDocument()
-    expect(container.firstChild).toHaveStyle({
+    expect(sut.container.firstChild).toHaveStyle({
       padding: '2.4rem 3.2rem'
     })
-    expect(container.firstChild).toHaveStyleRule(
+    expect(sut.container.firstChild).toHaveStyleRule(
       'padding', '1.6rem',
       { media: '(max-width: 768px)' }
     )
@@ -52,8 +92,24 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
   })
 
+  test('shoud navigate to other pages', () => {
+    const { router } = makeSut()
+    // Projects
+    const link = screen.getByTestId('projects-link')
+    fireEvent.click(link)
+    expect(router).toHaveBeenCalledWith('/projects')
+    // Home
+    const home = screen.getByTestId('home-link')
+    fireEvent.click(home)
+    expect(router).toHaveBeenCalledWith('/')
+    // Home
+    const contact = screen.getByTestId('contact-link')
+    fireEvent.click(contact)
+    expect(router).toHaveBeenCalledWith('/contact')
+  })
+
   test('should match snapshot', () => {
-    const { container } = makeSut()
-    expect(container.firstChild).toMatchSnapshot()
+    const { sut } = makeSut()
+    expect(sut.container.firstChild).toMatchSnapshot()
   })
 })
