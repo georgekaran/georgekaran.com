@@ -174,9 +174,13 @@ export const StackPlanetWrapper = styled.div`
 `
 
 export const SliderWrapper = styled.div`
-  max-width: 92vw;
+  max-width: calc(100vw - 9rem);
   width: 100%;
   overflow: hidden;
+
+  ${media.lessThan('medium')`
+    max-width: calc(100vw - 5rem);
+  `}
 `
 
 export const TestimonialDescription = styled.h3`

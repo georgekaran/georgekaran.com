@@ -7,12 +7,15 @@ export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0px;
     width: 100%;
-    padding: ${theme.spacings.medium} ${theme.spacings.medium} 0 ${theme.spacings.medium};
+    background: ${theme.colors.black};
+    z-index: ${theme.layers.alwaysOnTop};
+    padding: ${theme.spacings.small} ${theme.spacings.medium};
 
     ${media.lessThan('medium')`
-      padding: ${theme.spacings.xsmall} ${theme.spacings.xsmall} 0 ${theme.spacings.xsmall};
+      padding: ${theme.spacings.xsmall};
       justify-content: space-between;
     `};
 
