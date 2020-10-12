@@ -67,9 +67,11 @@ const Home: React.FC = () => {
         <S.Job>
           Fullstack engineer
         </S.Job>
-        <S.Presentation>
-          Olá, eu sou George
-        </S.Presentation>
+        <S.PresentationWrapper>
+          <S.Presentation>
+            Olá, eu sou George
+          </S.Presentation>
+        </S.PresentationWrapper>
         <S.Description>
           Um desenvolvedor apaixonado por tecnologia e UI design!
         </S.Description>

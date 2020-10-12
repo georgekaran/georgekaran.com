@@ -62,12 +62,33 @@ export const Job = styled.h4`
   `}
 `
 
+export const PresentationWrapper = styled.div`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.xsmall};
+    display: inline-block;
+  `}
+`
+
 export const Presentation = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.white};
+    overflow: hidden;
+    display: inline-block;
     font-size: ${theme.font.sizes.xlarge};
     font-weight: ${theme.font.bold};
-    margin-bottom: ${theme.spacings.xsmall};
+    border-right: .15em solid ${theme.colors.white}; /* The typwriter cursor */
+    white-space: nowrap;
+    animation: typewriter 2s steps(44) 1s 1 normal both,
+                blinkTextCursor 800ms steps(44) infinite normal;
+
+    @keyframes typewriter{
+      from{width: 0;}
+      to { width: 100%; }
+    }
+    @keyframes blinkTextCursor{
+      from{border-right-color: ${theme.colors.white};}
+      to{border-right-color: transparent;}
+    }
   `}
 `
 
