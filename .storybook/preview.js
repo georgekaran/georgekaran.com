@@ -1,4 +1,5 @@
 import React from 'react'
+import './utils/mockNextRouter';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from '../src/styles/global'
