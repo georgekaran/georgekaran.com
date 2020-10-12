@@ -31,7 +31,7 @@ export const Wrapper = styled.menu`
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
+    color: ${theme.colors.white} !important;
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
     text-decoration: none;

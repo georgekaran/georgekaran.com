@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
@@ -16,9 +17,15 @@ const Menu = () => {
 
       <MediaMatch className="flex" greaterThan="medium" >
         <S.MenuGroup>
-          <S.MenuLink>Home</S.MenuLink>
-          <S.MenuLink>Projetos</S.MenuLink>
-          <S.MenuLink>Contato</S.MenuLink>
+          <Link href="/">
+            <S.MenuLink data-testid="home-link">Home</S.MenuLink>
+          </Link>
+          <Link href="/projects">
+            <S.MenuLink data-testid="projects-link">Projetos</S.MenuLink>
+          </Link>
+          <Link href="/contact">
+            <S.MenuLink data-testid="contact-link">Contato</S.MenuLink>
+          </Link>
         </S.MenuGroup>
       </MediaMatch>
 
@@ -31,9 +38,15 @@ const Menu = () => {
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
         <S.MenuGroup>
-          <S.MenuLink>Home</S.MenuLink>
-          <S.MenuLink>Projetos</S.MenuLink>
-          <S.MenuLink>Contato</S.MenuLink>
+          <Link href="/">
+            <S.MenuLink data-testid="home-link-mobile">Home</S.MenuLink>
+          </Link>
+          <Link href="/projects">
+            <S.MenuLink data-testid="projects-link-mobile">Projetos</S.MenuLink>
+          </Link>
+          <Link href="/contact">
+            <S.MenuLink data-testid="contact-link-mobile">Contato</S.MenuLink>
+          </Link>
         </S.MenuGroup>
       </S.MenuFull>
     </S.Wrapper>
