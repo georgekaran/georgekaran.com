@@ -1,5 +1,7 @@
 import React from 'react'
+
 import * as S from './ProjectCard.styles'
+import { Button } from '@/components/Button'
 
 export type ProjectCardProps = {
   title: string
@@ -21,9 +23,9 @@ const ProjectCard = ({ title, tags, description, image }: ProjectCardProps) => (
       {description}
     </S.Description>
     <S.FooterWrapper>
-      <S.Button>
+      <Button>
         Ver detalhes
-      </S.Button>
+      </Button>
     </S.FooterWrapper>
   </S.Wrapper>
 )
