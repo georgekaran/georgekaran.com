@@ -36,4 +36,10 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.medium)
     expect(button).toHaveStyleRule('padding', `${theme.spacings.xxsmall} ${theme.spacings.xlarge}`)
   })
+
+  test('should render fullWidth if prop is provided', () => {
+    makeSut({ fullWidth: true })
+    const button = screen.getByRole('button', { name: /Button/ })
+    expect(button).toHaveStyleRule('width', '100%')
+  })
 })
