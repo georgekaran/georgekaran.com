@@ -20,4 +20,12 @@ describe('<Button />', () => {
     expect(button).toHaveStyleRule('font-size', theme.font.sizes.small)
     expect(button).toHaveStyleRule('padding', `${theme.spacings.xxsmall} ${theme.spacings.medium}`)
   })
+
+  test('should render small if small size is provided', () => {
+    makeSut({ size: 'small' })
+    const button = screen.getByRole('button', { name: /Button/ })
+    expect(button).toHaveStyleRule('height', '3rem')
+    expect(button).toHaveStyleRule('font-size', theme.font.sizes.small)
+    expect(button).toHaveStyleRule('padding', theme.spacings.xxsmall)
+  })
 })
