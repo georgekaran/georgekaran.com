@@ -1,5 +1,6 @@
 import React from 'react'
 import { screen, RenderResult } from '@testing-library/react'
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import { Button, ButtonProps } from '.'
 import { renderWithTheme } from '@/test/helpers'
@@ -41,5 +42,12 @@ describe('<Button />', () => {
     makeSut({ fullWidth: true })
     const button = screen.getByRole('button', { name: /Button/ })
     expect(button).toHaveStyleRule('width', '100%')
+  })
+
+  test('should render icon if an icon is provided', () => {
+    makeSut({ icon: <AddShoppingCart data-testid="icon" /> })
+    const icon = screen.getByTestId('icon')
+    expect(icon).toBeInTheDocument()
+    expect(screen.getByText(/Button/)).toBeInTheDocument()
   })
 })
