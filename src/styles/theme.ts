@@ -39,6 +39,7 @@ export default {
     gradient02: 'linear-gradient(265.22deg, #28F5BE -1.83%, rgba(40, 245, 190, 0) 95.01%)',
     gradient03: 'linear-gradient(83.89deg, #28F5BE 2.81%, #3B37FF 97.94%)',
     gradient04: 'linear-gradient(90deg, #F857A6 0%, #FF5858 100%)',
+    gradient05: 'linear-gradient(333.93deg, #484854 0%, #35353D 100%)',
     white: '#FFFFFF',
     gray: '#D4D4D4'
   },
