@@ -33,21 +33,21 @@ const GlobalStyles = createGlobalStyle`
         url('/fonts/poppins-v13-latin-600.woff2') format('woff2');
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   ${({ theme }) => css`
     html {
       font-size: 62.5%;
     }
 
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       font-family: ${theme.font.family};
+    }
+
+    body {
       font-size: ${theme.font.sizes.medium};
     }
   `}
