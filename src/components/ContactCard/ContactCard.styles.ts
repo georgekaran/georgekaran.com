@@ -8,12 +8,6 @@ export const Wrapper = styled.div`
     width: 36rem;
     padding: 1px;
     position: relative;
-
-    ${Overlay} {
-      &[aria-hidden="false"] {
-        opacity: 1;
-      }
-    }
   `}
 `
 
@@ -49,6 +43,10 @@ export const Overlay = styled.div`
     right: 0;
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
+
+    &[aria-hidden="false"] {
+      opacity: 1;
+    }
 
     ${IconWrapper} {
       margin-left: ${theme.spacings.small};
