@@ -86,7 +86,7 @@ const Home: React.FC = () => {
 
       <S.MediaGroup data-aos="fade-up" data-aos-offset="50" {...Animations.baseAosAnimation}>
         <S.Photo
-          src="/img/personal-photo.png"
+          src="/img/me/george_front.png"
           alt="George photo facing the camera"
         />
         <MediaMatch greaterThan="large">
