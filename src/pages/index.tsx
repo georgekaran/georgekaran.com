@@ -85,7 +85,36 @@ const Home: React.FC = () => {
       </S.HighlightGroup>
 
       <S.MediaGroup data-aos="fade-up" data-aos-offset="50" {...Animations.baseAosAnimation}>
-        <S.Photo src="/img/personal-photo.png" alt="George photo facing the camera"/>
+        <S.Photo
+          src="/img/personal-photo.png"
+          alt="George photo facing the camera"
+        />
+        <MediaMatch greaterThan="large">
+          <S.Shape
+            src='/img/shapes/rectangle_1.svg'
+            alt="Rectangle shape"
+            x="10%"
+            y="10%"
+          />
+          <S.Shape
+            src='/img/shapes/rectangle_2.svg'
+            alt="Square shape"
+            x="90%"
+            y="10%"
+          />
+          <S.Shape
+            src='/img/shapes/circle.svg'
+            alt="Circle shape"
+            x="-10%"
+            y="80%"
+          />
+          <S.Shape
+            src='/img/shapes/polygon.svg'
+            alt="Polygon shape"
+            x="90%"
+            y="60%"
+          />
+        </MediaMatch>
       </S.MediaGroup>
 
       <S.AboutMe>

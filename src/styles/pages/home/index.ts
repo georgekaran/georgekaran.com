@@ -41,10 +41,24 @@ export const MediaGroup = styled.section`
   ${({ theme }) => css`
     grid-area: media;
     justify-self: center;
+    position: relative;
 
     ${media.lessThan('medium')`
       width: 20em;
     `}
+  `}
+`
+
+type ShapeProps = {
+  x: string
+  y: string
+}
+
+export const Shape = styled.img<ShapeProps>`
+  ${({ x, y }) => css`
+    position: absolute;
+    top: ${y};
+    left: ${x};
   `}
 `
 
@@ -191,6 +205,10 @@ export const StackPlanetWrapper = styled.div`
     margin: ${theme.spacings.xxlarge} 0;
     display: flex;
     justify-content: center;
+
+    &:not(.aos-animate) * {
+      animation: none !important;
+    }
   `}
 `
 
