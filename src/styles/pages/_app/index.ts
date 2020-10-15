@@ -6,6 +6,7 @@ import * as F from '@/components/Footer/Footer.styles'
 export const Container = styled.div`
   ${({ theme }) => css`
     max-width: ${theme.grid.container};
+    width: 100%;
   `}
 `
 

@@ -44,6 +44,8 @@ export const ProjectsWrapper = styled.div`
     `};
 
     ${ProjectCardStyles.Wrapper} {
+      justify-self: center;
+
       &:nth-child(2n+2) {
         margin-top: -16rem;
       };
