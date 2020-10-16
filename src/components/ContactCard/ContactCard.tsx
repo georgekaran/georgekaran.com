@@ -4,12 +4,13 @@ import { ExternalLink as ExternalLinkIcon } from '@styled-icons/feather/External
 import * as S from './ContactCard.styles'
 
 export type ContactCardProps = {
+  socialMedia: string
   icon: React.ReactNode
   previewLink: string
   fullLink: string
 }
 
-const ContactCard = ({ icon, previewLink, fullLink } : ContactCardProps) => {
+const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardProps) => {
   const [open, setOpen] = useState(false)
 
   const copyToClipboard = async () => {
@@ -40,8 +41,8 @@ const ContactCard = ({ icon, previewLink, fullLink } : ContactCardProps) => {
             className="pointer"
             onClick={copyToClipboard}>
             <CopyIcon
-              aria-label="Copy URL"
-              title="Copy URL"
+              aria-label={`Copy ${socialMedia} url`}
+              title={`Copy ${socialMedia} url`}
             />
           </S.IconWrapper>
           <S.IconWrapper
@@ -50,8 +51,8 @@ const ContactCard = ({ icon, previewLink, fullLink } : ContactCardProps) => {
             target="__blank"
           >
             <ExternalLinkIcon
-              aria-label="Open link"
-              title="Open link"
+              aria-label={`Open ${socialMedia} link`}
+              title={`Open ${socialMedia} link`}
             />
           </S.IconWrapper>
         </S.ContentWrapper>
