@@ -3,7 +3,7 @@ import { Github as GithubIcon } from '@styled-icons/feather/Github'
 
 import { ContactCard } from '.'
 import { renderWithTheme } from '@/test/helpers'
-import { fireEvent, RenderResult, screen } from '@testing-library/react'
+import { fireEvent, RenderResult, screen, waitFor } from '@testing-library/react'
 
 const shouldOverlayBeVisible = (visible: boolean) => {
   const overlay = screen.getByTestId('overlay')
@@ -60,10 +60,18 @@ describe('<ContactCard />', () => {
     shouldOverlayBeVisible(false)
   })
 
-  it('should copy link to clipboard', () => {
+  it('should copy link to clipboard', async () => {
     makeSut()
-    const containerCopy = screen.getByLabelText(/copy github url/i).parentElement!
+    let containerCopy = screen.getByLabelText(/copy github url/i).parentElement!
     fireEvent.click(containerCopy)
+    containerCopy = await waitFor(() => screen.getByLabelText(/copy github url/i).parentElement!)
     expect(clipboardText).toEqual('https://github.com/georgekaran')
+    expect(containerCopy).toHaveStyleRule(
+      'content',
+      "'Copied to clipboard'",
+      {
+        modifier: '::before'
+      }
+    )
   })
 })
