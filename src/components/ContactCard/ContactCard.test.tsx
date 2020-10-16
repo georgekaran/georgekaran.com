@@ -16,6 +16,7 @@ const shouldOverlayBeVisible = (visible: boolean) => {
 const makeSut = (): RenderResult => {
   return renderWithTheme(
     <ContactCard
+      socialMedia="Github"
       icon={<GithubIcon aria-label="Github Icon" />}
       previewLink="georgekaran"
       fullLink="https://github.com/georgekaran"
@@ -24,10 +25,29 @@ const makeSut = (): RenderResult => {
 }
 
 describe('<ContactCard />', () => {
+  let clipboardText: string = ''
+
+  beforeAll(() => {
+    Object.assign(navigator, {
+      clipboard: {
+        writeText: (data: string): Promise<void> => new Promise((resolve) => {
+          clipboardText = data
+          resolve()
+        })
+      }
+    })
+  })
+
+  beforeEach(() => {
+    clipboardText = ''
+  })
+
   it('should render with initial state', () => {
     makeSut()
     expect(screen.getByLabelText(/github icon/i)).toBeInTheDocument()
     expect(screen.getByText('georgekaran')).toBeInTheDocument()
+    expect(screen.getByLabelText(/copy github url/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/open github link/i)).toBeInTheDocument()
     shouldOverlayBeVisible(false)
   })
 
@@ -38,5 +58,12 @@ describe('<ContactCard />', () => {
 
     fireEvent.mouseLeave(container.firstChild!)
     shouldOverlayBeVisible(false)
+  })
+
+  it('should copy link to clipboard', () => {
+    makeSut()
+    const containerCopy = screen.getByLabelText(/copy github url/i).parentElement!
+    fireEvent.click(containerCopy)
+    expect(clipboardText).toEqual('https://github.com/georgekaran')
   })
 })
