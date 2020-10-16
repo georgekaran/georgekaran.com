@@ -10,7 +10,8 @@ export default {
   args: {
     icon: <GithubIcon aria-label="Github Icon" />,
     previewLink: 'georgekaran',
-    fullLink: 'https://github.com/georgekaran'
+    fullLink: 'https://github.com/georgekaran',
+    socialMedia: 'Github'
   }
 } as Meta
 

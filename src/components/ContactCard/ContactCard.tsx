@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Copy as CopyIcon } from '@styled-icons/feather/Copy'
 import { ExternalLink as ExternalLinkIcon } from '@styled-icons/feather/ExternalLink'
 import * as S from './ContactCard.styles'
@@ -12,10 +12,20 @@ export type ContactCardProps = {
 
 const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardProps) => {
   const [open, setOpen] = useState(false)
+  const [isCopyClicked, setCopyClicked] = useState(false)
+
+  useEffect(() => {
+    if (isCopyClicked) {
+      setTimeout(() => {
+        setCopyClicked(false)
+      }, 1300)
+    }
+  }, [isCopyClicked])
 
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(fullLink)
+      setCopyClicked(true)
     } catch (e) {
       console.error(e)
     }
@@ -39,7 +49,10 @@ const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardP
         <S.ContentWrapper>
           <S.IconWrapper
             className="pointer"
-            onClick={copyToClipboard}>
+            onClick={copyToClipboard}
+            isClicked={isCopyClicked}
+            textOnClick="Copied to clipboard"
+          >
             <CopyIcon
               aria-label={`Copy ${socialMedia} url`}
               title={`Copy ${socialMedia} url`}
