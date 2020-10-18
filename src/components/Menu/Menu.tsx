@@ -11,6 +11,11 @@ export type MenuProps = {}
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
+
   return (
     <S.Wrapper>
       <Logo hideOnMobile />
@@ -35,17 +40,17 @@ const Menu = () => {
         </S.IconWrapper>
       </MediaMatch>
 
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
+      <S.MenuFull data-testid="menu-full" aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
         <S.MenuGroup>
           <Link href="/">
-            <S.MenuLink data-testid="home-link-mobile">Home</S.MenuLink>
+            <S.MenuLink data-testid="home-link-mobile" onClick={closeMenu}>Home</S.MenuLink>
           </Link>
           <Link href="/projects">
-            <S.MenuLink data-testid="projects-link-mobile">Projetos</S.MenuLink>
+            <S.MenuLink data-testid="projects-link-mobile" onClick={closeMenu}>Projetos</S.MenuLink>
           </Link>
           <Link href="/contact">
-            <S.MenuLink data-testid="contact-link-mobile">Contato</S.MenuLink>
+            <S.MenuLink data-testid="contact-link-mobile" onClick={closeMenu}>Contato</S.MenuLink>
           </Link>
         </S.MenuGroup>
       </S.MenuFull>
