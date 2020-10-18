@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouterContext } from 'next/dist/next-server/lib/router-context'
-import { RenderResult, screen, fireEvent } from '@testing-library/react'
+import { RenderResult, screen, fireEvent, waitFor } from '@testing-library/react'
 import { Router, NextRouter } from 'next/router'
 
 import { Menu } from '.'
@@ -106,6 +106,20 @@ describe('<Menu />', () => {
     const contact = screen.getByTestId('contact-link')
     fireEvent.click(contact)
     expect(router).toHaveBeenCalledWith('/contact')
+  })
+
+  test('shoud close MenuFull on MenuLink click', async () => {
+    makeSut()
+    // OPEN MENU MOBILE
+    const openMenuIcon = screen.getByLabelText('Open menu')
+    fireEvent.click(openMenuIcon)
+    let nav = await waitFor(() => screen.getByTestId('menu-full'))
+    expect(nav).toHaveAttribute('aria-hidden', 'false')
+
+    const link = screen.getByTestId('home-link-mobile')
+    fireEvent.click(link)
+    nav = await waitFor(() => screen.getByTestId('menu-full'))
+    expect(nav).toHaveAttribute('aria-hidden', 'true')
   })
 
   test('should match snapshot', () => {

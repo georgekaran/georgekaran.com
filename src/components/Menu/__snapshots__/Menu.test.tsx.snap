@@ -1054,6 +1054,7 @@ exports['<Menu /> should match snapshot 1'] = `
   <nav
     aria-hidden="true"
     class="c10"
+    data-testid="menu-full"
   >
     <svg
       aria-hidden="true"
