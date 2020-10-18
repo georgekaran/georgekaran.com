@@ -54,6 +54,7 @@
     "git-commit-msg-linter": "^2.7.0",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
+    "jest-localstorage-mock": "^2.4.3",
     "jest-styled-components": "^7.0.3",
     "lint-staged": "^10.4.0",
     "plop": "^2.7.4",
