@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 import { transparentize } from 'polished'
 
@@ -27,6 +27,39 @@ export const ContentWrapper = styled.div`
   `}
 `
 
+const iconModifiers = {
+  isClicked: (theme: DefaultTheme, textOnClick: string) => css`
+    &::before {
+      content: '${textOnClick}';
+      color: ${theme.colors.white};
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: max-content;
+      left: 2.4rem;
+      animation-name: Disappear;
+      animation-duration: 1300ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      animation-play-state: running;
+    }
+
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.small};
+    `}
+
+    @keyframes Disappear {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  `
+}
+
 type IconWrapperProps = {
   textOnClick?: string
   isClicked?: boolean
@@ -43,36 +76,7 @@ export const IconWrapper = styled.div<IconWrapperProps>`
       cursor: pointer;
     }
 
-    ${isClicked && css`
-      &::before {
-        content: '${textOnClick}';
-        color: ${theme.colors.white};
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: max-content;
-        left: 2.4rem;
-        animation-name: Disappear;
-        animation-duration: 1300ms;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        animation-play-state: running;
-      }
-
-      ${media.lessThan('small')`
-        font-size: ${theme.font.sizes.small};
-      `}
-
-      @keyframes Disappear {
-        0% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
-      }
-    `};
+    ${isClicked && iconModifiers.isClicked(theme, textOnClick!)};
 
     ${media.lessThan('small')`
       width: ${theme.font.sizes.xlarge};

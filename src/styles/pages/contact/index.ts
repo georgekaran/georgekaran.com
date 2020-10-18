@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 100%;
 
+    ${media.lessThan('1170px')`
+      grid-template-rows: auto auto 100%;
+    `}
+
     ${media.lessThan('medium')`
       margin: ${theme.spacings.small} 0;
     `}
@@ -24,15 +28,26 @@ export const Subtitle = styled.h4`
 `
 
 export const BoxWrapper = styled.div`
-  display: flex;
-  position: relative;
-  align-items: center;
+  ${({ theme }) => css`
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: ${theme.spacings.medium} 0;
+
+    ${media.lessThan('1170px')`
+      justify-content: center;
+    `}
+  `}
 `
 
 export const ImageWrapper = styled.div`
   position: relative;
   width: 36rem;
   height: 55rem;
+
+  ${media.lessThan('1170px')`
+    display: none;
+  `}
 `
 
 export const ContactBox = styled.div`
@@ -40,7 +55,20 @@ export const ContactBox = styled.div`
     background: ${theme.colors.black01};
     flex: 1;
     height: 40rem;
+    max-height: 53rem;
+    max-width: 87rem;
     z-index: ${theme.layers.overlay};
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: ${theme.spacings.medium};
+    gap: ${theme.spacings.medium};
+    align-items: center;
+    justify-items: center;
+
+    ${media.lessThan('medium')`
+      grid-template-columns: 1fr;
+      height: 100%;
+    `}
   `}
 `
 
