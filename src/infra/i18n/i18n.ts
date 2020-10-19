@@ -1,11 +1,13 @@
 import { Language } from '@/domain/models/language'
 import { i18n } from '@/data/interfaces/i18n'
-import messages from '../../../public/js/messages'
 
 export class I18N implements i18n {
   message?: any
 
-  constructor (public readonly language: Language) {
+  constructor (
+    public readonly language: Language,
+    private readonly messages: any
+  ) {
     this.message = messages[language]
   }
 
