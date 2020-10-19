@@ -7,7 +7,7 @@ import GlobalStyles from '@/styles/global'
 import theme from '@/styles/theme'
 import { Footer } from '@/components/Footer'
 import { Menu } from '@/components/Menu'
-import i18nContext from '@/contexts/i18n'
+import i18nContext from '@/contexts/language'
 import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/adapters/current-language'
 
 function App ({ Component, pageProps }: AppProps) {
