@@ -5,9 +5,9 @@ export const setCurrentLanguageAdapter = (language: Language): void => {
 }
 
 export const getCurrentLanguageAdapter = (): Language => {
-  try {
-    return <Language>JSON.parse(localStorage.getItem('__georgekaran_language')!)
-  } catch (e) {
-    return 'pt_BR'
+  const language: Language = (localStorage.getItem('__georgekaran_language') as Language)
+  if (language in Language) {
+    return language
   }
+  return Language.pt_BR
 }
