@@ -32,20 +32,16 @@ export const Wrapper = styled.div`
 `
 
 export const InfoGroup = styled.section`
-  ${({ theme }) => css`
-    grid-area: info;
-  `}
+  grid-area: info;
 `
 
 export const MediaGroup = styled.section`
-  ${({ theme }) => css`
-    grid-area: media;
-    justify-self: center;
-    position: relative;
+  grid-area: media;
+  justify-self: center;
+  position: relative;
 
-    ${media.lessThan('medium')`
-      width: 20em;
-    `}
+  ${media.lessThan('medium')`
+    width: 20em;
   `}
 `
 

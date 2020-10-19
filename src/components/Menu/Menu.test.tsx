@@ -21,7 +21,7 @@ const makeSut = (): SutTypes => {
     query: {},
     push: (path: string) => {
       routerPushed(path)
-      return new Promise((resolve, reject) => resolve(true))
+      return new Promise((resolve) => resolve(true))
     },
     replace: jest.fn(),
     reload: jest.fn(),
