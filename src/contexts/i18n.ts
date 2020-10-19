@@ -1,10 +1,9 @@
 import { createContext } from 'react'
 
-import { Language } from '@/domain/models/language'
+import { i18n } from '@/data/interfaces/i18n'
 
 type i18nProps = {
-  setCurrentLanguage?: (language: Language) => void
-  getCurrentLanguage?: () => Language
+  i18n?: i18n
 }
 
 export default createContext<i18nProps>({})
