@@ -2,13 +2,13 @@ import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
 
-import * as S from '@/styles/pages/_app'
-import GlobalStyles from '@/styles/global'
-import theme from '@/styles/theme'
-import { Footer } from '@/components/Footer'
-import { Menu } from '@/components/Menu'
-import i18nContext from '@/contexts/language'
-import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/adapters/current-language'
+import * as S from '@/presentation/styles/pages/_app'
+import GlobalStyles from '@/presentation/styles/global'
+import theme from '@/presentation/styles/theme'
+import { Footer } from '@/presentation/components/Footer'
+import { Menu } from '@/presentation/components/Menu'
+import i18nContext from '@/presentation/contexts/language'
+import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/main/adapters/current-language'
 
 function App ({ Component, pageProps }: AppProps) {
   return (

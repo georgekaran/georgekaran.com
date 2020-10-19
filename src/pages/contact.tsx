@@ -3,10 +3,10 @@ import { Mail as MailIcon } from '@styled-icons/feather/Mail'
 import { Linkedin as LinkedinIcon } from '@styled-icons/feather/Linkedin'
 import { Twitter as TwitterIcon } from '@styled-icons/feather/Twitter'
 
-import * as S from '@/styles/pages/contact'
-import * as Animations from '@/styles/animations'
-import { Heading } from '@/components/Heading'
-import { ContactCard } from '@/components/ContactCard'
+import * as S from '@/presentation/styles/pages/contact'
+import * as Animations from '@/presentation/styles/animations'
+import { Heading } from '@/presentation/components/Heading'
+import { ContactCard } from '@/presentation/components/ContactCard'
 
 const Contact = () => {
   return (

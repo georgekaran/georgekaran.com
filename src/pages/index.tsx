@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 
-import * as S from '@/styles/pages/home'
-import * as Animations from '@/styles/animations'
-import { HighlightBox } from '@/components/HighlightBox'
-import { Heading } from '@/components/Heading'
-import { Achievement, Timeline } from '@/components/Timeline'
-import { Space } from '@/components/Space'
-import { Planet } from '@/components/Planet'
-import { Technology } from '@/components/Technology'
-import { MediaMatch } from '@/components/MediaMatch'
-import { Slider } from '@/components/Slider'
-import { Testimonional } from '@/components/Testimonional'
+import * as S from '@/presentation/styles/pages/home'
+import * as Animations from '@/presentation/styles/animations'
+import { HighlightBox } from '@/presentation/components/HighlightBox'
+import { Heading } from '@/presentation/components/Heading'
+import { Achievement, Timeline } from '@/presentation/components/Timeline'
+import { Space } from '@/presentation/components/Space'
+import { Planet } from '@/presentation/components/Planet'
+import { Technology } from '@/presentation/components/Technology'
+import { MediaMatch } from '@/presentation/components/MediaMatch'
+import { Slider } from '@/presentation/components/Slider'
+import { Testimonional } from '@/presentation/components/Testimonional'
 
 const Home: React.FC = () => {
   const [achievements] = useState<Achievement[]>(

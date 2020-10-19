@@ -1,4 +1,4 @@
-import theme from '@/styles/theme'
+import theme from '@/presentation/styles/theme'
 
 type Theme = typeof theme
 

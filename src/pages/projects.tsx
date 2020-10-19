@@ -1,9 +1,9 @@
 import React from 'react'
 
-import * as S from '@/styles/pages/projects'
-import * as Animations from '@/styles/animations'
-import { Heading } from '@/components/Heading'
-import { ProjectCard } from '@/components/ProjectCard'
+import * as S from '@/presentation/styles/pages/projects'
+import * as Animations from '@/presentation/styles/animations'
+import { Heading } from '@/presentation/components/Heading'
+import { ProjectCard } from '@/presentation/components/ProjectCard'
 
 const Projects = () => {
   return (
