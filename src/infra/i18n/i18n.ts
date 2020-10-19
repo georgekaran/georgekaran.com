@@ -1,13 +1,13 @@
 import { Language } from '@/domain/models/language'
-import { i18n } from '@/data/interfaces/i18n'
+import { i18n, MessageFile } from '@/data/protocols'
 
 export class I18N implements i18n {
-  message?: any
-  maskPattern = new RegExp(/\$([0-9])+/)
+  private readonly message?: any
+  private readonly maskPattern = new RegExp(/\$([0-9])+/)
 
   constructor (
     public readonly language: Language,
-    private readonly messages: any
+    private readonly messages: MessageFile
   ) {
     this.message = messages[language]
   }
