@@ -15,4 +15,10 @@ describe('CurrentLanguageAdapter', () => {
     expect(localStorageGetItemSpy).toHaveBeenCalledWith('__georgekaran_language')
     expect(result).toEqual(language)
   })
+
+  test('Should return pt_BR if localStorage.getItem returns a non valid Language', () => {
+    jest.spyOn(localStorage, 'getItem').mockReturnValueOnce('not_valid_result')
+    const result = getCurrentLanguageAdapter()
+    expect(result).toEqual('pt_BR')
+  })
 })
