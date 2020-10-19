@@ -54,4 +54,11 @@ describe('i18n', () => {
     expect(result1).toBe(messagesMock[language].any_msg_mask.replace('$0', 'any_value'))
     expect(result2).toBe(messagesMock[language].any_msg2_mask.replace('$0', 'any_value').replace('$1', 'other_value'))
   })
+
+  test('should return the original msg if no mask is found', () => {
+    const { sut, language } = makeSut()
+    const result = sut.t('any_msg', ['any_value'])
+
+    expect(result).toBe(messagesMock[language].any_msg)
+  })
 })
