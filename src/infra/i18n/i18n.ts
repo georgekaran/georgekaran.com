@@ -3,6 +3,7 @@ import { i18n } from '@/data/interfaces/i18n'
 
 export class I18N implements i18n {
   message?: any
+  maskPattern = new RegExp(/\$([0-9])+/)
 
   constructor (
     public readonly language: Language,
@@ -12,10 +13,15 @@ export class I18N implements i18n {
   }
 
   t (message: string, args?: string[]): string {
-    if (args) {
-
+    let msg = this.message[message] as string
+    if (args?.length) {
+      let mask
+      // eslint-disable-next-line
+      while (mask = this.maskPattern.exec(msg)) {
+        msg = msg.replace(mask[0], args[Number(mask[1])])
+      }
     }
 
-    return this.message[message] || ''
+    return msg || ''
   }
 }
