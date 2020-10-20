@@ -5,6 +5,9 @@ export const setCurrentLanguageAdapter = (language: Language): void => {
 }
 
 export const getCurrentLanguageAdapter = (): Language => {
+  if (typeof window === 'undefined') {
+    return Language.pt_BR
+  }
   const language: Language = (localStorage.getItem('__georgekaran_language') as Language)
   if (language in Language) {
     return language
