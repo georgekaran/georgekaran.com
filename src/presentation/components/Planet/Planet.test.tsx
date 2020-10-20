@@ -3,7 +3,7 @@ import { RenderResult, screen, cleanup } from '@testing-library/react'
 
 import { Planet, PlanetProps } from '.'
 import { Technology } from '@/presentation/components/Technology'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 
 const componentFactory = (length: number): React.ReactNode[] => {
   const arr = []
@@ -29,7 +29,7 @@ const testOrbitElements = () => {
 type SutProps = Partial<PlanetProps>
 
 const makeSut = ({ orbitElements }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Planet orbitElements={orbitElements} />)
+  return render(<Planet orbitElements={orbitElements} />)
 }
 
 describe('<Planet />', () => {

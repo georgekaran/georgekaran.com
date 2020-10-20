@@ -2,13 +2,13 @@ import '@/test/mock-match-media'
 import React from 'react'
 
 import { Slider, SliderProps } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 import { RenderResult } from '@testing-library/react'
 
 type SutProps = Partial<SliderProps>
 
 const makeSut = ({ settings }: SutProps = {}): RenderResult => {
-  return renderWithTheme(
+  return render(
     <Slider settings={settings}>
       <h1 key="1">1</h1>
       <h1 key="2">2</h1>

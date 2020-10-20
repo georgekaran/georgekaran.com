@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Testimonional } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 import { screen } from '@testing-library/react'
 
 const elementsExists = (textContent: string): HTMLElement => {
@@ -12,7 +12,7 @@ const elementsExists = (textContent: string): HTMLElement => {
 
 describe('<Testimonional />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(
+    render(
       <Testimonional
         testimonial="any_testimonial"
         author="any_author"

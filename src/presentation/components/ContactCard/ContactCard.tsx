@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Copy as CopyIcon } from '@styled-icons/feather/Copy'
 import { ExternalLink as ExternalLinkIcon } from '@styled-icons/feather/ExternalLink'
+
 import * as S from './ContactCard.styles'
+import i18nContext from '@/presentation/contexts/i18n'
 
 export type ContactCardProps = {
   socialMedia: string
@@ -13,6 +15,7 @@ export type ContactCardProps = {
 const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardProps) => {
   const [open, setOpen] = useState(false)
   const [isCopyClicked, setCopyClicked] = useState(false)
+  const { i18n } = useContext(i18nContext)
 
   useEffect(() => {
     if (isCopyClicked) {
@@ -51,11 +54,11 @@ const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardP
             className="pointer"
             onClick={copyToClipboard}
             isClicked={isCopyClicked}
-            textOnClick="Copied to clipboard"
+            textOnClick={i18n?.t('copy_to_clipboard')}
           >
             <CopyIcon
-              aria-label={`Copy ${socialMedia} url`}
-              title={`Copy ${socialMedia} url`}
+              aria-label={i18n!.t('copy_url', [socialMedia])}
+              title={i18n!.t('copy_url', [socialMedia])}
             />
           </S.IconWrapper>
           <S.IconWrapper

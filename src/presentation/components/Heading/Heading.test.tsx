@@ -2,13 +2,13 @@ import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
 import { Heading, HeadingProps } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Partial<HeadingProps>
 
 const makeSut = ({ size, children = 'Heading' }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Heading size={size}>{children}</Heading>)
+  return render(<Heading size={size}>{children}</Heading>)
 }
 
 describe('<Heading />', () => {

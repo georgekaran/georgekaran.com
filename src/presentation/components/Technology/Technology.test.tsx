@@ -3,7 +3,7 @@ import { RenderResult, screen } from '@testing-library/react'
 import { transparentize } from 'polished'
 
 import { Technology, TechnologyProps } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Partial<TechnologyProps>
@@ -13,7 +13,7 @@ const makeSut = ({
   alt = 'React logo (Atom)',
   ...props
 }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Technology image={image} alt={alt} {...props} />)
+  return render(<Technology image={image} alt={alt} {...props} />)
 }
 
 describe('<Technology />', () => {

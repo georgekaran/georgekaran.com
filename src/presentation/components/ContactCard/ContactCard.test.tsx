@@ -2,7 +2,7 @@ import React from 'react'
 import { Github as GithubIcon } from '@styled-icons/feather/Github'
 
 import { ContactCard } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render, msg } from '@/test/helpers'
 import { fireEvent, RenderResult, screen, waitFor } from '@testing-library/react'
 
 const shouldOverlayBeVisible = (visible: boolean) => {
@@ -14,7 +14,7 @@ const shouldOverlayBeVisible = (visible: boolean) => {
 }
 
 const makeSut = (): RenderResult => {
-  return renderWithTheme(
+  return render(
     <ContactCard
       socialMedia="Github"
       icon={<GithubIcon aria-label="Github Icon" />}
@@ -46,7 +46,7 @@ describe('<ContactCard />', () => {
     makeSut()
     expect(screen.getByLabelText(/github icon/i)).toBeInTheDocument()
     expect(screen.getByText('georgekaran')).toBeInTheDocument()
-    expect(screen.getByLabelText(/copy github url/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/copiar github url/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/open github link/i)).toBeInTheDocument()
     shouldOverlayBeVisible(false)
   })
@@ -62,13 +62,13 @@ describe('<ContactCard />', () => {
 
   it('should copy link to clipboard', async () => {
     makeSut()
-    let containerCopy = screen.getByLabelText(/copy github url/i).parentElement!
+    let containerCopy = screen.getByLabelText(/Copiar github url/i).parentElement!
     fireEvent.click(containerCopy)
-    containerCopy = await waitFor(() => screen.getByLabelText(/copy github url/i).parentElement!)
+    containerCopy = await waitFor(() => screen.getByLabelText(/Copiar github url/i).parentElement!)
     expect(clipboardText).toEqual('https://github.com/georgekaran')
     expect(containerCopy).toHaveStyleRule(
       'content',
-      "'Copied to clipboard'",
+      `'${msg.copy_to_clipboard}'`,
       {
         modifier: '::before'
       }

@@ -3,13 +3,13 @@ import { screen, RenderResult } from '@testing-library/react'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import { Button, ButtonProps, ButtonTypes } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Omit<ButtonProps, 'children'> & ButtonTypes
 
 const makeSut = ({ size = 'medium', fullWidth = false, icon = null, as = 'button', ...props }: SutProps = {}): RenderResult => {
-  return renderWithTheme(<Button size={size} fullWidth={fullWidth} icon={icon} as={as} {...props}>Button</Button>)
+  return render(<Button size={size} fullWidth={fullWidth} icon={icon} as={as} {...props}>Button</Button>)
 }
 
 describe('<Button />', () => {

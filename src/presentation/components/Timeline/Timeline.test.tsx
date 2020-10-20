@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
 import { Timeline, Achievement } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 
 const createAchievements = (length: number): Achievement[] => {
   let year = 2018
@@ -51,7 +51,7 @@ const Wrapper = ({ numberAchievements }: WrapperProps) => {
 type SutProps = WrapperProps
 
 const makeSut = (props: SutProps): RenderResult => {
-  return renderWithTheme(
+  return render(
     <Wrapper {...props} />
   )
 }
@@ -80,7 +80,7 @@ describe('<Timeline />', () => {
   })
 
   it('should match snapshot', () => {
-    const { container } = renderWithTheme(<Timeline achievements={[]} />)
+    const { container } = render(<Timeline achievements={[]} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 })

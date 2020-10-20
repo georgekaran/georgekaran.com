@@ -4,7 +4,7 @@ import { RenderResult, screen, fireEvent, waitFor } from '@testing-library/react
 import { Router, NextRouter } from 'next/router'
 
 import { Menu } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 
 type SutTypes = {
   sut: RenderResult
@@ -37,7 +37,7 @@ const makeSut = (): SutTypes => {
   }
   // @ts-ignore
   Router.router = mockedRouter
-  const sut = renderWithTheme(
+  const sut = render(
     <RouterContext.Provider value={{ ...mockedRouter }}>
       <Menu />
     </RouterContext.Provider>

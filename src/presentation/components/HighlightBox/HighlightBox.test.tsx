@@ -2,11 +2,11 @@ import React from 'react'
 import { screen } from '@testing-library/react'
 
 import { HighlightBox } from '.'
-import { renderWithTheme } from '@/test/helpers'
+import { render } from '@/test/helpers'
 
 describe('<HighlightBox />', () => {
   it('should render with initial state', () => {
-    renderWithTheme(<HighlightBox primaryText="10" secondaryText="any_text" />)
+    render(<HighlightBox primaryText="10" secondaryText="any_text" />)
     expect(screen.getByRole('heading', { name: /10/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /any_text/i })).toBeInTheDocument()
 
@@ -25,7 +25,7 @@ describe('<HighlightBox />', () => {
   })
 
   it('should match snapshot', () => {
-    const { container } = renderWithTheme(<HighlightBox primaryText="10" secondaryText="any_text" />)
+    const { container } = render(<HighlightBox primaryText="10" secondaryText="any_text" />)
     expect(container.firstChild).toMatchSnapshot()
   })
 })
