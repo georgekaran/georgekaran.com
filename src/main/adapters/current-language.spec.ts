@@ -2,6 +2,10 @@ import { mockLanguage } from '@/test/mockLanguage'
 import { setCurrentLanguageAdapter, getCurrentLanguageAdapter } from './current-language'
 
 describe('CurrentLanguageAdapter', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   test('Should call localStorage.setItem with correct value', () => {
     const language = mockLanguage()
     setCurrentLanguageAdapter(language)
@@ -18,6 +22,12 @@ describe('CurrentLanguageAdapter', () => {
 
   test('Should return pt_BR if localStorage.getItem returns a non valid Language', () => {
     jest.spyOn(localStorage, 'getItem').mockReturnValueOnce('not_valid_result')
+    const result = getCurrentLanguageAdapter()
+    expect(result).toEqual('pt_BR')
+  })
+
+  test('Should return pt_BR if window is undefined', () => {
+    jest.spyOn(global as any, 'window', 'get').mockImplementationOnce(() => undefined)
     const result = getCurrentLanguageAdapter()
     expect(result).toEqual('pt_BR')
   })
