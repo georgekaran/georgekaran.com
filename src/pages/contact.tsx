@@ -7,22 +7,25 @@ import * as S from '@/presentation/styles/pages/contact'
 import * as Animations from '@/presentation/styles/animations'
 import { Heading } from '@/presentation/components/Heading'
 import { ContactCard } from '@/presentation/components/ContactCard'
+import useI18N from '@/presentation/hooks/usei18n'
 
 const Contact = () => {
+  const i18n = useI18N()
+
   return (
     <S.Wrapper>
       <Heading
         data-aos="slide-right"
         {...Animations.baseAosAnimation}
       >
-        Entre em contato comigo
+        {i18n.t('contact_me')}
       </Heading>
 
       <S.Subtitle
         data-aos="slide-right"
         {...Animations.baseAosAnimation}
       >
-        Estas são as minhas principais redes sociais, não hesite em iniciar uma conversa. 😀
+        {i18n.t('contact_me_description')} 😀
       </S.Subtitle>
       <S.BoxWrapper>
         <S.ContactBox>
@@ -53,7 +56,7 @@ const Contact = () => {
         </S.ContactBox>
         <S.ImageWrapper>
           <S.TransparentBox />
-          <S.Image src="/img/me/george_brooklyn_bridge.png" alt="George sitting on the brooklyn bridge in New York City" />
+          <S.Image src="/img/me/george_brooklyn_bridge.png" alt={i18n.t('contact_me_image_alt')} />
         </S.ImageWrapper>
       </S.BoxWrapper>
     </S.Wrapper>

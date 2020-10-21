@@ -4,28 +4,31 @@ import * as S from '@/presentation/styles/pages/projects'
 import * as Animations from '@/presentation/styles/animations'
 import { Heading } from '@/presentation/components/Heading'
 import { ProjectCard } from '@/presentation/components/ProjectCard'
+import useI18N from '@/presentation/hooks/usei18n'
 
 const Projects = () => {
+  const i18n = useI18N()
+
   return (
     <S.Wrapper>
       <Heading
         data-aos="slide-right"
         {...Animations.baseAosAnimation}
       >
-          Projetos
+        {i18n.t('projects')}
       </Heading>
       <S.Subtitle
         data-aos="slide-right"
         {...Animations.baseAosAnimation}
       >
-        Aqui estão alguns projetos que fiz ao longo de minha trajetória, espero que goste!
+        {i18n.t('projects_description')}
       </S.Subtitle>
       <S.ProjectsWrapper>
         <ProjectCard
           title='georgekaran.com'
           tags={['React', 'Next.JS', 'Styled-Components']}
           image='/img/projects/georgekaran-card.png'
-          description='George Karan personal page where you can find some of my projects and updates about me.'
+          description={i18n.t('project_personal_page')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -33,7 +36,7 @@ const Projects = () => {
           title='Won Games'
           tags={['React', 'Strapi', 'Typescript']}
           image='/img/projects/won-games-card.png'
-          description='Ecommerce project for selling games using Strapi, React and Styled-Components.'
+          description={i18n.t('project_won_games')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -41,7 +44,7 @@ const Projects = () => {
           title='Ticketing'
           tags={['React', 'NodeJS', 'NATS']}
           image='/img/projects/ticketing-card.png'
-          description='Buy and sell tickets in this microservices based project.'
+          description={i18n.t('project_ticketing')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -49,7 +52,7 @@ const Projects = () => {
           title='Survey App'
           tags={['React', 'NodeJS', 'Typescript']}
           image='/img/projects/survey-card.png'
-          description='Survey project written in React and Typescript using TDD.'
+          description={i18n.t('project_survey')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -57,7 +60,7 @@ const Projects = () => {
           title='Ecoleta'
           tags={['React', 'NodeJS', 'Native']}
           image='/img/projects/ecoleta-card.png'
-          description='Market place for waste collection written in React, React-Native and Node.JS.'
+          description={i18n.t('project_ecoleta')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -65,7 +68,7 @@ const Projects = () => {
           title='Star Wars UI'
           tags={['React', 'NodeJS', 'Typescript']}
           image='/img/projects/star-wars-card.png'
-          description='Star Wars UI landing page consuming data from https://swapi.co.'
+          description={i18n.t('project_star_wars')}
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />

@@ -125,7 +125,7 @@ const Home: React.FC = () => {
           {...Animations.baseAosAnimation}
           data-aos-duration="1000"
         >
-          Sobre mim
+          {i18n.t('about_me')}
         </Heading>
 
         <S.AboutMeContentWrapper>
@@ -158,7 +158,7 @@ const Home: React.FC = () => {
       </S.AboutMe>
 
       <S.Stack>
-        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>Minha stack</Heading>
+        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>{i18n.t('my_stack')}</Heading>
         <Space stars={20}>
           <S.StackPlanetWrapper
             data-aos="fade-up"
@@ -172,14 +172,14 @@ const Home: React.FC = () => {
       </S.Stack>
 
       <S.Testimonial>
-        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>Depoimentos</Heading>
+        <Heading data-aos="slide-right" {...Animations.baseAosAnimation}>{i18n.t('testimonials')}</Heading>
         <S.TestimonialDescriptionWrapper>
           <S.TestimonialDescription data-aos="fade-up" {...Animations.baseAosAnimation}>
-            Leia os depoimentos de pessoas que já trabalharam comigo e o que elas tem a dizer sobre mim.
+            {i18n.t('testimonials_description')}
           </S.TestimonialDescription>
           <MediaMatch greaterThan="medium">
             <S.TestimonialImageWrapper data-aos="fade-up" {...Animations.baseAosAnimation}>
-              <S.TestimonialImage src="/img/testimonials.svg" alt="Guy sitting with chat ballons floating around" />
+              <S.TestimonialImage src="/img/testimonials.svg" alt={i18n.t('testimonials_image_alt')} />
             </S.TestimonialImageWrapper>
           </MediaMatch>
         </S.TestimonialDescriptionWrapper>
