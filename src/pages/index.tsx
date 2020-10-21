@@ -11,6 +11,7 @@ import { Technology } from '@/presentation/components/Technology'
 import { MediaMatch } from '@/presentation/components/MediaMatch'
 import { Slider } from '@/presentation/components/Slider'
 import { Testimonional } from '@/presentation/components/Testimonional'
+import useI18N from '@/presentation/hooks/usei18n'
 
 const Home: React.FC = () => {
   const [achievements] = useState<Achievement[]>(
@@ -47,7 +48,6 @@ const Home: React.FC = () => {
       }
     ]
   )
-
   const [technologies] = useState<React.ReactNode[]>(
     [
       <Technology key="react" image="/img/technology/react.png" alt="React" />,
@@ -61,33 +61,34 @@ const Home: React.FC = () => {
       <Technology key="postgresql" image="/img/technology/postgresql.png" alt="Postgres SQL" />
     ]
   )
+  const i18n = useI18N()
 
   return (
     <S.Wrapper>
       <S.InfoGroup>
         <S.Job data-aos="slide-right" {...Animations.baseAosAnimation}>
-          Fullstack engineer
+          {i18n.t('fullstack')}
         </S.Job>
         <S.PresentationWrapper>
           <S.Presentation>
-            Olá, eu sou George
+            {i18n.t('presentation')}
           </S.Presentation>
         </S.PresentationWrapper>
         <S.Description data-aos="fade-up" {...Animations.baseAosAnimation}>
-          Um desenvolvedor apaixonado pela tecnologia web e amante de conceitos de UI design!
+          {i18n.t('presentation_description')}
         </S.Description>
       </S.InfoGroup>
 
       <S.HighlightGroup>
-        <HighlightBox primaryText="2" secondaryText="anos de experiência" />
-        <HighlightBox primaryText="8" secondaryText="projetos desenvolvidos" />
-        <HighlightBox primaryText="+10" secondaryText="cursos concluídos" />
+        <HighlightBox primaryText="2" secondaryText={i18n.t('years_experience')} />
+        <HighlightBox primaryText="8" secondaryText={i18n.t('projects_developed')} />
+        <HighlightBox primaryText="+10" secondaryText={i18n.t('completed_courses')} />
       </S.HighlightGroup>
 
       <S.MediaGroup data-aos="fade-up" data-aos-offset="50" {...Animations.baseAosAnimation}>
         <S.Photo
           src="/img/me/george_front.png"
-          alt="George photo facing the camera"
+          alt={i18n.t('george_front_alt')}
         />
         <MediaMatch greaterThan="large">
           <S.Shape

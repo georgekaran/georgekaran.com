@@ -1034,7 +1034,7 @@ exports['<Menu /> should match snapshot 1'] = `
     >
       <svg
         aria-hidden="true"
-        aria-label="Open menu"
+        aria-label="Abrir menu"
         class="c9"
         fill="currentColor"
         focusable="false"
@@ -1058,7 +1058,7 @@ exports['<Menu /> should match snapshot 1'] = `
   >
     <svg
       aria-hidden="true"
-      aria-label="Close menu"
+      aria-label="Fechar menu"
       class="c9"
       fill="currentColor"
       focusable="false"

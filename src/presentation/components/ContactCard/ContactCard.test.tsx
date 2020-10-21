@@ -47,7 +47,7 @@ describe('<ContactCard />', () => {
     expect(screen.getByLabelText(/github icon/i)).toBeInTheDocument()
     expect(screen.getByText('georgekaran')).toBeInTheDocument()
     expect(screen.getByLabelText(/copiar github url/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/open github link/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/abrir github/i)).toBeInTheDocument()
     shouldOverlayBeVisible(false)
   })
 

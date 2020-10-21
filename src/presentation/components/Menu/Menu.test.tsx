@@ -51,7 +51,7 @@ const makeSut = (): SutTypes => {
 describe('<Menu />', () => {
   test('should render with initial state', () => {
     const { sut } = makeSut()
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/George Mueller/i)).toBeInTheDocument()
     expect(sut.container.firstChild).toHaveStyle({
       padding: '2.4rem 3.2rem'
@@ -64,7 +64,7 @@ describe('<Menu />', () => {
 
   test('shoud open mobile menu', () => {
     makeSut()
-    const menuIcon = screen.getByLabelText(/open menu/i)
+    const menuIcon = screen.getByLabelText(/abrir menu/i)
     fireEvent.click(menuIcon)
 
     const menuFull = screen.getByRole('navigation')
@@ -73,14 +73,14 @@ describe('<Menu />', () => {
       opacity: '1',
       pointerEvents: 'all'
     })
-    expect(screen.getByLabelText(/close menu/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/fechar menu/i)).toBeInTheDocument()
   })
 
   test('shoud close mobile menu', () => {
     makeSut()
-    const menuIcon = screen.getByLabelText(/open menu/i)
+    const menuIcon = screen.getByLabelText(/abrir menu/i)
     fireEvent.click(menuIcon)
-    const closeIcon = screen.getByLabelText(/close menu/i)
+    const closeIcon = screen.getByLabelText(/fechar menu/i)
     fireEvent.click(closeIcon)
 
     const menuFull = screen.getByRole('navigation', { hidden: true })
@@ -89,7 +89,7 @@ describe('<Menu />', () => {
       opacity: '0',
       pointerEvents: 'none'
     })
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
   })
 
   test('shoud navigate to other pages', () => {
@@ -111,7 +111,7 @@ describe('<Menu />', () => {
   test('shoud close MenuFull on MenuLink click', async () => {
     makeSut()
     // OPEN MENU MOBILE
-    const openMenuIcon = screen.getByLabelText('Open menu')
+    const openMenuIcon = screen.getByLabelText('Abrir menu')
     fireEvent.click(openMenuIcon)
     let nav = await waitFor(() => screen.getByTestId('menu-full'))
     expect(nav).toHaveAttribute('aria-hidden', 'false')
