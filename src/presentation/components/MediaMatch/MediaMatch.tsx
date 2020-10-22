@@ -3,7 +3,7 @@ import media, { DefaultBreakpoints } from 'styled-media-query'
 
 type Breakpoint = keyof DefaultBreakpoints
 
-export type DisplayType = 'block' | 'flex' | 'none'
+export type DisplayType = 'block' | 'flex' | 'contents' | 'none'
 
 export type MediaMatchProps = {
   lessThan?: Breakpoint
