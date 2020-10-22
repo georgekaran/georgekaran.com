@@ -1,18 +1,26 @@
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import LanguageContext from '@/presentation/contexts/language'
-import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/main/adapters/current-language'
+import { Language } from '@/domain/models/language'
 
 type LanguageHOCProps = {
-  children: React.ReactNode
+  children: React.ReactNode,
+  getCurrentLanguage: () => Language,
+  setCurrentLanguage: (language: Language) => void,
 }
 
-const LanguageProvider = ({ children }: LanguageHOCProps) => {
+const LanguageProvider = ({ children, getCurrentLanguage, setCurrentLanguage }: LanguageHOCProps) => {
+  const [language, setLanguage] = useState(getCurrentLanguage())
+
+  useEffect(() => {
+    setCurrentLanguage(language)
+  }, [language, setCurrentLanguage])
+
   return (
     <LanguageContext.Provider value={{
-      getCurrentLanguage: getCurrentLanguageAdapter,
-      setCurrentLanguage: setCurrentLanguageAdapter
+      setLanguage,
+      language
     }}>
       {children}
     </LanguageContext.Provider>

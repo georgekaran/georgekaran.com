@@ -6,10 +6,14 @@ import theme from '@/presentation/styles/theme'
 import LanguageProvider from '@/main/factories/context/LanguageProvider'
 import I18NProvider from '@/main/factories/context/I18NProvider'
 import messages from '@/main/config/messages'
+import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/main/adapters/current-language'
 
 export const render = (children: React.ReactNode): RenderResult => {
   return renderTesting(
-    <LanguageProvider>
+    <LanguageProvider
+      setCurrentLanguage={setCurrentLanguageAdapter}
+      getCurrentLanguage={getCurrentLanguageAdapter}
+    >
       <I18NProvider>
         <ThemeProvider theme={theme}>
           {children}

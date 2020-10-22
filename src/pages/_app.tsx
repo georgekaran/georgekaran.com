@@ -9,10 +9,14 @@ import { Footer } from '@/presentation/components/Footer'
 import { Menu } from '@/presentation/components/Menu'
 import LanguageProvider from '@/main/factories/context/LanguageProvider'
 import I18NProvider from '@/main/factories/context/I18NProvider'
+import { getCurrentLanguageAdapter, setCurrentLanguageAdapter } from '@/main/adapters/current-language'
 
 function App ({ Component, pageProps }: AppProps) {
   return (
-    <LanguageProvider>
+    <LanguageProvider
+      setCurrentLanguage={setCurrentLanguageAdapter}
+      getCurrentLanguage={getCurrentLanguageAdapter}
+    >
       <I18NProvider>
         <ThemeProvider theme={theme}>
           <Head>
