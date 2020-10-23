@@ -31,6 +31,7 @@ const messages: MessageFile = {
     project_survey: 'Projeto de enquetes escrito em React e Typescript usando como metodologia o TDD.',
     project_ecoleta: 'Market place for waste collection written in React, React-Native and Node.JS.',
     project_star_wars: 'Página inicial de Star Wars usando dados de https://swapi.co.',
+    language: 'Idioma',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar $0 url',
     open_url: 'Abrir $0'
@@ -65,6 +66,7 @@ const messages: MessageFile = {
     project_survey: 'Survey project written in React and Typescript using TDD.',
     project_ecoleta: 'Market place para a coleta de lixo escrito em React, React-Native e Node.JS.',
     project_star_wars: 'Star Wars UI landing page consuming data from https://swapi.co.',
+    language: 'Language',
     copy_to_clipboard: 'Copied to clipboard',
     copy_url: 'Copy $0 url',
     open_url: 'Open $0'
@@ -99,6 +101,7 @@ const messages: MessageFile = {
     project_survey: 'Proyecto de encuesta escrito en React y Typecript usando metodología TDD.',
     project_ecoleta: 'Mercado para la recolección de residuos escrito en React, React-Native y Node.JS.',
     project_star_wars: 'Página de inicio de Star Wars con datos de https://swapi.co.',
+    language: 'Idioma',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar url de $0',
     open_url: 'Abrir $0'
