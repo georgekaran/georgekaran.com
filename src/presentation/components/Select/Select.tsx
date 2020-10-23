@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import * as S from './Select.styles'
 
@@ -9,7 +9,13 @@ export type SelectProps = {
 }
 
 const Select = ({ options, initialValue, onChange }: SelectProps) => {
-  const [selected, setSelected] = useState(initialValue || '')
+  const [selected, setSelected] = useState('')
+
+  useEffect(() => {
+    if (initialValue) {
+      setSelected(initialValue)
+    }
+  }, [initialValue])
 
   const onChangeInternal = (event: React.ChangeEvent<HTMLSelectElement>) => {
     if (document.activeElement instanceof HTMLElement) {
@@ -21,7 +27,7 @@ const Select = ({ options, initialValue, onChange }: SelectProps) => {
 
   return (
     <S.Wrapper>
-      <S.Select data-testid="select" defaultValue={selected} onChange={onChangeInternal}>
+      <S.Select data-testid="select" value={selected} onChange={onChangeInternal}>
         {options.map(option => (<S.Option key={option} value={option}>{option}</S.Option>))}
       </S.Select>
     </S.Wrapper>
