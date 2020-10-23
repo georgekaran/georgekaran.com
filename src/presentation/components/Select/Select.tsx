@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import * as S from './Select.styles'
 
 export type SelectProps = {
+  ariaLabel?: string
   options: string[]
   initialValue?: string
   onChange: (value: string) => void
 }
 
-const Select = ({ options, initialValue, onChange }: SelectProps) => {
+const Select = ({ options, initialValue, ariaLabel, onChange }: SelectProps) => {
   const [selected, setSelected] = useState('')
 
   useEffect(() => {
@@ -27,7 +28,12 @@ const Select = ({ options, initialValue, onChange }: SelectProps) => {
 
   return (
     <S.Wrapper>
-      <S.Select data-testid="select" value={selected} onChange={onChangeInternal}>
+      <S.Select
+        aria-label={ariaLabel}
+        data-testid="select"
+        value={selected}
+        onChange={onChangeInternal}
+      >
         {options.map(option => (<S.Option key={option} value={option}>{option}</S.Option>))}
       </S.Select>
     </S.Wrapper>
