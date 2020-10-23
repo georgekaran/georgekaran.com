@@ -10,12 +10,13 @@ type SutTypes = {
   onChangeMock: jest.Mock<any, any>
 }
 
-type SutProps = Pick<SelectProps, 'initialValue'>
+type SutProps = Pick<SelectProps, 'initialValue' | 'ariaLabel'>
 
-const makeSut = ({ initialValue }: SutProps = {}): SutTypes => {
+const makeSut = ({ initialValue, ariaLabel }: SutProps = {}): SutTypes => {
   const onChangeMock = jest.fn()
   const sut = render(
     <Select
+      ariaLabel={ariaLabel}
       initialValue={initialValue}
       options={['PT-BR', 'EN-US', 'ES-ES']}
       onChange={onChangeMock}
@@ -53,5 +54,10 @@ describe('<Select />', () => {
     })
     expect(onChangeMock).toHaveBeenCalled()
     expect(screen.getByTestId('select')).toHaveProperty('value', 'EN-US')
+  })
+
+  it('should have property aria-label if ariaLabel is provided', () => {
+    makeSut({ ariaLabel: 'any_label' })
+    expect(screen.getByLabelText('any_label')).toBeInTheDocument()
   })
 })
