@@ -3,15 +3,24 @@ import React from 'react'
 import { Select } from '.'
 import { render } from '@/test/helpers'
 import { RenderResult, screen } from '@testing-library/react'
+import { SelectProps } from './Select'
 
 type SutTypes = {
   sut: RenderResult
   onChangeMock: jest.Mock<any, any>
 }
 
-const makeSut = (): SutTypes => {
+type SutProps = Pick<SelectProps, 'initialValue'>
+
+const makeSut = ({ initialValue }: SutProps = {}): SutTypes => {
   const onChangeMock = jest.fn()
-  const sut = render(<Select options={['PT-BR', 'EN-US', 'ES-ES']} onChange={onChangeMock} />)
+  const sut = render(
+    <Select
+      initialValue={initialValue}
+      options={['PT-BR', 'EN-US', 'ES-ES']}
+      onChange={onChangeMock}
+    />
+  )
   return {
     sut,
     onChangeMock
@@ -27,5 +36,10 @@ describe('<Select />', () => {
     expect(screen.getByRole('option', { name: /pt-br/i })).toBeInTheDocument()
     expect(screen.getByRole('option', { name: /en-us/i })).toBeInTheDocument()
     expect(screen.getByRole('option', { name: /es-es/i })).toBeInTheDocument()
+  })
+
+  it('should set initial valeu correctly', () => {
+    makeSut({ initialValue: 'ES-ES' })
+    expect(screen.getByTestId('select')).toHaveProperty('value', 'ES-ES')
   })
 })
