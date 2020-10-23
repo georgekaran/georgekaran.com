@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Link from 'next/link'
 import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
@@ -7,15 +7,23 @@ import * as S from './Menu.styles'
 import { Logo } from '@/presentation/components/Logo'
 import { MediaMatch } from '@/presentation/components/MediaMatch'
 import useI18N from '@/presentation/hooks/usei18n'
+import { Select } from '@/presentation/components/Select'
+import { Language } from '@/domain/models/language'
+import LanguageContext from '@/presentation/contexts/language'
 
 export type MenuProps = {}
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { language, setLanguage } = useContext(LanguageContext)
   const i18n = useI18N()
 
   const closeMenu = () => {
     setIsOpen(false)
+  }
+
+  const onLanguageChange = (lan: string) => {
+    setLanguage!(lan as Language)
   }
 
   return (
@@ -34,6 +42,15 @@ const Menu = () => {
             <S.MenuLink data-testid="contact-link">{i18n.t('contact')}</S.MenuLink>
           </Link>
         </S.MenuGroup>
+      </MediaMatch>
+
+      <MediaMatch display="contents" greaterThan="medium" >
+        <Select
+          ariaLabel={i18n.t('language')}
+          initialValue={language!}
+          options={Object.values(Language)}
+          onChange={onLanguageChange}
+        />
       </MediaMatch>
 
       <MediaMatch lessThan="medium">

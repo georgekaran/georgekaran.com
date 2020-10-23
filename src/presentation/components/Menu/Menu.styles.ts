@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import MediaMatch from '@/presentation/components/MediaMatch/MediaMatch'
+import * as Select from '@/presentation/components/Select/Select.styles'
 
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
@@ -19,13 +20,17 @@ export const Wrapper = styled.menu`
       justify-content: space-between;
     `};
 
+    ${Select.Wrapper} {
+      flex: 0 0 100px;
+    };
+
     ${MediaMatch.default} {
       .flex {
         flex: 1;
         justify-content: center;
         align-items: center;
       }
-    }
+    };
   `}
 `
 
@@ -45,10 +50,6 @@ export const MenuGroup = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-
-  &:first-child {
-    transform: translateX(-65px);
-  }
 
   ${({ theme }) => css`
     ${MenuLink} {
@@ -98,7 +99,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       cursor: pointer;
       width: ${theme.spacings.medium};
       height: ${theme.spacings.medium};
-    }
+    };
 
     ${MenuGroup} {
       display: flex;
@@ -106,7 +107,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
       justify-content: center;
       flex: 1;
       flex-direction: column;
-    }
+    };
 
     ${MenuLink} {
       color: ${theme.colors.white};
@@ -116,6 +117,6 @@ export const MenuFull = styled.nav<MenuFullProps>`
       margin-bottom: ${theme.spacings.small};
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
-    }
+    };
   `}
 `
