@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Select } from '.'
 import { render } from '@/test/helpers'
-import { RenderResult, screen } from '@testing-library/react'
+import { fireEvent, RenderResult, screen } from '@testing-library/react'
 import { SelectProps } from './Select'
 
 type SutTypes = {
@@ -41,5 +41,17 @@ describe('<Select />', () => {
   it('should set initial valeu correctly', () => {
     makeSut({ initialValue: 'ES-ES' })
     expect(screen.getByTestId('select')).toHaveProperty('value', 'ES-ES')
+  })
+
+  it('should call onChange when value change', () => {
+    const { onChangeMock } = makeSut()
+    const select = screen.getByTestId('select') as HTMLSelectElement
+    fireEvent.change(select, {
+      target: {
+        value: 'EN-US'
+      }
+    })
+    expect(onChangeMock).toHaveBeenCalled()
+    expect(screen.getByTestId('select')).toHaveProperty('value', 'EN-US')
   })
 })
