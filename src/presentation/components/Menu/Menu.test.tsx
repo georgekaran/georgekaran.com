@@ -53,6 +53,7 @@ describe('<Menu />', () => {
     const { sut } = makeSut()
     expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/George Mueller/i)).toBeInTheDocument()
+    expect(screen.getByLabelText('Idioma')).toBeInTheDocument()
     expect(sut.container.firstChild).toHaveStyle({
       padding: '2.4rem 3.2rem'
     })
@@ -120,6 +121,18 @@ describe('<Menu />', () => {
     fireEvent.click(link)
     nav = await waitFor(() => screen.getByTestId('menu-full'))
     expect(nav).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  test('shoud change language on language select change', async () => {
+    makeSut()
+    expect(screen.queryByLabelText(/language/i)).not.toBeInTheDocument() // ensure default language isn't en_US
+    const select = screen.getByLabelText(/idioma/i) as HTMLSelectElement
+    fireEvent.change(select, {
+      target: {
+        value: 'en_US'
+      }
+    })
+    await waitFor(() => screen.getByLabelText(/language/i))
   })
 
   test('should match snapshot', () => {
