@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "next build && next export",
     "start": "next start",
     "lint": "eslint 'src/**' --max-warnings=0",
     "test": "jest --passWithNoTests --runInBand",
