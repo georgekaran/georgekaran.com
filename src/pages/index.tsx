@@ -129,22 +129,24 @@ const Home: React.FC = () => {
         </Heading>
 
         <S.AboutMeContentWrapper>
-          <S.History>
-            <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
+          <S.HistoryWrapper>
+            <S.History>
+              <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies amet orci a pulvinar et cursus.
               Pulvinar in nulla arcu duis hendrerit eget amet.
               Turpis pellentesque pulvinar eu cras a.
               In viverra curabitur vitae id. Tellus eleifend habitant sem congue.
               Eget gravida tincidunt sollicitudin luctus non tincidunt. Volutpat eget enim quis rhoncus placerat lectus.
               Morbi amet congue risus curabitur vitae amet, eu posuere turpis. Porttitor lorem pretium quis felis donec sed nulla tristique.
-            </S.Paragraph>
+              </S.Paragraph>
 
-            <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
+              <S.Paragraph data-aos="slide-right" {...Animations.baseAosAnimation}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies amet orci a pulvinar et cursus.
               Pulvinar in nulla arcu duis hendrerit eget amet.
               Turpis pellentesque pulvinar eu cras a. In viverra curabitur vitae id.
-            </S.Paragraph>
-          </S.History>
+              </S.Paragraph>
+            </S.History>
+          </S.HistoryWrapper>
 
           <MediaMatch display="flex" greaterThan="medium">
             <S.TimelineWrapper >

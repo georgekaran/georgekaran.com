@@ -151,16 +151,34 @@ export const AboutMeContentWrapper = styled.div`
   }
 `
 
-export const History = styled.article`
+export const HistoryWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+`
+
+export const History = styled.article`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.medium};
+    background: ${theme.colors.black02};
+    border-radius: ${theme.border.radius};
+
+    ${media.lessThan('small')`
+      padding: ${theme.spacings.small} ${theme.spacings.xsmall};
+    `}
+  `}
 `
 
 export const Paragraph = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.gray};
     margin-bottom: ${theme.spacings.small};
+    font-size: 1.8rem;
+    text-align: justify;
+
+    ${media.lessThan('small')`
+      font-size: 1.4rem;
+    `}
   `}
 `
 
