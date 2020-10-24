@@ -45,6 +45,29 @@ const GlobalStyles = createGlobalStyle`
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-family: ${theme.font.family};
+
+      scrollbar-color: ${theme.colors.green} ${theme.colors.black02};
+      scrollbar-width: 10px;
+
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: ${theme.colors.black02};
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: ${theme.colors.green};
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: ${theme.colors.green01};
+      }
     }
 
     body {

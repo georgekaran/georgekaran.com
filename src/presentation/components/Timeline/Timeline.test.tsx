@@ -66,8 +66,6 @@ describe('<Timeline />', () => {
     expect(screen.getByTestId('events-2020').childElementCount).toBe(1)
     expect(screen.getByTestId('events-2019').childElementCount).toBe(1)
     expect(screen.getByTestId('events-2018').childElementCount).toBe(1)
-
-    expect(screen.queryByText('Role para mais eventos')).not.toBeInTheDocument()
   })
 
   it('should render if empty achievements is provided', () => {
@@ -75,8 +73,6 @@ describe('<Timeline />', () => {
     expect(screen.queryByText('2020')).not.toBeInTheDocument()
     expect(screen.queryByText('2019')).not.toBeInTheDocument()
     expect(screen.queryByText('2018')).not.toBeInTheDocument()
-
-    expect(screen.queryByText('Role para mais eventos')).not.toBeInTheDocument()
   })
 
   it('should match snapshot', () => {

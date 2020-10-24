@@ -9,20 +9,11 @@ exports['<Timeline /> should match snapshot 1'] = `
   display: flex;
   max-height: 70rem;
   overflow: auto;
-  -ms-overflow-style: none;
-  -webkit-scrollbar-width: none;
-  -moz-scrollbar-width: none;
-  -ms-scrollbar-width: none;
-  scrollbar-width: none;
-}
-
-.c0::-webkit-scrollbar {
-  display: none;
 }
 
 .c2 {
   border: 1px solid #28F5BE;
-  height: 0px;
+  height: 700px;
   position: absolute;
   left: 47px;
 }

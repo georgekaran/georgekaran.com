@@ -22,8 +22,6 @@ const Timeline = ({ achievements, ...props }: TimelineProps) => {
   const [years, setYears] = useState<number[]>([])
   const [scrollHeight, setScrollHeight] = useState<number>(700)
   const wrapper = useRef<HTMLElement>(null)
-  const [showScrollAnimation, setShowScrollAnimation] = useState<boolean>(false)
-  const [scrolled, setScrolled] = useState<boolean>(false)
 
   useEffect(() => {
     const filterUniqueYears = () => {
@@ -43,33 +41,12 @@ const Timeline = ({ achievements, ...props }: TimelineProps) => {
     filterUniqueYears()
   }, [achievements])
 
-  useEffect(() => {
-    const elWrapper = wrapper.current
-    if (elWrapper != null && !scrolled) {
-      elWrapper.addEventListener('scroll', () => {
-        setScrolled(true)
-      })
-    }
-
-    return () => {
-      if (elWrapper != null && !scrolled) {
-        elWrapper.removeEventListener('scroll', () => {
-          setScrolled(true)
-        })
-      }
-    }
-  }, [wrapper, scrolled])
-
   useIsomorphicEffect(() => {
-    const handleMouseAnimation = () => {
-      if (wrapper.current != null) {
-        const scrollHeight = wrapper.current.scrollHeight
-        setScrollHeight(scrollHeight)
-        if (scrollHeight > 700) { setShowScrollAnimation(true) }
-      }
+    if (wrapper.current != null && years.length !== 0) {
+      const scrollHeight = wrapper.current.scrollHeight
+      console.log(scrollHeight)
+      setScrollHeight(scrollHeight)
     }
-
-    handleMouseAnimation()
   }, [years, wrapper])
 
   return (
@@ -98,14 +75,6 @@ const Timeline = ({ achievements, ...props }: TimelineProps) => {
         ))}
       </S.YearGroup>
       <S.Line scrollHeight={scrollHeight} />
-      {showScrollAnimation && !scrolled && (
-        <S.ScrollDown>
-          <S.ScrollText>Role para mais eventos</S.ScrollText>
-          <S.ScrollWrapper>
-            <S.ChevronDownIcon size="4.4rem" />
-          </S.ScrollWrapper>
-        </S.ScrollDown>
-      )}
     </S.Wrapper>
   )
 }
