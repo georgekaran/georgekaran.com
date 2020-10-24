@@ -36,6 +36,9 @@ yarn-error.log*
 # storybook-static
 storybook-static
 
+# vscode
+.vscode
+
 # lock files
 yarn.lock
 package-lock.json
