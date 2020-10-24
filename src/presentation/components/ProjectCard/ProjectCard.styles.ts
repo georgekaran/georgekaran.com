@@ -3,7 +3,7 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    background: ${theme.colors.gradient05};
+    background: ${theme.colors.gradient04};
     max-width: 50rem;
     min-width: 28rem;
     max-height: 686px;
