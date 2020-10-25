@@ -69,7 +69,8 @@ export const Event = styled.div`
   ${({ theme }) => css`
     position: relative;
     width: 100%;
-    margin-bottom: ${theme.spacings.xsmall};
+    margin-bottom: ${theme.spacings.small};
+    padding-right: ${theme.spacings.xsmall};
 
     &::after {
       content: '';
@@ -78,20 +79,23 @@ export const Event = styled.div`
       width: 12px;
       height: 1px;
       background: linear-gradient(to right, ${theme.colors.green}, rgba(40, 245, 190, 0));
-      top: 45px;
+      top: 47px;
     }
   `}
 `
 
 const tagModifiers = {
   education: (theme: DefaultTheme) => css`
-    background: ${theme.colors.green01};
+    background: ${theme.colors.red};
   `,
   event: (theme: DefaultTheme) => css`
     background: ${theme.colors.pink};
   `,
   professional: (theme: DefaultTheme) => css`
     background: ${theme.colors.blue};
+  `,
+  talk: (theme: DefaultTheme) => css`
+    background: ${theme.colors.purple};
   `
 }
 
@@ -106,7 +110,7 @@ export const Tag = styled.div<TagProps>`
     padding: 4px 8px;
 
     font-weight: ${theme.font.bold};
-    font-size: 10px;
+    font-size: 12px;
     color: ${theme.colors.white};
 
     ${!!type && tagModifiers[type](theme)};
@@ -117,6 +121,7 @@ export const Title = styled.h4`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-weight: ${theme.font.bold};
+    flex: 1;
   `}
 `
 
@@ -125,6 +130,8 @@ export const Date = styled.span`
     color: ${theme.colors.white};
     margin-left: ${theme.spacings.xsmall};
     font-size: 12px;
+    display: flex;
+    align-self: flex-start;
   `}
 `
 
@@ -134,13 +141,14 @@ export const Description = styled.p`
     font-size: 14px;
     letter-spacing: -0.01em;
     color: ${theme.colors.black04};
+    padding-left: 0.8rem;
   `}
 `
 
 export const Flex = styled.div`
   ${({ theme }) => css`
     display: flex;
-    margin-top: ${theme.spacings.xxsmall};
+    margin: ${theme.spacings.xxsmall} 0;
     align-items: center;
   `}
 

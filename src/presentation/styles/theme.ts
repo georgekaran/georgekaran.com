@@ -24,6 +24,7 @@ export default {
     }
   },
   colors: {
+    red: '#D92E3F',
     green: '#28F5BE',
     black: '#1F1F24',
     green01: '#1BE0AB',

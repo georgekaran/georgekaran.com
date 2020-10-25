@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import { RenderResult, screen } from '@testing-library/react'
+import faker from 'faker'
 
-import { Timeline, Achievement } from '.'
+import { Timeline, Achievement, Tag } from '.'
 import { render } from '@/test/helpers'
 
 const createAchievements = (length: number): Achievement[] => {
@@ -13,7 +14,7 @@ const createAchievements = (length: number): Achievement[] => {
         date: new Date(`${year}-08-21T00:00:00`),
         title: `Node JS com microservicos ${i}`,
         description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-        tag: 'education'
+        tag: faker.random.arrayElement(['professional', 'event', 'education']) as Tag
       }
     )
     year = year + 1 > 2020 ? 2018 : year + 1

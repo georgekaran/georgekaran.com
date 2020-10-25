@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import * as S from './Timeline.styles'
 import useIsomorphicLayoutEffect from '@/presentation/hooks/useIsomorphicLayoutEffect'
 
-export type Tag = 'education' | 'event' | 'professional'
+export type Tag = 'education' | 'event' | 'professional' | 'talk'
 
 export type Achievement = {
   date: Date
@@ -44,7 +44,6 @@ const Timeline = ({ achievements, ...props }: TimelineProps) => {
   useIsomorphicEffect(() => {
     if (wrapper.current != null && years.length !== 0) {
       const scrollHeight = wrapper.current.scrollHeight
-      console.log(scrollHeight)
       setScrollHeight(scrollHeight)
     }
   }, [years, wrapper])
