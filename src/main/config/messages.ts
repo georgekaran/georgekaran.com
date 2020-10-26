@@ -70,6 +70,7 @@ const messages: MessageFile = {
     job_bimachine_description: 'Atuei criando telas utilizando React e realizando integrações via API Rest com o backend em Java e NodeJS.',
     job_cantustange: 'Cantú & Stange - Delphi',
     job_cantustange_description: 'Minha área de atuação na empresa foi na parte do desenvolvimento de software, onde pude relacionar os conteúdos estudados no meu curso técnico em informática, como banco de dados, linguagem de programação e engenharia de software a problemas reais, fazendo uso prático do que foi aprendido em aula.',
+    open_github_project: 'Acessar o projeto $0 no Github',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar $0 url',
     open_url: 'Abrir $0'
@@ -143,6 +144,7 @@ const messages: MessageFile = {
     job_bimachine_description: 'I worked creating features using React and performing integrations via API Rest with the backend in Java and NodeJS.',
     job_cantustange: 'Cantú & Stange - Delphi',
     job_cantustange_description: 'My area of expertise in the company was in the software development, where I was able to relate the contents studied in my technical course, such as database, programming language and software engineering to real problems, making practical use of what I\'ve learned in class.',
+    open_github_project: 'Access the $0 project on Github',
     copy_to_clipboard: 'Copied to clipboard',
     copy_url: 'Copy $0 url',
     open_url: 'Open $0'
@@ -216,6 +218,7 @@ const messages: MessageFile = {
     job_bimachine_description: 'Trabajé creando pantallas usando React y realizando integraciones a través de API Rest con el backend en Java y NodeJS.',
     job_cantustange: 'Cantú & Stange - Delphi',
     job_cantustange_description: 'Mi área de especialización en la empresa fue en la parte de desarrollo de software, donde pude relacionar los contenidos estudiados en mi curso técnico en informática, como base de datos, lenguaje de programación e ingeniería de software con problemas reales, haciendo uso práctico de lo que hay aprendido en la clase.',
+    open_github_project: 'Accede al proyecto $0 en Github',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar url de $0',
     open_url: 'Abrir $0'
