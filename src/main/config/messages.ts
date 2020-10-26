@@ -32,6 +32,18 @@ const messages: MessageFile = {
     project_ecoleta: 'Market place for waste collection written in React, React-Native and Node.JS.',
     project_star_wars: 'Página inicial de Star Wars usando dados de https://swapi.co.',
     language: 'Idioma',
+    about_me_history_1: `Meu interesse pela área de programação começou como a maioria das pessoas através dos jogos e videogames,
+      gradualmente fui me aprofundando e querendo aprender mais sobre como as coisas funcionavam.
+      Tudo mudou em 2012 quando ingressei no ensino médio com aulas técnicas de informática,
+      onde tive contato com linguagens como Java, C++, PHP, e é claro desenvolvimento web.
+      Com o passar do tempo fui aprimorando meus conhecimentos principalmente em Java, fazendo aplicativos desktop e mobile em Android,
+      e com isso tive certeza de que era isso que queria fazer para minha vida.`,
+    about_me_history_2: `Logo após o ensino médio entrei no curso de Engenharia de Software pela Univates,
+      onde passei a dedicar 100% dos meus estudos para programação, e consequentemente consegui meu primeiro emprego como
+      Full Stack na BIMachine onde passei quase 2 anos.`,
+    about_me_history_3: `Atualmente estou trabalhando como Full Stack para a DBC Company de Porto Alegre/RS alocado no projeto Albatross da
+      Santander Merchant Platform Solutions (SMPS) no squad de Risco e Prevenção a Fraude desenvolvendo microserviços em NodeJS,
+      integrando com interfaces em ReactJS, e consumindo dados de APIs/Datalake.`,
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar $0 url',
     open_url: 'Abrir $0'
@@ -67,6 +79,18 @@ const messages: MessageFile = {
     project_ecoleta: 'Market place para a coleta de lixo escrito em React, React-Native e Node.JS.',
     project_star_wars: 'Star Wars UI landing page consuming data from https://swapi.co.',
     language: 'Language',
+    about_me_history_1: `My interest in the programming started like most people through games and video games,
+      I gradually got deeper and wanted to learn more about how things worked.
+      Everything changed in 2012 when I started high school with technical computer classes,
+      where I had contact with languages like Java, C++, PHP, and of course web development.
+      As time went by I improved my knowledge mainly in Java, making desktop and mobile applications on Android,
+      and with that I was sure that was what I wanted to do for my life.`,
+    about_me_history_2: `Shortly after high school, I joined Software Engineering at Univates,
+      where I started to dedicate 100% of my studies to programming, and consequently I got my first job as
+      Full Stack developer at BIMachine where I spent almost 2 years.`,
+    about_me_history_3: `I am currently working as a Full Stack for the DBC Company of Porto Alegre/RS allocated in the Albatross project of
+      Santander Merchant Platform Solutions (SMPS) in the Risk and Fraud Prevention squad developing microservices in NodeJS,
+      integrating with interfaces in ReactJS, and consuming data from APIs / Datalake.`,
     copy_to_clipboard: 'Copied to clipboard',
     copy_url: 'Copy $0 url',
     open_url: 'Open $0'
@@ -102,6 +126,18 @@ const messages: MessageFile = {
     project_ecoleta: 'Mercado para la recolección de residuos escrito en React, React-Native y Node.JS.',
     project_star_wars: 'Página de inicio de Star Wars con datos de https://swapi.co.',
     language: 'Idioma',
+    about_me_history_1: `Mi interés en el área de programación comenzó como la mayoría de la gente a través de juegos y videojuegos,
+      Poco a poco fui profundizando y quería aprender más sobre cómo funcionaban las cosas.
+      Todo cambió en 2012 cuando comencé la secundaria con clases técnicas de computación,
+      donde tuve contacto con lenguajes como Java, C++, PHP y, por supuesto, web.
+      Con el paso del tiempo fui mejorando mis conocimientos principalmente en Java, haciendo aplicaciones de escritorio y móviles en Android,
+      y con eso estaba seguro de que eso era lo que quería hacer por mi vida.`,
+    about_me_history_2: `Poco después de la secundaria, me uní a Ingeniería de Software en Univates,
+      donde comencé a dedicar el 100% de mis estudios a la programación, y consecuentemente conseguí mi primer trabajo
+      Desarrollador Full Stack en BIMachine donde pasé casi 2 años.`,
+    about_me_history_3: `Actualmente trabajo como Full Stack para la empresa DBC de Porto Alegre / RS adscrita en el proyecto Albatross de
+      Santander Merchant Platform Solutions (SMPS) en el equipo de Prevención de Riesgos y Fraudes desarrollando microservicios en NodeJS,
+      integrarse con interfaces en ReactJS y consumir datos de API / Datalake.`,
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar url de $0',
     open_url: 'Abrir $0'
