@@ -12,87 +12,88 @@ import { MediaMatch } from '@/presentation/components/MediaMatch'
 import { Slider } from '@/presentation/components/Slider'
 import { Testimonional } from '@/presentation/components/Testimonional'
 import useI18N from '@/presentation/hooks/usei18n'
+import { i18n } from '@/data/protocols'
 
-const achievements: Achievement[] = [
+const achievements = (i18n: i18n): Achievement[] => ([
   {
     date: new Date('2020-08-03T00:00:00'),
-    title: 'Curso: "ReactJS, Hooks, Recoil, TDD, Clean Architecture, SOLID"',
-    description: 'Curso completo clean architecture utilizando React.JS, conceitos SOLID, design patterns, Cypress e a metodologia TDD',
+    title: i18n.t('course_react_solid'),
+    description: i18n.t('course_react_solid_description'),
     tag: 'education'
   },
   {
     date: new Date('2020-08-12T00:00:00'),
-    title: 'DBC Company - Full Stack',
-    description: 'Atuo no time de Risco e Prevenção a Fraude no projeto da Santander Merchant Platform Solutions (SMPS) desenvolvendo microserviços em NodeJS, integrando com interfaces em ReactJS, e consumindo dados de APIs/Datalake',
+    title: i18n.t('job_dbc_company'),
+    description: i18n.t('job_dbc_company_description'),
     tag: 'professional'
   },
   {
     date: new Date('2020-08-03T00:00:00'),
-    title: 'Curso: "NodeJs, Typescript, TDD, Clean Architecture e SOLID"',
-    description: 'Curso completo clean architecture utilizando Node.JS, conceitos SOLID, design patterns, Typescript, Swagger e TDD',
+    title: i18n.t('course_node_solid'),
+    description: i18n.t('course_node_solid_description'),
     tag: 'education'
   },
   {
     date: new Date('2020-06-09T00:00:00'),
-    title: 'Curso: "Microservices with Node JS and React"',
-    description: 'Curso excepcional sobre microservices utilizando tecnologias como Docker, Kubernetes, Redis, Typescript e MongoDB.',
+    title: i18n.t('course_microservices_node'),
+    description: i18n.t('course_microservices_node_description'),
     tag: 'education'
   },
   {
     date: new Date('2020-04-20T00:00:00'),
-    title: 'Curso: "Go (Golang): Explorando a Linguagem do Google"',
-    description: 'Curso onde aprendi um pouco mais sobre a linguagem de programação Golang.',
+    title: i18n.t('course_go'),
+    description: i18n.t('course_go_description'),
     tag: 'education'
   },
   {
     date: new Date('2019-12-10T00:00:00'),
-    title: 'Paletra sobre Javascript e Microservices',
-    description: 'Ministrei uma palestra apresentando o que havia aprendido no TDC Porto Alegre sobre Microservices, principalmente falando sobre a arquitetura de eventos.',
+    title: i18n.t('talk_javascript_microservices'),
+    description: i18n.t('talk_javascript_microservices_description'),
     tag: 'talk'
   },
   {
     date: new Date('2019-11-27T00:00:00'),
-    title: 'TDC Porto Alegre',
-    description: 'Após uma grande aprendizado no TDC de Floarianópolis, resolvi ir novamente para a edição de Porto Alegre onde cursei as trilhas de Microservices e Containers',
+    title: i18n.t('event_tdc_poa_2019'),
+    description: i18n.t('event_tdc_poa_2019_description'),
     tag: 'event'
   },
   {
     date: new Date('2019-08-23T00:00:00'),
-    title: 'Palestra sobre Docker na BIMatch Tech',
-    description: 'Ministrei uma palestra apresentando o que havia aprendido sobre Docker e quais eram seus benficios em ambientes Cloud.',
+    title: i18n.t('talk_docker'),
+    description: i18n.t('talk_docker_description'),
     tag: 'talk'
   },
   {
     date: new Date('2019-07-06T00:00:00'),
-    title: 'Curso: "Docker: Ferramenta essencial para Desenvolvedores"',
-    description: 'Curso onde tive os primeiros contatos com containers e a tecnologia Docker. Este curso foi motivado principalmente após ouvir bastante sobre o tema no TDC Florianópolis',
+    title: i18n.t('course_docker'),
+    description: i18n.t('course_docker_description'),
     tag: 'education'
   },
   {
     date: new Date('2019-04-23T00:00:00'),
-    title: 'TDC Florianópolis',
-    description: 'Participei de todos os dias do evento cursando trilhas de Java, Node.JS, Ui/UX e Web/Front-end',
+    title: i18n.t('event_tdc_floripa_2019'),
+    description: i18n.t('event_tdc_floripa_2019_description'),
     tag: 'event'
   },
   {
     date: new Date('2019-02-19T00:00:00'),
-    title: 'Certificate of Attendance (Sprachcaffe Languages PLUS - Toronto/CN)',
-    description: 'Curso de intensivo de inglês com duração de 2 semanas na Sprachcaffe Languages PLUS em Toronto/CN',
+    title: i18n.t('education_sprachcaffe'),
+    description: i18n.t('education_sprachcaffe_description'),
     tag: 'education'
   },
   {
     date: new Date('2018-11-28T00:00:00'),
-    title: 'BIMachine - Full Stack',
-    description: 'Atuei criando telas utilizando React e realizando integrações via API Rest com o backend em Java e NodeJS.',
+    title: i18n.t('job_bimachine'),
+    description: i18n.t('job_bimachine_description'),
     tag: 'professional'
   },
   {
     date: new Date('2015-03-01T00:00:00'),
-    title: 'Cantú & Stange - Delphi',
-    description: 'Minha área de atuação na empresa foi na parte do desenvolvimento de software, onde pude relacionar os conteúdos estudados no meu curso técnico em informática, como banco de dados, linguagem de programação e engenharia de software a problemas reais, fazendo uso prático do que foi aprendido em aula.',
+    title: i18n.t('job_cantustange'),
+    description: i18n.t('job_cantustange_description'),
     tag: 'professional'
   }
-]
+])
 
 const technologies: React.ReactNode[] = [
   <Technology key="react" image="/img/technology/react.png" alt="React" />,
@@ -196,7 +197,7 @@ const Home: React.FC = () => {
               <Timeline
                 data-aos="zoom-in-left"
                 {...Animations.baseAosAnimation}
-                achievements={achievements} />
+                achievements={achievements(i18n)} />
             </S.TimelineWrapper>
           </MediaMatch>
         </S.AboutMeContentWrapper>
