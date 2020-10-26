@@ -24,7 +24,7 @@ exports['<Button /> should render with correct initial state 1'] = `
   -ms-flex-pack: center;
   justify-content: center;
   height: 4rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   padding: 0.8rem 3.2rem;
 }
 

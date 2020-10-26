@@ -13,7 +13,7 @@ const wrapperModifiers = {
   `,
   medium: (theme: DefaultTheme) => css`
     height: 4rem;
-    font-size: ${theme.font.sizes.small};
+    font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
   `,
   large: (theme: DefaultTheme) => css`
@@ -26,7 +26,7 @@ const wrapperModifiers = {
   `,
   withIcon: (theme: DefaultTheme) => css`
     svg {
-      width: 1.5rem;
+      width: 2.4rem;
 
       & + span {
         margin-left: ${theme.spacings.xxsmall};
