@@ -1,3 +1,4 @@
+import React from 'react'
 import { Github as GithubIcon } from '@styled-icons/feather/Github'
 import { Mail as MailIcon } from '@styled-icons/feather/Mail'
 import { Linkedin as LinkedinIcon } from '@styled-icons/feather/Linkedin'
