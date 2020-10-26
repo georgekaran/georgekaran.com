@@ -29,6 +29,7 @@ const Projects = () => {
           tags={['React', 'Next.JS', 'Styled-Components']}
           image='/img/projects/georgekaran-card.png'
           description={i18n.t('project_personal_page')}
+          githubUrl="https://github.com/georgekaran/georgekaran.com"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -37,6 +38,7 @@ const Projects = () => {
           tags={['React', 'Strapi', 'Typescript']}
           image='/img/projects/won-games-card.png'
           description={i18n.t('project_won_games')}
+          githubUrl="https://github.com/georgekaran/won-games-client"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -45,6 +47,7 @@ const Projects = () => {
           tags={['React', 'NodeJS', 'NATS']}
           image='/img/projects/ticketing-card.png'
           description={i18n.t('project_ticketing')}
+          githubUrl="https://github.com/georgekaran/ticketing"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -53,6 +56,7 @@ const Projects = () => {
           tags={['React', 'NodeJS', 'Typescript']}
           image='/img/projects/survey-card.png'
           description={i18n.t('project_survey')}
+          githubUrl="https://github.com/georgekaran/survey-app"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -61,6 +65,7 @@ const Projects = () => {
           tags={['React', 'NodeJS', 'Native']}
           image='/img/projects/ecoleta-card.png'
           description={i18n.t('project_ecoleta')}
+          githubUrl="https://github.com/georgekaran/ecoleta"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
@@ -69,6 +74,7 @@ const Projects = () => {
           tags={['React', 'NodeJS', 'Typescript']}
           image='/img/projects/star-wars-card.png'
           description={i18n.t('project_star_wars')}
+          githubUrl="https://github.com/georgekaran/star-wars-ui"
           data-aos="fade-up"
           {...Animations.baseAosAnimation}
         />
