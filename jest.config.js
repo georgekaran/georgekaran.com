@@ -1,5 +1,4 @@
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
   roots: [
     '<rootDir>/src'
@@ -8,7 +7,9 @@ module.exports = {
     '<rootDir>/src/**/*.{ts,tsx}',
     '!**/*.d.ts',
     '!<rootDir>/src/**/*.stories.tsx',
-    '!<rootDir>/src/styles/**'
+    '!<rootDir>/src/presentation/styles/**',
+    '!<rootDir>/src/data/**',
+    '!<rootDir>/src/domain/**'
   ],
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
@@ -20,10 +21,5 @@ module.exports = {
   ],
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1'
-  },
-  globals: {
-    'ts-jest': {
-      tsConfig: 'tsconfig-test.json'
-    }
   }
 }
