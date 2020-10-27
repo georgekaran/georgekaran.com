@@ -28,6 +28,7 @@ jobs:
       - name: Build static html
         run: npm run build:static
 
+      # Deploy to S3
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -38,3 +39,13 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: 'out'
+
+      # Invalidate Cloudfront (this action)
+    - name: invalidate
+      uses: chetan/invalidate-cloudfront-action@master
+      env:
+        DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
+        PATHS: '/index.html /contact.html /projects.html /404.html'
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
