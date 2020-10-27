@@ -42,3 +42,7 @@ storybook-static
 # lock files
 yarn.lock
 package-lock.json
+
+# Service worker
+public/sw.js
+public/workbox-*
