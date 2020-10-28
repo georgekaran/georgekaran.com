@@ -75,19 +75,10 @@ export const Tag = styled.span`
   `}
 `
 
-export const Image = styled.img`
-  object-fit: cover;
+export const ImageWrapper = styled.div`
   width: 100%;
-  height: 38rem;
+  height: auto;
   grid-column: 1 / 4;
-
-  ${media.lessThan('small')`
-    height: 24rem;
-  `};
-
-  ${media.between('small', 'medium')`
-    height: 28rem;
-  `};
 `
 
 export const Description = styled.p`

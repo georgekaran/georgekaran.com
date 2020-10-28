@@ -19,7 +19,12 @@ const Testimonional = ({ testimonial, authorImage, author, job, company }: Testi
     </S.TestimonialWrapper>
     <S.AuthorWrapper>
       <S.ImageWrapper>
-        <S.Image src={authorImage} alt={author} />
+        <S.Image
+          src={authorImage}
+          alt={author}
+          height={48}
+          width={48}
+        />
       </S.ImageWrapper>
       <S.AuthorInfo>
         <S.Author>{author}</S.Author>

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import * as S from './Technology.styles'
 
 export type TechnologySize = 'small' | 'medium' | 'large'
@@ -9,10 +10,12 @@ export type TechnologyProps = {
 }
 
 const Technology = ({ image, alt }: TechnologyProps) => (
-  <S.Wrapper data-testid="technology-wrapper">
+  <S.Wrapper>
     <S.Image
       src={image}
       alt={alt}
+      height={120}
+      width={120}
     />
   </S.Wrapper>
 )

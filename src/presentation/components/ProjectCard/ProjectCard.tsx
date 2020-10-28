@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from 'react'
+import NextImage from 'next/image'
 import { Github } from '@styled-icons/feather/Github'
 
 import * as S from './ProjectCard.styles'
@@ -20,7 +21,15 @@ const ProjectCard = ({ title, tags, description, image, githubUrl, ...props }: P
       <S.HeaderWrapper>
         <S.Title>{title}</S.Title>
       </S.HeaderWrapper>
-      <S.Image src={image} alt={title} />
+      <S.ImageWrapper>
+        <NextImage
+          src={image}
+          alt={title}
+          height={380}
+          width={500}
+        />
+      </S.ImageWrapper>
+
       <S.TagWrapper>
         {tags.map(tag => <S.Tag key={tag}>{tag}</S.Tag>)}
       </S.TagWrapper>

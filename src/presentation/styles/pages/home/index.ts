@@ -1,3 +1,4 @@
+import NextImage from 'next/image'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -50,7 +51,7 @@ type ShapeProps = {
   y: string
 }
 
-export const Shape = styled.img<ShapeProps>`
+export const Shape = styled.div<ShapeProps>`
   ${({ x, y }) => css`
     position: absolute;
     top: ${y};
@@ -110,8 +111,7 @@ export const Description = styled.h3`
   `}
 `
 
-export const Photo = styled.img`
-  width: 100%;
+export const Photo = styled(NextImage)`
 `
 
 export const HighlightGroup = styled.div`
@@ -286,8 +286,7 @@ export const TestimonialImageWrapper = styled.div`
   `};
 `
 
-export const TestimonialImage = styled.img`
-  width: 100%;
+export const TestimonialImage = styled(NextImage)`
 `
 
 export const Testimonial = styled.section`

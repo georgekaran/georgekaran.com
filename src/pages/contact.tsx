@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Github as GithubIcon } from '@styled-icons/feather/Github'
 import { Mail as MailIcon } from '@styled-icons/feather/Mail'
 import { Linkedin as LinkedinIcon } from '@styled-icons/feather/Linkedin'
@@ -57,7 +58,15 @@ const Contact = () => {
         </S.ContactBox>
         <S.ImageWrapper>
           <S.TransparentBox />
-          <S.Image src="/img/me/george_brooklyn_bridge.png" alt={i18n.t('contact_me_image_alt')} />
+          <S.ImageAbsolute>
+            <Image
+              src="/img/me/george_brooklyn_bridge.png"
+              alt={i18n.t('contact_me_image_alt')}
+              width={309}
+              height={417}
+              className="Image"
+            />
+          </S.ImageAbsolute>
         </S.ImageWrapper>
       </S.BoxWrapper>
     </S.Wrapper>

@@ -80,7 +80,7 @@ export const TransparentBox = styled.div`
   `}
 `
 
-export const Image = styled.img`
+export const ImageAbsolute = styled.div`
   position: absolute;
   bottom: 2.4rem;
   right: 2.4rem;

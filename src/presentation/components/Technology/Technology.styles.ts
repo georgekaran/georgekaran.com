@@ -1,21 +1,7 @@
+import NextImage from 'next/image'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { transparentize } from 'polished'
-
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: ${theme.spacings.xxsmall};
-    background: ${transparentize(0.4, theme.colors.black04)};
-    border-radius: 50%;
-
-    ${media.lessThan('medium')`
-      padding: 0.4rem;
-    `};
-  `}
-`
 
 const imageModifiers = {
   small: () => css`
@@ -32,9 +18,18 @@ const imageModifiers = {
   `
 }
 
-export const Image = styled.img`
-  ${() => css`
-    object-fit: contain;
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: ${theme.spacings.xxsmall};
+    background: ${transparentize(0.4, theme.colors.black04)};
+    border-radius: 50%;
+
+    ${media.lessThan('medium')`
+      padding: 0.4rem;
+    `};
 
     ${imageModifiers.large()};
 
@@ -45,5 +40,11 @@ export const Image = styled.img`
     ${media.between('medium', 'large')`
       ${imageModifiers.medium()};
     `};
+  `}
+`
+
+export const Image = styled(NextImage)`
+  ${() => css`
+    object-fit: contain;
   `}
 `

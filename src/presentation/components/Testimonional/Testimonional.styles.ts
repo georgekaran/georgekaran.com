@@ -1,3 +1,4 @@
+import NextImage from 'next/image'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -66,7 +67,7 @@ export const ImageWrapper = styled.div`
   `}
 `
 
-export const Image = styled.img`
+export const Image = styled(NextImage)`
   position: absolute;
   width: 100%;
   height: 100%;
