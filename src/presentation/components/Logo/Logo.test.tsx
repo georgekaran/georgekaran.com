@@ -14,6 +14,6 @@ const makeSut = ({
 describe('<Logo />', () => {
   test('should render', () => {
     makeSut()
-    expect(screen.getByLabelText(/george mueller/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/george karan/i)).toBeInTheDocument()
   })
 })

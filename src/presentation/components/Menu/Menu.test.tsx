@@ -52,7 +52,7 @@ describe('<Menu />', () => {
   test('should render with initial state', () => {
     const { sut } = makeSut()
     expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/George Mueller/i)).toBeInTheDocument()
+    expect(screen.getByLabelText(/George karan/i)).toBeInTheDocument()
     expect(screen.getByLabelText('Idioma')).toBeInTheDocument()
     expect(sut.container.firstChild).toHaveStyle({
       padding: '2.4rem 3.2rem'
