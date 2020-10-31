@@ -8,3 +8,5 @@ dist
 *.svg
 *.css
 *.mdx
+*.tsx.snap
+*.ts.snap
