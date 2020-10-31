@@ -3,7 +3,7 @@ import { i18n, MessageFile } from '@/data/protocols'
 
 export class I18N implements i18n {
   private readonly message?: any
-  private readonly maskPattern = new RegExp(/\$([0-9])+/)
+  private readonly maskPattern = /\$([0-9])+/
 
   constructor (
     public readonly language: Language,
