@@ -34,14 +34,29 @@ export const Wrapper = styled.menu`
   `}
 `
 
-export const MenuLink = styled.a`
-  ${({ theme }) => css`
+type MenuLinkProps = {
+  isActive: boolean
+}
+
+export const MenuLink = styled.a<MenuLinkProps>`
+  ${({ theme, isActive }) => css`
     color: ${theme.colors.white} !important;
     font-size: ${theme.font.sizes.medium};
     font-weight: ${theme.font.bold};
     text-decoration: none;
     text-align: center;
     cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: '';
+      height: 2px;
+      background: ${isActive ? theme.colors.green : 'none'};
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+    }
   `}
 `
 

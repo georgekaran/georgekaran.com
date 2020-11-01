@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
@@ -17,6 +18,7 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { language, setLanguage } = useContext(LanguageContext)
   const i18n = useI18N()
+  const router = useRouter()
 
   const closeMenu = () => {
     setIsOpen(false)
@@ -30,16 +32,34 @@ const Menu = () => {
     <S.Wrapper>
       <Logo hideOnMobile />
 
-      <MediaMatch className="flex" greaterThan="medium" >
+      <MediaMatch
+        className="flex"
+        greaterThan="medium"
+      >
         <S.MenuGroup>
           <Link href="/">
-            <S.MenuLink data-testid="home-link">{i18n.t('home')}</S.MenuLink>
+            <S.MenuLink
+              isActive={router.pathname === '/'}
+              data-testid="home-link"
+            >
+              {i18n.t('home')}
+            </S.MenuLink>
           </Link>
           <Link href="/projects">
-            <S.MenuLink data-testid="projects-link">{i18n.t('projects')}</S.MenuLink>
+            <S.MenuLink
+            isActive={router.pathname === '/projects'}
+            data-testid="projects-link"
+            >
+              {i18n.t('projects')}
+            </S.MenuLink>
           </Link>
           <Link href="/contact">
-            <S.MenuLink data-testid="contact-link">{i18n.t('contact')}</S.MenuLink>
+            <S.MenuLink
+            isActive={router.pathname === '/contact'}
+            data-testid="contact-link"
+            >
+              {i18n.t('contact')}
+            </S.MenuLink>
           </Link>
         </S.MenuGroup>
       </MediaMatch>
@@ -63,13 +83,31 @@ const Menu = () => {
         <CloseIcon aria-label={i18n.t('close_menu')} onClick={() => setIsOpen(false)} />
         <S.MenuGroup>
           <Link href="/">
-            <S.MenuLink data-testid="home-link-mobile" onClick={closeMenu}>{i18n.t('home')}</S.MenuLink>
+            <S.MenuLink
+              isActive={router.pathname === '/'}
+              data-testid="home-link-mobile"
+              onClick={closeMenu}
+              >
+                {i18n.t('home')}
+                </S.MenuLink>
           </Link>
           <Link href="/projects">
-            <S.MenuLink data-testid="projects-link-mobile" onClick={closeMenu}>{i18n.t('projects')}</S.MenuLink>
+            <S.MenuLink
+            isActive={router.pathname === '/projects'}
+            data-testid="projects-link-mobile"
+            onClick={closeMenu}
+            >
+              {i18n.t('projects')}
+            </S.MenuLink>
           </Link>
           <Link href="/contact">
-            <S.MenuLink data-testid="contact-link-mobile" onClick={closeMenu}>{i18n.t('contact')}</S.MenuLink>
+            <S.MenuLink
+            isActive={router.pathname === '/contact'}
+              data-testid="contact-link-mobile"
+              onClick={closeMenu}
+              >
+                {i18n.t('contact')}
+              </S.MenuLink>
           </Link>
         </S.MenuGroup>
       </S.MenuFull>
