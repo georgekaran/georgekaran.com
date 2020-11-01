@@ -1,50 +1,25 @@
 import React from 'react'
-import { RouterContext } from 'next/dist/next-server/lib/router-context'
 import { RenderResult, screen, fireEvent, waitFor } from '@testing-library/react'
-import { Router, NextRouter } from 'next/router'
 
 import { Menu } from '.'
 import { render } from '@/test/helpers'
+import theme from '@/presentation/styles/theme'
+import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
 
 type SutTypes = {
   sut: RenderResult
-  router: jest.Mock
+  nextRouterStub: NextRouterStub
 }
 
-const makeSut = (): SutTypes => {
-  const routerPushed = jest.fn()
-  const mockedRouter: NextRouter = {
-    basePath: '',
-    pathname: '/',
-    route: '/',
-    asPath: '/',
-    query: {},
-    push: (path: string) => {
-      routerPushed(path)
-      return new Promise((resolve) => resolve(true))
-    },
-    replace: jest.fn(),
-    reload: jest.fn(),
-    back: jest.fn(),
-    prefetch: jest.fn(),
-    beforePopState: jest.fn(),
-    events: {
-      on: jest.fn(),
-      off: jest.fn(),
-      emit: jest.fn()
-    },
-    isFallback: false
-  }
-  // @ts-ignore
-  Router.router = mockedRouter
+const makeSut = (nextRouterStub = new NextRouterStub()): SutTypes => {
   const sut = render(
-    <RouterContext.Provider value={{ ...mockedRouter }}>
+    <RouterContextMock nextRouter={nextRouterStub}>
       <Menu />
-    </RouterContext.Provider>
+    </RouterContextMock>
   )
   return {
     sut,
-    router: routerPushed
+    nextRouterStub
   }
 }
 
@@ -93,20 +68,46 @@ describe('<Menu />', () => {
     expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
   })
 
-  test('shoud navigate to other pages', () => {
-    const { router } = makeSut()
+  test('shoud navigate to other pages', async () => {
+    const nextRouterStub = new NextRouterStub()
+    const pushPsy = jest.spyOn(nextRouterStub, 'push')
+    makeSut(nextRouterStub)
     // Projects
-    const link = screen.getByTestId('projects-link')
+    let link = screen.getByTestId('projects-link')
     fireEvent.click(link)
-    expect(router).toHaveBeenCalledWith('/projects')
+    expect(pushPsy).toHaveBeenCalledWith('/projects', '/projects', { locale: undefined, shallow: undefined })
+    link = await waitFor(() => screen.getByTestId('projects-link'))
+    expect(link).toHaveStyleRule(
+      'background',
+      theme.colors.green,
+      {
+        modifier: '::before'
+      }
+    )
     // Home
     const home = screen.getByTestId('home-link')
     fireEvent.click(home)
-    expect(router).toHaveBeenCalledWith('/')
+    expect(pushPsy).toHaveBeenCalledWith('/', '/', { locale: undefined, shallow: undefined })
+    link = await waitFor(() => screen.getByTestId('home-link'))
+    expect(link).toHaveStyleRule(
+      'background',
+      theme.colors.green,
+      {
+        modifier: '::before'
+      }
+    )
     // Home
     const contact = screen.getByTestId('contact-link')
     fireEvent.click(contact)
-    expect(router).toHaveBeenCalledWith('/contact')
+    expect(pushPsy).toHaveBeenCalledWith('/contact', '/contact', { locale: undefined, shallow: undefined })
+    link = await waitFor(() => screen.getByTestId('contact-link'))
+    expect(link).toHaveStyleRule(
+      'background',
+      theme.colors.green,
+      {
+        modifier: '::before'
+      }
+    )
   })
 
   test('shoud close MenuFull on MenuLink click', async () => {

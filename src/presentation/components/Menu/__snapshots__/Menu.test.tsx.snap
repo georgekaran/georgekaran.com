@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Menu /> should match snapshot 1`] = `
-.c14 {
+.c15 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
@@ -11,22 +11,22 @@ exports[`<Menu /> should match snapshot 1`] = `
   display: none;
 }
 
-.c7 {
+.c8 {
   display: none;
 }
 
-.c12 {
+.c13 {
   display: none;
 }
 
-.c9 {
+.c10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
-.c10 {
+.c11 {
   padding: 0.8rem 1.6rem;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -42,11 +42,11 @@ exports[`<Menu /> should match snapshot 1`] = `
   color: #FFFFFF;
 }
 
-.c10:focus {
+.c11:focus {
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' width='24' height='24' fill='%2328F5BE' xmlns='http://www.w3.org/2000/svg'><path d='M18.2 13.3L12 7l-6.2 6.3c-.2.2-.3.5-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7z'></path></svg>");
 }
 
-.c11 {
+.c12 {
   color: #1F1F24;
 }
 
@@ -68,7 +68,7 @@ exports[`<Menu /> should match snapshot 1`] = `
   padding: 2.4rem 3.2rem;
 }
 
-.c0 .c8 {
+.c0 .c9 {
   -webkit-flex: 0 0 100px;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
@@ -96,6 +96,38 @@ exports[`<Menu /> should match snapshot 1`] = `
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+  position: relative;
+}
+
+.c6::before {
+  content: '';
+  height: 2px;
+  background: #28F5BE;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+}
+
+.c7 {
+  color: #FFFFFF !important;
+  font-size: 1.6rem;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.c7::before {
+  content: '';
+  height: 2px;
+  background: none;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
 }
 
 .c4 {
@@ -120,14 +152,14 @@ exports[`<Menu /> should match snapshot 1`] = `
   margin-left: 3.2rem;
 }
 
-.c13 {
+.c14 {
   color: #FFFFFF;
   width: 3.2rem;
   height: 3.2rem;
   cursor: pointer;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -153,7 +185,7 @@ exports[`<Menu /> should match snapshot 1`] = `
   opacity: 0;
 }
 
-.c15 > svg {
+.c16 > svg {
   position: absolute;
   top: 0;
   right: 0;
@@ -164,7 +196,7 @@ exports[`<Menu /> should match snapshot 1`] = `
   height: 3.2rem;
 }
 
-.c15 .c3 {
+.c16 .c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -185,7 +217,7 @@ exports[`<Menu /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c15 .c5 {
+.c16 .c5 {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 2.4rem;
@@ -217,13 +249,13 @@ exports[`<Menu /> should match snapshot 1`] = `
 }
 
 @media (min-width:768px) {
-  .c7 {
+  .c8 {
     display: contents;
   }
 }
 
 @media (max-width:768px) {
-  .c12 {
+  .c13 {
     display: block;
   }
 }
@@ -1054,13 +1086,13 @@ exports[`<Menu /> should match snapshot 1`] = `
         Home
       </a>
       <a
-        class="c5 c6"
+        class="c5 c7"
         data-testid="projects-link"
       >
         Projects
       </a>
       <a
-        class="c5 c6"
+        class="c5 c7"
         data-testid="contact-link"
       >
         Contact
@@ -1068,31 +1100,31 @@ exports[`<Menu /> should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="c7"
+    class="c8"
     display="contents"
   >
     <div
-      class="c8 c9"
+      class="c9 c10"
     >
       <select
         aria-label="Language"
-        class="c10"
+        class="c11"
         data-testid="select"
       >
         <option
-          class="c11"
+          class="c12"
           value="pt_BR"
         >
           pt_BR
         </option>
         <option
-          class="c11"
+          class="c12"
           value="en_US"
         >
           en_US
         </option>
         <option
-          class="c11"
+          class="c12"
           value="es_ES"
         >
           es_ES
@@ -1101,15 +1133,15 @@ exports[`<Menu /> should match snapshot 1`] = `
     </div>
   </div>
   <div
-    class="c12"
+    class="c13"
   >
     <div
-      class="c13"
+      class="c14"
     >
       <svg
         aria-hidden="true"
         aria-label="Open menu"
-        class="c14"
+        class="c15"
         fill="currentColor"
         focusable="false"
         viewBox="0 0 24 24"
@@ -1127,13 +1159,13 @@ exports[`<Menu /> should match snapshot 1`] = `
   </div>
   <nav
     aria-hidden="true"
-    class="c15"
+    class="c16"
     data-testid="menu-full"
   >
     <svg
       aria-hidden="true"
       aria-label="Close menu"
-      class="c14"
+      class="c15"
       fill="currentColor"
       focusable="false"
       viewBox="0 0 24 24"
@@ -1157,13 +1189,13 @@ exports[`<Menu /> should match snapshot 1`] = `
         Home
       </a>
       <a
-        class="c5 c6"
+        class="c5 c7"
         data-testid="projects-link-mobile"
       >
         Projects
       </a>
       <a
-        class="c5 c6"
+        class="c5 c7"
         data-testid="contact-link-mobile"
       >
         Contact
