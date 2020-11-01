@@ -6,6 +6,20 @@ import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
 
+const testMenuLink = async (name: string, pushSpy: jest.SpyInstance<Promise<boolean>, [url: string]>): Promise<void> => {
+  let link = screen.getByTestId(`${name}-link`)
+  fireEvent.click(link)
+  expect(pushSpy).toHaveBeenCalledWith(`/${name === 'home' ? '' : name}`, `/${name === 'home' ? '' : name}`, { locale: undefined, shallow: undefined })
+  link = await waitFor(() => screen.getByTestId(`${name}-link`))
+  expect(link).toHaveStyleRule(
+    'background',
+    theme.colors.green,
+    {
+      modifier: '::before'
+    }
+  )
+}
+
 type SutTypes = {
   sut: RenderResult
   nextRouterStub: NextRouterStub
@@ -70,44 +84,14 @@ describe('<Menu />', () => {
 
   test('shoud navigate to other pages', async () => {
     const nextRouterStub = new NextRouterStub()
-    const pushPsy = jest.spyOn(nextRouterStub, 'push')
+    const pushSpy = jest.spyOn(nextRouterStub, 'push')
     makeSut(nextRouterStub)
     // Projects
-    let link = screen.getByTestId('projects-link')
-    fireEvent.click(link)
-    expect(pushPsy).toHaveBeenCalledWith('/projects', '/projects', { locale: undefined, shallow: undefined })
-    link = await waitFor(() => screen.getByTestId('projects-link'))
-    expect(link).toHaveStyleRule(
-      'background',
-      theme.colors.green,
-      {
-        modifier: '::before'
-      }
-    )
+    await testMenuLink('projects', pushSpy)
     // Home
-    const home = screen.getByTestId('home-link')
-    fireEvent.click(home)
-    expect(pushPsy).toHaveBeenCalledWith('/', '/', { locale: undefined, shallow: undefined })
-    link = await waitFor(() => screen.getByTestId('home-link'))
-    expect(link).toHaveStyleRule(
-      'background',
-      theme.colors.green,
-      {
-        modifier: '::before'
-      }
-    )
-    // Home
-    const contact = screen.getByTestId('contact-link')
-    fireEvent.click(contact)
-    expect(pushPsy).toHaveBeenCalledWith('/contact', '/contact', { locale: undefined, shallow: undefined })
-    link = await waitFor(() => screen.getByTestId('contact-link'))
-    expect(link).toHaveStyleRule(
-      'background',
-      theme.colors.green,
-      {
-        modifier: '::before'
-      }
-    )
+    await testMenuLink('home', pushSpy)
+    // Contact
+    await testMenuLink('contact', pushSpy)
   })
 
   test('shoud close MenuFull on MenuLink click', async () => {
