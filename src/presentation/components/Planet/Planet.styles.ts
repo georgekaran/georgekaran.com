@@ -5,13 +5,6 @@ export const Wrapper = styled.div`
   ${() => css`
     position: relative;
     width: 100%;
-  `}
-`
-
-export const PlanetWrapper = styled.div`
-  ${({ theme }) => css`
-    position: relative;
-    margin: auto;
     animation-name: FloatAnimation;
     animation-duration: 2000ms;
     animation-timing-function: ease-in-out;
@@ -19,18 +12,25 @@ export const PlanetWrapper = styled.div`
     animation-iteration-count: infinite;
     animation-fill-mode: none;
     animation-play-state: running;
-    width: 50%;
-    height: 50%;
 
     @keyframes FloatAnimation {
       0% {
-          margin-top: 0px;
+        transform: translateY(0px);
       }
 
       100% {
-        margin-top: 20px;
+        transform: translateY(20px);
       }
     }
+  `}
+`
+
+export const PlanetWrapper = styled.div`
+  ${({ theme }) => css`
+    position: relative;
+    margin: auto;
+    width: 50%;
+    height: 50%;
 
     & > .front {
       position: absolute;

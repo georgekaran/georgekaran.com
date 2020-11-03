@@ -53,4 +53,4 @@ const Space = ({ stars = 0, children }: SpaceProps) => {
   )
 }
 
-export default Space
+export default React.memo(Space)

@@ -165,4 +165,4 @@ const Planet = ({ orbitElements = [] }: PlanetProps) => {
   )
 }
 
-export default Planet
+export default React.memo(Planet)

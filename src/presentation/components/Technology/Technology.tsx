@@ -20,4 +20,4 @@ const Technology = ({ image, alt }: TechnologyProps) => (
   </S.Wrapper>
 )
 
-export default Technology
+export default React.memo(Technology)

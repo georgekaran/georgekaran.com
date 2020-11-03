@@ -37,4 +37,4 @@ const Testimonional = ({ testimonial, authorImage, author, job, company }: Testi
   </S.Wrapper>
 )
 
-export default Testimonional
+export default React.memo(Testimonional)

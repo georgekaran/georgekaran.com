@@ -210,4 +210,4 @@ const Logo = ({ hideOnMobile = false }: LogoProps) => (
   </S.Wrapper>
 )
 
-export default Logo
+export default React.memo(Logo)
