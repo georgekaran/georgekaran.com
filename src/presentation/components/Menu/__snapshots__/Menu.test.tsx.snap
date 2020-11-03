@@ -231,6 +231,18 @@ exports[`<Menu /> should match snapshot 1`] = `
   transition: transform 0.3s ease-in-out;
 }
 
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6.4rem 1.6rem 0 1.6rem;
+}
+
 .c1 {
   width: 13rem;
   display: -webkit-box;
@@ -1089,13 +1101,13 @@ exports[`<Menu /> should match snapshot 1`] = `
         class="c5 c7"
         data-testid="projects-link"
       >
-        Projects
+        Projetos
       </a>
       <a
         class="c5 c7"
         data-testid="contact-link"
       >
-        Contact
+        Contato
       </a>
     </div>
   </div>
@@ -1107,7 +1119,7 @@ exports[`<Menu /> should match snapshot 1`] = `
       class="c9 c10"
     >
       <select
-        aria-label="Language"
+        aria-label="Idioma"
         class="c11"
         data-testid="select"
       >
@@ -1140,7 +1152,7 @@ exports[`<Menu /> should match snapshot 1`] = `
     >
       <svg
         aria-hidden="true"
-        aria-label="Open menu"
+        aria-label="Abrir menu"
         class="c15"
         fill="currentColor"
         focusable="false"
@@ -1164,7 +1176,7 @@ exports[`<Menu /> should match snapshot 1`] = `
   >
     <svg
       aria-hidden="true"
-      aria-label="Close menu"
+      aria-label="Fechar menu"
       class="c15"
       fill="currentColor"
       focusable="false"
@@ -1180,6 +1192,38 @@ exports[`<Menu /> should match snapshot 1`] = `
       />
     </svg>
     <div
+      class="c17"
+    >
+      <div
+        class="c9 c10"
+      >
+        <select
+          aria-label="Idioma"
+          class="c11"
+          data-testid="select"
+        >
+          <option
+            class="c12"
+            value="pt_BR"
+          >
+            pt_BR
+          </option>
+          <option
+            class="c12"
+            value="en_US"
+          >
+            en_US
+          </option>
+          <option
+            class="c12"
+            value="es_ES"
+          >
+            es_ES
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
       class="c3 c4"
     >
       <a
@@ -1192,13 +1236,13 @@ exports[`<Menu /> should match snapshot 1`] = `
         class="c5 c7"
         data-testid="projects-link-mobile"
       >
-        Projects
+        Projetos
       </a>
       <a
         class="c5 c7"
         data-testid="contact-link-mobile"
       >
-        Contact
+        Contato
       </a>
     </div>
   </nav>

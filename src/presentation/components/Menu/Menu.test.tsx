@@ -1,5 +1,6 @@
 import React from 'react'
 import { RenderResult, screen, fireEvent, waitFor } from '@testing-library/react'
+import 'jest-localstorage-mock'
 
 import { Menu } from '.'
 import { render } from '@/test/helpers'
@@ -42,7 +43,7 @@ describe('<Menu />', () => {
     const { sut } = makeSut()
     expect(screen.getByLabelText(/abrir menu/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/George karan/i)).toBeInTheDocument()
-    expect(screen.getByLabelText('Idioma')).toBeInTheDocument()
+    expect(screen.getAllByLabelText('Idioma')).toHaveLength(2)
     expect(sut.container.firstChild).toHaveStyle({
       padding: '2.4rem 3.2rem'
     })
@@ -110,17 +111,25 @@ describe('<Menu />', () => {
 
   test('shoud change language on language select change', async () => {
     makeSut()
-    expect(screen.queryByLabelText(/language/i)).not.toBeInTheDocument() // ensure default language isn't en_US
-    const select = screen.getByLabelText(/idioma/i) as HTMLSelectElement
+    expect(screen.queryAllByLabelText(/language/i)).toHaveLength(0) // ensure default language isn't en_US
+    let select = screen.getAllByLabelText(/idioma/i)[0] as HTMLSelectElement
     fireEvent.change(select, {
       target: {
         value: 'en_US'
       }
     })
-    await waitFor(() => screen.getByLabelText(/language/i))
+    expect(localStorage.getItem('__georgekaran_language')).toBe('en_US')
+    select = await waitFor(() => screen.getAllByLabelText(/language/i)[0]) as HTMLSelectElement
+    fireEvent.change(select, {
+      target: {
+        value: 'es_ES'
+      }
+    })
+    expect(localStorage.getItem('__georgekaran_language')).toBe('es_ES')
   })
 
   test('should match snapshot', () => {
+    expect(localStorage.setItem('__georgekaran_language', 'pt_BR'))
     const { sut } = makeSut()
     expect(sut.container.firstChild).toMatchSnapshot()
   })
