@@ -135,3 +135,9 @@ export const MenuFull = styled.nav<MenuFullProps>`
     };
   `}
 `
+
+export const SelectWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 6.4rem 1.6rem 0 1.6rem;
+`

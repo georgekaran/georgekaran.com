@@ -81,6 +81,14 @@ const Menu = () => {
 
       <S.MenuFull data-testid="menu-full" aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label={i18n.t('close_menu')} onClick={() => setIsOpen(false)} />
+        <S.SelectWrapper>
+          <Select
+            ariaLabel={i18n.t('language')}
+            initialValue={language!}
+            options={Object.values(Language)}
+            onChange={onLanguageChange}
+          />
+        </S.SelectWrapper>
         <S.MenuGroup>
           <Link href="/">
             <S.MenuLink
