@@ -21,7 +21,7 @@ const testOrbitElements = () => {
       animation: `orbit-${i} 14s infinite linear`,
       position: 'absolute',
       left: '38%',
-      top: '15%'
+      top: '20%'
     })
   }
 }
@@ -37,11 +37,8 @@ describe('<Planet />', () => {
     makeSut()
     const planetWrapper = screen.getByTestId('planet')
     expect(planetWrapper).toHaveStyle({
-      width: '50rem'
+      width: '50%'
     })
-    expect(planetWrapper).toHaveStyleRule('width', '16rem !important', { media: '(max-width: 768px)' })
-    expect(planetWrapper).toHaveStyleRule('height', '16rem !important', { media: '(max-width: 768px)' })
-    expect(screen.getByTestId('onion')).toHaveStyleRule('width', '30rem !important', { media: '(max-width: 768px)' })
     expect(screen.queryAllByTestId('orbit-element')).toHaveLength(0)
   })
 

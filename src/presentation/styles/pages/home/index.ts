@@ -194,7 +194,6 @@ export const TimelineWrapper = styled.div`
 
 export const Stack = styled.section`
   ${({ theme }) => css`
-    min-height: 80rem;
     grid-area: stack;
     display: flex;
     flex-direction: column;
@@ -203,14 +202,6 @@ export const Stack = styled.section`
     ${HeadingStyles.Wrapper} {
       margin-bottom: ${theme.spacings.large};
     };
-
-    ${media.lessThan('medium')`
-      min-height: 40rem;
-    `};
-
-    ${media.between('medium', 'large')`
-      min-height: 60rem;
-    `};
   `}
 `
 

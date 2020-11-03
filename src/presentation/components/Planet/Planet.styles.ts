@@ -1,24 +1,10 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-const wrapperModifiers = {
-  large: () => css`
-    width: 50rem;
-  `
-}
-
 export const Wrapper = styled.div`
   ${() => css`
     position: relative;
     width: 100%;
-
-    ${PlanetWrapper} {
-      ${wrapperModifiers.large()};
-    }
-
-    ${OnionWrapper} {
-      ${onionModifiers.large()};
-    }
   `}
 `
 
@@ -33,16 +19,8 @@ export const PlanetWrapper = styled.div`
     animation-iteration-count: infinite;
     animation-fill-mode: none;
     animation-play-state: running;
-
-    ${media.lessThan('medium')`
-      width: 16rem !important;
-      height: 16rem !important;
-    `}
-
-    ${media.between('medium', 'large')`
-      width: 32rem !important;
-      height: 32rem !important;
-    `}
+    width: 50%;
+    height: 50%;
 
     @keyframes FloatAnimation {
       0% {
@@ -65,37 +43,16 @@ export const PlanetWrapper = styled.div`
   `}
 `
 
-const onionModifiers = {
-  small: () => css`
-    width: 36rem;
-  `,
-  medium: () => css`
-    width: 72rem;
-  `,
-  large: () => css`
-    width: 116rem;
-  `
-}
-
 export const OnionWrapper = styled.div`
   position: absolute;
   left: 50%;
   top: 58%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-
-  ${media.lessThan('medium')`
-    width: 30rem !important;
-  `}
-
-  ${media.between('medium', 'large')`
-    width: 72rem !important;
-  `}
+  width: 100%;
 `
 
 const orbirModifiers = {
-  mobile: () => '14rem',
-  large: () => '52rem',
   calcDegBegin: (index: number, totalElements: number) => Math.floor(360 / totalElements) * index,
   calcDegEnd: (deg: number) => deg + 360
 }
@@ -108,32 +65,19 @@ type OrbitProps = {
 const orbitMediaFactory = (
   degBegin: number,
   degEnd: number,
-  index: number,
-  media: string
+  index: number
 ) => {
-  let size = ''
-  switch (media) {
-    case 'mobile':
-      size = '14rem'
-      break
-    case 'medium':
-      size = '34rem'
-      break
-    default:
-      size = '54rem'
-  }
-
   return css`
     @keyframes orbit-${index} {
       0% {
-        transform: rotate3d(0.46, 1, 0.46, ${degBegin}deg)
-        translateX(${size})
-        rotate3d(0.46, 1, 0.46, -${degBegin}deg);
+        transform: rotate3d(0.5, 1, 0.5, ${degBegin}deg)
+        translateX(min(42vw, 570px))
+        rotate3d(0.5, 1, 0.5, -${degBegin}deg);
       }
       100% {
-        transform: rotate3d(0.46, 1, 0.46, ${degEnd}deg)
-        translateX(${size})
-        rotate3d(0.46, 1, 0.46, -${degEnd}deg);
+        transform: rotate3d(0.5, 1, 0.5, ${degEnd}deg)
+        translateX(min(42vw, 570px))
+        rotate3d(0.5, 1, 0.5, -${degEnd}deg);
       }
     }
   `
@@ -145,23 +89,17 @@ export const OrbitElement = styled.div<OrbitProps>`
     const degEnd = orbirModifiers.calcDegEnd(degBegin)
 
     return css`
-    position: absolute;
-    animation: orbit-${index} 14s infinite linear;
-    left: 38%;
-    top: 15%;
+      position: absolute;
+      left: 38%;
+      top: 20%;
+      animation: orbit-${index} 14s infinite linear;
 
-    ${media.lessThan('medium')`
-      ${orbitMediaFactory(degBegin, degEnd, index, 'mobile')};
-    `};
+      ${media.lessThan('small')`
+        left: 36%;
+        top: 15%;
+      `}
 
-    ${media.between('medium', 'large')`
-      ${orbitMediaFactory(degBegin, degEnd, index, 'medium')};
-    `};
-
-    ${media.greaterThan('large')`
-      top: 18%;
-      ${orbitMediaFactory(degBegin, degEnd, index, 'large')};
-    `};
-  `
+      ${orbitMediaFactory(degBegin, degEnd, index)};
+    `
   }
 }`

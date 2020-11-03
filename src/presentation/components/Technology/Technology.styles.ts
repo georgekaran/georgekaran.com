@@ -5,8 +5,8 @@ import { transparentize } from 'polished'
 
 const imageModifiers = {
   small: () => css`
-    width: 4rem !important;
-    height: 4rem !important;
+    width: 5rem !important;
+    height: 5rem !important;
   `,
   medium: () => css`
     width: 8rem !important;

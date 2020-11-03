@@ -35,7 +35,6 @@ export const Star = styled.div<StarProps>`
 `
 
 export const ChildrenWrapper = styled.div`
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
