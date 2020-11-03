@@ -40,7 +40,7 @@ const Contact = () => {
           <ContactCard
             icon={<MailIcon aria-label="Email Icon" />}
             previewLink="georgekaran12@gmail.com"
-            fullLink="malito:georgekaran12@gmail.com"
+            fullLink="mailto:georgekaran12@gmail.com"
             socialMedia="Email"
           />
           <ContactCard
