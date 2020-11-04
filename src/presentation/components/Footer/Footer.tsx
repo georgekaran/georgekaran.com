@@ -12,15 +12,30 @@ const Footer = () => (
   <S.Wrapper>
     <Logo hideOnMobile />
     <S.IconGroup>
-      <S.IconWrapper as="a" href="#" aria-label="Email">
+      <S.IconWrapper
+        as="a"
+        href="mailto:georgekaran12@gmail.com"
+        target="__blank"
+        aria-label="Email"
+      >
         <MailIcon />
       </S.IconWrapper>
 
-      <S.IconWrapper as="a" href="#" aria-label="Linkedin">
+      <S.IconWrapper
+        as="a"
+        href="https://linkedin.com/in/georgekaranmueller"
+        target="__blank"
+        aria-label="Linkedin"
+      >
         <LinkedinIcon />
       </S.IconWrapper>
 
-      <S.IconWrapper as="a" href="#" aria-label="Github">
+      <S.IconWrapper
+        as="a"
+        href="https://github.com/georgekaran"
+        target="__blank"
+        aria-label="Github"
+      >
         <GithubIcon />
       </S.IconWrapper>
     </S.IconGroup>
