@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     grid-template-columns: 100%;
 
     ${media.lessThan('1170px')`
-      grid-template-rows: auto auto 100%;
+      grid-template-rows: auto auto auto;
     `}
 
     ${media.lessThan('medium')`
