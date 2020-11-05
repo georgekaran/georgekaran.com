@@ -49,13 +49,17 @@ export const MediaGroup = styled.section`
 type ShapeProps = {
   x: string
   y: string
+  height: string
+  width: string
 }
 
 export const Shape = styled.div<ShapeProps>`
-  ${({ x, y }) => css`
+  ${({ x, y, height, width }) => css`
     position: absolute;
     top: ${y};
     left: ${x};
+    height: ${height};
+    width: ${width};
   `}
 `
 

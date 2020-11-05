@@ -144,39 +144,49 @@ const Home: React.FC = () => {
           <S.Shape
             x="10%"
             y="10%"
+            height="8.7rem"
+            width="2.8rem"
           >
             <NextImage
               src='/img/shapes/rectangle_1.svg'
               alt="Rectangle shape"
-              unsized
+              layout="fill"
             />
           </S.Shape>
           <S.Shape
             x="90%"
             y="10%"
+            height="5rem"
+            width="5rem"
           >
             <NextImage
               src='/img/shapes/rectangle_2.svg'
               alt="Square shape"
-              unsized
+              layout="fill"
             />
           </S.Shape>
           <S.Shape
             x="-10%"
-            y="80%">
+            y="80%"
+            height="9rem"
+            width="9rem"
+          >
             <NextImage
               src='/img/shapes/circle.svg'
               alt="Circle shape"
-              unsized
+              layout="fill"
             />
           </S.Shape>
           <S.Shape
             x="90%"
-            y="60%">
+            y="60%"
+            height="6.4rem"
+            width="4.8rem"
+          >
             <NextImage
               src='/img/shapes/polygon.svg'
               alt="Polygon shape"
-              unsized
+              layout="fill"
             />
           </S.Shape>
         </MediaMatch>
