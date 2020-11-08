@@ -11,7 +11,7 @@ import { Planet } from '@/presentation/components/Planet'
 import { Technology } from '@/presentation/components/Technology'
 import { MediaMatch } from '@/presentation/components/MediaMatch'
 import { Slider } from '@/presentation/components/Slider'
-import { Testimonional } from '@/presentation/components/Testimonional'
+import { Testimonional, TestimonionalProps } from '@/presentation/components/Testimonional'
 import useI18N from '@/presentation/hooks/usei18n'
 import { i18n } from '@/data/protocols'
 
@@ -107,6 +107,16 @@ const technologies: React.ReactNode[] = [
   <Technology key="docker" image="/img/technology/docker.png" alt="Docker" />,
   <Technology key="postgresql" image="/img/technology/postgresql.png" alt="Postgres SQL" />
 ]
+
+const testimonials = (i18n: i18n): TestimonionalProps[] => ([
+  {
+    author: 'Éverton Luís Lenz',
+    testimonial: i18n.t('everton_testimonial'),
+    authorImage: '/img/people/everton_lenz.jpg',
+    job: i18n.t('everton_job'),
+    company: 'BIMachine'
+  }
+])
 
 const Home: React.FC = () => {
   const i18n = useI18N()
@@ -263,27 +273,12 @@ const Home: React.FC = () => {
         </S.TestimonialDescriptionWrapper>
         <S.SliderWrapper data-aos="fade-up" {...Animations.baseAosAnimation}>
           <Slider>
-            <Testimonional
-              author='George Mueller'
-              testimonial='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit vitae elit sed gravida in ut nam orci. Amet sit nunc, facilisi viverra. Rhoncus accumsan vulputate ultrices risus tellus ante viverra dictum. Pellentesque et molestie rhoncus ultrices diam ipsum rhoncus tellus gravida. Mollis enim nam diam.'
-              authorImage='/img/me/george_brooklyn_bridge.png'
-              job='Fullstack developer'
-              company='Amazing Company'
-            />
-            <Testimonional
-              author='George Mueller'
-              testimonial='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit vitae elit sed gravida in ut nam orci. Amet sit nunc, facilisi viverra. Rhoncus accumsan vulputate ultrices risus tellus ante viverra dictum. Pellentesque et molestie rhoncus ultrices diam ipsum rhoncus tellus gravida. Mollis enim nam diam.'
-              authorImage='/img/me/george_brooklyn_bridge.png'
-              job='Fullstack developer'
-              company='Amazing Company'
-            />
-            <Testimonional
-              author='George Mueller'
-              testimonial='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suscipit vitae elit sed gravida in ut nam orci. Amet sit nunc, facilisi viverra. Rhoncus accumsan vulputate ultrices risus tellus ante viverra dictum. Pellentesque et molestie rhoncus ultrices diam ipsum rhoncus tellus gravida. Mollis enim nam diam.'
-              authorImage='/img/me/george_brooklyn_bridge.png'
-              job='Fullstack developer'
-              company='Amazing Company'
-            />
+            {testimonials(i18n).map(testimonial => (
+              <Testimonional
+                key={testimonial.author}
+                {...testimonial}
+              />
+            ))}
           </Slider>
         </S.SliderWrapper>
       </S.Testimonial>

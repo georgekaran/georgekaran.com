@@ -73,7 +73,9 @@ const messages: MessageFile = {
     open_github_project: 'Acessar o projeto $0 no Github',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar $0 url',
-    open_url: 'Abrir $0'
+    open_url: 'Abrir $0',
+    everton_testimonial: 'Trabalhei com o George na BIMachine por quase 2 anos. Logo de cara percebemos uma pessoa muito focada e dedicada a entregar um serviço de muita qualidade, sendo assim sua evolução foi impressionante e em pouco tempo assumiu projetos de mais relevância dentro da empresa. Além de um excelente profissional nos tornamos bons amigos graças ao seu caráter e sua personalidade alegre e divertida.',
+    everton_job: 'Chefe de Desenvolvimento de Software'
   },
   en_US: {
     home: 'Home',
@@ -147,7 +149,9 @@ const messages: MessageFile = {
     open_github_project: 'Access the $0 project on Github',
     copy_to_clipboard: 'Copied to clipboard',
     copy_url: 'Copy $0 url',
-    open_url: 'Open $0'
+    open_url: 'Open $0',
+    everton_testimonial: 'I worked with George at the BIMachine for almost 2 years. Right away we noticed a person very focused and dedicated to delivering a high quality service, so his evolution was impressive and in a short time he took on more relevant projects within the company. In addition to being an excellent professional, we became good friends thanks to his character and his cheerful and fun personality.',
+    everton_job: 'Head of Software Development'
   },
   es_ES: {
     home: 'Home',
@@ -221,7 +225,9 @@ const messages: MessageFile = {
     open_github_project: 'Accede al proyecto $0 en Github',
     copy_to_clipboard: 'Copiado',
     copy_url: 'Copiar url de $0',
-    open_url: 'Abrir $0'
+    open_url: 'Abrir $0',
+    everton_testimonial: 'Trabajé con George en la BIMachine durante casi 2 años. De inmediato notamos una persona muy enfocada y dedicada a brindar un servicio de alta calidad, por lo que su evolución fue impresionante y en poco tiempo asumió proyectos más relevantes dentro de la empresa. Además de ser un excelente profesional, nos hicimos buenos amigos gracias a su carácter y su personalidad alegre y divertida.',
+    everton_job: 'Jefe de Desarrollo de Software'
   }
 } as const
 
