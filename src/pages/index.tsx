@@ -115,6 +115,13 @@ const testimonials = (i18n: i18n): TestimonionalProps[] => ([
     authorImage: '/img/people/everton_lenz.jpg',
     job: i18n.t('everton_job'),
     company: 'BIMachine'
+  },
+  {
+    author: 'Guilherme Souza',
+    testimonial: i18n.t('guilherme_testimonial'),
+    authorImage: '/img/people/guilherme_souza.jpg',
+    job: i18n.t('guilherme_job'),
+    company: 'BIMachine'
   }
 ])
 
