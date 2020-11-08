@@ -24,11 +24,9 @@ export const TestimonialWrapper = styled.div`
 export const Testimonial = styled.p`
   ${({ theme }) => css`
     flex: 0.85;
-    font-weight: ${theme.font.medium};
     font-size: 2rem;
     color: ${theme.colors.white};
     padding: ${theme.spacings.xsmall};
-    letter-spacing: -1px;
 
     ${media.lessThan('medium')`
       padding: 0;
