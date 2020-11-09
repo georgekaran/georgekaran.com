@@ -1,30 +1,29 @@
-<p align="center">
-  <img src="./docs/images/next-boilerplate-logo.svg"
-       alt="Cauldron with a text Next Boiletplate on the right side" >
+<div align="center">
+  <img src="docs/images/logo.png" width="188" height="60"/>
   <br/>
-</p> 
+  <br/>
 
-![ci](https://github.com/georgekaran/next-boilerplate/workflows/ci/badge.svg)
+  <img src="docs/images/cover.png" />
+</div>
 
-# Next Boilerplate
+<br/>
+<br/>
 
-A simple boilerplate to work with Typescript, React, NextJs and Styled Components.
+# georgekaran.com
+![GitHub package.json version](https://img.shields.io/badge/version-1.0.0-orange)
+![ci](https://github.com/georgekaran/georgekaran.com/workflows/ci/badge.svg)
 
-## Getting Started
+> This is my personal page where i'll post my projects and updates about me.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+<br/>
 
-### Prerequisites
-
-1. NPM or YARN
-
-### Installing
+## Installing
 
 A step by step series of examples that tell you how to get a development env running
 
 Clone the repo or "Use this template".
 ```
-git clone https://github.com/georgekaran/next-boilerplate.git
+git clone https://github.com/georgekaran/georgekaran.com.git
 ```
 
 Install the dependencies and run the app.
@@ -50,10 +49,11 @@ npm i
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Deployed on [Vercel](vercel.com)
 
 ## Built With
 
+* [React](https://reactjs.org/) - "A JavaScript library for building user interfaces".
 * [Next.JS](https://nextjs.org/docs) - "The React Framework
 for Production".
 * [Styled-Components](https://styled-components.com/) - "Visual primitives for the component age".
