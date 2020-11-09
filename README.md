@@ -12,6 +12,7 @@
 # georgekaran.com
 ![GitHub package.json version](https://img.shields.io/badge/version-1.0.0-orange)
 ![ci](https://github.com/georgekaran/georgekaran.com/workflows/ci/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/georgekaran/georgekaran.com/badge.svg?branch=master)](https://coveralls.io/github/georgekaran/georgekaran.com?branch=master)
 
 > This is my personal page where i'll post my projects and updates about me.
 
