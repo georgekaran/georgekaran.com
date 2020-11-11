@@ -5,9 +5,13 @@ import { render } from '@/test/helpers'
 import NotFound from '@/pages/404'
 import theme from '@/presentation/styles/theme'
 
+const makeSut = () => {
+  render(<NotFound />)
+}
+
 describe('404 Page', () => {
   it('should render 404 with correct data', () => {
-    render(<NotFound />)
+    makeSut()
     expect(screen.getByText('404!')).toHaveStyle({
       color: theme.colors.green,
       fontSize: 'min(10rem, 20vw)'
