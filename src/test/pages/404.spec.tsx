@@ -1,12 +1,26 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
 import { render } from '@/test/helpers'
 import NotFound from '@/pages/404'
 import theme from '@/presentation/styles/theme'
+import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
 
-const makeSut = () => {
-  render(<NotFound />)
+type SutTypes = {
+  sut: RenderResult
+  nextRouterStub: NextRouterStub
+}
+
+const makeSut = (nextRouterStub = new NextRouterStub()): SutTypes => {
+  const sut = render(
+    <RouterContextMock nextRouter={nextRouterStub}>
+      <NotFound />
+    </RouterContextMock>
+  )
+  return {
+    sut,
+    nextRouterStub
+  }
 }
 
 describe('404 Page', () => {
@@ -23,6 +37,16 @@ describe('404 Page', () => {
       marginBottom: theme.spacings.large,
       textAlign: 'justify'
     })
-    expect(screen.getByText(/voltar ao home/i).parentElement).toHaveAttribute('href', '/')
+    expect(screen.getByText(/voltar ao home/i)).toBeInTheDocument()
+  })
+
+  it('should go to home page on button click', () => {
+    const nextRouterStub = new NextRouterStub()
+    const pushSpy = jest.spyOn(nextRouterStub, 'push')
+    makeSut(nextRouterStub)
+
+    const anchorHome = screen.getByText(/voltar ao home/i).parentElement
+    fireEvent.click(anchorHome!)
+    expect(pushSpy).toHaveBeenCalledWith('/')
   })
 })
