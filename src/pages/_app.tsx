@@ -26,12 +26,14 @@ function App ({ Component, pageProps }: AppProps) {
       <I18NProvider>
         <ThemeProvider theme={theme}>
           <Head>
-            <title>George Karan Personal Page</title>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+            <meta name="description" content="Minha página pessoal onde postarei meus projetos de desenvolvimento e atualizações sobre mim." />
+            <title>George Karan</title>
             <link rel="shortcut icon" href="/img/icon.svg" />
             <link rel="apple-touch-icon" href="/img/icon.svg" />
             <link rel="manifest" href="/manifest.json" />
             <link rel="stylesheet" href="/css/aos.css" />
-            <meta name="description" content="This is my personal page where i'll post my projects and updates about me." />
           </Head>
           <GlobalStyles />
           <S.Wrapper>
