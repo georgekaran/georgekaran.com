@@ -37,7 +37,7 @@ describe('404 Page', () => {
       marginBottom: theme.spacings.large,
       textAlign: 'justify'
     })
-    expect(screen.getByText(/voltar ao home/i)).toBeInTheDocument()
+    expect(screen.getByText(/voltar para home/i)).toBeInTheDocument()
   })
 
   it('should go to home page on button click', () => {
@@ -45,7 +45,7 @@ describe('404 Page', () => {
     const pushSpy = jest.spyOn(nextRouterStub, 'push')
     makeSut(nextRouterStub)
 
-    const anchorHome = screen.getByText(/voltar ao home/i).parentElement
+    const anchorHome = screen.getByText(/voltar para home/i).parentElement
     fireEvent.click(anchorHome!)
     expect(pushSpy).toHaveBeenCalledWith('/')
   })

@@ -79,7 +79,9 @@ const messages: MessageFile = {
     guilherme_testimonial: 'Conheci o George trabalhando na Bimachine, ele não era experiente, porém sempre se mostrou muito dedicado e estudioso, crescendo de forma incrível dentro da empresa. Com certeza, umas das melhores pessoas que já trabalhei e gostaria de trabalhar novamente se o futuro permitir.',
     guilherme_job: 'Desenvolvedor Full Stack',
     henrique_testimonial: 'O George é uma pessoa dedicada e muito resiliente, sempre disposto a ajudar os colegas com troca de conhecimento e com foco em vencer os desafios. Falo isso com propriedade pois é a segunda empresa que somos colegas, em ambas experiências trabalhamos em projetos grandes e internacionais. Domina as stacks do Javascript e por ser um auto didata está sempre em busca de novos conhecimentos. É um prazer trabalhar com o George!',
-    henrique_job: 'QA Automation'
+    henrique_job: 'QA Automation',
+    not_found_message: 'Opss, parece que a página que você tentou acessar não existe!',
+    go_back_home: 'Voltar para home'
   },
   en_US: {
     home: 'Home',
@@ -159,7 +161,9 @@ const messages: MessageFile = {
     guilherme_testimonial: 'I met George working at Bimachine, he wasn\'t experienced, but he was always very dedicated and studious, growing incredibly within the company. For sure, one of the best people I have ever worked with and would like to work again with him in the future.',
     guilherme_job: 'Full Stack Developer',
     henrique_testimonial: 'George is a dedicated and very resilient person, always willing to help colleagues with knowledge and with a focus on overcoming challenges. I speak with propriety because it\'s the second company that we\'re colleagues, in both experiences deal with large and international projects. He dominates Javascript stacks and because he is a self-taught person he is always in search of new knowledge. It is a pleasure to work with George!',
-    henrique_job: 'QA Automation'
+    henrique_job: 'QA Automation',
+    not_found_message: 'Oops, it looks like the page you tried to access doesn\'t exist!',
+    go_back_home: 'Return to home'
   },
   es_ES: {
     home: 'Home',
@@ -239,7 +243,9 @@ const messages: MessageFile = {
     guilherme_testimonial: 'Conocí a George trabajando en Bimachine, no tenía experiencia, pero siempre fue muy dedicado y estudioso, creciendo increíblemente dentro de la empresa. Sin duda, una de las mejores personas con las que he trabajado y me gustaría volver a trabajar si el futuro lo permite.',
     guilherme_job: 'Desarrollador Full Stack',
     henrique_testimonial: 'George es una persona dedicada y muy resistente, siempre dispuesta a ayudar a sus colegas con conocimientos y con un enfoque en superar los desafíos. Hablo con decoro porque es la segunda empresa en la que somos compañeros, en ambas experiencias con grandes proyectos internacionales. Domina la pila de Javascript y, como es una persona autodidacta, siempre está en busca de nuevos conocimientos. ¡Es un placer trabajar con George!',
-    henrique_job: 'QA Automatización'
+    henrique_job: 'QA Automatización',
+    not_found_message: '¡Upss, parece que la página a la que intentó acceder no existe!',
+    go_back_home: 'Volver a la home'
   }
 } as const
 
