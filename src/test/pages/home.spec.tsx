@@ -51,4 +51,9 @@ describe('Home Page', () => {
     expect(screen.getByAltText(/Docker/i)).toBeInTheDocument()
     expect(screen.getByAltText(/Postgres SQL/i)).toBeInTheDocument()
   })
+
+  it('should match snapshot', () => {
+    const { container } = makeSut()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
