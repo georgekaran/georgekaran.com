@@ -8,6 +8,7 @@ module.exports = {
     '!**/*.d.ts',
     '!<rootDir>/src/**/*.stories.tsx',
     '!<rootDir>/src/presentation/styles/**',
+    '!<rootDir>/src/test/RouterContextMock.tsx',
     '!<rootDir>/src/data/**',
     '!<rootDir>/src/domain/**'
   ],
