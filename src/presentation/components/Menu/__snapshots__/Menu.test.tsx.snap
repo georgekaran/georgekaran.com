@@ -69,9 +69,9 @@ exports[`<Menu /> should match snapshot 1`] = `
 }
 
 .c0 .c9 {
-  -webkit-flex: 0 0 100px;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
 }
 
 .c0 .flex {
@@ -1125,21 +1125,21 @@ exports[`<Menu /> should match snapshot 1`] = `
       >
         <option
           class="c12"
-          value="pt_BR"
+          value="Português"
         >
-          pt_BR
+          Português
         </option>
         <option
           class="c12"
-          value="en_US"
+          value="English"
         >
-          en_US
+          English
         </option>
         <option
           class="c12"
-          value="es_ES"
+          value="Español"
         >
-          es_ES
+          Español
         </option>
       </select>
     </div>
@@ -1204,21 +1204,21 @@ exports[`<Menu /> should match snapshot 1`] = `
         >
           <option
             class="c12"
-            value="pt_BR"
+            value="Português"
           >
-            pt_BR
+            Português
           </option>
           <option
             class="c12"
-            value="en_US"
+            value="English"
           >
-            en_US
+            English
           </option>
           <option
             class="c12"
-            value="es_ES"
+            value="Español"
           >
-            es_ES
+            Español
           </option>
         </select>
       </div>

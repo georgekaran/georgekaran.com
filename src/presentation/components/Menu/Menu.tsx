@@ -9,7 +9,7 @@ import { Logo } from '@/presentation/components/Logo'
 import { MediaMatch } from '@/presentation/components/MediaMatch'
 import useI18N from '@/presentation/hooks/usei18n'
 import { Select } from '@/presentation/components/Select'
-import { Language } from '@/domain/models/language'
+import { Language, LanguageResource } from '@/domain/models/language'
 import LanguageContext from '@/presentation/contexts/language'
 
 export type MenuProps = {}
@@ -25,7 +25,16 @@ const Menu = () => {
   }
 
   const onLanguageChange = (lan: string) => {
-    setLanguage!(lan as Language)
+    switch (lan) {
+      case LanguageResource.en:
+        setLanguage!(Language.en)
+        break
+      case LanguageResource.es:
+        setLanguage!(Language.es)
+        break
+      default:
+        setLanguage!(Language.pt)
+    }
   }
 
   return (
@@ -67,8 +76,8 @@ const Menu = () => {
       <MediaMatch display="contents" greaterThan="medium" >
         <Select
           ariaLabel={i18n.t('language')}
-          initialValue={language!}
-          options={Object.values(Language)}
+          initialValue={LanguageResource[language!]}
+          options={Object.values(LanguageResource)}
           onChange={onLanguageChange}
         />
       </MediaMatch>
@@ -84,8 +93,8 @@ const Menu = () => {
         <S.SelectWrapper>
           <Select
             ariaLabel={i18n.t('language')}
-            initialValue={language!}
-            options={Object.values(Language)}
+            initialValue={LanguageResource[language!]}
+            options={Object.values(LanguageResource)}
             onChange={onLanguageChange}
           />
         </S.SelectWrapper>

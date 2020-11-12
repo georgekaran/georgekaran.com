@@ -23,12 +23,12 @@ describe('CurrentLanguageAdapter', () => {
   test('Should return pt_BR if localStorage.getItem returns a non valid Language', () => {
     jest.spyOn(localStorage, 'getItem').mockReturnValueOnce('not_valid_result')
     const result = getCurrentLanguageAdapter()
-    expect(result).toEqual('pt_BR')
+    expect(result).toEqual('pt')
   })
 
   test('Should return pt_BR if window is undefined', () => {
     jest.spyOn(global as any, 'window', 'get').mockImplementationOnce(() => undefined)
     const result = getCurrentLanguageAdapter()
-    expect(result).toEqual('pt_BR')
+    expect(result).toEqual('pt')
   })
 })

@@ -23,4 +23,4 @@ export const render = (children: React.ReactNode): RenderResult => {
   )
 }
 
-export const msg = messages.pt_BR
+export const msg = messages.pt

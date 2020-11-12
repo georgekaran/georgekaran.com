@@ -3,17 +3,17 @@ import { Language } from '@/domain/models/language'
 import { mockLanguage } from '@/test/mockLanguage'
 
 const messagesMock = {
-  pt_BR: {
+  pt: {
     any_msg: 'any_value_pt_BR',
     any_msg_mask: 'any_$0_pt_BR',
     any_msg2_mask: 'any_$0_$1_pt_BR'
   },
-  en_US: {
+  en: {
     any_msg: 'any_value_en_US',
     any_msg_mask: 'any_$0_en_US',
     any_msg2_mask: 'any_$0_$1_en_US'
   },
-  es_ES: {
+  es: {
     any_msg: 'any_value_es_ES',
     any_msg_mask: 'any_$0_es_ES',
     any_msg2_mask: 'any_$0_$1_es_ES'

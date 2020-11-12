@@ -1,7 +1,7 @@
 import { MessageFile } from '@/data/protocols'
 
 const messages: MessageFile = {
-  pt_BR: {
+  pt: {
     home: 'Home',
     projects: 'Projetos',
     contact: 'Contato',
@@ -83,7 +83,7 @@ const messages: MessageFile = {
     not_found_message: 'Opss, parece que a página que você tentou acessar não existe!',
     go_back_home: 'Voltar para home'
   },
-  en_US: {
+  en: {
     home: 'Home',
     projects: 'Projects',
     contact: 'Contact',
@@ -165,7 +165,7 @@ const messages: MessageFile = {
     not_found_message: 'Oops, it looks like the page you tried to access doesn\'t exist!',
     go_back_home: 'Return to home'
   },
-  es_ES: {
+  es: {
     home: 'Home',
     projects: 'Proyectos',
     contact: 'Contacto',

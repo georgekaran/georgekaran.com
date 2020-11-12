@@ -21,7 +21,7 @@ export const Wrapper = styled.menu`
     `};
 
     ${Select.Wrapper} {
-      flex: 0 0 100px;
+      flex: 0 0 130px;
     };
 
     ${MediaMatch.default} {
@@ -137,7 +137,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
 `
 
 export const SelectWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin: 6.4rem 1.6rem 0 1.6rem;
+  display: flex;
+  justify-content: center;
+  margin: 6.4rem 1.6rem 0 1.6rem;
 `

@@ -6,6 +6,7 @@ import { Menu } from '.'
 import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
+import { LanguageResource } from '@/domain/models/language'
 
 const testMenuLink = async (name: string, pushSpy: jest.SpyInstance<Promise<boolean>, [url: string]>): Promise<void> => {
   let link = screen.getByTestId(`${name}-link`)
@@ -115,21 +116,21 @@ describe('<Menu />', () => {
     let select = screen.getAllByLabelText(/idioma/i)[0] as HTMLSelectElement
     fireEvent.change(select, {
       target: {
-        value: 'en_US'
+        value: LanguageResource.en
       }
     })
-    expect(localStorage.getItem('__georgekaran_language')).toBe('en_US')
+    expect(localStorage.getItem('__georgekaran_language')).toBe('en')
     select = await waitFor(() => screen.getAllByLabelText(/language/i)[0]) as HTMLSelectElement
     fireEvent.change(select, {
       target: {
-        value: 'es_ES'
+        value: LanguageResource.es
       }
     })
-    expect(localStorage.getItem('__georgekaran_language')).toBe('es_ES')
+    expect(localStorage.getItem('__georgekaran_language')).toBe('es')
   })
 
   test('should match snapshot', () => {
-    expect(localStorage.setItem('__georgekaran_language', 'pt_BR'))
+    expect(localStorage.setItem('__georgekaran_language', 'pt'))
     const { sut } = makeSut()
     expect(sut.container.firstChild).toMatchSnapshot()
   })
