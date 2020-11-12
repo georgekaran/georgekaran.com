@@ -99,19 +99,3 @@ export const FooterWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `
-
-export const LinkWrapper = styled.div`
-  ${({ theme }) => css`
-    width: ${theme.font.sizes.xlarge};
-    height: ${theme.font.sizes.xlarge};
-    margin-left: ${theme.spacings.xsmall};
-    background: white;
-    border-radius: 50%;
-    padding: 2.4rem;
-    cursor: pointer;
-
-    > svg {
-      color: ${theme.colors.blue};
-    }
-  `}
-`
