@@ -1,50 +1,62 @@
 import React, { useRef, useEffect } from 'react'
 import { RenderResult, screen } from '@testing-library/react'
-import faker from 'faker'
 
-import { Timeline, Achievement, Tag } from '.'
+import { Timeline, Achievement } from '.'
 import { render } from '@/test/helpers'
 
-const createAchievements = (length: number): Achievement[] => {
-  let year = 2018
-  const arr: Achievement[] = []
-  for (let i = 0; i < length; i++) {
-    arr.push(
-      {
-        date: new Date(`${year}-08-21T00:00:00`),
-        title: `Node JS com microservicos ${i}`,
-        description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
-        tag: faker.random.arrayElement(['professional', 'event', 'education']) as Tag
-      }
-    )
-    year = year + 1 > 2020 ? 2018 : year + 1
-  }
+const createAchievements = (): Achievement[] => {
+  const arr: Achievement[] = [
+    {
+      date: new Date('2018-08-21T00:00:00'),
+      title: 'Node JS com microservicos 0',
+      description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+      tag: 'professional'
+    },
+    {
+      date: new Date('2019-08-21T00:00:00'),
+      title: 'Node JS com microservicos 1',
+      description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+      tag: 'event'
+    },
+    {
+      date: new Date('2020-08-21T00:00:00'),
+      title: 'Node JS com microservicos 2',
+      description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+      tag: 'talk'
+    },
+    {
+      date: new Date('2018-08-21T00:00:00'),
+      title: 'Node JS com microservicos 3',
+      description: 'Node JS com microservicos Node JS com microservicos Node JS com microservicosNode JS com microservicos Node JS com microservicos Node JS com microservicos Node JS com microservicos',
+      tag: 'education'
+    }
+  ]
   return arr
 }
 
 type WrapperProps = {
-  numberAchievements: number
+  numberAchievements?: number
 }
 
-const Wrapper = ({ numberAchievements }: WrapperProps) => {
+const Wrapper = ({ numberAchievements }: WrapperProps = { numberAchievements: 1 }) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (ref.current) {
       Object.defineProperties(ref.current, {
         scrollHeight: {
-          value: numberAchievements > 5 ? 1200 : 700
+          value: 700
         },
         clientHeight: {
           value: 700
         }
       })
     }
-  }, [ref, numberAchievements])
+  }, [ref])
 
   return (
     <div ref={ref}>
-      <Timeline achievements={createAchievements(numberAchievements)} />
+      <Timeline achievements={numberAchievements === 0 ? [] : createAchievements()} />
     </div>
   )
 }
@@ -59,14 +71,15 @@ const makeSut = (props: SutProps): RenderResult => {
 
 describe('<Timeline />', () => {
   it('should render with initial state', () => {
-    makeSut({ numberAchievements: 3 })
+    makeSut({})
     expect(screen.getByText('Node JS com microservicos 0')).toBeInTheDocument()
     expect(screen.getByText('Node JS com microservicos 1')).toBeInTheDocument()
     expect(screen.getByText('Node JS com microservicos 2')).toBeInTheDocument()
+    expect(screen.getByText('Node JS com microservicos 3')).toBeInTheDocument()
 
     expect(screen.getByTestId('events-2020').childElementCount).toBe(1)
     expect(screen.getByTestId('events-2019').childElementCount).toBe(1)
-    expect(screen.getByTestId('events-2018').childElementCount).toBe(1)
+    expect(screen.getByTestId('events-2018').childElementCount).toBe(2)
   })
 
   it('should render if empty achievements is provided', () => {
