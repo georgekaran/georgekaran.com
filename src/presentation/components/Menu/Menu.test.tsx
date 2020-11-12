@@ -6,7 +6,8 @@ import { Menu } from '.'
 import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
 import { NextRouterStub } from '@/test/RouterContextMock'
-import { LanguageResource } from '@/domain/models/language'
+import { Language, LanguageResource } from '@/domain/models/language'
+import messages from '@/main/config/messages'
 
 const testMenuLink = async (name: string, pushSpy: jest.SpyInstance<Promise<boolean>, [url: string]>): Promise<void> => {
   let link = screen.getByTestId(`${name}-link`)
@@ -20,6 +21,30 @@ const testMenuLink = async (name: string, pushSpy: jest.SpyInstance<Promise<bool
       modifier: '::before'
     }
   )
+}
+
+const ensureLocaleChange = async (select: HTMLSelectElement, language: LanguageResource): Promise<HTMLSelectElement> => {
+  let locale: Language
+  switch (language) {
+    case LanguageResource.pt:
+      locale = Language.pt
+      break
+    case LanguageResource.en:
+      locale = Language.en
+      break
+    case LanguageResource.es:
+      locale = Language.es
+  }
+  fireEvent.change(select, {
+    target: {
+      value: language
+    }
+  })
+  const projectsLink = await waitFor(() => screen.getByTestId('projects-link'))
+  select = await waitFor(() => screen.getAllByLabelText(messages[locale].language)[0]) as HTMLSelectElement
+  expect(projectsLink).toHaveTextContent(messages[locale].projects)
+  expect(select).toHaveProperty('value', language)
+  return select
 }
 
 type SutTypes = {
@@ -111,27 +136,11 @@ describe('<Menu />', () => {
 
   test('shoud change language on language select change', async () => {
     makeSut()
-    expect(screen.queryAllByLabelText(/language/i)).toHaveLength(0) // ensure default language isn't en_US
+    expect(screen.queryAllByLabelText(/language/i)).toHaveLength(0)
     let select = screen.getAllByLabelText(/idioma/i)[0] as HTMLSelectElement
-    fireEvent.change(select, {
-      target: {
-        value: LanguageResource.en
-      }
-    })
-    let projectsLink = await waitFor(() => screen.getByTestId('projects-link'))
-    select = await waitFor(() => screen.getAllByLabelText(/language/i)[0]) as HTMLSelectElement
-    expect(projectsLink).toHaveTextContent('Projects')
-    expect(select).toHaveProperty('value', LanguageResource.en)
-
-    fireEvent.change(select, {
-      target: {
-        value: LanguageResource.es
-      }
-    })
-    projectsLink = await waitFor(() => screen.getByTestId('projects-link'))
-    select = await waitFor(() => screen.getAllByLabelText(/idioma/i)[0]) as HTMLSelectElement
-    expect(projectsLink).toHaveTextContent('Proyectos')
-    expect(select).toHaveProperty('value', LanguageResource.es)
+    select = await ensureLocaleChange(select, LanguageResource.en)
+    select = await ensureLocaleChange(select, LanguageResource.es)
+    await ensureLocaleChange(select, LanguageResource.pt)
   })
 
   test('should match snapshot', () => {
