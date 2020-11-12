@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact Page should match snapshot 1`] = `
+.c10 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c0 {
+  margin: 5.6rem 0;
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.c2 {
+  font-weight: 400;
+  color: #28F5BE;
+  max-width: 50rem;
+  margin-top: 3.2rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 3.2rem 0;
+}
+
+.c13 {
+  position: relative;
+  width: 36rem;
+  height: 55rem;
+}
+
+.c4 {
+  background: #27272D;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 40rem;
+  max-height: 53rem;
+  max-width: 87rem;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3.2rem;
+  gap: 3.2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+}
+
+.c14 {
+  background: rgba(40,245,190,0.6);
+  height: 100%;
+  margin-left: -10rem;
+}
+
+.c15 {
+  position: absolute;
+  bottom: 2.4rem;
+  right: 2.4rem;
+}
+
+.c1 {
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 3.2rem;
+}
+
+.c5 {
+  background: linear-gradient(83.89deg,#28F5BE 2.81%,#3B37FF 97.94%);
+  height: 9rem;
+  max-width: 36rem;
+  width: 100%;
+  padding: 1px;
+  position: relative;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  background: #1F1F24;
+  padding: 0 2.4rem;
+}
+
+.c9 {
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-right: 2.4rem;
+  color: #28F5BE;
+}
+
+.c9.pointer {
+  cursor: pointer;
+}
+
+.c12 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.c12[aria-hidden="false"] {
+  opacity: 1;
+}
+
+.c12 .c8 {
+  margin-left: 2.4rem;
+  margin-right: 0;
+}
+
+.c12 .c6 {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  background: rgba(31,31,36,0.8);
+}
+
+.c11 {
+  color: #FFFFFF;
+}
+
+@media (max-width:1170px) {
+  .c0 {
+    grid-template-rows: auto auto auto;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 {
+    margin: 2.4rem 0;
+  }
+}
+
+@media (max-width:1170px) {
+  .c3 {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width:1170px) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media (max-width:768px) {
+  .c4 {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width:450px) {
+  .c5 {
+    height: 6rem;
+  }
+}
+
+@media (max-width:450px) {
+  .c9 {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
+
+@media (max-width:450px) {
+  .c11 {
+    font-size: 1.4rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="c1"
+    data-aos="slide-right"
+    data-aos-duration="800"
+    data-aos-easing="ease"
+    data-aos-once="true"
+  >
+    Entre em contato comigo
+  </h2>
+  <h4
+    class="c2"
+    data-aos="slide-right"
+    data-aos-duration="800"
+    data-aos-easing="ease"
+    data-aos-once="true"
+  >
+    Estas são as minhas principais redes sociais, não hesite em iniciar uma conversa.
+     😀
+  </h4>
+  <div
+    class="c3"
+  >
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        <div
+          class="c6 c7"
+        >
+          <div
+            class="c8 c9"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label="Github Icon"
+              class="c10"
+              fill="none"
+              focusable="false"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+              />
+            </svg>
+          </div>
+          <label
+            class="c11"
+          >
+            georgekaran
+          </label>
+        </div>
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-testid="overlay"
+        >
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8 c9 pointer"
+            >
+              <svg
+                aria-label="Copiar Github url"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Copiar Github url
+                </title>
+                <rect
+                  height="13"
+                  rx="2"
+                  ry="2"
+                  width="13"
+                  x="9"
+                  y="9"
+                />
+                <path
+                  d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                />
+              </svg>
+            </div>
+            <a
+              class="c8 c9"
+              href="https://github.com/georgekaran"
+              target="__blank"
+            >
+              <svg
+                aria-label="Abrir Github"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Abrir Github
+                </title>
+                <path
+                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                />
+                <polyline
+                  points="15 3 21 3 21 9"
+                />
+                <line
+                  x1="10"
+                  x2="21"
+                  y1="14"
+                  y2="3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c5"
+      >
+        <div
+          class="c6 c7"
+        >
+          <div
+            class="c8 c9"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label="Email Icon"
+              class="c10"
+              fill="none"
+              focusable="false"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline
+                points="22,6 12,13 2,6"
+              />
+            </svg>
+          </div>
+          <label
+            class="c11"
+          >
+            georgekaran12@gmail.com
+          </label>
+        </div>
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-testid="overlay"
+        >
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8 c9 pointer"
+            >
+              <svg
+                aria-label="Copiar Email url"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Copiar Email url
+                </title>
+                <rect
+                  height="13"
+                  rx="2"
+                  ry="2"
+                  width="13"
+                  x="9"
+                  y="9"
+                />
+                <path
+                  d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                />
+              </svg>
+            </div>
+            <a
+              class="c8 c9"
+              href="mailto:georgekaran12@gmail.com"
+              target="__blank"
+            >
+              <svg
+                aria-label="Abrir Email"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Abrir Email
+                </title>
+                <path
+                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                />
+                <polyline
+                  points="15 3 21 3 21 9"
+                />
+                <line
+                  x1="10"
+                  x2="21"
+                  y1="14"
+                  y2="3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c5"
+      >
+        <div
+          class="c6 c7"
+        >
+          <div
+            class="c8 c9"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label="Linkedin Icon"
+              class="c10"
+              fill="none"
+              focusable="false"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+              />
+              <rect
+                height="12"
+                width="4"
+                x="2"
+                y="9"
+              />
+              <circle
+                cx="4"
+                cy="4"
+                r="2"
+              />
+            </svg>
+          </div>
+          <label
+            class="c11"
+          >
+            in/georgekaranmueller
+          </label>
+        </div>
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-testid="overlay"
+        >
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8 c9 pointer"
+            >
+              <svg
+                aria-label="Copiar Linkedin url"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Copiar Linkedin url
+                </title>
+                <rect
+                  height="13"
+                  rx="2"
+                  ry="2"
+                  width="13"
+                  x="9"
+                  y="9"
+                />
+                <path
+                  d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                />
+              </svg>
+            </div>
+            <a
+              class="c8 c9"
+              href="https://linkedin.com/in/georgekaranmueller"
+              target="__blank"
+            >
+              <svg
+                aria-label="Abrir Linkedin"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Abrir Linkedin
+                </title>
+                <path
+                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                />
+                <polyline
+                  points="15 3 21 3 21 9"
+                />
+                <line
+                  x1="10"
+                  x2="21"
+                  y1="14"
+                  y2="3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c5"
+      >
+        <div
+          class="c6 c7"
+        >
+          <div
+            class="c8 c9"
+          >
+            <svg
+              aria-hidden="true"
+              aria-label="Twitter Icon"
+              class="c10"
+              fill="none"
+              focusable="false"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+              />
+            </svg>
+          </div>
+          <label
+            class="c11"
+          >
+            georgekaran12
+          </label>
+        </div>
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-testid="overlay"
+        >
+          <div
+            class="c6 c7"
+          >
+            <div
+              class="c8 c9 pointer"
+            >
+              <svg
+                aria-label="Copiar Twitter url"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Copiar Twitter url
+                </title>
+                <rect
+                  height="13"
+                  rx="2"
+                  ry="2"
+                  width="13"
+                  x="9"
+                  y="9"
+                />
+                <path
+                  d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+                />
+              </svg>
+            </div>
+            <a
+              class="c8 c9"
+              href="https://twitter.com/georgekaran12"
+              target="__blank"
+            >
+              <svg
+                aria-label="Abrir Twitter"
+                class="c10"
+                fill="none"
+                focusable="false"
+                role="img"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Abrir Twitter
+                </title>
+                <path
+                  d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"
+                />
+                <polyline
+                  points="15 3 21 3 21 9"
+                />
+                <line
+                  x1="10"
+                  x2="21"
+                  y1="14"
+                  y2="3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c13"
+    >
+      <div
+        class="c14"
+      />
+      <div
+        class="c15"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"309\\" height=\\"417\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Eu sentado na Brooklyn Bridge em Nova York"
+            class="Image"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fme%2Fgeorge_brooklyn_bridge.png&w=1024&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fme%2Fgeorge_brooklyn_bridge.png&w=320&q=75 1x, /_next/image?url=%2Fimg%2Fme%2Fgeorge_brooklyn_bridge.png&w=768&q=75 2x, /_next/image?url=%2Fimg%2Fme%2Fgeorge_brooklyn_bridge.png&w=1024&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

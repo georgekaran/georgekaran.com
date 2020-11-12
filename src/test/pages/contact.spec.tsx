@@ -16,4 +16,11 @@ describe('Contact Page', () => {
     expect(screen.getByText(message.contact_me_description + ' 😀')).toBeInTheDocument()
     expect(screen.getByRole('img')).toHaveAttribute('alt', message.contact_me_image_alt)
   })
+
+  it('should match snapshot', () => {
+    const { container } = render(
+      <ContactPage />
+    )
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
