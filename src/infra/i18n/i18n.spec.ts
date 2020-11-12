@@ -61,4 +61,12 @@ describe('i18n', () => {
 
     expect(result).toBe(messagesMock[language].any_msg)
   })
+
+  test('should return the original msg if the resource not exists in messages', () => {
+    const { sut } = makeSut()
+    const message = 'this_message_dont_exist'
+    const result = sut.t(message)
+
+    expect(result).toBe(message)
+  })
 })
