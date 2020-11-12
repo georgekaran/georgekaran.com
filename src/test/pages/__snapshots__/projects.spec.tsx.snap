@@ -1,0 +1,840 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects Page should match snapshot 1`] = `
+.c5 {
+  background: linear-gradient(333.93deg,#2f2f2f 0%,#35353D 100%);
+  max-width: 50rem;
+  min-width: 28rem;
+  max-height: 686px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 92% 1fr;
+  border-radius: 4px;
+  padding: 2.4rem 0;
+}
+
+.c5 > * {
+  grid-column: 2;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.c7 {
+  color: #FFFFFF;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2.4rem;
+}
+
+.c10 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 0.4rem;
+  background: #6321CE;
+  border-radius: 0.4rem;
+  height: 2.6rem;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+.c10:not(:first-child) {
+  margin-left: 1.6rem;
+}
+
+.c8 {
+  width: 100%;
+  height: auto;
+  grid-column: 1 / 4;
+}
+
+.c11 {
+  margin: 2.4rem 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #D4D4D4;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c0 {
+  margin: 5.6rem 0;
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.c2 {
+  font-weight: 400;
+  color: #28F5BE;
+  max-width: 35rem;
+  margin-top: 3.2rem;
+}
+
+.c3 {
+  margin-top: 24rem;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(45rem,1fr));
+  gap: 9rem;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c3 .c4 {
+  justify-self: center;
+}
+
+.c3 .c4:nth-child(2n+2) {
+  margin-top: -16rem;
+}
+
+.c1 {
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 3.2rem;
+}
+
+.c14 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.c13 {
+  background: #28F5BE;
+  color: #27272D;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 4rem;
+  font-size: 1.6rem;
+  padding: 0.8rem 3.2rem;
+}
+
+.c13:hover {
+  background: #1BE0AB;
+}
+
+.c13 svg {
+  width: 2.4rem;
+}
+
+.c13 svg + span {
+  margin-left: 0.8rem;
+}
+
+@media (max-width:768px) {
+  .c6 {
+    margin-bottom: 1.6rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c7 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c9 {
+    margin-top: 1.6rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c10 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c11 {
+    font-size: 1.2rem;
+    margin: 1.6rem 0;
+  }
+}
+
+@media (max-width:768px) {
+  .c0 {
+    margin: 2.4rem 0;
+  }
+}
+
+@media (max-width:1072px) {
+  .c3 {
+    grid-template-columns: 1fr;
+    margin-top: 4rem;
+    gap: 4rem;
+  }
+
+  .c3:nth-child(2n+2) {
+    margin-top: 2.4rem !important;
+  }
+}
+
+@media (max-width:1072px) {
+  .c3 .c4:nth-child(2n+2) {
+    margin-top: 0px !important;
+  }
+}
+
+@media (max-width:768px) {
+  .c1 {
+    font-size: 2.4rem;
+  }
+}
+
+<div
+  class="c0"
+>
+  <h2
+    class="c1"
+    data-aos="slide-right"
+    data-aos-duration="800"
+    data-aos-easing="ease"
+    data-aos-once="true"
+  >
+    Projetos
+  </h2>
+  <h4
+    class="c2"
+    data-aos="slide-right"
+    data-aos-duration="800"
+    data-aos-easing="ease"
+    data-aos-once="true"
+  >
+    Aqui estão alguns projetos que fiz ao longo de minha trajetória, espero que goste!
+  </h4>
+  <div
+    class="c3"
+  >
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          georgekaran.com
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="georgekaran.com"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fgeorgekaran-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fgeorgekaran-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fgeorgekaran-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fgeorgekaran-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          Next.JS
+        </span>
+        <span
+          class="c10"
+        >
+          Styled-Components
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Minha página pessoal onde você pode encontrar meus últimos projetos e atualizações sobre minha carreira.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto georgekaran.com no Github"
+          class="c13"
+          href="https://github.com/georgekaran/georgekaran.com"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          Won Games
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Won Games"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fwon-games-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fwon-games-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fwon-games-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fwon-games-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          Strapi
+        </span>
+        <span
+          class="c10"
+        >
+          Typescript
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Projeto de comércio eletrônico para venda de games utilizando Strapi, React e Styled-Components.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto Won Games no Github"
+          class="c13"
+          href="https://github.com/georgekaran/won-games-client"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          Ticketing
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Ticketing"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fticketing-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fticketing-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fticketing-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fticketing-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          NodeJS
+        </span>
+        <span
+          class="c10"
+        >
+          NATS
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Compre e venda ingressos neste projeto baseado em microsserviços.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto Ticketing no Github"
+          class="c13"
+          href="https://github.com/georgekaran/ticketing"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          Survey App
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Survey App"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fsurvey-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fsurvey-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fsurvey-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fsurvey-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          NodeJS
+        </span>
+        <span
+          class="c10"
+        >
+          Typescript
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Projeto de enquetes escrito em React e Typescript usando como metodologia o TDD.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto Survey App no Github"
+          class="c13"
+          href="https://github.com/georgekaran/survey-app"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          Ecoleta
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Ecoleta"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fecoleta-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fecoleta-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fecoleta-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fecoleta-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          NodeJS
+        </span>
+        <span
+          class="c10"
+        >
+          Native
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Market place for waste collection written in React, React-Native and Node.JS.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto Ecoleta no Github"
+          class="c13"
+          href="https://github.com/georgekaran/ecoleta"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="c4 c5"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-easing="ease"
+      data-aos-once="true"
+    >
+      <div
+        class="c6"
+      >
+        <h2
+          class="c7"
+        >
+          Star Wars UI
+        </h2>
+      </div>
+      <div
+        class="c8"
+      >
+        <div
+          style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+        >
+          <div
+            style="box-sizing: border-box; display: block; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              src="data:image/svg+xml;charset=utf-8,<svg width=\\"500\\" height=\\"380\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+              style="max-width: 100%; display: block;"
+            />
+          </div>
+          <img
+            alt="Star Wars UI"
+            decoding="async"
+            src="/_next/image?url=%2Fimg%2Fprojects%2Fstar-wars-card.png&w=1200&q=75"
+            srcset="/_next/image?url=%2Fimg%2Fprojects%2Fstar-wars-card.png&w=768&q=75 1x, /_next/image?url=%2Fimg%2Fprojects%2Fstar-wars-card.png&w=1024&q=75 2x, /_next/image?url=%2Fimg%2Fprojects%2Fstar-wars-card.png&w=1200&q=75 3x"
+            style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+        </div>
+      </div>
+      <div
+        class="c9"
+      >
+        <span
+          class="c10"
+        >
+          React
+        </span>
+        <span
+          class="c10"
+        >
+          NodeJS
+        </span>
+        <span
+          class="c10"
+        >
+          Typescript
+        </span>
+      </div>
+      <p
+        class="c11"
+      >
+        Página inicial de Star Wars usando dados de https://swapi.co.
+      </p>
+      <div
+        class="c12"
+      >
+        <a
+          aria-label="Acessar o projeto Star Wars UI no Github"
+          class="c13"
+          href="https://github.com/georgekaran/star-wars-ui"
+          target="__blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="c14"
+            fill="none"
+            focusable="false"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+            />
+          </svg>
+          <span>
+            Github
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

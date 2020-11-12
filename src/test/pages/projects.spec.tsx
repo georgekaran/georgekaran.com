@@ -25,4 +25,9 @@ describe('Projects Page', () => {
     expect(screen.getByRole('heading', { name: /Ecoleta/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Star Wars UI/i })).toBeInTheDocument()
   })
+
+  it('should match snapshot', () => {
+    const { container } = makeSut()
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
