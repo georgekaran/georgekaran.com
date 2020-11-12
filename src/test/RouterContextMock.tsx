@@ -20,6 +20,7 @@ type RouterContextMockProps = {
 
 export const RouterContextMock = ({ children, nextRouter = new NextRouterStub() }: RouterContextMockProps) => {
   const [pathname, setPathname] = React.useState('/')
+  const [localeState, setLocaleState] = React.useState('pt')
   const [nextRouterStub] = React.useState(nextRouter)
 
   return (
@@ -32,17 +33,20 @@ export const RouterContextMock = ({ children, nextRouter = new NextRouterStub() 
       isFallback: nextRouterStub.isFallback,
       pathname: pathname,
       prefetch: nextRouterStub.prefetch,
-      push: (url: Url, ...props) => {
+      push: (url: Url, as?: Url, options?: TransitionOptions) => {
         const formatteUrl = format(url)
         setPathname(formatteUrl)
-        return nextRouterStub.push(formatteUrl, ...props)
+        if (options?.locale) {
+          setLocaleState(options?.locale)
+        }
+        return nextRouterStub.push(formatteUrl)
       },
       query: nextRouterStub.query,
       reload: nextRouterStub.reload,
       replace: nextRouterStub.replace,
       route: nextRouterStub.route,
       defaultLocale: nextRouterStub.defaultLocale,
-      locale: nextRouterStub.locale,
+      locale: localeState,
       locales: nextRouterStub.locales
     }}>
       {children}
@@ -59,6 +63,12 @@ export class NextRouterStub implements NextRouter {
   locale?: string | undefined
   locales?: string[] | undefined
   defaultLocale?: string | undefined
+
+  constructor () {
+    this.locale = 'pt'
+    this.locales = ['pt', 'en', 'es']
+    this.defaultLocale = 'pt'
+  }
 
   push (url: string): Promise<boolean> {
     this.pathname = url

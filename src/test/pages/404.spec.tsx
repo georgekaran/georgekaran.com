@@ -4,7 +4,7 @@ import { screen, RenderResult, fireEvent } from '@testing-library/react'
 import { render } from '@/test/helpers'
 import NotFound from '@/pages/404'
 import theme from '@/presentation/styles/theme'
-import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
+import { NextRouterStub } from '@/test/RouterContextMock'
 
 type SutTypes = {
   sut: RenderResult
@@ -13,9 +13,8 @@ type SutTypes = {
 
 const makeSut = (nextRouterStub = new NextRouterStub()): SutTypes => {
   const sut = render(
-    <RouterContextMock nextRouter={nextRouterStub}>
-      <NotFound />
-    </RouterContextMock>
+    <NotFound />,
+    nextRouterStub
   )
   return {
     sut,

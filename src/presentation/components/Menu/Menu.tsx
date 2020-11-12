@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Menu as MenuIcon } from '@styled-icons/material-outlined/Menu'
@@ -10,31 +10,31 @@ import { MediaMatch } from '@/presentation/components/MediaMatch'
 import useI18N from '@/presentation/hooks/usei18n'
 import { Select } from '@/presentation/components/Select'
 import { Language, LanguageResource } from '@/domain/models/language'
-import LanguageContext from '@/presentation/contexts/language'
 
 export type MenuProps = {}
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const { language, setLanguage } = useContext(LanguageContext)
   const i18n = useI18N()
-  const router = useRouter()
+  const { pathname, push, locale } = useRouter()
 
   const closeMenu = () => {
     setIsOpen(false)
   }
 
   const onLanguageChange = (lan: string) => {
+    let language: Language
     switch (lan) {
       case LanguageResource.en:
-        setLanguage!(Language.en)
+        language = Language.en
         break
       case LanguageResource.es:
-        setLanguage!(Language.es)
+        language = Language.es
         break
       default:
-        setLanguage!(Language.pt)
+        language = Language.pt
     }
+    push(pathname, pathname, { locale: language })
   }
 
   return (
@@ -48,7 +48,7 @@ const Menu = () => {
         <S.MenuGroup>
           <Link href="/">
             <S.MenuLink
-              isActive={router.pathname === '/'}
+              isActive={pathname === '/'}
               data-testid="home-link"
             >
               {i18n.t('home')}
@@ -56,7 +56,7 @@ const Menu = () => {
           </Link>
           <Link href="/projects">
             <S.MenuLink
-            isActive={router.pathname === '/projects'}
+            isActive={pathname === '/projects'}
             data-testid="projects-link"
             >
               {i18n.t('projects')}
@@ -64,7 +64,7 @@ const Menu = () => {
           </Link>
           <Link href="/contact">
             <S.MenuLink
-            isActive={router.pathname === '/contact'}
+            isActive={pathname === '/contact'}
             data-testid="contact-link"
             >
               {i18n.t('contact')}
@@ -76,7 +76,7 @@ const Menu = () => {
       <MediaMatch display="contents" greaterThan="medium" >
         <Select
           ariaLabel={i18n.t('language')}
-          initialValue={LanguageResource[language!]}
+          initialValue={LanguageResource[locale as Language]}
           options={Object.values(LanguageResource)}
           onChange={onLanguageChange}
         />
@@ -93,7 +93,7 @@ const Menu = () => {
         <S.SelectWrapper>
           <Select
             ariaLabel={i18n.t('language')}
-            initialValue={LanguageResource[language!]}
+            initialValue={LanguageResource[locale as Language]}
             options={Object.values(LanguageResource)}
             onChange={onLanguageChange}
           />
@@ -101,7 +101,7 @@ const Menu = () => {
         <S.MenuGroup>
           <Link href="/">
             <S.MenuLink
-              isActive={router.pathname === '/'}
+              isActive={pathname === '/'}
               data-testid="home-link-mobile"
               onClick={closeMenu}
               >
@@ -110,7 +110,7 @@ const Menu = () => {
           </Link>
           <Link href="/projects">
             <S.MenuLink
-            isActive={router.pathname === '/projects'}
+            isActive={pathname === '/projects'}
             data-testid="projects-link-mobile"
             onClick={closeMenu}
             >
@@ -119,7 +119,7 @@ const Menu = () => {
           </Link>
           <Link href="/contact">
             <S.MenuLink
-            isActive={router.pathname === '/contact'}
+            isActive={pathname === '/contact'}
               data-testid="contact-link-mobile"
               onClick={closeMenu}
               >

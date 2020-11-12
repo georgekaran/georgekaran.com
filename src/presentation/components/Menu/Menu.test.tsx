@@ -5,13 +5,13 @@ import 'jest-localstorage-mock'
 import { Menu } from '.'
 import { render } from '@/test/helpers'
 import theme from '@/presentation/styles/theme'
-import { NextRouterStub, RouterContextMock } from '@/test/RouterContextMock'
+import { NextRouterStub } from '@/test/RouterContextMock'
 import { LanguageResource } from '@/domain/models/language'
 
 const testMenuLink = async (name: string, pushSpy: jest.SpyInstance<Promise<boolean>, [url: string]>): Promise<void> => {
   let link = screen.getByTestId(`${name}-link`)
   fireEvent.click(link)
-  expect(pushSpy).toHaveBeenCalledWith(`/${name === 'home' ? '' : name}`, `/${name === 'home' ? '' : name}`, { locale: undefined, shallow: undefined })
+  expect(pushSpy).toHaveBeenCalledWith(`/${name === 'home' ? '' : name}`)
   link = await waitFor(() => screen.getByTestId(`${name}-link`))
   expect(link).toHaveStyleRule(
     'background',
@@ -29,9 +29,8 @@ type SutTypes = {
 
 const makeSut = (nextRouterStub = new NextRouterStub()): SutTypes => {
   const sut = render(
-    <RouterContextMock nextRouter={nextRouterStub}>
-      <Menu />
-    </RouterContextMock>
+    <Menu />,
+    nextRouterStub
   )
   return {
     sut,
@@ -119,18 +118,23 @@ describe('<Menu />', () => {
         value: LanguageResource.en
       }
     })
-    expect(localStorage.getItem('__georgekaran_language')).toBe('en')
+    let projectsLink = await waitFor(() => screen.getByTestId('projects-link'))
     select = await waitFor(() => screen.getAllByLabelText(/language/i)[0]) as HTMLSelectElement
+    expect(projectsLink).toHaveTextContent('Projects')
+    expect(select).toHaveProperty('value', LanguageResource.en)
+
     fireEvent.change(select, {
       target: {
         value: LanguageResource.es
       }
     })
-    expect(localStorage.getItem('__georgekaran_language')).toBe('es')
+    projectsLink = await waitFor(() => screen.getByTestId('projects-link'))
+    select = await waitFor(() => screen.getAllByLabelText(/idioma/i)[0]) as HTMLSelectElement
+    expect(projectsLink).toHaveTextContent('Proyectos')
+    expect(select).toHaveProperty('value', LanguageResource.es)
   })
 
   test('should match snapshot', () => {
-    expect(localStorage.setItem('__georgekaran_language', 'pt'))
     const { sut } = makeSut()
     expect(sut.container.firstChild).toMatchSnapshot()
   })
