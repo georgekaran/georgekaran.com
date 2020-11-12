@@ -22,6 +22,6 @@ export class I18N implements i18n {
       }
     }
 
-    return msg || ''
+    return msg || message
   }
 }
