@@ -1,5 +1,5 @@
 import React from 'react'
-import { screen } from '@testing-library/react'
+import { RenderResult, screen } from '@testing-library/react'
 
 import { render } from '@/test/helpers'
 import ProjectsPage from '@/pages/projects'
@@ -7,11 +7,15 @@ import messages from '@/main/config/messages'
 
 const message = messages.pt
 
+const makeSut = (): RenderResult => {
+  return render(
+    <ProjectsPage />
+  )
+}
+
 describe('Projects Page', () => {
   it('should render with correct data', () => {
-    render(
-      <ProjectsPage />
-    )
+    makeSut()
     expect(screen.getByText(message.projects)).toBeInTheDocument()
     expect(screen.getByText(message.projects_description)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /georgekaran.com/i })).toBeInTheDocument()
