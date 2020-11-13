@@ -95,4 +95,13 @@ describe('<ContactCard />', () => {
       }
     )
   })
+
+  it('should clear timeout on multiple clicks', async () => {
+    jest.spyOn(window, 'clearTimeout')
+    makeSut()
+    fireEvent.click(screen.getByLabelText(/Copiar github url/i).parentElement!)
+    expect(clearTimeout).not.toHaveBeenCalled()
+    fireEvent.click(await waitFor(() => screen.getByLabelText(/Copiar github url/i).parentElement!))
+    expect(clearTimeout).toHaveBeenCalled()
+  })
 })
