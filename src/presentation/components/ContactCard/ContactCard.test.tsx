@@ -3,7 +3,7 @@ import { Github as GithubIcon } from '@styled-icons/feather/Github'
 
 import { ContactCard } from '.'
 import { render, msg } from '@/test/helpers'
-import { fireEvent, RenderResult, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, RenderResult, screen, waitFor } from '@testing-library/react'
 
 const shouldOverlayBeVisible = (visible: boolean) => {
   const overlay = screen.getByTestId('overlay')
@@ -24,6 +24,8 @@ const makeSut = (): RenderResult => {
   )
 }
 
+jest.useFakeTimers()
+
 describe('<ContactCard />', () => {
   let clipboardText: string = ''
 
@@ -40,6 +42,10 @@ describe('<ContactCard />', () => {
 
   beforeEach(() => {
     clipboardText = ''
+  })
+
+  afterAll(() => {
+    jest.useRealTimers()
   })
 
   it('should render with initial state', () => {
@@ -67,6 +73,21 @@ describe('<ContactCard />', () => {
     containerCopy = await waitFor(() => screen.getByLabelText(/Copiar github url/i).parentElement!)
     expect(clipboardText).toEqual('https://github.com/georgekaran')
     expect(containerCopy).toHaveStyleRule(
+      'content',
+      `'${msg.copy_to_clipboard}'`,
+      {
+        modifier: '::before'
+      }
+    )
+  })
+
+  it('should reset pseudo element copy after 1300ms', async () => {
+    makeSut()
+    fireEvent.click(screen.getByLabelText(/Copiar github url/i).parentElement!)
+    act(() => {
+      jest.advanceTimersByTime(1300)
+    })
+    expect(screen.getByLabelText(/Copiar github url/i).parentElement!).not.toHaveStyleRule(
       'content',
       `'${msg.copy_to_clipboard}'`,
       {
