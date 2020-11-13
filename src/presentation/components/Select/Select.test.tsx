@@ -5,6 +5,15 @@ import { render } from '@/test/helpers'
 import { fireEvent, RenderResult, screen } from '@testing-library/react'
 import { SelectProps } from './Select'
 
+const mockActiveElement = (value: any) => {
+  Object.defineProperties(document, {
+    activeElement: {
+      value,
+      writable: false
+    }
+  })
+}
+
 type SutTypes = {
   sut: RenderResult
   onChangeMock: jest.Mock<any, any>
@@ -59,5 +68,17 @@ describe('<Select />', () => {
   it('should have property aria-label if ariaLabel is provided', () => {
     makeSut({ ariaLabel: 'any_label' })
     expect(screen.getByLabelText('any_label')).toBeInTheDocument()
+  })
+
+  it('should not call document.activeElement.blur if document.activeElement is not a HTMLElement', () => {
+    mockActiveElement(null)
+    makeSut()
+    const select = screen.getByTestId('select') as HTMLSelectElement
+    fireEvent.change(select, {
+      target: {
+        value: 'EN-US'
+      }
+    })
+    expect(select).not.toHaveFocus()
   })
 })
