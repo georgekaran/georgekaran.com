@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Copy as CopyIcon } from '@styled-icons/feather/Copy'
 import { ExternalLink as ExternalLinkIcon } from '@styled-icons/feather/ExternalLink'
 
@@ -14,21 +14,23 @@ export type ContactCardProps = {
 
 const ContactCard = ({ socialMedia, icon, previewLink, fullLink } : ContactCardProps) => {
   const [open, setOpen] = useState(false)
+  const [timeoutID, setTimeoutID] = useState<number>()
   const [isCopyClicked, setCopyClicked] = useState(false)
   const i18n = useI18N()
 
-  useEffect(() => {
-    if (isCopyClicked) {
-      setTimeout(() => {
-        setCopyClicked(false)
-      }, 1300)
-    }
-  }, [isCopyClicked])
-
   const copyToClipboard = async () => {
+    if (timeoutID) {
+      clearTimeout(timeoutID)
+      setCopyClicked(false)
+    }
     try {
       await navigator.clipboard.writeText(fullLink)
       setCopyClicked(true)
+      setTimeoutID(
+        setTimeout(() => {
+          setCopyClicked(false)
+        }, 1300)
+      )
     } catch (e) {
       console.error(e)
     }
