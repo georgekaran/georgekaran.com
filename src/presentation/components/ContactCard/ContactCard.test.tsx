@@ -104,4 +104,17 @@ describe('<ContactCard />', () => {
     fireEvent.click(await waitFor(() => screen.getByLabelText(/Copiar github url/i).parentElement!))
     expect(clearTimeout).toHaveBeenCalled()
   })
+
+  it('should call console.error if navigator.clipboard.writeText throws', () => {
+    const error = new Error('error')
+    jest.spyOn(navigator.clipboard, 'writeText').mockImplementationOnce(() => {
+      throw error
+    })
+    console.error = jest.fn()
+
+    makeSut()
+    const containerCopy = screen.getByLabelText(/Copiar github url/i).parentElement!
+    fireEvent.click(containerCopy)
+    expect(console.error).toHaveBeenCalledWith(error)
+  })
 })
