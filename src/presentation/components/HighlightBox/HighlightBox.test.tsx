@@ -2,7 +2,7 @@ import React from 'react'
 import { screen } from '@testing-library/react'
 
 import { HighlightBox } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 
 describe('<HighlightBox />', () => {
   it('should render with initial state', () => {

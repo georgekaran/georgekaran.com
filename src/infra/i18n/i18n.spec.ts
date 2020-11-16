@@ -1,6 +1,6 @@
 import { I18N } from './i18n'
 import { Language } from '@/domain/models/language'
-import { mockLanguage } from '@/test/mockLanguage'
+import { mockLanguage } from '@/test/utils/mockLanguage'
 
 const messagesMock = {
   pt: {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { screen, RenderResult, fireEvent } from '@testing-library/react'
 
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import NotFound from '@/pages/404'
 import theme from '@/presentation/styles/theme'
-import { NextRouterStub } from '@/test/RouterContextMock'
+import { NextRouterStub } from '@/test/utils/RouterContextStub'
 
 type SutTypes = {
   sut: RenderResult

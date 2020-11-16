@@ -1,8 +1,8 @@
-import '@/test/mock-match-media'
+import '@/test/utils/mock-match-media'
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import Home from '@/pages/index'
 import messages from '@/main/config/messages'
 

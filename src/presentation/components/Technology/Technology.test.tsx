@@ -3,7 +3,7 @@ import { RenderResult, screen } from '@testing-library/react'
 import { transparentize } from 'polished'
 
 import { Technology, TechnologyProps } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Partial<TechnologyProps>

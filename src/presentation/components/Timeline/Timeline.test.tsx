@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
 import { Timeline, Achievement } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 
 const createAchievements = (): Achievement[] => {
   const arr: Achievement[] = [

@@ -1,7 +1,7 @@
 import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import ProjectsPage from '@/pages/projects'
 import messages from '@/main/config/messages'
 

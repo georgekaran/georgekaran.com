@@ -5,17 +5,17 @@ import { render as renderTesting, RenderResult } from '@testing-library/react'
 import theme from '@/presentation/styles/theme'
 import I18NProvider from '@/main/factories/context/I18NProvider'
 import messages from '@/main/config/messages'
-import { NextRouterStub, RouterContextMock } from './RouterContextMock'
+import { NextRouterStub, RouterContextStub } from '@/test/utils/RouterContextStub'
 
 export const render = (children: React.ReactNode, nextRouter = new NextRouterStub()): RenderResult => {
   return renderTesting(
-    <RouterContextMock nextRouter={nextRouter}>
+    <RouterContextStub nextRouter={nextRouter}>
       <I18NProvider>
         <ThemeProvider theme={theme}>
           {children}
         </ThemeProvider>
       </I18NProvider>
-    </RouterContextMock>
+    </RouterContextStub>
   )
 }
 

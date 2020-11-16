@@ -3,9 +3,9 @@ import { RenderResult, screen, fireEvent, waitFor } from '@testing-library/react
 import 'jest-localstorage-mock'
 
 import { Menu } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import theme from '@/presentation/styles/theme'
-import { NextRouterStub } from '@/test/RouterContextMock'
+import { NextRouterStub } from '@/test/utils/RouterContextStub'
 import { Language, LanguageResource } from '@/domain/models/language'
 import messages from '@/main/config/messages'
 

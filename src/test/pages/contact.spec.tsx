@@ -1,7 +1,7 @@
 import React from 'react'
 import { screen } from '@testing-library/react'
 
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import ContactPage from '@/pages/contact'
 import messages from '@/main/config/messages'
 

@@ -13,12 +13,12 @@ interface NextHistoryState {
   options: TransitionOptions;
 }
 
-type RouterContextMockProps = {
+type RouterContextStubProps = {
   children: React.ReactNode
   nextRouter: NextRouter
 }
 
-export const RouterContextMock = ({ children, nextRouter = new NextRouterStub() }: RouterContextMockProps) => {
+export const RouterContextStub = ({ children, nextRouter = new NextRouterStub() }: RouterContextStubProps) => {
   const [pathname, setPathname] = React.useState('/')
   const [localeState, setLocaleState] = React.useState('pt')
   const [nextRouterStub] = React.useState(nextRouter)

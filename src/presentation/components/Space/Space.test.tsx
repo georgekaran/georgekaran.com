@@ -2,7 +2,7 @@ import React from 'react'
 import { RenderResult, screen } from '@testing-library/react'
 
 import { Space, SpaceProps } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Partial<SpaceProps>

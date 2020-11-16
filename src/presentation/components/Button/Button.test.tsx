@@ -3,7 +3,7 @@ import { screen, RenderResult } from '@testing-library/react'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import { Button, ButtonProps, ButtonTypes } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import theme from '@/presentation/styles/theme'
 
 type SutProps = Omit<ButtonProps, 'children'> & ButtonTypes

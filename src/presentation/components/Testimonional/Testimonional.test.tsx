@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Testimonional } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import { screen } from '@testing-library/react'
 
 const elementsExists = (textContent: string): HTMLElement => {

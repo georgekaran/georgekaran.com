@@ -2,7 +2,7 @@ import React from 'react'
 import { screen } from '@testing-library/react'
 
 import { Footer } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 
 describe('<Footer />', () => {
   it('should render with initial state', () => {

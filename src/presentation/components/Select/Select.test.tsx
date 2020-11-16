@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Select } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import { fireEvent, RenderResult, screen } from '@testing-library/react'
 import { SelectProps } from './Select'
 

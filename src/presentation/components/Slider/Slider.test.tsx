@@ -1,8 +1,8 @@
-import '@/test/mock-match-media'
+import '@/test/utils/mock-match-media'
 import React from 'react'
 
 import { Slider, SliderProps } from '.'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 import { RenderResult } from '@testing-library/react'
 
 type SutProps = Partial<SliderProps>

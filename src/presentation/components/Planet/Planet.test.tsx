@@ -3,7 +3,7 @@ import { RenderResult, screen, cleanup } from '@testing-library/react'
 
 import { Planet, PlanetProps } from '.'
 import { Technology } from '@/presentation/components/Technology'
-import { render } from '@/test/helpers'
+import { render } from '@/test/utils/helpers'
 
 const componentFactory = (length: number): React.ReactNode[] => {
   const arr = []

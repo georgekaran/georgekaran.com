@@ -2,7 +2,7 @@ import React from 'react'
 import { Github as GithubIcon } from '@styled-icons/feather/Github'
 
 import { ContactCard } from '.'
-import { render, msg } from '@/test/helpers'
+import { render, msg } from '@/test/utils/helpers'
 import { act, fireEvent, RenderResult, screen, waitFor } from '@testing-library/react'
 
 const shouldOverlayBeVisible = (visible: boolean) => {
