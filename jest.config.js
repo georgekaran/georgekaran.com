@@ -10,7 +10,7 @@ module.exports = {
     '!<rootDir>/src/presentation/styles/**',
     '!<rootDir>/src/pages/_app.tsx',
     '!<rootDir>/src/pages/_document.tsx',
-    '!<rootDir>/src/test/RouterContextMock.tsx',
+    '!<rootDir>/src/test/utils/**',
     '!<rootDir>/src/data/**',
     '!<rootDir>/src/domain/**'
   ],
