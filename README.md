@@ -9,7 +9,7 @@
 <br/>
 <br/>
 
-# georgekaran.com
+# [georgekaran.com](https://georgekaran.com)
 ![GitHub package.json version](https://img.shields.io/badge/version-1.0.0-orange)
 ![ci](https://github.com/georgekaran/georgekaran.com/workflows/ci/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/georgekaran/georgekaran.com/badge.svg?branch=master)](https://coveralls.io/github/georgekaran/georgekaran.com?branch=master)
@@ -22,14 +22,19 @@
 
 A step by step series of examples that tell you how to get a development env running
 
-Clone the repo or "Use this template".
+Clone the repo.
 ```
 git clone https://github.com/georgekaran/georgekaran.com.git
 ```
 
-Install the dependencies and run the app.
+Install the dependencies.
 ```
 npm i
+```
+
+And run the app.
+```
+npm run dev
 ```
 
 ## Available commands
@@ -55,6 +60,5 @@ Deployed on [Vercel](vercel.com)
 ## Built With
 
 * [React](https://reactjs.org/) - "A JavaScript library for building user interfaces".
-* [Next.JS](https://nextjs.org/docs) - "The React Framework
-for Production".
+* [Next.JS](https://nextjs.org/docs) - "The React Framework for Production".
 * [Styled-Components](https://styled-components.com/) - "Visual primitives for the component age".
