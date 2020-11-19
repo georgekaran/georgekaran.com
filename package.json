@@ -35,7 +35,7 @@
     "@storybook/addon-essentials": "^6.1.0",
     "@storybook/react": "^6.1.0",
     "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.0",
+    "@testing-library/react": "^11.2.1",
     "@testing-library/react-hooks": "^3.4.2",
     "@types/aos": "^3.0.3",
     "@types/faker": "^5.1.4",
