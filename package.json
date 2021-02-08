@@ -24,7 +24,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-slick": "^0.28.0",
-    "react-use": "^15.3.8",
+    "react-use": "^17.1.0",
     "styled-components": "5.2.1",
     "styled-icons": "^10.26.0",
     "styled-media-query": "^2.1.2"
