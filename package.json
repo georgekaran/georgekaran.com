@@ -67,7 +67,7 @@
     "plop": "^2.7.4",
     "react-is": "^17.0.1",
     "react-test-renderer": "^16.13.1",
-    "typescript": "^4.1.5",
+    "typescript": "^4.2.3",
     "webpack": "^4.46.0"
   },
   "resolutions": {
