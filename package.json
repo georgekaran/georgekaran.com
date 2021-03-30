@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
-    "next": "10.0.1",
+    "next": "10.1.2",
     "next-pwa": "^5.0.6",
     "polished": "^4.1.1",
     "react": "16.14.0",
