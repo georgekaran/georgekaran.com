@@ -41,7 +41,7 @@
     "@types/faker": "^5.5.1",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
+    "@types/react": "^17.0.10",
     "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.6",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
