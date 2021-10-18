@@ -37,7 +37,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.6",
     "@testing-library/react-hooks": "^5.1.1",
-    "@types/aos": "^3.0.3",
+    "@types/aos": "^3.0.4",
     "@types/faker": "^5.5.1",
     "@types/jest": "^26.0.22",
     "@types/node": "^15.14.0",
