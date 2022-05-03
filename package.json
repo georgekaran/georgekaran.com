@@ -39,7 +39,7 @@
     "@testing-library/react-hooks": "^5.1.1",
     "@types/aos": "^3.0.3",
     "@types/faker": "^5.5.1",
-    "@types/jest": "^26.0.22",
+    "@types/jest": "^27.5.0",
     "@types/node": "^15.14.0",
     "@types/react": "^17.0.26",
     "@types/react-slick": "^0.23.4",
