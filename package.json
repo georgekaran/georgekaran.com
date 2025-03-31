@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^0.485.0",
