@@ -15,7 +15,35 @@ export default function Home() {
         {/* Navigation */}
         <header className="container mx-auto px-4 py-6 flex justify-between items-center relative z-10">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-[#3B82F6] font-bold">georgekaran</span>
+            <div className="relative h-8 w-8">
+              <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="transition-all duration-300 hover:drop-shadow-[0_0_4px_rgba(59,130,246,0.5)]"
+              >
+                <path
+                    d="M16 4L4 10V22L16 28L28 22V10L16 4Z"
+                    fill="#3B82F6"
+                    fillOpacity="0.1"
+                    stroke="#3B82F6"
+                    strokeWidth="1.5"
+                />
+                <path d="M16 16L4 10" stroke="#3B82F6" strokeWidth="1.5" />
+                <path d="M16 16L16 28" stroke="#3B82F6" strokeWidth="1.5" />
+                <path d="M16 16L28 10" stroke="#3B82F6" strokeWidth="1.5" />
+                <path
+                    d="M16 10C14.3431 10 13 11.3431 13 13V19C13 20.6569 14.3431 22 16 22H19"
+                    stroke="#3B82F6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                />
+                <path d="M16 16H19" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+            <span className="text-[#3B82F6] font-bold text-lg">georgekaran</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#" className="text-white hover:text-[#3B82F6] transition-colors border-b-2 border-[#3B82F6]">
@@ -120,12 +148,12 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-8 text-center">Experience & Education</h3>
 
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gray-800"></div>
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gray-800"></div>
 
               <div className="space-y-12">
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                   <div className="md:text-right md:pr-8">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
                     11/2020 - Present
                   </span>
@@ -144,7 +172,7 @@ export default function Home() {
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                   <div className="md:hidden"></div>
                   <div className="md:pl-8">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
                     08/2020 - 11/2020
                   </span>
@@ -160,7 +188,7 @@ export default function Home() {
 
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                   <div className="md:text-right md:pr-8">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
                     11/2018 - 08/2020
                   </span>
@@ -179,7 +207,7 @@ export default function Home() {
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
                   <div className="md:hidden"></div>
                   <div className="md:pl-8">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm mb-2">
                     02/2016 - 12/2021
                   </span>
@@ -209,7 +237,7 @@ export default function Home() {
             <div className="bg-gray-900/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-gray-800/50 transition-colors border border-gray-800/50">
               <div className="h-48 bg-gray-800/50 relative overflow-hidden">
                 <Image
-                    src={`/placeholder.svg?height=200&width=400`}
+                    src={`/ariakit.png`}
                     alt="Ariakit Project"
                     width={400}
                     height={200}
@@ -242,7 +270,7 @@ export default function Home() {
             <div className="bg-gray-900/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-gray-800/50 transition-colors border border-gray-800/50">
               <div className="h-48 bg-gray-800/50 relative overflow-hidden">
                 <Image
-                    src={`/placeholder.svg?height=200&width=400`}
+                    src={`/croct-site.png`}
                     alt="Croct CMS Project"
                     width={400}
                     height={200}
@@ -261,7 +289,7 @@ export default function Home() {
                   <span className="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-xs">GraphQL</span>
                   <span className="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-xs">Relay</span>
                 </div>
-                <Link href="#" className="inline-flex items-center text-[#3B82F6] hover:underline">
+                <Link href="https://croct.com" className="inline-flex items-center text-[#3B82F6] hover:underline">
                   View Project
                   <ArrowRight size={16} className="ml-1" />
                 </Link>
@@ -271,7 +299,7 @@ export default function Home() {
             <div className="bg-gray-900/30 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-gray-800/50 transition-colors border border-gray-800/50">
               <div className="h-48 bg-gray-800/50 relative overflow-hidden">
                 <Image
-                    src={`/placeholder.svg?height=200&width=400`}
+                    src={`/design-system.png`}
                     alt="Design System Project"
                     width={400}
                     height={200}
@@ -290,7 +318,7 @@ export default function Home() {
                   <span className="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-xs">Storybook</span>
                   <span className="px-2 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-xs">CSS-in-JS</span>
                 </div>
-                <Link href="#" className="inline-flex items-center text-[#3B82F6] hover:underline">
+                <Link href="https://app.croct.com" className="inline-flex items-center text-[#3B82F6] hover:underline">
                   View Project
                   <ArrowRight size={16} className="ml-1" />
                 </Link>
@@ -408,7 +436,7 @@ export default function Home() {
                 <span>github.com/georgekaran</span>
               </a>
               <a
-                  href="https://linkedin.com/in/georgekaran"
+                  href="https://linkedin.com/in/georgekaranmueller"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-gray-900/30 backdrop-blur-sm hover:bg-gray-800/50 p-4 rounded-xl transition-colors border border-gray-800/50"
@@ -420,7 +448,8 @@ export default function Home() {
 
             <div className="text-center">
               <Link
-                  href="#"
+                  href="https://drive.google.com/file/d/1wL6sNDsPOLMBveUaW2lWdfx0VJGozt4b/view?usp=sharing"
+                  target="_blank"
                   className="inline-flex items-center gap-2 bg-[#3B82F6] text-black px-8 py-3 rounded-full font-medium hover:bg-[#3B82F6]/90 transition-colors"
               >
                 Download Resume
@@ -434,7 +463,7 @@ export default function Home() {
         <footer className="border-t border-gray-800/50 py-8 relative z-10">
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} George Karan Kommers Mueller. All rights reserved.
+              © 2025 George Karan Kommers Mueller. All rights reserved.
             </p>
             <div className="flex gap-4 mt-4 md:mt-0">
               <a
@@ -446,7 +475,7 @@ export default function Home() {
                 <Github size={20} />
               </a>
               <a
-                  href="https://linkedin.com/in/georgekaran"
+                  href="https://linkedin.com/in/georgekaranmueller"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#3B82F6]"
