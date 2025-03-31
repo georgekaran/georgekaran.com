@@ -1,0 +1,24 @@
+name: Commit style
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - master
+
+jobs:
+  check-commit-style:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.head_ref, 'epic/') }}
+    steps:
+      - name: Check
+        uses: mristin/opinionated-commit-message@v3.1.1
+        with:
+          allow-one-liners: 'true'
+          skip-body-check: 'true'
+          max-subject-line-length: '70'
