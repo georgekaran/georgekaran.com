@@ -72,7 +72,7 @@ export default function Home() {
               Hi, I&#39;m <span className="text-[#3B82F6]">George</span>
             </h1>
             <p className="text-lg text-gray-300 max-w-md">
-              A Software Engineer with 6+ years of experience in the SaaS industry with strong fundamentals in React,
+              A Software Engineer with {new Date().getFullYear()-2018}+ years of experience in the SaaS industry with strong fundamentals in React,
               TypeScript and Node.
             </p>
 
@@ -463,7 +463,7 @@ export default function Home() {
         <footer className="border-t border-gray-800/50 py-8 relative z-10">
           <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2025 George Karan Kommers Mueller. All rights reserved.
+              © {new Date().getFullYear()} George Karan Kommers Mueller. All rights reserved.
             </p>
             <div className="flex gap-4 mt-4 md:mt-0">
               <a
