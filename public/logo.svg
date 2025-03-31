@@ -1,0 +1,26 @@
+<svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="transition-all duration-300 hover:drop-shadow-[0_0_4px_rgba(59,130,246,0.5)]"
+>
+    <path
+            d="M16 4L4 10V22L16 28L28 22V10L16 4Z"
+            fill="#3B82F6"
+            fill-opacity="0.1"
+            stroke="#3B82F6"
+            stroke-width="1.5"
+    />
+    <path d="M16 16L4 10" stroke="#3B82F6" stroke-width="1.5"/>
+    <path d="M16 16L16 28" stroke="#3B82F6" stroke-width="1.5"/>
+    <path d="M16 16L28 10" stroke="#3B82F6" stroke-width="1.5"/>
+    <path
+            d="M16 10C14.3431 10 13 11.3431 13 13V19C13 20.6569 14.3431 22 16 22H19"
+            stroke="#3B82F6"
+            stroke-width="2"
+            stroke-linecap="round"
+    />
+    <path d="M16 16H19" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+</svg>
