@@ -1,6 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Linkedin, Mail, ArrowRight, MapPin, Phone } from "lucide-react"
+import { Mail, ArrowRight, MapPin, Phone } from "lucide-react"
+import { Github } from "@/icons/Github"
+import { Linkedin } from "@/icons/Linkedin"
 
 export default function Home() {
   return (
@@ -489,7 +491,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#3B82F6]"
               >
-                <Github size={20} />
+                <Github size="sm" />
               </a>
               <a
                   href="https://linkedin.com/in/georgekaranmueller"
@@ -497,10 +499,10 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#3B82F6]"
               >
-                <Linkedin size={20} />
+                <Linkedin size="sm" />
               </a>
               <a href="mailto:georgekaran12@gmail.com" className="text-gray-400 hover:text-[#3B82F6]">
-                <Mail size={20} />
+                <Mail size={24} />
               </a>
             </div>
           </div>
