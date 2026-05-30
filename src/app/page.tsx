@@ -129,7 +129,7 @@ export default function Home() {
 
             <div className="space-y-6 mb-20">
               <p className="text-gray-300 leading-relaxed">
-                I&#39;m a Software Engineer with 6+ years of experience in the SaaS industry with strong fundamentals in
+                I&#39;m a Software Engineer with {new Date().getFullYear()-2018}+ years of experience in the SaaS industry with strong fundamentals in
                 React, TypeScript and Node. I regularly attend web development meetups and contribute to open-source
                 projects (Currently maintainer of Ariakit), staying connected with the community and keeping my skills
                 sharp and current.
@@ -155,7 +155,25 @@ export default function Home() {
                   <div className="md:text-right md:pr-8">
                     <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
-                    11/2020 - Present
+                    08/2025 - Present
+                  </span>
+                    <h4 className="text-xl font-bold mb-1">Software Engineer</h4>
+                    <p className="text-gray-400 mb-2">Constructor, Remote</p>
+                    <p className="text-gray-300">
+                      Part of the Prospect UI Solution team, enabling the sales team and building features for the
+                      application. Spearheaded the end-to-end testing migration from Cypress (cy.js) to Cypress +
+                      Cucumber (.feature), improving test readability and collaboration.
+                    </p>
+                  </div>
+                  <div className="md:hidden"></div>
+                </div>
+
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                  <div className="md:hidden"></div>
+                  <div className="md:pl-8">
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
+                    <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
+                    11/2020 - 08/2025
                   </span>
                     <h4 className="text-xl font-bold mb-1">Founding/Lead Frontend Engineer</h4>
                     <p className="text-gray-400 mb-2">Croct, Denver, United States</p>
@@ -166,12 +184,10 @@ export default function Home() {
                       tools.
                     </p>
                   </div>
-                  <div className="md:hidden"></div>
                 </div>
 
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="md:hidden"></div>
-                  <div className="md:pl-8">
+                  <div className="md:text-right md:pr-8">
                     <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
                     08/2020 - 11/2020
@@ -184,10 +200,12 @@ export default function Home() {
                       defects in production. Collaborated with international teams in Mexico and Spain to integrate APIs.
                     </p>
                   </div>
+                  <div className="md:hidden"></div>
                 </div>
 
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="md:text-right md:pr-8">
+                  <div className="md:hidden"></div>
+                  <div className="md:pl-8">
                     <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] rounded-full text-sm mb-2">
                     11/2018 - 08/2020
@@ -201,12 +219,10 @@ export default function Home() {
                       experience.
                     </p>
                   </div>
-                  <div className="md:hidden"></div>
                 </div>
 
                 <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="md:hidden"></div>
-                  <div className="md:pl-8">
+                  <div className="md:text-right md:pr-8">
                     <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#3B82F6] rounded-full border-4 border-gray-900"></div>
                     <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm mb-2">
                     02/2016 - 12/2021
@@ -215,6 +231,7 @@ export default function Home() {
                     <p className="text-gray-400 mb-2">Universidade do Vale do Taquari, Brazil</p>
                     <p className="text-gray-300">Leave of Absence - 95% completed</p>
                   </div>
+                  <div className="md:hidden"></div>
                 </div>
               </div>
             </div>
