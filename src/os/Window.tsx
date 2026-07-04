@@ -7,16 +7,20 @@ import { TINT_HEX } from "./types"
 import { getApp } from "./apps"
 import { useWindowManager } from "./WindowManager"
 import { useReducedMotion } from "./useReducedMotion"
+import { useViewport } from "./useViewport"
 
 const MENU_BAR_HEIGHT = 40
 const MIN_W = 300
 const MIN_H = 220
+const MOBILE_MAX_WIDTH = 640
 
 export function Window({ instance }: { instance: WindowInstance }) {
   const { activeId, focus, close, minimize, toggleMaximize, move, resize } = useWindowManager()
   const app = getApp(instance.id)
   const dialogRef = useRef<HTMLDivElement>(null)
   const reducedMotion = useReducedMotion()
+  const { width: viewportWidth, height: viewportHeight } = useViewport()
+  const isMobile = viewportWidth > 0 && viewportWidth <= MOBILE_MAX_WIDTH
 
   const isActive = activeId === instance.id
   const titleId = `win-title-${instance.id}`
@@ -40,13 +44,11 @@ export function Window({ instance }: { instance: WindowInstance }) {
   const Content = app.Content
   const tint = TINT_HEX[app.tint]
 
-  const maximizedRect = {
-    x: 0,
-    y: MENU_BAR_HEIGHT,
-    width: typeof window !== "undefined" ? window.innerWidth : instance.rect.width,
-    height: typeof window !== "undefined" ? window.innerHeight - MENU_BAR_HEIGHT : instance.rect.height,
-  }
-  const rect = instance.maximized ? maximizedRect : instance.rect
+  const fullscreen = isMobile || instance.maximized
+  const rect =
+    fullscreen && viewportWidth > 0
+      ? { x: 0, y: MENU_BAR_HEIGHT, width: viewportWidth, height: viewportHeight - MENU_BAR_HEIGHT }
+      : instance.rect
 
   return (
     <Rnd
@@ -56,8 +58,8 @@ export function Window({ instance }: { instance: WindowInstance }) {
       minHeight={MIN_H}
       bounds="parent"
       dragHandleClassName="os-window-titlebar"
-      disableDragging={instance.maximized}
-      enableResizing={!instance.maximized}
+      disableDragging={fullscreen}
+      enableResizing={!fullscreen}
       style={{ zIndex: instance.zIndex }}
       onMouseDown={() => focus(instance.id)}
       onDragStop={(_e, d) => move(instance.id, d.x, d.y)}
