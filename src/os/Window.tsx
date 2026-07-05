@@ -47,7 +47,7 @@ export function Window({ instance }: { instance: WindowInstance }) {
   const fullscreen = isMobile || instance.maximized
   const rect =
     fullscreen && viewportWidth > 0
-      ? { x: 0, y: MENU_BAR_HEIGHT, width: viewportWidth, height: viewportHeight - MENU_BAR_HEIGHT }
+      ? { x: 0, y: 0, width: viewportWidth, height: viewportHeight - MENU_BAR_HEIGHT }
       : instance.rect
 
   return (
