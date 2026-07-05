@@ -139,6 +139,19 @@ const WindowManagerContext = createContext<WindowManagerValue | null>(null)
 export function WindowManagerProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, init)
 
+  const actions = useMemo(
+    () => ({
+      open: (id: AppId) => dispatch({ type: "OPEN", id }),
+      close: (id: AppId) => dispatch({ type: "CLOSE", id }),
+      focus: (id: AppId) => dispatch({ type: "FOCUS", id }),
+      move: (id: AppId, x: number, y: number) => dispatch({ type: "MOVE", id, x, y }),
+      resize: (id: AppId, rect: Rect) => dispatch({ type: "RESIZE", id, rect }),
+      minimize: (id: AppId) => dispatch({ type: "MINIMIZE", id }),
+      toggleMaximize: (id: AppId) => dispatch({ type: "TOGGLE_MAX", id }),
+    }),
+    []
+  )
+
   const value = useMemo<WindowManagerValue>(() => {
     const visible = state.windows.filter((w) => !w.minimized)
     const activeId =
@@ -148,16 +161,10 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
     return {
       windows: state.windows,
       activeId,
-      open: (id) => dispatch({ type: "OPEN", id }),
-      close: (id) => dispatch({ type: "CLOSE", id }),
-      focus: (id) => dispatch({ type: "FOCUS", id }),
-      move: (id, x, y) => dispatch({ type: "MOVE", id, x, y }),
-      resize: (id, rect) => dispatch({ type: "RESIZE", id, rect }),
-      minimize: (id) => dispatch({ type: "MINIMIZE", id }),
-      toggleMaximize: (id) => dispatch({ type: "TOGGLE_MAX", id }),
-      isOpen: (id) => state.windows.some((w) => w.id === id),
+      isOpen: (id: AppId) => state.windows.some((w) => w.id === id),
+      ...actions,
     }
-  }, [state])
+  }, [state, actions])
 
   return <WindowManagerContext.Provider value={value}>{children}</WindowManagerContext.Provider>
 }
