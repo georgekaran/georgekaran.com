@@ -56,6 +56,7 @@ export default function ProjectsApp() {
             <Link
               href={p.href}
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm text-[color:var(--os-accent)] hover:underline mt-3"
             >
               View project <ArrowRight size={14} />

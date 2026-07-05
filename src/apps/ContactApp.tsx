@@ -35,6 +35,7 @@ export default function ContactApp() {
       <Link
         href="https://drive.google.com/file/d/1wL6sNDsPOLMBveUaW2lWdfx0VJGozt4b/view?usp=sharing"
         target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center gap-2 bg-[color:var(--os-accent)] text-white px-5 py-2.5 rounded-full font-medium hover:opacity-90 transition-opacity"
       >
         Download Résumé <ArrowRight size={16} />
