@@ -28,7 +28,10 @@ export function MenuBar() {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false)
     }
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false)
+      if (e.key === "Escape") {
+        e.stopPropagation()
+        setMenuOpen(false)
+      }
     }
     document.addEventListener("mousedown", onClick)
     document.addEventListener("keydown", onKey)
@@ -38,7 +41,6 @@ export function MenuBar() {
     }
   }, [menuOpen])
 
-  const openWindows = windows.filter((w) => !w.minimized)
 
   return (
     <div className="fixed top-0 inset-x-0 h-10 z-[9999] flex items-center gap-2 px-3 bg-[color:var(--os-surface)]/80 backdrop-blur border-b border-[color:var(--os-border)]">
@@ -80,19 +82,28 @@ export function MenuBar() {
       </div>
 
       <div className="flex items-center gap-1.5 overflow-x-auto">
-        {openWindows.map((w) => {
+        {windows.map((w) => {
           const app = APPS.find((a) => a.id === w.id)!
-          const isActive = activeId === w.id
+          const isActive = activeId === w.id && !w.minimized
+          const onClick = () => {
+            if (w.minimized) {
+              open(w.id)
+            } else if (activeId === w.id) {
+              minimize(w.id)
+            } else {
+              focus(w.id)
+            }
+          }
           return (
             <button
               key={w.id}
               type="button"
-              onClick={() => (isActive ? minimize(w.id) : focus(w.id))}
+              onClick={onClick}
               className={`px-2.5 py-1 rounded-md text-xs font-mono-os whitespace-nowrap transition-colors ${
                 isActive
                   ? "bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent)]"
                   : "hover:bg-[color:var(--os-surface-muted)] text-[color:var(--os-text-muted)]"
-              }`}
+              } ${w.minimized ? "italic opacity-50" : ""}`}
             >
               {app.title}
             </button>
