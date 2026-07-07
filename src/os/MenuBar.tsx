@@ -4,18 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { APPS } from "./apps"
 import { TINT_HEX } from "./types"
 import { useWindowManager } from "./WindowManager"
-
-function Clock() {
-  const [now, setNow] = useState<string>("")
-  useEffect(() => {
-    const tick = () =>
-      setNow(new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }))
-    tick()
-    const id = setInterval(tick, 1000)
-    return () => clearInterval(id)
-  }, [])
-  return <span className="text-xs font-mono-os text-[color:var(--os-text)]">{now}</span>
-}
+import {Clock} from "@/os/Clock";
 
 export function MenuBar() {
   const { windows, activeId, open, focus, minimize } = useWindowManager()

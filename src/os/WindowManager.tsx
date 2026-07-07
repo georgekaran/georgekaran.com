@@ -9,7 +9,7 @@ const CASCADE_STEP = 28
 interface State {
   windows: WindowInstance[]
   counter: number
-  lastRect: Record<AppId, Rect> // in-session position memory
+  lastRect: Record<AppId, Rect>
 }
 
 type Action =
@@ -30,8 +30,7 @@ function reducer(state: State, action: Action): State {
         return {
           ...state,
           counter,
-          windows: state.windows.map((w) =>
-            w.id === action.id ? { ...w, minimized: false, zIndex: counter } : w
+          windows: state.windows.map((w) => w.id === action.id ? { ...w, minimized: false, zIndex: counter } : w
           ),
         }
       }
@@ -121,7 +120,7 @@ function init(): State {
   return { windows, counter, lastRect: {} }
 }
 
-interface WindowManagerValue {
+type WindowManagerValue = {
   windows: WindowInstance[]
   activeId: AppId | null
   open: (id: AppId) => void
@@ -134,9 +133,13 @@ interface WindowManagerValue {
   isOpen: (id: AppId) => boolean
 }
 
-const WindowManagerContext = createContext<WindowManagerValue | null>(null)
+const WindowManagerContext = createContext<WindowManagerValue | null>(null);
 
-export function WindowManagerProvider({ children }: { children: ReactNode }) {
+type WindowManagerProviderProps = {
+  children: ReactNode;
+}
+
+export function WindowManagerProvider({ children }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(reducer, undefined, init)
 
   const actions = useMemo(
@@ -170,7 +173,11 @@ export function WindowManagerProvider({ children }: { children: ReactNode }) {
 }
 
 export function useWindowManager(): WindowManagerValue {
-  const ctx = useContext(WindowManagerContext)
-  if (!ctx) throw new Error("useWindowManager must be used within WindowManagerProvider")
-  return ctx
+  const context = useContext(WindowManagerContext)
+
+  if (context === null) {
+    throw new Error("useWindowManager must be used within WindowManagerProvider")
+  }
+
+  return context;
 }
