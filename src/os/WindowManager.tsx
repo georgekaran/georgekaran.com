@@ -133,10 +133,10 @@ type WindowManagerValue = {
   isOpen: (id: AppId) => boolean
 }
 
-const WindowManagerContext = createContext<WindowManagerValue | null>(null);
+const WindowManagerContext = createContext<WindowManagerValue | null>(null)
 
 type WindowManagerProviderProps = {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export function WindowManagerProvider({ children }: WindowManagerProviderProps) {
@@ -179,5 +179,5 @@ export function useWindowManager(): WindowManagerValue {
     throw new Error("useWindowManager must be used within WindowManagerProvider")
   }
 
-  return context;
+  return context
 }
