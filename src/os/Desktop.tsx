@@ -22,7 +22,7 @@ function DesktopInner() {
 
         {!anyOpen && (
           <p className="absolute bottom-6 right-6 text-sm font-mono-os text-[color:var(--os-text-muted)] select-none pointer-events-none">
-            👋 click an app to explore
+            <span aria-hidden="true">👋</span> click an app to explore
           </p>
         )}
 
