@@ -46,6 +46,7 @@ export function MenuBar() {
         {menuOpen && (
           <div
             role="menu"
+            aria-label="GeorgeOS apps"
             className="absolute left-0 top-full mt-1 w-52 rounded-lg border border-[color:var(--os-border)] bg-[color:var(--os-surface)] shadow-xl py-1"
           >
             {APPS.map((app) => {
