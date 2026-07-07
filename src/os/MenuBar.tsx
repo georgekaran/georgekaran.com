@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { APPS } from "./apps"
 import { TINT_HEX } from "./types"
 import { useWindowManager } from "./WindowManager"
-import {Clock} from "@/os/Clock";
+import { Clock } from "@/os/Clock"
 
 export function MenuBar() {
   const { windows, activeId, open, focus, minimize } = useWindowManager()
