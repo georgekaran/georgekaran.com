@@ -1,25 +1,23 @@
 import type React from "react"
 import "./globals.css"
-import {Inter} from "next/font/google"
-import {ThemeProvider} from "next-themes"
+import { Inter, JetBrains_Mono } from "next/font/google"
 
-const inter = Inter({subsets: ["latin"]})
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export const metadata = {
-    title: "George Karan - Senior Software Engineer",
-    description: "A Software Engineer with 6+ years of experience in the SaaS industry with " +
-        "strong fundamentals in React, TypeScript and Node.",
+  title: "George Karan — GeorgeOS",
+  description:
+    "George Karan, Software Engineer. A playful desktop-style portfolio: " +
+    "React, TypeScript, Node, and a focus on accessibility and performance.",
 }
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
-    return (
-        <html lang="en" className="dark" style={{colorScheme: "dark"}}>
-            <body className={inter.className}>
-                <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-                    {children}
-                </ThemeProvider>
-            </body>
-        </html>
-    )
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className}`}>
+        {children}
+      </body>
+    </html>
+  )
 }
-
