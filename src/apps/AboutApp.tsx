@@ -7,7 +7,7 @@ export default function AboutApp() {
     <div className="p-6 space-y-6 text-[color:var(--os-text)]">
       <div className="flex items-center gap-5">
         <div className="relative h-24 w-24 shrink-0 rounded-2xl overflow-hidden border border-[color:var(--os-border)]">
-          <Image src="/profile.jpg" alt="George Karan" width={96} height={96} className="object-cover" priority />
+          <Image src="/profile.png" alt="George Karan" width={96} height={96} className="object-cover" priority />
         </div>
         <div>
           <span className="inline-block px-2 py-0.5 rounded-full text-xs font-mono-os bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent)]">
