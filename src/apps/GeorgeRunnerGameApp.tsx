@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useState, useCallback } from "react"
+import {useRef, useEffect, useState, useCallback} from "react"
 
 const GAME_W = 600
 const GAME_H = 150
@@ -35,6 +35,8 @@ const SPAWN_MAX = 1.8
 const MAX_SPEED = 560
 const SPEED_RAMP = 12
 const SCORE_RATE = 12
+const MS_PER_SECOND = 1000
+const MAX_FRAME_DELTA = 0.05
 
 function createState(): GameState {
   return {
@@ -165,18 +167,27 @@ export default function GeorgeRunnerGameApp() {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+
+    if (!canvas) {
+      return
+    }
+
+    const context = canvas.getContext("2d")
+
+    if (!context) {
+      return
+    }
 
     let raf = 0
     let last = 0
 
     const endGame = () => {
-      const s = stateRef.current
-      s.phase = "gameover"
-      const finalScore = Math.floor(s.score)
+      const gameState = stateRef.current
+      gameState.phase = "gameover"
+      const finalScore = Math.floor(gameState.score)
+
       setPhase("gameover")
+
       setHighScore((prev) => {
         const next = Math.max(prev, finalScore)
         localStorage.setItem(HISCORE_KEY, String(next))
@@ -185,45 +196,53 @@ export default function GeorgeRunnerGameApp() {
     }
 
     const frame = (now: number) => {
-      if (last === 0) last = now
-      const dt = Math.min((now - last) / 1000, 0.05)
-      last = now
-      const s = stateRef.current
+      if (last === 0) {
+        last = now
+      }
 
-      if (s.phase === "running") {
+      const dt = Math.min((now - last) / MS_PER_SECOND, MAX_FRAME_DELTA)
+      last = now
+      const gameState = stateRef.current
+
+      if (gameState.phase === "running") {
         // vertical physics
-        s.playerVY += GRAVITY * dt
-        s.playerY += s.playerVY * dt
+        gameState.playerVY += GRAVITY * dt
+        gameState.playerY += gameState.playerVY * dt
         const floor = GROUND_Y - PLAYER_H
-        if (s.playerY > floor) {
-          s.playerY = floor
-          s.playerVY = 0
+
+        if (gameState.playerY > floor) {
+          gameState.playerY = floor
+          gameState.playerVY = 0
         }
         // leg animation
-        s.runFrameTime += dt
-        if (s.runFrameTime > 0.12) {
-          s.runFrameTime = 0
-          s.runFrame = s.runFrame === 0 ? 1 : 0
+        gameState.runFrameTime += dt
+
+        if (gameState.runFrameTime > 0.12) {
+          gameState.runFrameTime = 0
+          gameState.runFrame = gameState.runFrame === 0 ? 1 : 0
         }
         // speed ramp
-        s.speed = Math.min(MAX_SPEED, s.speed + SPEED_RAMP * dt)
+        gameState.speed = Math.min(MAX_SPEED, gameState.speed + SPEED_RAMP * dt)
         // score
-        s.score += SCORE_RATE * dt
+        gameState.score += SCORE_RATE * dt
         // spawn
-        s.spawnTimer -= dt
-        if (s.spawnTimer <= 0) {
-          s.obstacles.push({ x: GAME_W + 10 })
-          s.spawnTimer = SPAWN_MIN + Math.random() * (SPAWN_MAX - SPAWN_MIN)
+        gameState.spawnTimer -= dt
+
+        if (gameState.spawnTimer <= 0) {
+          gameState.obstacles.push({x: GAME_W + 10})
+          gameState.spawnTimer = SPAWN_MIN + Math.random() * (SPAWN_MAX - SPAWN_MIN)
         }
         // move obstacles left, drop off-screen ones
-        for (const o of s.obstacles) o.x -= s.speed * dt
-        s.obstacles = s.obstacles.filter((o) => o.x + BUG_W > 0)
+        for (const obstacle of gameState.obstacles) {
+          obstacle.x -= gameState.speed * dt
+        }
+        gameState.obstacles = gameState.obstacles.filter((obstacle) => obstacle.x + BUG_W > 0)
 
         // collision detection
         const px = PLAYER_X
-        const py = s.playerY
+        const py = gameState.playerY
         const bugTop = GROUND_Y - BUG_H
-        for (const o of s.obstacles) {
+        for (const o of gameState.obstacles) {
           const hit =
             px < o.x + BUG_W &&
             px + PLAYER_W > o.x &&
@@ -237,20 +256,21 @@ export default function GeorgeRunnerGameApp() {
       }
 
       // draw
-      ctx.fillStyle = "#eef4ff"
-      ctx.fillRect(0, 0, GAME_W, GAME_H)
-      ctx.fillStyle = "#d7deea"
-      ctx.fillRect(0, GROUND_Y, GAME_W, 2)
+      context.fillStyle = "#eef4ff"
+      context.fillRect(0, 0, GAME_W, GAME_H)
+      context.fillStyle = "#d7deea"
+      context.fillRect(0, GROUND_Y, GAME_W, 2)
 
-      const onGround = s.playerY >= GROUND_Y - PLAYER_H
-      const sprite = !onGround ? GEORGE_JUMP : s.runFrame === 0 ? GEORGE_RUN_A : GEORGE_RUN_B
-      drawSprite(ctx, sprite, PLAYER_X, s.playerY, PLAYER_PX)
+      const onGround = gameState.playerY >= GROUND_Y - PLAYER_H
+      const sprite = !onGround ? GEORGE_JUMP : gameState.runFrame === 0 ? GEORGE_RUN_A : GEORGE_RUN_B
+      drawSprite(context, sprite, PLAYER_X, gameState.playerY, PLAYER_PX)
 
-      for (const o of s.obstacles) {
-        drawSprite(ctx, BUG, o.x, GROUND_Y - BUG_H, BUG_PX)
+      for (const obstacle of gameState.obstacles) {
+        drawSprite(context, BUG, obstacle.x, GROUND_Y - BUG_H, BUG_PX)
       }
 
-      const rounded = Math.floor(s.score)
+      const rounded = Math.floor(gameState.score)
+
       if (rounded !== lastScoreRef.current) {
         lastScoreRef.current = rounded
         setDisplayScore(rounded)
@@ -258,20 +278,25 @@ export default function GeorgeRunnerGameApp() {
 
       raf = requestAnimationFrame(frame)
     }
+
     raf = requestAnimationFrame(frame)
+
     return () => cancelAnimationFrame(raf)
   }, [])
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === " " || e.key === "ArrowUp") {
-        e.preventDefault()
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        event.preventDefault()
         onInput()
       }
     }
-    window.addEventListener("keydown", onKey)
+
     const canvas = canvasRef.current
+
+    window.addEventListener("keydown", onKey)
     canvas?.addEventListener("pointerdown", onInput)
+
     return () => {
       window.removeEventListener("keydown", onKey)
       canvas?.removeEventListener("pointerdown", onInput)
@@ -286,7 +311,7 @@ export default function GeorgeRunnerGameApp() {
         height={GAME_H}
         aria-label="George Runner game. Press space or tap to jump."
         className="w-full max-w-full h-auto rounded-md border border-[color:var(--os-border)] bg-white"
-        style={{ imageRendering: "pixelated", aspectRatio: `${GAME_W} / ${GAME_H}` }}
+        style={{imageRendering: "pixelated", aspectRatio: `${GAME_W} / ${GAME_H}`}}
       />
       <div className="absolute top-4 right-5 font-mono-os text-sm text-[color:var(--os-text)] tabular-nums">
         {String(displayScore).padStart(5, "0")}
