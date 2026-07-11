@@ -139,6 +139,8 @@ function drawSprite(ctx: CanvasRenderingContext2D, grid: PixelGrid, x: number, y
 
 export default function GeorgeRunnerGameApp() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  // Game state lives in a ref, not useState: it mutates every frame (~60fps) and
+  // must not trigger re-renders. Only coarse phase + throttled score go to React.
   const stateRef = useRef<GameState>(createState())
   const [displayScore, setDisplayScore] = useState(0)
   const lastScoreRef = useRef(0)
@@ -277,6 +279,8 @@ export default function GeorgeRunnerGameApp() {
         setDisplayScore(rounded)
       }
 
+      // Keep the loop alive during "gameover" (no state updates run, just redraws
+      // the frozen frame) so a reset() flipping phase back to "running" is picked up.
       raf = requestAnimationFrame(frame)
     }
 
