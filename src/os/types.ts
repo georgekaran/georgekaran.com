@@ -1,5 +1,6 @@
-import type { LucideIcon } from "lucide-react"
-import type { ComponentType } from "react"
+import type { ComponentType, CSSProperties } from "react"
+
+export type AppIcon = ComponentType<{ size?: number; style?: CSSProperties }>
 
 export type AppId = string
 
@@ -15,7 +16,7 @@ export interface Rect {
 export interface AppDefinition {
   id: AppId
   title: string
-  icon: LucideIcon
+  icon: AppIcon
   tint: Tint
   defaultRect: Rect
   Content: ComponentType
