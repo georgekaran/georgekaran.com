@@ -1,8 +1,8 @@
 "use client"
 
-import {useRef, useEffect, useState, useCallback} from "react"
-import {PALETTE, GEORGE_RUN_A, GEORGE_RUN_B, GEORGE_JUMP, BUG, type PixelGrid} from "@/os/georgeSprite"
-import {useWindowManager} from "@/os/WindowManager"
+import { useRef, useEffect, useState, useCallback } from "react"
+import { PALETTE, GEORGE_RUN_A, GEORGE_RUN_B, GEORGE_JUMP, BUG, type PixelGrid } from "@/os/georgeSprite"
+import { useWindowManager } from "@/os/WindowManager"
 
 const APP_ID = "game"
 
@@ -47,6 +47,24 @@ const SPAWN_OFFSET = 10
 const SKY_COLOR = "#eef4ff"
 const GROUND_COLOR = "#d7deea"
 const GROUND_THICKNESS = 2
+
+// localStorage can throw when storage is disabled/blocked (privacy mode); the
+// high score is non-essential, so fall back silently rather than crash the game.
+function loadHighScore(): number {
+  try {
+    return Number(localStorage.getItem(HISCORE_KEY)) || 0
+  } catch {
+    return 0
+  }
+}
+
+function saveHighScore(value: number): void {
+  try {
+    localStorage.setItem(HISCORE_KEY, String(value))
+  } catch {
+    // ignore — persistence is best-effort
+  }
+}
 
 function createState(): GameState {
   return {
@@ -95,11 +113,8 @@ export default function GeorgeRunnerGameApp() {
   const isActive = activeId === APP_ID
 
   useEffect(() => {
-    const loadHighScore = () => {
-      const raw = localStorage.getItem(HISCORE_KEY)
-      if (raw) setHighScore(Number(raw) || 0)
-    }
-    loadHighScore()
+    const restoreHighScore = () => setHighScore(loadHighScore())
+    restoreHighScore()
   }, [])
 
   const reset = useCallback(() => {
@@ -121,6 +136,10 @@ export default function GeorgeRunnerGameApp() {
   }, [reset])
 
   useEffect(() => {
+    if (!isActive) {
+      return
+    }
+
     const canvas = canvasRef.current
 
     if (!canvas) {
@@ -145,7 +164,7 @@ export default function GeorgeRunnerGameApp() {
 
       setHighScore((prev) => {
         const next = Math.max(prev, finalScore)
-        localStorage.setItem(HISCORE_KEY, String(next))
+        saveHighScore(next)
         return next
       })
     }
@@ -234,13 +253,7 @@ export default function GeorgeRunnerGameApp() {
     raf = requestAnimationFrame(frame)
 
     return () => cancelAnimationFrame(raf)
-  }, [])
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    canvas?.addEventListener("pointerdown", onInput)
-    return () => canvas?.removeEventListener("pointerdown", onInput)
-  }, [onInput])
+  }, [isActive])
 
   useEffect(() => {
     if (!isActive) {
@@ -263,6 +276,7 @@ export default function GeorgeRunnerGameApp() {
         width={GAME_W}
         height={GAME_H}
         aria-label="George Runner game. Press space or tap to jump."
+        onPointerDown={onInput}
         className="w-full max-w-full h-auto rounded-md border border-[color:var(--os-border)] bg-white"
         style={{imageRendering: "pixelated", aspectRatio: `${GAME_W} / ${GAME_H}`}}
       />
