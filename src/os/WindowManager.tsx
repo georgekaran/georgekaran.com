@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useReducer, useMemo, type ReactNode } from "react"
+import { createContext, useContext, useReducer, useMemo, useRef, useEffect, type ReactNode } from "react"
 import type { AppId, Rect, WindowInstance } from "./types"
 import { DEFAULT_OPEN, getApp } from "./apps"
 import { track } from "@/analytics/track"
@@ -143,6 +143,11 @@ type WindowManagerProviderProps = {
 export function WindowManagerProvider({ children }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(reducer, undefined, init)
 
+  const stateRef = useRef(state)
+  useEffect(() => {
+    stateRef.current = state
+  }, [state])
+
   const actions = useMemo(
     () => ({
       open: (id: AppId) => {
@@ -164,7 +169,8 @@ export function WindowManagerProvider({ children }: WindowManagerProviderProps) 
         dispatch({ type: "MINIMIZE", id })
       },
       toggleMaximize: (id: AppId) => {
-        track("app_maximized", { app_id: id })
+        const win = stateRef.current.windows.find((w) => w.id === id)
+        track("app_maximize_toggled", { app_id: id, maximized: !win?.maximized })
         dispatch({ type: "TOGGLE_MAX", id })
       },
     }),
