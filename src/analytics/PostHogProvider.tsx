@@ -11,7 +11,7 @@ export function PostHogProvider({children}: PostHogProviderProps) {
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
-    if (!key) {
+    if (!key || posthog.__loaded) {
       return;
     }
 
