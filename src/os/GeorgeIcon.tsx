@@ -1,5 +1,5 @@
 import type {ComponentProps} from "react"
-import {PALETTE, GEORGE_RUN_A} from "@/apps/GeorgeRunnerGameApp"
+import {PALETTE, GEORGE_RUN_A} from "@/os/georgeSprite"
 import {AppIcon} from "@/os/types";
 
 const COLS = GEORGE_RUN_A[0].length
