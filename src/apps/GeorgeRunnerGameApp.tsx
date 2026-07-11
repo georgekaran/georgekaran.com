@@ -37,6 +37,12 @@ const SPEED_RAMP = 12
 const SCORE_RATE = 12
 const MS_PER_SECOND = 1000
 const MAX_FRAME_DELTA = 0.05
+const RUN_FRAME_INTERVAL = 0.12
+const SPAWN_OFFSET = 10
+
+const SKY_COLOR = "#eef4ff"
+const GROUND_COLOR = "#d7deea"
+const GROUND_THICKNESS = 2
 
 function createState(): GameState {
   return {
@@ -205,7 +211,6 @@ export default function GeorgeRunnerGameApp() {
       const gameState = stateRef.current
 
       if (gameState.phase === "running") {
-        // vertical physics
         gameState.playerVY += GRAVITY * dt
         gameState.playerY += gameState.playerVY * dt
         const floor = GROUND_Y - PLAYER_H
@@ -214,31 +219,28 @@ export default function GeorgeRunnerGameApp() {
           gameState.playerY = floor
           gameState.playerVY = 0
         }
-        // leg animation
+
         gameState.runFrameTime += dt
 
-        if (gameState.runFrameTime > 0.12) {
+        if (gameState.runFrameTime > RUN_FRAME_INTERVAL) {
           gameState.runFrameTime = 0
           gameState.runFrame = gameState.runFrame === 0 ? 1 : 0
         }
-        // speed ramp
+
         gameState.speed = Math.min(MAX_SPEED, gameState.speed + SPEED_RAMP * dt)
-        // score
         gameState.score += SCORE_RATE * dt
-        // spawn
         gameState.spawnTimer -= dt
 
         if (gameState.spawnTimer <= 0) {
-          gameState.obstacles.push({x: GAME_W + 10})
+          gameState.obstacles.push({x: GAME_W + SPAWN_OFFSET})
           gameState.spawnTimer = SPAWN_MIN + Math.random() * (SPAWN_MAX - SPAWN_MIN)
         }
-        // move obstacles left, drop off-screen ones
+
         for (const obstacle of gameState.obstacles) {
           obstacle.x -= gameState.speed * dt
         }
         gameState.obstacles = gameState.obstacles.filter((obstacle) => obstacle.x + BUG_W > 0)
 
-        // collision detection
         const px = PLAYER_X
         const py = gameState.playerY
         const bugTop = GROUND_Y - BUG_H
@@ -255,11 +257,10 @@ export default function GeorgeRunnerGameApp() {
         }
       }
 
-      // draw
-      context.fillStyle = "#eef4ff"
+      context.fillStyle = SKY_COLOR
       context.fillRect(0, 0, GAME_W, GAME_H)
-      context.fillStyle = "#d7deea"
-      context.fillRect(0, GROUND_Y, GAME_W, 2)
+      context.fillStyle = GROUND_COLOR
+      context.fillRect(0, GROUND_Y, GAME_W, GROUND_THICKNESS)
 
       const onGround = gameState.playerY >= GROUND_Y - PLAYER_H
       const sprite = !onGround ? GEORGE_JUMP : gameState.runFrame === 0 ? GEORGE_RUN_A : GEORGE_RUN_B
