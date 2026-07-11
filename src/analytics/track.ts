@@ -1,3 +1,5 @@
+"use client"
+
 import posthog from "posthog-js"
 
 // No-op unless PostHog was initialized (i.e. NEXT_PUBLIC_POSTHOG_KEY is set).
