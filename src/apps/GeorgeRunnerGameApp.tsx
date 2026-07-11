@@ -60,7 +60,7 @@ function createState(): GameState {
 
 type PixelGrid = string[]
 
-const PALETTE: Record<string, string> = {
+export const PALETTE: Record<string, string> = {
   G: "#8b5cf6", // George body (violet)
   D: "#6d28d9", // George dark accent
   S: "#f4f6fb", // George highlight / face
@@ -70,7 +70,7 @@ const PALETTE: Record<string, string> = {
 }
 
 // 8 wide x 9 tall — a compact pixel figure (running frame A)
-const GEORGE_RUN_A: PixelGrid = [
+export const GEORGE_RUN_A: PixelGrid = [
   "  GGGG  ",
   " GGGGGG ",
   " GSSGSG ",
