@@ -1,6 +1,6 @@
 "use client"
 
-import {useEffect, ReactNode} from "react"
+import { useEffect, type ReactNode } from "react"
 import posthog from "posthog-js"
 
 type PostHogProviderProps = {
@@ -12,7 +12,7 @@ export function PostHogProvider({children}: PostHogProviderProps) {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
     if (!key || posthog.__loaded) {
-      return;
+      return
     }
 
     const init = () => {
