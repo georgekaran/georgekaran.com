@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react"
 import { PALETTE, GEORGE_RUN_A, GEORGE_RUN_B, GEORGE_JUMP, BUG, type PixelGrid } from "@/os/georgeSprite"
 import { useWindowManager } from "@/os/WindowManager"
+import { track } from "@/analytics/track"
 
 const APP_ID = "game"
 
@@ -160,6 +161,7 @@ export default function GeorgeRunnerGameApp() {
       gameState.phase = "gameover"
       const finalScore = Math.floor(gameState.score)
 
+      track("game_over", { score: finalScore })
       setPhase("gameover")
 
       setHighScore((prev) => {

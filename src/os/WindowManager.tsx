@@ -1,8 +1,9 @@
 "use client"
 
-import { createContext, useContext, useReducer, useMemo, type ReactNode } from "react"
+import { createContext, useContext, useReducer, useMemo, useRef, useEffect, type ReactNode } from "react"
 import type { AppId, Rect, WindowInstance } from "./types"
 import { DEFAULT_OPEN, getApp } from "./apps"
+import { track } from "@/analytics/track"
 
 const CASCADE_STEP = 28
 
@@ -142,15 +143,36 @@ type WindowManagerProviderProps = {
 export function WindowManagerProvider({ children }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(reducer, undefined, init)
 
+  const stateRef = useRef(state)
+  useEffect(() => {
+    stateRef.current = state
+  }, [state])
+
   const actions = useMemo(
     () => ({
-      open: (id: AppId) => dispatch({ type: "OPEN", id }),
-      close: (id: AppId) => dispatch({ type: "CLOSE", id }),
-      focus: (id: AppId) => dispatch({ type: "FOCUS", id }),
+      open: (id: AppId) => {
+        track("app_opened", { app_id: id })
+        dispatch({ type: "OPEN", id })
+      },
+      close: (id: AppId) => {
+        track("app_closed", { app_id: id })
+        dispatch({ type: "CLOSE", id })
+      },
+      focus: (id: AppId) => {
+        track("app_focused", { app_id: id })
+        dispatch({ type: "FOCUS", id })
+      },
       move: (id: AppId, x: number, y: number) => dispatch({ type: "MOVE", id, x, y }),
       resize: (id: AppId, rect: Rect) => dispatch({ type: "RESIZE", id, rect }),
-      minimize: (id: AppId) => dispatch({ type: "MINIMIZE", id }),
-      toggleMaximize: (id: AppId) => dispatch({ type: "TOGGLE_MAX", id }),
+      minimize: (id: AppId) => {
+        track("app_minimized", { app_id: id })
+        dispatch({ type: "MINIMIZE", id })
+      },
+      toggleMaximize: (id: AppId) => {
+        const win = stateRef.current.windows.find((w) => w.id === id)
+        track("app_maximize_toggled", { app_id: id, maximized: !win?.maximized })
+        dispatch({ type: "TOGGLE_MAX", id })
+      },
     }),
     []
   )
