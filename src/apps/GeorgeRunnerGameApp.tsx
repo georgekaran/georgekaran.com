@@ -2,6 +2,9 @@
 
 import {useRef, useEffect, useState, useCallback} from "react"
 import {PALETTE, GEORGE_RUN_A, GEORGE_RUN_B, GEORGE_JUMP, BUG, type PixelGrid} from "@/os/georgeSprite"
+import {useWindowManager} from "@/os/WindowManager"
+
+const APP_ID = "game"
 
 const GAME_W = 600
 const GAME_H = 150
@@ -88,6 +91,8 @@ export default function GeorgeRunnerGameApp() {
   const lastScoreRef = useRef(0)
   const [phase, setPhase] = useState<Phase>("running")
   const [highScore, setHighScore] = useState(0)
+  const { activeId } = useWindowManager()
+  const isActive = activeId === APP_ID
 
   useEffect(() => {
     const loadHighScore = () => {
@@ -232,23 +237,24 @@ export default function GeorgeRunnerGameApp() {
   }, [])
 
   useEffect(() => {
+    const canvas = canvasRef.current
+    canvas?.addEventListener("pointerdown", onInput)
+    return () => canvas?.removeEventListener("pointerdown", onInput)
+  }, [onInput])
+
+  useEffect(() => {
+    if (!isActive) {
+      return
+    }
     const onKey = (event: KeyboardEvent) => {
       if (event.key === " " || event.key === "ArrowUp") {
         event.preventDefault()
         onInput()
       }
     }
-
-    const canvas = canvasRef.current
-
     window.addEventListener("keydown", onKey)
-    canvas?.addEventListener("pointerdown", onInput)
-
-    return () => {
-      window.removeEventListener("keydown", onKey)
-      canvas?.removeEventListener("pointerdown", onInput)
-    }
-  }, [onInput])
+    return () => window.removeEventListener("keydown", onKey)
+  }, [isActive, onInput])
 
   return (
     <div className="relative flex items-center justify-center h-full w-full bg-[color:var(--os-surface-muted)] p-3">
