@@ -9,7 +9,13 @@ type GeorgeIconProps = ComponentProps<AppIcon>
 
 export function GeorgeIcon({ size = 24, style }: GeorgeIconProps) {
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${COLS} ${ROWS}`} style={style} aria-hidden="true">
+    <svg
+      width={size}
+      height={size}
+      viewBox={`0 0 ${COLS} ${ROWS}`}
+      style={style}
+      aria-hidden="true"
+    >
       {GEORGE_RUN_A.flatMap((line, row) =>
         [...line].map((key, col) => {
           const fill = PALETTE[key]
