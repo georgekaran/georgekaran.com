@@ -1,5 +1,7 @@
 "use client"
 
+import type { PostMeta } from "@/blog/posts"
+import type React from "react"
 import { APPS } from "./apps"
 import { WindowManagerProvider, useWindowManager } from "./WindowManager"
 import { MenuBar } from "./MenuBar"
@@ -34,9 +36,13 @@ function DesktopInner() {
   )
 }
 
-export function Desktop() {
+export function Desktop({ posts = [], initialSlug = null, initialRenderedPost = null }: {
+  posts?: PostMeta[]
+  initialSlug?: string | null
+  initialRenderedPost?: React.ReactNode
+}) {
   return (
-    <WindowManagerProvider>
+    <WindowManagerProvider posts={posts} initialSlug={initialSlug} initialRenderedPost={initialRenderedPost}>
       <DesktopInner />
     </WindowManagerProvider>
   )
