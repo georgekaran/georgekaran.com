@@ -1,8 +1,7 @@
 "use client"
 
-import { createContext, useContext, useReducer, useMemo, useRef, useEffect, useState, useCallback, type ReactNode } from "react"
+import { createContext, useContext, useReducer, useMemo, useRef, useEffect, type ReactNode } from "react"
 import type { AppId, Rect, WindowInstance } from "./types"
-import type { PostMeta } from "@/blog/posts"
 import { DEFAULT_OPEN, getApp } from "./apps"
 import { track } from "@/analytics/track"
 
@@ -137,56 +136,12 @@ type WindowManagerValue = {
 
 const WindowManagerContext = createContext<WindowManagerValue | null>(null)
 
-type BlogContextValue = {
-  posts: PostMeta[]
-  activeSlug: string | null
-  renderedPost: ReactNode | null
-  openPost: (slug: string) => void
-  backToList: () => void
-}
-
-const BlogContext = createContext<BlogContextValue | null>(null)
-
 type WindowManagerProviderProps = {
   children: ReactNode
-  posts?: PostMeta[]
-  initialSlug?: string | null
-  initialRenderedPost?: ReactNode
 }
 
-export function WindowManagerProvider({ children, posts = [], initialSlug = null, initialRenderedPost = null }: WindowManagerProviderProps) {
+export function WindowManagerProvider({ children }: WindowManagerProviderProps) {
   const [state, dispatch] = useReducer(reducer, undefined, init)
-
-  const [activeSlug, setActiveSlug] = useState<string | null>(initialSlug)
-  const [renderedPost, setRenderedPost] = useState<ReactNode | null>(initialRenderedPost)
-
-  const openPost = useCallback((slug: string) => {
-    track("post_viewed", { slug })
-    setActiveSlug(slug)
-    const load = async () => {
-      const res = await fetch(`/blog/${slug}/content`)
-      if (res.ok) {
-        const html = await res.text()
-        // Trusted content: our own compiled MDX, never user input.
-        setRenderedPost(<div dangerouslySetInnerHTML={{ __html: html }} />)
-      }
-      window.history.pushState(null, "", `/blog/${slug}`)
-    }
-    load()
-  }, [])
-
-  const backToList = useCallback(() => {
-    setActiveSlug(null)
-    setRenderedPost(null)
-    window.history.pushState(null, "", "/")
-  }, [])
-
-  useEffect(() => {
-    const openBlogIfDeepLinked = () => {
-      if (initialSlug) dispatch({ type: "OPEN", id: "blog" })
-    }
-    openBlogIfDeepLinked()
-  }, [initialSlug])
 
   const stateRef = useRef(state)
   useEffect(() => {
@@ -236,16 +191,7 @@ export function WindowManagerProvider({ children, posts = [], initialSlug = null
     }
   }, [state, actions])
 
-  const blogValue = useMemo<BlogContextValue>(
-    () => ({ posts, activeSlug, renderedPost, openPost, backToList }),
-    [posts, activeSlug, renderedPost, openPost, backToList]
-  )
-
-  return (
-    <WindowManagerContext.Provider value={value}>
-      <BlogContext.Provider value={blogValue}>{children}</BlogContext.Provider>
-    </WindowManagerContext.Provider>
-  )
+  return <WindowManagerContext.Provider value={value}>{children}</WindowManagerContext.Provider>
 }
 
 export function useWindowManager(): WindowManagerValue {
@@ -253,16 +199,6 @@ export function useWindowManager(): WindowManagerValue {
 
   if (context === null) {
     throw new Error("useWindowManager must be used within WindowManagerProvider")
-  }
-
-  return context
-}
-
-export function useBlog(): BlogContextValue {
-  const context = useContext(BlogContext)
-
-  if (context === null) {
-    throw new Error("useBlog must be used within WindowManagerProvider")
   }
 
   return context

@@ -1,10 +1,18 @@
 "use client"
 
-import { useBlog } from "@/os/WindowManager"
+import { useBlog } from "@/apps/BlogProvider"
 
 function formatDate(iso: string): string {
   const [y, m, d] = iso.split("-")
   return `${d}/${m}/${y}`
+}
+
+function TagChip({ tag }: { tag: string }) {
+  return (
+    <span className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent)]">
+      {tag}
+    </span>
+  )
 }
 
 export default function BlogApp() {
@@ -27,12 +35,14 @@ export default function BlogApp() {
         </p>
         <div className="mt-2 flex flex-wrap gap-1">
           {active.tags.map((t) => (
-            <span key={t} className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent)]">
-              {t}
-            </span>
+            <TagChip key={t} tag={t} />
           ))}
         </div>
-        <div className="mt-4 leading-relaxed">{renderedPost}</div>
+        <div className="mt-4 leading-relaxed">
+          {renderedPost ?? (
+            <p className="text-sm font-mono-os text-[color:var(--os-text-muted)]">Loading…</p>
+          )}
+        </div>
       </article>
     )
   }
@@ -60,9 +70,7 @@ export default function BlogApp() {
               <p className="mt-1 text-sm text-[color:var(--os-text-muted)]">{p.excerpt}</p>
               <div className="mt-2 flex flex-wrap items-center gap-1">
                 {p.tags.map((t) => (
-                  <span key={t} className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent)]">
-                    {t}
-                  </span>
+                  <TagChip key={t} tag={t} />
                 ))}
                 <span className="ml-auto text-xs font-mono-os text-[color:var(--os-text-muted)]">{p.readingTime} min read</span>
               </div>

@@ -18,7 +18,7 @@ export const APPS: AppDefinition[] = [
   { id: "contact", title: "Contact", icon: Mail, tint: "coral", defaultRect: { x: 300, y: 120, width: 460, height: 420 }, Content: ContactApp },
   { id: "readme", title: "README.txt", icon: FileText, tint: "gray", defaultRect: { x: 340, y: 100, width: 480, height: 360 }, Content: ReadmeApp },
   { id: "game", title: "George Runner", icon: GeorgeIcon, tint: "violet", defaultRect: { x: 240, y: 100, width: 660, height: 300 }, Content: GeorgeRunnerGameApp },
-  { id: "blog", title: "Blog", icon: BookOpen, tint: "amber", defaultRect: { x: 200, y: 90, width: 1440, height: 660 }, Content: BlogApp },
+  { id: "blog", title: "Blog", icon: BookOpen, tint: "amber", defaultRect: { x: 200, y: 90, width: 900, height: 620 }, Content: BlogApp },
 ]
 
 export const DEFAULT_OPEN: AppId[] = ["about"]
