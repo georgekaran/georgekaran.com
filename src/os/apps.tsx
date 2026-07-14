@@ -1,4 +1,4 @@
-import { User, Briefcase, FolderOpen, Wrench, Mail, FileText } from "lucide-react"
+import { User, Briefcase, FolderOpen, Wrench, Mail, FileText, BookOpen } from "lucide-react"
 import type { AppDefinition, AppId } from "./types"
 import { GeorgeIcon } from "./GeorgeIcon"
 import AboutApp from "@/apps/AboutApp"
@@ -8,6 +8,7 @@ import SkillsApp from "@/apps/SkillsApp"
 import ContactApp from "@/apps/ContactApp"
 import ReadmeApp from "@/apps/ReadmeApp"
 import GeorgeRunnerGameApp from "@/apps/GeorgeRunnerGameApp"
+import BlogApp from "@/apps/BlogApp"
 
 export const APPS: AppDefinition[] = [
   { id: "about", title: "About Me", icon: User, tint: "blue", defaultRect: { x: 120, y: 80, width: 520, height: 460 }, Content: AboutApp },
@@ -17,6 +18,7 @@ export const APPS: AppDefinition[] = [
   { id: "contact", title: "Contact", icon: Mail, tint: "coral", defaultRect: { x: 300, y: 120, width: 460, height: 420 }, Content: ContactApp },
   { id: "readme", title: "README.txt", icon: FileText, tint: "gray", defaultRect: { x: 340, y: 100, width: 480, height: 360 }, Content: ReadmeApp },
   { id: "game", title: "George Runner", icon: GeorgeIcon, tint: "violet", defaultRect: { x: 240, y: 100, width: 660, height: 300 }, Content: GeorgeRunnerGameApp },
+  { id: "blog", title: "Blog", icon: BookOpen, tint: "amber", defaultRect: { x: 200, y: 90, width: 620, height: 520 }, Content: BlogApp },
 ]
 
 export const DEFAULT_OPEN: AppId[] = ["about"]
