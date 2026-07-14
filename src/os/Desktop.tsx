@@ -37,11 +37,13 @@ function DesktopInner() {
   )
 }
 
-export function Desktop({ posts = [], initialSlug = null, initialRenderedPost = null }: {
+type DesktopProps = {
   posts?: PostMeta[]
   initialSlug?: string | null
   initialRenderedPost?: React.ReactNode
-}) {
+}
+
+export function Desktop({ posts = [], initialSlug = null, initialRenderedPost = null }: DesktopProps) {
   return (
     <WindowManagerProvider>
       <BlogProvider posts={posts} initialSlug={initialSlug} initialRenderedPost={initialRenderedPost}>

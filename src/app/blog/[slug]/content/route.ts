@@ -1,7 +1,9 @@
 import { getPostBySlug } from "@/blog/posts"
 import { renderMdx } from "@/blog/renderPost"
 
-export async function GET(_req: Request, { params }: { params: Promise<{ slug: string }> }): Promise<Response> {
+type RouteContext = { params: Promise<{ slug: string }> }
+
+export async function GET(_req: Request, { params }: RouteContext): Promise<Response> {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return new Response("Not found", { status: 404 })
