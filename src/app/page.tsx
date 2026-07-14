@@ -1,5 +1,6 @@
 import { Desktop } from "@/os/Desktop"
+import { getAllPosts } from "@/blog/posts"
 
 export default function Home() {
-  return <Desktop />
+  return <Desktop posts={getAllPosts()} />
 }
