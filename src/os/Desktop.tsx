@@ -3,7 +3,7 @@
 import type { PostMeta } from "@/blog/posts"
 import type React from "react"
 import { APPS } from "./apps"
-import { BlogProvider } from "@/apps/BlogProvider"
+import { BlogProvider } from "@/context/BlogProvider"
 import { WindowManagerProvider, useWindowManager } from "./WindowManager"
 import { MenuBar } from "./MenuBar"
 import { Window } from "./Window"

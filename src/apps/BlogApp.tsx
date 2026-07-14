@@ -1,6 +1,6 @@
 "use client"
 
-import { useBlog } from "@/apps/BlogProvider"
+import { useBlog } from "@/context/BlogProvider"
 
 function formatDate(iso: string): string {
   const [y, m, d] = iso.split("-")
