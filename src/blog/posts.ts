@@ -18,7 +18,12 @@ export function readingTimeFor(body: string): number {
   return Math.max(1, Math.ceil(words / 200))
 }
 
-function parseFile(fileName: string): { meta: PostMeta; body: string } {
+type ParsedPost = {
+  meta: PostMeta
+  body: string
+}
+
+function parseFile(fileName: string): ParsedPost {
   const slug = fileName.replace(/\.mdx$/, "")
   const raw = fs.readFileSync(path.join(POSTS_DIR, fileName), "utf8")
   const { data, content } = matter(raw)
@@ -41,7 +46,7 @@ export function getAllPosts(): PostMeta[] {
     .sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
-export function getPostBySlug(slug: string): { meta: PostMeta; body: string } | null {
+export function getPostBySlug(slug: string): ParsedPost | null {
   const file = `${slug}.mdx`
   if (!fs.existsSync(path.join(POSTS_DIR, file))) return null
   return parseFile(file)
