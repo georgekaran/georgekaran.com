@@ -43,7 +43,9 @@ type DesktopProps = {
   initialRenderedPost?: React.ReactNode
 }
 
-export function Desktop({ posts = [], initialSlug = null, initialRenderedPost = null }: DesktopProps) {
+const NO_POSTS: PostMeta[] = []
+
+export function Desktop({ posts = NO_POSTS, initialSlug = null, initialRenderedPost = null }: DesktopProps) {
   return (
     <WindowManagerProvider>
       <BlogProvider posts={posts} initialSlug={initialSlug} initialRenderedPost={initialRenderedPost}>

@@ -22,7 +22,9 @@ type BlogProviderProps = {
   initialRenderedPost?: ReactNode
 }
 
-export function BlogProvider({ children, posts = [], initialSlug = null, initialRenderedPost = null }: BlogProviderProps) {
+const NO_POSTS: PostMeta[] = []
+
+export function BlogProvider({ children, posts = NO_POSTS, initialSlug = null, initialRenderedPost = null }: BlogProviderProps) {
   const { open } = useWindowManager()
   const [activeSlug, setActiveSlug] = useState<string | null>(initialSlug)
   const [renderedPost, setRenderedPost] = useState<ReactNode | null>(initialRenderedPost)
@@ -42,6 +44,7 @@ export function BlogProvider({ children, posts = [], initialSlug = null, initial
       .then((html) => {
         if (postRequestRef.current !== requestId) return
         // Trusted content: our own compiled MDX, never user input.
+        // oxlint-disable-next-line react/no-danger
         setRenderedPost(<div dangerouslySetInnerHTML={{ __html: html }} />)
       })
       .catch(() => {

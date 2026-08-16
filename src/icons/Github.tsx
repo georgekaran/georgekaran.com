@@ -1,4 +1,5 @@
-import { Icon, SvgIcon } from "@/icons/SvgIcon"
+import type { Icon } from "@/icons/SvgIcon"
+import { SvgIcon } from "@/icons/SvgIcon"
 
 export const Github: Icon = (props) => {
   return (

@@ -20,6 +20,8 @@ export function GeorgeIcon({ size = 24, style }: GeorgeIconProps) {
         [...line].map((key, col) => {
           const fill = PALETTE[key]
           if (!fill) return null
+          // Static sprite grid: row/col fully identify a cell and never reorder.
+          // oxlint-disable-next-line react/no-array-index-key
           return <rect key={`${row}-${col}`} x={col} y={row} width={1} height={1} fill={fill}/>
         }),
       )}

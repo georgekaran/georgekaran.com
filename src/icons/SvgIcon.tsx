@@ -1,4 +1,4 @@
-import { FunctionComponent, PropsWithChildren, SVGProps } from "react"
+import type { FunctionComponent, PropsWithChildren, SVGProps } from "react"
 
 type Size = "xs" | "sm" | "md" | "lg" | "xl"
 

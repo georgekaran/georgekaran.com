@@ -116,6 +116,8 @@ export function Window({ instance }: { instance: WindowInstance }) {
           </div>
         </div>
         <div
+          role="group"
+          aria-label={`${app.title} content`}
           tabIndex={0}
           className="flex-1 overflow-auto outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--os-accent)]"
         >

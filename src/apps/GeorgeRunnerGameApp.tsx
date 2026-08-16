@@ -233,7 +233,8 @@ export default function GeorgeRunnerGameApp() {
       context.fillRect(0, GROUND_Y, GAME_W, GROUND_THICKNESS)
 
       const onGround = gameState.playerY >= GROUND_Y - PLAYER_H
-      const sprite = !onGround ? GEORGE_JUMP : gameState.runFrame === 0 ? GEORGE_RUN_A : GEORGE_RUN_B
+      const runSprite = gameState.runFrame === 0 ? GEORGE_RUN_A : GEORGE_RUN_B
+      const sprite = onGround ? runSprite : GEORGE_JUMP
       drawSprite(context, sprite, PLAYER_X, gameState.playerY, PLAYER_PX)
 
       for (const obstacle of gameState.obstacles) {
