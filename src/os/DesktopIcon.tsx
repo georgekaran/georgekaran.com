@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import type { AppDefinition } from "./types"
-import { TINT_HEX } from "./types"
-import { useWindowManager } from "./WindowManager"
+import type {AppDefinition} from './types';
+import {TINT_HEX} from './types';
+import {useWindowManager} from './WindowManager';
 
-export function DesktopIcon({ app }: { app: AppDefinition }) {
-  const { open } = useWindowManager()
-  const Icon = app.icon
-  const tint = TINT_HEX[app.tint]
+export function DesktopIcon({app}: {app: AppDefinition}) {
+  const {open} = useWindowManager();
+  const Icon = app.icon;
+  const tint = TINT_HEX[app.tint];
 
   return (
     <button
@@ -17,13 +17,11 @@ export function DesktopIcon({ app }: { app: AppDefinition }) {
     >
       <span
         className="flex items-center justify-center w-12 h-12 rounded-xl shadow-sm border border-[color:var(--os-border)] bg-[color:var(--os-surface)] group-hover:scale-105 transition-transform"
-        style={{ color: tint }}
+        style={{color: tint}}
       >
         <Icon size={24} />
       </span>
-      <span className="text-xs font-mono-os text-[color:var(--os-text)] text-center leading-tight">
-        {app.title}
-      </span>
+      <span className="text-xs font-mono-os text-[color:var(--os-text)] text-center leading-tight">{app.title}</span>
     </button>
-  )
+  );
 }
