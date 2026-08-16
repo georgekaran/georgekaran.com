@@ -1,25 +1,25 @@
-"use client"
+'use client';
 
-import { useBlog } from "@/context/BlogProvider"
+import {useBlog} from '@/context/BlogProvider';
 
 function formatDate(iso: string): string {
-  const [y, m, d] = iso.split("-")
-  return `${d}/${m}/${y}`
+  const [y, m, d] = iso.split('-');
+  return `${d}/${m}/${y}`;
 }
 
-type TagChipProps = { tag: string }
+type TagChipProps = {tag: string};
 
-function TagChip({ tag }: TagChipProps) {
+function TagChip({tag}: TagChipProps) {
   return (
     <span className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent-strong)]">
       {tag}
     </span>
-  )
+  );
 }
 
 export default function BlogApp() {
-  const { posts, activeSlug, renderedPost, openPost, backToList } = useBlog()
-  const active = posts.find((p) => p.slug === activeSlug) ?? null
+  const {posts, activeSlug, renderedPost, openPost, backToList} = useBlog();
+  const active = posts.find((p) => p.slug === activeSlug) ?? null;
 
   if (active) {
     return (
@@ -41,18 +41,14 @@ export default function BlogApp() {
           ))}
         </div>
         <div className="mt-4 leading-relaxed">
-          {renderedPost ?? (
-            <p className="text-sm font-mono-os text-[color:var(--os-text-muted)]">Loading…</p>
-          )}
+          {renderedPost ?? <p className="text-sm font-mono-os text-[color:var(--os-text-muted)]">Loading…</p>}
         </div>
       </article>
-    )
+    );
   }
 
   if (posts.length === 0) {
-    return (
-      <div className="p-6 text-sm font-mono-os text-[color:var(--os-text-muted)]">No posts yet.</div>
-    )
+    return <div className="p-6 text-sm font-mono-os text-[color:var(--os-text-muted)]">No posts yet.</div>;
   }
 
   return (
@@ -67,19 +63,23 @@ export default function BlogApp() {
             >
               <div className="flex items-baseline justify-between gap-3">
                 <span className="font-semibold">{p.title}</span>
-                <span className="shrink-0 text-xs font-mono-os text-[color:var(--os-text-muted)]">{formatDate(p.date)}</span>
+                <span className="shrink-0 text-xs font-mono-os text-[color:var(--os-text-muted)]">
+                  {formatDate(p.date)}
+                </span>
               </div>
               <p className="mt-1 text-sm text-[color:var(--os-text-muted)]">{p.excerpt}</p>
               <div className="mt-2 flex flex-wrap items-center gap-1">
                 {p.tags.map((t) => (
                   <TagChip key={t} tag={t} />
                 ))}
-                <span className="ml-auto text-xs font-mono-os text-[color:var(--os-text-muted)]">{p.readingTime} min read</span>
+                <span className="ml-auto text-xs font-mono-os text-[color:var(--os-text-muted)]">
+                  {p.readingTime} min read
+                </span>
               </div>
             </button>
           </li>
         ))}
       </ul>
     </div>
-  )
+  );
 }

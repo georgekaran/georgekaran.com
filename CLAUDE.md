@@ -75,10 +75,13 @@ Personal portfolio website for George Karan. A Next.js App Router site (no datab
 - `npm run dev` — start dev server with Turbopack
 - `npm run build` — production build
 - `npm start` — serve the production build
-- `npm run lint` — ESLint (`next/core-web-vitals` + `next/typescript`)
+- `npm run lint` — oxlint, configured in `.oxlintrc.json` (`npm run lint:fix` applies autofixes)
+- `npm run format` — oxfmt, configured in `.oxfmtrc.json` (`npm run format:check` verifies without writing)
 - `npm run validate` — type-check with `tsc --noEmit` (no test suite exists)
 
-CI (`.github/workflows/validate-branch.yaml`) runs `npm run validate` and `npm run lint` on every PR; both must pass.
+Linting and formatting use the [OXC](https://oxc.rs) toolchain, not ESLint or Prettier. ESLint was removed because `typescript-eslint` cannot run on TypeScript 7: the native compiler ships no JavaScript API, so `typescript-estree` crashes on load. Do not re-add ESLint unless that changes.
+
+CI (`.github/workflows/validate-branch.yaml`) runs `npm run validate`, `npm run lint`, and `npm run format:check` on every PR; all three must pass.
 
 ## Architecture
 
@@ -99,6 +102,7 @@ CI (`.github/workflows/validate-branch.yaml`) runs `npm run validate` and `npm r
 - **Commit messages** are linted by `mristin/opinionated-commit-message` (`.github/workflows/check-commit-style.yml`): max subject line length 70 chars, capitalized imperative subject.
 - **PRs must carry exactly one label** from: `maintenance`, `feature`, `bug`, `enhancement` (`check-required-labels.yaml`).
 - Renovate manages dependency updates (labeled `maintenance`).
+- The whole-repo oxfmt reformat is listed in `.git-blame-ignore-revs`. Run `git config blame.ignoreRevsFile .git-blame-ignore-revs` once so local `git blame` skips it (GitHub applies it automatically).
 
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know

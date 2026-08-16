@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt src next.config.ts postcss.config.mjs",
+    "format:check": "oxfmt --check src next.config.ts postcss.config.mjs",
     "validate": "tsc --noEmit"
   },
   "dependencies": {
@@ -25,8 +28,8 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^10.6.0",
-    "eslint-config-next": "16.3.1",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
     "tailwindcss": "^4",
     "typescript": "^7.0.0"
   }

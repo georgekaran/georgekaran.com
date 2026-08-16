@@ -1,33 +1,33 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import Image from 'next/image';
+import Link from 'next/link';
+import {ArrowRight} from 'lucide-react';
 
 const PROJECTS = [
   {
-    name: "Ariakit",
-    image: "/ariakit.png",
-    href: "https://github.com/ariakit/ariakit",
-    tags: ["React", "TypeScript", "Accessibility"],
+    name: 'Ariakit',
+    image: '/ariakit.png',
+    href: 'https://github.com/ariakit/ariakit',
+    tags: ['React', 'TypeScript', 'Accessibility'],
     detail:
-      "Open-source accessible UI components for React. Currently a maintainer, contributing to web accessibility standards.",
+      'Open-source accessible UI components for React. Currently a maintainer, contributing to web accessibility standards.',
   },
   {
-    name: "Croct CMS",
-    image: "/croct-site.png",
-    href: "https://croct.com",
-    tags: ["React", "GraphQL", "Relay"],
+    name: 'Croct CMS',
+    image: '/croct-site.png',
+    href: 'https://croct.com',
+    tags: ['React', 'GraphQL', 'Relay'],
     detail:
       "Led development of a Content Management System for Croct's B2B SaaS, enabling non-technical users to create and manage personalized content.",
   },
   {
-    name: "Design System",
-    image: "/design-system.png",
-    href: "https://app.croct.com",
-    tags: ["React", "Storybook", "CSS-in-JS"],
+    name: 'Design System',
+    image: '/design-system.png',
+    href: 'https://app.croct.com',
+    tags: ['React', 'Storybook', 'CSS-in-JS'],
     detail:
-      "Built and led a comprehensive design system, establishing a consistent visual and functional language across applications.",
+      'Built and led a comprehensive design system, establishing a consistent visual and functional language across applications.',
   },
-]
+];
 
 export default function ProjectsApp() {
   return (
@@ -65,5 +65,5 @@ export default function ProjectsApp() {
         </div>
       ))}
     </div>
-  )
+  );
 }

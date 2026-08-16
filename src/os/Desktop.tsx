@@ -1,17 +1,17 @@
-"use client"
+'use client';
 
-import type { PostMeta } from "@/blog/posts"
-import type React from "react"
-import { APPS } from "./apps"
-import { BlogProvider } from "@/context/BlogProvider"
-import { WindowManagerProvider, useWindowManager } from "./WindowManager"
-import { MenuBar } from "./MenuBar"
-import { Window } from "./Window"
-import { DesktopIcon } from "./DesktopIcon"
+import type {PostMeta} from '@/blog/posts';
+import type React from 'react';
+import {APPS} from './apps';
+import {BlogProvider} from '@/context/BlogProvider';
+import {WindowManagerProvider, useWindowManager} from './WindowManager';
+import {MenuBar} from './MenuBar';
+import {Window} from './Window';
+import {DesktopIcon} from './DesktopIcon';
 
 function DesktopInner() {
-  const { windows } = useWindowManager()
-  const anyOpen = windows.some((w) => !w.minimized)
+  const {windows} = useWindowManager();
+  const anyOpen = windows.some((w) => !w.minimized);
 
   return (
     <>
@@ -34,21 +34,23 @@ function DesktopInner() {
         ))}
       </main>
     </>
-  )
+  );
 }
 
 type DesktopProps = {
-  posts?: PostMeta[]
-  initialSlug?: string | null
-  initialRenderedPost?: React.ReactNode
-}
+  posts?: PostMeta[];
+  initialSlug?: string | null;
+  initialRenderedPost?: React.ReactNode;
+};
 
-export function Desktop({ posts = [], initialSlug = null, initialRenderedPost = null }: DesktopProps) {
+const NO_POSTS: PostMeta[] = [];
+
+export function Desktop({posts = NO_POSTS, initialSlug = null, initialRenderedPost = null}: DesktopProps) {
   return (
     <WindowManagerProvider>
       <BlogProvider posts={posts} initialSlug={initialSlug} initialRenderedPost={initialRenderedPost}>
         <DesktopInner />
       </BlogProvider>
     </WindowManagerProvider>
-  )
+  );
 }

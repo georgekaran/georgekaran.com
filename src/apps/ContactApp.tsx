@@ -1,13 +1,13 @@
-import Link from "next/link"
-import { Mail, ArrowRight } from "lucide-react"
-import { Github } from "@/icons/Github"
-import { Linkedin } from "@/icons/Linkedin"
+import Link from 'next/link';
+import {Mail, ArrowRight} from 'lucide-react';
+import {Github} from '@/icons/Github';
+import {Linkedin} from '@/icons/Linkedin';
 
 const LINKS = [
-  { icon: Mail, label: "georgekaran12@gmail.com", href: "mailto:georgekaran12@gmail.com" },
-  { icon: Github, label: "github.com/georgekaran", href: "https://github.com/georgekaran" },
-  { icon: Linkedin, label: "linkedin.com/in/georgekaran", href: "https://linkedin.com/in/georgekaranmueller" },
-]
+  {icon: Mail, label: 'georgekaran12@gmail.com', href: 'mailto:georgekaran12@gmail.com'},
+  {icon: Github, label: 'github.com/georgekaran', href: 'https://github.com/georgekaran'},
+  {icon: Linkedin, label: 'linkedin.com/in/georgekaran', href: 'https://linkedin.com/in/georgekaranmueller'},
+];
 
 export default function ContactApp() {
   return (
@@ -17,19 +17,19 @@ export default function ContactApp() {
       </p>
       <div className="space-y-2">
         {LINKS.map((l) => {
-          const Icon = l.icon
+          const Icon = l.icon;
           return (
             <a
               key={l.label}
               href={l.href}
-              target={l.href.startsWith("http") ? "_blank" : undefined}
-              rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              target={l.href.startsWith('http') ? '_blank' : undefined}
+              rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-3 rounded-xl border border-[color:var(--os-border)] bg-[color:var(--os-surface)] p-3 hover:bg-[color:var(--os-surface-muted)] transition-colors"
             >
               <Icon className="text-[color:var(--os-accent)]" />
               <span className="text-sm">{l.label}</span>
             </a>
-          )
+          );
         })}
       </div>
       <Link
@@ -41,5 +41,5 @@ export default function ContactApp() {
         Download Résumé <ArrowRight size={16} />
       </Link>
     </div>
-  )
+  );
 }
