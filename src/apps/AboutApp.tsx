@@ -10,7 +10,7 @@ export default function AboutApp() {
           <Image src="/profile.png" alt="George Karan" width={96} height={96} className="object-cover" priority />
         </div>
         <div>
-          <span className="inline-block px-2 py-0.5 rounded-full text-xs font-mono-os bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent)]">
+          <span className="inline-block px-2 py-0.5 rounded-full text-xs font-mono-os bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent-strong)]">
             Software Engineer
           </span>
           <h1 className="text-2xl font-bold mt-2">

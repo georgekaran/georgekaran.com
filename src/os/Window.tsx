@@ -115,7 +115,10 @@ export function Window({ instance }: { instance: WindowInstance }) {
             </span>
           </div>
         </div>
-        <div className="flex-1 overflow-auto">
+        <div
+          tabIndex={0}
+          className="flex-1 overflow-auto outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--os-accent)]"
+        >
           <Content />
         </div>
       </div>

@@ -32,7 +32,7 @@ export function MenuBar() {
 
 
   return (
-    <div className="fixed top-0 inset-x-0 h-10 z-[9999] flex items-center gap-2 px-3 bg-[color:var(--os-surface)]/80 backdrop-blur border-b border-[color:var(--os-border)]">
+    <header className="fixed top-0 inset-x-0 h-10 z-[9999] flex items-center gap-2 px-3 bg-[color:var(--os-surface)]/80 backdrop-blur border-b border-[color:var(--os-border)]">
       <div className="relative" ref={menuRef}>
         <button
           type="button"
@@ -91,7 +91,7 @@ export function MenuBar() {
               onClick={onClick}
               className={`px-2.5 py-1 rounded-md text-xs font-mono-os whitespace-nowrap transition-colors ${
                 isActive
-                  ? "bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent)]"
+                  ? "bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent-strong)]"
                   : "hover:bg-[color:var(--os-surface-muted)] text-[color:var(--os-text-muted)]"
               } ${w.minimized ? "italic opacity-50" : ""}`}
             >
@@ -104,6 +104,6 @@ export function MenuBar() {
       <div className="ml-auto">
         <Clock />
       </div>
-    </div>
+    </header>
   )
 }

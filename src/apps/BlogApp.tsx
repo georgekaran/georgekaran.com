@@ -11,7 +11,7 @@ type TagChipProps = { tag: string }
 
 function TagChip({ tag }: TagChipProps) {
   return (
-    <span className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent)]">
+    <span className="rounded-full bg-[color:var(--os-accent-soft)] px-2 py-0.5 text-xs font-mono-os text-[color:var(--os-accent-strong)]">
       {tag}
     </span>
   )

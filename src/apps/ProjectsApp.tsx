@@ -47,7 +47,7 @@ export default function ProjectsApp() {
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="px-2 py-0.5 rounded-full text-xs font-mono-os bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent)]"
+                  className="px-2 py-0.5 rounded-full text-xs font-mono-os bg-[color:var(--os-accent-soft)] text-[color:var(--os-accent-strong)]"
                 >
                   {t}
                 </span>
