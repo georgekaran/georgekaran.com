@@ -11,6 +11,8 @@
   --os-text-muted: #5b6577;
   --os-accent: #3b82f6;
   --os-accent-soft: rgba(59, 130, 246, 0.12);
+  /* darker accent for small text on --os-accent-soft (WCAG AA 4.5:1) */
+  --os-accent-strong: #1d4ed8;
 
   /* per-app icon tints */
   --tint-blue: #3b82f6;
