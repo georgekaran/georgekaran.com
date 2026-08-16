@@ -61,3 +61,6 @@ jobs:
 
       - name: Check coding standard violations
         run: npm run lint
+
+      - name: Check formatting violations
+        run: npm run format:check
