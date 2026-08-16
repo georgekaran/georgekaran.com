@@ -1,0 +1,7 @@
+# Revisions to skip in git blame.
+# Configure once with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+# GitHub applies this file automatically in its blame view.
+
+# Apply oxfmt formatting to the codebase
+a2e8fb9c4b23cd16eee007c581b4e0c2364ba64a
