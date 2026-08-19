@@ -28,7 +28,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "oxfmt": "^0.63.0",
+    "oxfmt": "^0.64.0",
     "oxlint": "^1.78.0",
     "tailwindcss": "^4",
     "typescript": "^7.0.0"
