@@ -30,7 +30,7 @@ export function BlogProvider({
   initialSlug = null,
   initialRenderedPost = null,
 }: BlogProviderProps) {
-  const {open} = useWindowManager();
+  const {open, isOpen} = useWindowManager();
   const [activeSlug, setActiveSlug] = useState<string | null>(initialSlug);
   const [renderedPost, setRenderedPost] = useState<ReactNode | null>(initialRenderedPost);
   // Monotonic id so a slow response for a post the user has since navigated
@@ -69,7 +69,7 @@ export function BlogProvider({
     [loadPost],
   );
 
-  const backToList = useCallback(() => {
+  const clearActivePost = useCallback(() => {
     postRequestRef.current++;
     setActiveSlug(null);
     setRenderedPost(null);
@@ -79,6 +79,21 @@ export function BlogProvider({
   useEffect(() => {
     if (initialSlug) open('blog');
   }, [initialSlug, open]);
+
+  const blogWindowOpen = isOpen('blog');
+  const blogWindowWasOpen = useRef(false);
+
+  useEffect(() => {
+    if (blogWindowOpen) {
+      blogWindowWasOpen.current = true;
+      return;
+    }
+    // A deep link sets the active post before the window opens, so only a
+    // real open-to-closed change counts as a close.
+    if (!blogWindowWasOpen.current) return;
+    blogWindowWasOpen.current = false;
+    if (activeSlug !== null) clearActivePost();
+  }, [blogWindowOpen, activeSlug, clearActivePost]);
 
   // Keep the blog view in sync when the user uses browser Back/Forward.
   useEffect(() => {
@@ -98,8 +113,8 @@ export function BlogProvider({
   }, [loadPost, open]);
 
   const value = useMemo<BlogContextValue>(
-    () => ({posts, activeSlug, renderedPost, openPost, backToList}),
-    [posts, activeSlug, renderedPost, openPost, backToList],
+    () => ({posts, activeSlug, renderedPost, openPost, backToList: clearActivePost}),
+    [posts, activeSlug, renderedPost, openPost, clearActivePost],
   );
 
   return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;
