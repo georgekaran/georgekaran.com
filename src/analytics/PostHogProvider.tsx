@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, type ReactNode} from 'react';
-import posthog from 'posthog-js';
+import {posthog} from 'posthog-js';
 
 type PostHogProviderProps = {
   children: ReactNode;
