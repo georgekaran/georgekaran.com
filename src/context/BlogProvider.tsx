@@ -30,7 +30,7 @@ export function BlogProvider({
   initialSlug = null,
   initialRenderedPost = null,
 }: BlogProviderProps) {
-  const {open, isOpen} = useWindowManager();
+  const {open, subscribeToClose} = useWindowManager();
   const [activeSlug, setActiveSlug] = useState<string | null>(initialSlug);
   const [renderedPost, setRenderedPost] = useState<ReactNode | null>(initialRenderedPost);
   // Monotonic id so a slow response for a post the user has since navigated
@@ -80,20 +80,15 @@ export function BlogProvider({
     if (initialSlug) open('blog');
   }, [initialSlug, open]);
 
-  const blogWindowOpen = isOpen('blog');
-  const blogWindowWasOpen = useRef(false);
-
-  useEffect(() => {
-    if (blogWindowOpen) {
-      blogWindowWasOpen.current = true;
-      return;
-    }
-    // A deep link sets the active post before the window opens, so only a
-    // real open-to-closed change counts as a close.
-    if (!blogWindowWasOpen.current) return;
-    blogWindowWasOpen.current = false;
-    if (activeSlug !== null) clearActivePost();
-  }, [blogWindowOpen, activeSlug, clearActivePost]);
+  // Closing the window has to drop the post it was showing, otherwise the URL
+  // keeps naming a post that is off screen.
+  useEffect(
+    () =>
+      subscribeToClose((id) => {
+        if (id === 'blog' && activeSlug !== null) clearActivePost();
+      }),
+    [subscribeToClose, activeSlug, clearActivePost],
+  );
 
   // Keep the blog view in sync when the user uses browser Back/Forward.
   useEffect(() => {

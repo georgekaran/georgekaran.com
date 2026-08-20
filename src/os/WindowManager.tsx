@@ -131,6 +131,7 @@ type WindowManagerValue = {
   minimize: (id: AppId) => void;
   toggleMaximize: (id: AppId) => void;
   isOpen: (id: AppId) => boolean;
+  subscribeToClose: (listener: (id: AppId) => void) => () => void;
 };
 
 const WindowManagerContext = createContext<WindowManagerValue | null>(null);
@@ -147,6 +148,10 @@ export function WindowManagerProvider({children}: WindowManagerProviderProps) {
     stateRef.current = state;
   }, [state]);
 
+  // Lets an app react to its own window closing, which is an event no app can
+  // see otherwise: the close button belongs to the window frame, not the app.
+  const closeListeners = useRef(new Set<(id: AppId) => void>());
+
   const actions = useMemo(
     () => ({
       open: (id: AppId) => {
@@ -156,6 +161,13 @@ export function WindowManagerProvider({children}: WindowManagerProviderProps) {
       close: (id: AppId) => {
         track('app_closed', {app_id: id});
         dispatch({type: 'CLOSE', id});
+        for (const listener of closeListeners.current) listener(id);
+      },
+      subscribeToClose: (listener: (id: AppId) => void) => {
+        closeListeners.current.add(listener);
+        return () => {
+          closeListeners.current.delete(listener);
+        };
       },
       focus: (id: AppId) => {
         track('app_focused', {app_id: id});
